@@ -1,0 +1,206 @@
+{
+  "data": [
+    {
+      "paragraphs": [
+        {
+          "qas": [
+            {
+              "question": "What is Data Science ?",
+              "id": 582467,
+              "answers": [
+                {
+                  "answer_id": 638867,
+                  "document_id": 1172538,
+                  "question_id": 582467,
+                  "text": "Data Science is an interdisciplinary field that mines raw data, analyses it, and comes up with patterns that are used to \nextract valuable insights.Data Science combines statistics, maths, specialised programs, artificial intelligence, machine learning etc.",
+                  "answer_start": 525,
+                  "answer_end": 782,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is Python ?",
+              "id": 582466,
+              "answers": [
+                {
+                  "answer_id": 638866,
+                  "document_id": 1172538,
+                  "question_id": 582466,
+                  "text": "Python is a high-level, general-purpose programming language.\nPython is dynamically-typed and garbage-collected. It supports multiple programming paradigms\nIt is objected oriented Language.",
+                  "answer_start": 335,
+                  "answer_end": 524,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is Supervised Learning ?",
+              "id": 582468,
+              "answers": [
+                {
+                  "answer_id": 638868,
+                  "document_id": 1172538,
+                  "question_id": 582468,
+                  "text": "In Supervised Learning labeled data is used as an input.It has a feedback mechanism. \nThe most commonly used algorithms in this section are decision trees, logistic regression, and support vector machine.",
+                  "answer_start": 1971,
+                  "answer_end": 2175,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is Unsupervised Learning ?",
+              "id": 582469,
+              "answers": [
+                {
+                  "answer_id": 638869,
+                  "document_id": 1172538,
+                  "question_id": 582469,
+                  "text": "In Unsupervised Learning unlabeled data is used as input. It has no feedback mechanism.\nThe most commonly used unsupervised learning algorithms are k-means clustering, hierarchical clustering, and apriori algorithm.",
+                  "answer_start": 3183,
+                  "answer_end": 3398,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "Can you explain the Lifecycle of Data Science ?",
+              "id": 582470,
+              "answers": [
+                {
+                  "answer_id": 638870,
+                  "document_id": 1172538,
+                  "question_id": 582470,
+                  "text": "The following are the steps involved in Lifecycle of Data Science:-\na) Business Understanding\nb) Data Mining\nc) Data Cleaning\nd) Data Exploration\ne) Feature Engineering\nf) Predictive Modeling\ng) Data Vizualization",
+                  "answer_start": 3727,
+                  "answer_end": 3940,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is the importance of Business Understanding in Data Science ?",
+              "id": 582471,
+              "answers": [
+                {
+                  "answer_id": 638871,
+                  "document_id": 1172538,
+                  "question_id": 582471,
+                  "text": ".Having business knowledge of the problem you are solving is very important. Why because one needs to have proper knowledge, ask relevant questions & ask appropriate questions.",
+                  "answer_start": 5380,
+                  "answer_end": 5556,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What’s the Difference Supervised Learning and Unsupervised Learning ?",
+              "id": 582472,
+              "answers": [
+                {
+                  "answer_id": 638872,
+                  "document_id": 1172538,
+                  "question_id": 582472,
+                  "text": "Both Supervised and unsupervised learning systems differ in the nature of the training data.\nSupervised learning requires labeled training data, whereas,unsupervised learning system, is provided with unlabeled data and \ndiscovers the trends that are present.",
+                  "answer_start": 6032,
+                  "answer_end": 6290,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Feature Engineering ?",
+              "id": 582620,
+              "answers": [
+                {
+                  "answer_id": 639114,
+                  "document_id": 1172538,
+                  "question_id": 582620,
+                  "text": "Select important features and construct more meaningful features from the raw data that we agthered.",
+                  "answer_start": 9308,
+                  "answer_end": 9408,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What Is Logistic Regression ?",
+              "id": 582474,
+              "answers": [
+                {
+                  "answer_id": 638873,
+                  "document_id": 1172538,
+                  "question_id": 582474,
+                  "text": "Logistic regression is a form of predictive analysis. \nLogistic regression measures the relationship between the dependent variable (our label of what we want to predict) and \none or more independent variables (our features) by estimating probability using its underlying logistic function (sigmoid).",
+                  "answer_start": 7185,
+                  "answer_end": 7485,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "How is Data Mining is useful in Data Science ?",
+              "id": 582475,
+              "answers": [
+                {
+                  "answer_id": 638874,
+                  "document_id": 1172538,
+                  "question_id": 582475,
+                  "text": "Data is new oil in the present day.Gather data and fix the inconsistencies within the data & handle the missing values.",
+                  "answer_start": 8027,
+                  "answer_end": 8146,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "Can you explain Data Exploration ?",
+              "id": 582476,
+              "answers": [
+                {
+                  "answer_id": 638875,
+                  "document_id": 1172538,
+                  "question_id": 582476,
+                  "text": "In general, Data Exploration means \"Define Data,understand the problem statement and Data\".This step will really help in fetching great insights.\nWe can even visualize, to get more insights easily.\n",
+                  "answer_start": 8459,
+                  "answer_end": 8657,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Predictive Modeling ?",
+              "id": 582622,
+              "answers": [
+                {
+                  "answer_id": 639117,
+                  "document_id": 1172538,
+                  "question_id": 582622,
+                  "text": "Predictive Modeling means \" Train machine learning models, evaluate their performance and use them to make predictions\".",
+                  "answer_start": 10473,
+                  "answer_end": 10593,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "\nAfter some deliberation we have chosen Python as our programming language. It is freely available and has been adopted as the programming language of\nchoice for many practitioners in data science and machine learning. It has many useful\npackages for data manipulation (often ported from R) and has been designed to be easy to\nprogram.Python is a high-level, general-purpose programming language.\nPython is dynamically-typed and garbage-collected. It supports multiple programming paradigms\nIt is objected oriented Language. Data Science is an interdisciplinary field that mines raw data, analyses it, and comes up with patterns that are used to \nextract valuable insights.Data Science combines statistics, maths, specialised programs, artificial intelligence, machine learning etc.To be able to truly understand data science and machine learning it\nis important to appreciate the underlying mathematics and statistics, as well as the resulting\nalgorithms.The purpose of this book is to provide an accessible, yet comprehensive, account of\ndata science and machine learning. It is intended for anyone interested in gaining a better\nunderstanding of the mathematics and statistics that underpin the rich variety of ideas and\nmachine learning algorithms in data science.An example of supervised learning is email spam detection. The goal is to train the\nlearner gT to accurately predict whether any future email, as represented by the feature\nvector x, is spam or not. The training data consists of the feature vectors of a number\nof different email examples as well as the corresponding labels (spam or not spam). For\ninstance, a feature vector could consist of the number of times sales-pitch words like “free”,\n“sale”, or “miss out” occur within a given email.\nAs seen from the above discussion, most questions of interest in supervised learning\ncan be answered if we know the conditional pdf f(y | x), because we can then in principle\nwork out the function value g.(x).In Supervised Learning labeled data is used as an input.It has a feedback mechanism. \nThe most commonly used algorithms in this section are decision trees, logistic regression, and support vector machine.\nIn contrast, unsupervised learning makes no distinction between response and explan\u0002atory variables, and the objective is simply to learn the structure of the unknown distribu\u0002tion of the data. In other words, we need to learn f(x). In this case the guess g(x) is an\napproximation of f(x) and the risk is of the form\n`(g) = E Loss(f(X), g(X)).\nAn example of unsupervised learning is when we wish to analyze the purchasing be\u0002haviors of the customers of a grocery shop that has a total of, say, a hundred items on sale.\nA feature vector here could be a binary vector x ∈ {0, 1}\n100 representing the items bought\nby a customer on a visit to the shop (a 1 in the k-th position if a customer bought item\nk ∈ {1, . . . , 100} and a 0 otherwise). Based on a training set τ = {x1, . . . , xn}, we wish to\nfind any interesting or unusual purchasing patterns. In general, it is difficult to know if an\nunsupervised learner is doing a good job, because there is no teacher to provide examples\nof accurate predictions.In Unsupervised Learning unlabeled data is used as input. It has no feedback mechanism.\nThe most commonly used unsupervised learning algorithms are k-means clustering, hierarchical clustering, and apriori algorithm.\nThe main reason why the multivariate normal distribution plays an important role in data science and machine learning is that it satisfies the following properties, the details\nand proofs of which can be found in :\n1. Affine combinations are normal.\n2. Marginal distributions are normal.\n3. Conditional distributions are normal.The following are the steps involved in Lifecycle of Data Science:-\na) Business Understanding\nb) Data Mining\nc) Data Cleaning\nd) Data Exploration\ne) Feature Engineering\nf) Predictive Modeling\ng) Data Vizualization\nMany algorithms in machine learning and data science make use of Monte Carlo\ntechniques.When we taught these courses, we noticed that students were eager to learn not only how\nto apply algorithms but also to understand how these algorithms actually work. However,\nmany existing textbooks assumed either too much background knowledge (e.g., measure\ntheory and functional analysis) or too little (everything is a black box), and the information\noverload from often disjointed and contradictory internet sources made it more difficult for\nstudents to gradually build up their knowledge and understanding. We therefore wanted to\nwrite a book about data science and machine learning that can be read as a linear story,\nwith a substantial “backstory” in the appendices. \nWhen we taught these courses, we noticed that students were eager to learn not only how\nto apply algorithms but also to understand how these algorithms actually work. However,\nmany existing textbooks assumed either too much background knowledge (e.g., measure\ntheory and functional analysis) or too little (everything is a black box), and the information\noverload from often disjointed and contradictory internet sources made it more difficult for\nstudents to gradually build up their knowledge and understanding. We therefore wanted to\nwrite a book about data science and machine learning that can be read as a linear story,\nwith a substantial “backstory” in the appendices.Having business knowledge of the problem you are solving is very important. Why because one needs to have proper knowledge, ask relevant questions & ask appropriate questions.\nSupervised learning, as the name indicates, has the presence of a supervisor as a teacher. \nBasically supervised learning is when we teach or train the machine using data that is well labelled. Which means some data is already tagged with the correct answer. After that, the machine is provided with a new set of examples(data) \nso that the supervised learning algorithm analyses the training data(set of training examples) and produces a correct outcome from labelled data.\nBoth Supervised and unsupervised learning systems differ in the nature of the training data.\nSupervised learning requires labeled training data, whereas,unsupervised learning system, is provided with unlabeled data and \ndiscovers the trends that are present.\nUnsupervised learning is the training of a machine using information that is neither classified nor labeled and allowing the algorithm to act on that information without guidance. Here the task of the machine is to group unsorted information according to similarities, patterns, and differences without any prior training of data. \nUnlike supervised learning, no teacher is provided that means no training will be given to the machine. \nTherefore the machine is restricted to find the hidden structure in unlabeled data by itself. \nFor instance, suppose it is given an image having both dogs and cats which it has never seen.  \n(Logistic Regression) In a logistic regression regression\nor logit model, we as\u0002sume that the response variables Y1, . . . , Yn \nare independent and distributed according to logistic β)), where h here is defined as the cdf of the logistic distribution\ndistribution. Logistic regression is a form of predictive analysis. \nLogistic regression measures the relationship between the dependent variable (our label of what we want to predict) and \none or more independent variables (our features) by estimating probability using its underlying logistic function (sigmoid).\nThe data mining tutorial provides basic and advanced concepts of data mining. \nOur data mining tutorial is designed for learners and experts.\nData mining is one of the most useful techniques that help entrepreneurs, researchers, and individuals to extract valuable \ninformation from huge sets of data. Data mining is also called Knowledge Discovery in Database (KDD). \nThe knowledge discovery process includes Data cleaning, Data integration, Data selection, Data transformation, Data mining, Pattern evaluation, and Knowledge presentation.\nData is new oil in the present day.Gather data and fix the inconsistencies within the data & handle the missing values.\nData exploration is the first step of data analysis used to explore and visualize data to uncover insights from the start or identify areas or patterns to dig into more.\nUsing interactive dashboards and point-and-click data exploration, users can better understand the bigger picture and get to insights faster.\nIn general, Data Exploration means \"Define Data,understand the problem statement and Data\".This step will really help in fetching great insights.\nWe can even visualize, to get more insights easily.\n\nFeature engineering is a machine learning technique that leverages data to create new variables that aren’t in the training set. It can produce new features for both supervised and unsupervised learning, with the goal of simplifying and speeding up data transformations while also enhancing model accuracy. Feature engineering is required when working with machine learning models. Regardless of the data or architecture, a terrible feature will have a direct impact on your model.\n\nNow to understand it in a much easier way, let’s take a simple example. Below are the prices of properties in x city. \nIt shows the area of the house and total price.\nSelect important features and construct more meaningful features from the raw data that we agthered.\n\nExamples of predictive modeling include estimating the quality of a sales lead, the likelihood of spam or the probability someone will click a link or buy a product. These capabilities are often baked into various business applications, so it is worth understanding the mechanics of predictive modeling to troubleshoot and improve performance.\nAlthough predictive modeling implies a focus on forecasting the future, it can also predict outcomes (e.g., the probability a transaction is fraudulent). In this case, the event has already happened (fraud committed). The goal here is to predict whether future analysis will find the transaction is fraudulent. Predictive modeling can also forecast future requirements or facilitate what-if analysis.\n\"Predictive modeling is a form of data mining that analyzes historical data with the goal of identifying trends or \npatterns and then using those insights to predict future outcomes,\" explained Donncha Carroll a partner in the revenue growth practice of \nAxiom Consulting Partners. \"Essentially, it asks the question,\nPredictive Modeling means \" Train machine learning models, evaluate their performance and use them to make predictions\".\n\n",
+          "document_id": 1172538
+        }
+      ]
+    }
+  ]
+}

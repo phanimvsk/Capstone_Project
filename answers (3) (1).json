@@ -1,0 +1,398 @@
+{
+  "data": [
+    {
+      "paragraphs": [
+        {
+          "qas": [
+            {
+              "question": "What is meant by encoding?",
+              "id": 583471,
+              "answers": [
+                {
+                  "answer_id": 642566,
+                  "document_id": 1173251,
+                  "question_id": 583471,
+                  "text": "Encoding is the transformation of categorical variables to binary or numerical variables. An example is to treat male or female for gender as 1 or 0.\nCategorical variables must be encoded in many modeling methods such as linear regression, Support Vector Machine, Neural networks.",
+                  "answer_start": 1974,
+                  "answer_end": 2254,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Robotics?",
+              "id": 583487,
+              "answers": [
+                {
+                  "answer_id": 642582,
+                  "document_id": 1173251,
+                  "question_id": 583487,
+                  "text": "Robotics is a subset of AI, which includes different branches and application of robots. \nThese Robots are artificial agents acting in a real-world environment. An AI Robot works by manipulating the objects in it’s surrounding, by perceiving, moving and taking relevant actions.",
+                  "answer_start": 5975,
+                  "answer_end": 6253,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is Q-Learning?",
+              "id": 583492,
+              "answers": [
+                {
+                  "answer_id": 642587,
+                  "document_id": 1173251,
+                  "question_id": 583492,
+                  "text": "The Q-learning is a Reinforcement Learning algorithm in which an agent tries to learn the optimal policy from its past experiences with the environment. The past experiences of an agent are a sequence of state-action-rewards.\nThe Agent(a0) was in State (s0) and on performing an Action (a0), which resulted in receiving a Reward (r1) and thus being updated to State (s1).",
+                  "answer_start": 7652,
+                  "answer_end": 8023,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is Deep Learning?",
+              "id": 583493,
+              "answers": [
+                {
+                  "answer_id": 642588,
+                  "document_id": 1173251,
+                  "question_id": 583493,
+                  "text": "Deep learning is the process of using Artificial Neural Networks (ANN) to solve complex problems. It is the subset of AI, ML and Data Science. DL aims to build neural networks that automatically discover patterns for feature detection.\nAny Deep Learning network will consist of three types of layers. They are Input Layer, Hidden Layer and Output Layer.\nInput Layer receives all the inputs and forwards them to the hidden layer for analysis\nHidden Layer: In this layer, various computations are carried out and the result is transferred to the output layer. There can be n number of hidden layers, depending on the problem you’re trying to solve.\nOutput Layer is responsible for transferring information from the neural network to the outside world.",
+                  "answer_start": 8024,
+                  "answer_end": 8773,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is the key difference between Data Science and Data Analytics?",
+              "id": 583469,
+              "answers": [
+                {
+                  "answer_id": 642564,
+                  "document_id": 1173251,
+                  "question_id": 583469,
+                  "text": "Data science involves the task of transforming data by using various technical analysis methods to extract meaningful insights using which a data analyst can apply to their business scenarios.\nData analytics deals with checking the existing hypothesis and information and answers questions for a better and effective business-related decision-making process.",
+                  "answer_start": 283,
+                  "answer_end": 641,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Logistic Regression ?",
+              "id": 583470,
+              "answers": [
+                {
+                  "answer_id": 642565,
+                  "document_id": 1173251,
+                  "question_id": 583470,
+                  "text": "Logistic Regression is applied when the dependent variable(target) is categorical in nature. For example, to predict whether an email is spam (1) or (0). \nThe logit in logistic regression is a special case of a link function in a generalized linear model. it is the canonical link function for the Bernoulli distribution. The logit function is the negative of the derivative of the binary entropy function.It is named 'Logistic Regression' because its underlying technique is quite the same as Linear Regression.\nThere are three main types of logistic regression. They are binary, multinomial and ordinal.",
+                  "answer_start": 642,
+                  "answer_end": 1247,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is Artificial Intelligence? Give an example.\n",
+              "id": 583473,
+              "answers": [
+                {
+                  "answer_id": 642568,
+                  "document_id": 1173251,
+                  "question_id": 583473,
+                  "text": "Artificial Intelligence is an area of computer science that emphasizes the creation of intelligent machines that work and react like human beings. The capability of a machine to imitate the intelligent human behavior is really challenging part of the job.\nGoogle search engine is the most popular Artificial Intelligence application.",
+                  "answer_start": 3311,
+                  "answer_end": 3644,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is the CART algorithm for decision trees?",
+              "id": 583474,
+              "answers": [
+                {
+                  "answer_id": 642569,
+                  "document_id": 1173251,
+                  "question_id": 583474,
+                  "text": "CART is abbreviated as “ Classification And Regression Tree” is a predictive algorithm used in Machine learning. CART is a variation of the decision tree algorithm. It can handle both classification and regression tasks. \nIt explains how the target variable’s values can be predicted based on other matters. It is a decision tree where each fork is split into a predictor variable. And each node has a prediction for the target variable at the end.",
+                  "answer_start": 3645,
+                  "answer_end": 4093,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is the difference between AI, Machine Learning and Deep Learning?",
+              "id": 583475,
+              "answers": [
+                {
+                  "answer_id": 642570,
+                  "document_id": 1173251,
+                  "question_id": 583475,
+                  "text": "The difference between AI, Machine Learning and Deep Learning is as follows\nArtificial Intelligence represents simulated intelligence in Machine. It is the subset of Data Science. It aims to build machines, which are really capable to think like Human beings\nMachine Learning is the practice of getting machines to make decisions without being programmed in such a way. This is the subset of AI and Data Science. It aims to build machines to learn through data, so that they can solve problems.\nDeep Learning is the process of using Artificial Neural Networks (ANN) to solve complex problems. It is the subset of AI, ML and Data Science. DL aims to build neural networks that automatically discover patterns for feature detection.",
+                  "answer_start": 2580,
+                  "answer_end": 3310,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "Name the different types of Artificial Intelligence.",
+              "id": 583476,
+              "answers": [
+                {
+                  "answer_id": 642571,
+                  "document_id": 1173251,
+                  "question_id": 583476,
+                  "text": "Now, let us discuss about Artificial Intelligence.There are different types of Artificial Intelligence. They are Reactive Machines AI, Limited Memory AI, Theory of Mind AI, Self-Aware AI, Artificial Narrow Intelligence (ANI), Artificial General Intelligence (AGI), Artificial Superhuman Intelligence (ASI).",
+                  "answer_start": 4094,
+                  "answer_end": 4400,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What are the different domains of Artificial Intelligence?",
+              "id": 583477,
+              "answers": [
+                {
+                  "answer_id": 642572,
+                  "document_id": 1173251,
+                  "question_id": 583477,
+                  "text": "There are different domains of Artificial Intelligence. They are as follows Machine Learning, Neural Networks, Robotics, Expert Systems, Fuzzy Logic Systems, Natural Language Processing (NLP).",
+                  "answer_start": 4401,
+                  "answer_end": 4593,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Reactive Machines AI?",
+              "id": 583478,
+              "answers": [
+                {
+                  "answer_id": 642573,
+                  "document_id": 1173251,
+                  "question_id": 583478,
+                  "text": "Reactive Machines AI is based on present actions, it cannot use previous experiences to form current decisions and simultaneously update their memory.\nExample: Deep Blue.",
+                  "answer_start": 4594,
+                  "answer_end": 4764,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Limited Memory AI?",
+              "id": 583479,
+              "answers": [
+                {
+                  "answer_id": 642574,
+                  "document_id": 1173251,
+                  "question_id": 583479,
+                  "text": "Limited Memory AI is used in self-driving cars. They detect the movement of vehicles around them constantly and add it to their memory.",
+                  "answer_start": 4764,
+                  "answer_end": 4899,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Theory of Mind AI?",
+              "id": 583480,
+              "answers": [
+                {
+                  "answer_id": 642575,
+                  "document_id": 1173251,
+                  "question_id": 583480,
+                  "text": "Theory of Mind AI is explained below, Advanced AI that has the ability to understand emotions, people and other things in the real world.",
+                  "answer_start": 4899,
+                  "answer_end": 5036,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Self Aware AI?",
+              "id": 583481,
+              "answers": [
+                {
+                  "answer_id": 642576,
+                  "document_id": 1173251,
+                  "question_id": 583481,
+                  "text": "Self-Aware AI is the AI that possess human-like consciousness and reactions. Such machines have the ability to form self-driven actions.",
+                  "answer_start": 5037,
+                  "answer_end": 5173,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Artificial Narrow Intelligence (ANI)?",
+              "id": 583482,
+              "answers": [
+                {
+                  "answer_id": 642577,
+                  "document_id": 1173251,
+                  "question_id": 583482,
+                  "text": "Artificial Narrow Intelligence (ANI) is the General purpose AI, used in building virtual assistants like Siri.",
+                  "answer_start": 5174,
+                  "answer_end": 5284,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Artificial General Intelligence (AGI)?",
+              "id": 583483,
+              "answers": [
+                {
+                  "answer_id": 642578,
+                  "document_id": 1173251,
+                  "question_id": 583483,
+                  "text": "Artificial General Intelligence (AGI) is also known as strong AI. An example is the Pillo robot that answers questions related to health.",
+                  "answer_start": 5284,
+                  "answer_end": 5421,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Artificial Superhuman Intelligence (ASI)?",
+              "id": 583484,
+              "answers": [
+                {
+                  "answer_id": 642579,
+                  "document_id": 1173251,
+                  "question_id": 583484,
+                  "text": "Artificial Superhuman Intelligence (ASI) is the AI that possesses the ability to do everything that a human can do and more. An example is the Alpha 2 which is the first humanoid ASI robot.",
+                  "answer_start": 5422,
+                  "answer_end": 5611,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Machine Learning?",
+              "id": 583485,
+              "answers": [
+                {
+                  "answer_id": 642580,
+                  "document_id": 1173251,
+                  "question_id": 583485,
+                  "text": "Machine Learning is the science of getting computers to act by feeding them data so that they can learn a few tricks on their own, without being explicitly programmed to do so.",
+                  "answer_start": 5612,
+                  "answer_end": 5788,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Neural Networks ?",
+              "id": 583486,
+              "answers": [
+                {
+                  "answer_id": 642581,
+                  "document_id": 1173251,
+                  "question_id": 583486,
+                  "text": "Neural Networks are a set of algorithms and techniques, modeled in accordance with the human brain. Neural Networks are designed to solve complex and advanced machine learning problems.",
+                  "answer_start": 5789,
+                  "answer_end": 5974,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Expert Systems?",
+              "id": 583488,
+              "answers": [
+                {
+                  "answer_id": 642583,
+                  "document_id": 1173251,
+                  "question_id": 583488,
+                  "text": "An expert system is a computer system that mimics the decision-making ability of a human. It is a computer program that uses artificial intelligence (AI) technologies to simulate the judgment and behavior of a human or an organization that has expert knowledge and experience in a particular field.",
+                  "answer_start": 6254,
+                  "answer_end": 6552,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Fuzzy Logic Systems?",
+              "id": 583489,
+              "answers": [
+                {
+                  "answer_id": 642584,
+                  "document_id": 1173251,
+                  "question_id": 583489,
+                  "text": "Fuzzy logic is an approach to computing based on “degrees of truth” rather than the usual “true or false” (1 or 0) Boolean logic on which the modern computer is based. Fuzzy logic Systems can take imprecise, distorted, noisy input information.",
+                  "answer_start": 6553,
+                  "answer_end": 6796,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Natural Language Processing?",
+              "id": 583490,
+              "answers": [
+                {
+                  "answer_id": 642585,
+                  "document_id": 1173251,
+                  "question_id": 583490,
+                  "text": "Natural Language Processing (NLP) refers to the Artificial Intelligence method that analyses natural human language to derive useful insights in order to solve problems.",
+                  "answer_start": 6797,
+                  "answer_end": 6966,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            },
+            {
+              "question": "What is meant by Reinforcement Learning?",
+              "id": 583491,
+              "answers": [
+                {
+                  "answer_id": 642586,
+                  "document_id": 1173251,
+                  "question_id": 583491,
+                  "text": "Reinforcement Learning (RL) is the science of decision making. It is about learning the optimal behavior in an environment to obtain maximum reward. It refers to how certain behaviors are encouraged, and others discouraged. Behaviors are reinforced through rewards which are gained through experiences with the environment.\nThere are four types of reinforcement: positive reinforcement, negative reinforcement, extinction, and punishment. Beyond the agent and the environment, there are four main elements of a reinforcement learning system: a policy, a reward, a value function, and, optionally, a model of the environment. A policy defines the way the agent behaves in a given time.",
+                  "answer_start": 6967,
+                  "answer_end": 7651,
+                  "answer_category": null
+                }
+              ],
+              "is_impossible": false
+            }
+          ],
+          "context": "A data science career path requires competence in computer science, programming, and mathematics. For data scientists who wish to work within the investment industry, a broad understanding of financial markets, financial instruments, and investment products is also highly valuable.\nData science involves the task of transforming data by using various technical analysis methods to extract meaningful insights using which a data analyst can apply to their business scenarios.\nData analytics deals with checking the existing hypothesis and information and answers questions for a better and effective business-related decision-making process.\nLogistic Regression is applied when the dependent variable(target) is categorical in nature. For example, to predict whether an email is spam (1) or (0). \nThe logit in logistic regression is a special case of a link function in a generalized linear model. it is the canonical link function for the Bernoulli distribution. The logit function is the negative of the derivative of the binary entropy function.It is named 'Logistic Regression' because its underlying technique is quite the same as Linear Regression.\nThere are three main types of logistic regression. They are binary, multinomial and ordinal.Logistic regression is a supervised learning algorithm used in machine learning to predict the probability of a binary outcome. A binary outcome is limited to one of two possible outcomes. Examples include yes/no, 0/1 and true/false.\nBinary logistic regression -- useful for predicting the relationship between a binary dependent variable (Y) and an independent variable (X).\nMultinomial logistic regression -- useful for making predictions when the dependent variable has two or more discrete outcomes and the order of the outcomes doesn't matter.\nOrdinal logistic regression -- useful for making predictions when the dependent variable has more than two discrete outcomes and the order of the outcomes has some significance.\nEncoding is the transformation of categorical variables to binary or numerical variables. An example is to treat male or female for gender as 1 or 0.\nCategorical variables must be encoded in many modeling methods such as linear regression, Support Vector Machine, Neural networks.\nEncoding means to convert into a coded form.Encoding is the transformation of categorical variables to binary or numerical variables. An example is to treat male or female for gender as 1 or 0.\nCategorical variables must be encoded in many modeling methods such as linear regression, Support Vector Machine, Neural networks.\nThe difference between AI, Machine Learning and Deep Learning is as follows\nArtificial Intelligence represents simulated intelligence in Machine. It is the subset of Data Science. It aims to build machines, which are really capable to think like Human beings\nMachine Learning is the practice of getting machines to make decisions without being programmed in such a way. This is the subset of AI and Data Science. It aims to build machines to learn through data, so that they can solve problems.\nDeep Learning is the process of using Artificial Neural Networks (ANN) to solve complex problems. It is the subset of AI, ML and Data Science. DL aims to build neural networks that automatically discover patterns for feature detection.\nArtificial Intelligence is an area of computer science that emphasizes the creation of intelligent machines that work and react like human beings. The capability of a machine to imitate the intelligent human behavior is really challenging part of the job.\nGoogle search engine is the most popular Artificial Intelligence application.\nCART is abbreviated as “ Classification And Regression Tree” is a predictive algorithm used in Machine learning. CART is a variation of the decision tree algorithm. It can handle both classification and regression tasks. \nIt explains how the target variable’s values can be predicted based on other matters. It is a decision tree where each fork is split into a predictor variable. And each node has a prediction for the target variable at the end.\nNow, let us discuss about Artificial Intelligence.There are different types of Artificial Intelligence. They are Reactive Machines AI, Limited Memory AI, Theory of Mind AI, Self-Aware AI, Artificial Narrow Intelligence (ANI), Artificial General Intelligence (AGI), Artificial Superhuman Intelligence (ASI).\nThere are different domains of Artificial Intelligence. They are as follows Machine Learning, Neural Networks, Robotics, Expert Systems, Fuzzy Logic Systems, Natural Language Processing (NLP).\nReactive Machines AI is based on present actions, it cannot use previous experiences to form current decisions and simultaneously update their memory.\nExample: Deep Blue.Limited Memory AI is used in self-driving cars. They detect the movement of vehicles around them constantly and add it to their memory.Theory of Mind AI is explained below, Advanced AI that has the ability to understand emotions, people and other things in the real world.\nSelf-Aware AI is the AI that possess human-like consciousness and reactions. Such machines have the ability to form self-driven actions.\nArtificial Narrow Intelligence (ANI) is the General purpose AI, used in building virtual assistants like Siri.Artificial General Intelligence (AGI) is also known as strong AI. An example is the Pillo robot that answers questions related to health.\nArtificial Superhuman Intelligence (ASI) is the AI that possesses the ability to do everything that a human can do and more. An example is the Alpha 2 which is the first humanoid ASI robot.\nMachine Learning is the science of getting computers to act by feeding them data so that they can learn a few tricks on their own, without being explicitly programmed to do so.\nNeural Networks are a set of algorithms and techniques, modeled in accordance with the human brain. Neural Networks are designed to solve complex and advanced machine learning problems.\nRobotics is a subset of AI, which includes different branches and application of robots. \nThese Robots are artificial agents acting in a real-world environment. An AI Robot works by manipulating the objects in it’s surrounding, by perceiving, moving and taking relevant actions.\nAn expert system is a computer system that mimics the decision-making ability of a human. It is a computer program that uses artificial intelligence (AI) technologies to simulate the judgment and behavior of a human or an organization that has expert knowledge and experience in a particular field.\nFuzzy logic is an approach to computing based on “degrees of truth” rather than the usual “true or false” (1 or 0) Boolean logic on which the modern computer is based. Fuzzy logic Systems can take imprecise, distorted, noisy input information.\nNatural Language Processing (NLP) refers to the Artificial Intelligence method that analyses natural human language to derive useful insights in order to solve problems.\nReinforcement Learning (RL) is the science of decision making. It is about learning the optimal behavior in an environment to obtain maximum reward. It refers to how certain behaviors are encouraged, and others discouraged. Behaviors are reinforced through rewards which are gained through experiences with the environment.\nThere are four types of reinforcement: positive reinforcement, negative reinforcement, extinction, and punishment. Beyond the agent and the environment, there are four main elements of a reinforcement learning system: a policy, a reward, a value function, and, optionally, a model of the environment. A policy defines the way the agent behaves in a given time.\nThe Q-learning is a Reinforcement Learning algorithm in which an agent tries to learn the optimal policy from its past experiences with the environment. The past experiences of an agent are a sequence of state-action-rewards.\nThe Agent(a0) was in State (s0) and on performing an Action (a0), which resulted in receiving a Reward (r1) and thus being updated to State (s1).\nDeep learning is the process of using Artificial Neural Networks (ANN) to solve complex problems. It is the subset of AI, ML and Data Science. DL aims to build neural networks that automatically discover patterns for feature detection.\nAny Deep Learning network will consist of three types of layers. They are Input Layer, Hidden Layer and Output Layer.\nInput Layer receives all the inputs and forwards them to the hidden layer for analysis\nHidden Layer: In this layer, various computations are carried out and the result is transferred to the output layer. There can be n number of hidden layers, depending on the problem you’re trying to solve.\nOutput Layer is responsible for transferring information from the neural network to the outside world.\n\n\n\n\n\n",
+          "document_id": 1173251
+        }
+      ]
+    }
+  ]
+}
