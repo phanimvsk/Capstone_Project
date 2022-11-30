@@ -1,0 +1,325 @@
+i will try to explain the difference between stochastic gradient descent batch gradient descent and mini batch
+gradient design along with the python implementation by using a very simple example
+let's say we are building a machine learning model for house price prediction here you have
+the training data set which has area bedroom price etcetera and you are trying to build this model which is nothing but
+building a linear equation which can tell you price based on area and bedrooms and in
+this linear equation all you're trying to do is find the values for w1 w2 and bias my data set has total six
+example during machine learning training what i would do is i would first go through the first
+sample and i will initialize w1 w2 and bias to b1 here
+then i feed this first sample into this equation find the predicted price compare it with
+the actual price and find out an error the error is here the squared error
+then i feed the second example second sample again find the predicted price and
+compare it with the actual price and find error number two i do that for all the samples till my
+last sample which is sample number six and then i do some of my error number
+one to six by the way when you are done going through all the samples it is called
+end of an epoch at the end of the epoch you sum all the errors then you take the
+average of it which is called mean square error after that you adjust the weight
+using the derivatives now if you don't know about derivatives learning rate etc i have a separate video on derivatives so please go
+watch that i'm not gonna go in math too much in detail but basically it's a way to adjust your
+weights so now my new weights looks like fifty one nine and my bias is let's say twenty thousand
+one i use that in my equation and then i go through all the training samples once
+again that is the beginning of the second epoch
+so again i have predicted price compared with the actual price find error number one
+go all the way till the sixth sample find error number six and that's the end of the second epoch
+i keep on running these epochs until my error gets to a minimum level
+at that time i will have a correct value of w1 w2 and bias and then i can say my machine
+learning model is train and what we just did is by the way
+called batch gradient descent in best gradient descent we go through
+all the training samples before we start adjusting the weight
+but what if i have 10 million samples instead of six
+to find the cumulative error i will have to run the epoch and the every epoch will go through 10
+million samples it will find 10 million errors then sum them up then it will use derivative to adjust
+the weight so before even i do my first weight adjustment i would have to go through 10 million
+samples which means 20 million derivatives because i have two features area and bedrooms and one
+derivative each will be 20 million derivatives what if i have 200 features
+it's gonna be crazy computation by the way you can use gradient descent
+for deep learning as well and often in deep learning you have multiple layers in a neural network
+what if you have to adjust 5000 weights 5 000 into 10 10 million
+figure out the math it is too much of a computation my computer will crash or it will take
+two years to train a model that's not feasible so what we can do is maybe instead of
+going through all the samples we go through one randomly picked up sample find out an
+error and after first sample itself you start adjusting the weights
+so you find the derivative bias you adjust the weight and then in the
+second iteration again you randomly pick one sample
+and then find out an error again you adjust weights so you adjust wait after
+every training sample forward pass this is called stochastic gradient
+descent look at my calves she's happy she's parting now she understands the difference between
+stochastic gradient descent and the gradient descent
+the key difference between the two is batch gradient decent uses all training samples before it start
+making adjustment to weight and stochastic gradient decision will use one randomly picked up sample and then
+it will immediately adjust the weights batch gradient decent is of course good for small training set
+it is being used for bigger training set as well if you have more computation power but if you have
+constraints on that you can use stochastic the
+convergence or or the graph between cost and epoch looks something like this so
+in the case of batch gradient decent it's much smoother versus in stochastic gradients and it is
+zigzag line by the way uh these are the real graphs we are going to do python coding and we
+will have these graphs i will produce these graphs and i'll show you how they look by the way at the end of this tutorial i
+have an exercise for you as well so watch till the end we are going to do cool python implementation
+so my cat was partying and all of a sudden she got another question
+what the heck is meaning gradient mini batch gradient descent so now my cat is not in a party mode she
+wants to study math now well mini batch is quite similar to
+sgd in sgd or stochastic you use one random sample
+instead of one you can use a batch of it you know because if you have 10 million samples and if you um
+find the error in each sample one by one it might be slow so maybe and not not only it's slow but
+it's it cannot use the vector mathematics of numpy see vector math is one of the big
+advantages why people use numpy you cannot make use of that so then in 10 million samples what you
+can do is you can take a batch of let's say 20 samples each and train your model here i'm giving
+example of maybe 20 training samples let's say you have 20 training samples in total you can pick your batch size to be five
+which means you will randomly pick five samples you will do forward pass and then you
+will find the error for five samples and then you do
+weight adjustment so here is a quick summary of batch stochastic and mini batch gradient
+design it's really very simple batch grading decent you use all training samples before
+you start adjusting weight sgd use only one training sample and mini batch you use a
+batch of training samples let's start coding now
+we are using house pricing data in the city of bangalore you know that in bangalore thousand square foot
+home with two bedrooms might cost you 40 lakh or 50 lakh based on the area and i have
+loaded this into my jupiter notebook and my data frame is ready with that data set now if you look at
+the columns you will realize that those are not scaled the the scale here is much bigger than the
+scale at the bedroom so first we are going to perform scaling because when you do scaling your
+machine learning model performs really great all right and just to give your overview
+what we are doing right now is we are implementing batch gradient descent and then we will
+implement stochastic gradient descent in plain python so
+plain python means of course i'm using scalon for min max scaling you can use plain python for main max scaling but i
+don't have time for going into those much details so you know that if you want to do min max scaling
+in sklon uh you can import uh pre-processing and then for x and y
+i'm using two different objects for min max scalar my x is area
+and bedrooms my y is y is price all right and if you want to do scaling
+of your x what you do is this so this will do fit and transform of
+my data frame when i drop my price from my data frame see i'll show
+you what you get when you do that you basically get area in bedrooms
+these are the independent variables so i want to use this data frame as my
+x so that's what this is so i got my scaled x and
+let's look at scale x so you see it's basically these two
+columns but they are scaled actually so when you do min max scaling it will bring them
+in the range of zero to one all right now let's do the same thing
+with y and here why i'm reshaping it
+so that it looks something like this
+all right so my x and y both are scaled now so the next step would be
+to implement the batch gradient descent and remember from the theory that all
+we're trying to do is find out the weights w w1 and w2
+and a bias if you look at our uh equation for the home prices
+so let me show you the equation real quick the equation is this price is equal to
+w1 into area w2 into bedrooms for bias so we're trying to figure out w 2 1 w 2
+n bias by running gradient descent algorithm so
+i will define the green descent function to be like this which which
+takes x and y i'm calling y true by the way because i'm going to use y predicted as a variable so just to keep it
+uh clear epoch you know epoch is going through all the training example exactly once
+that's one epoch and learning rate is something we saw
+in this derivative equation which is this one it kind of controls
+how fast you want to learn all right now my number of features
+is basically this okay so when you have x and x dot shape
+right so my whatever x i i'm passing my shape will give you rows
+and columns so this will give you number of features
+which is actually i have two features okay i have area and i have a bedroom so those are
+two features then what i want to do is i want to
+initialize w and b to be some random values okay so i will say w is np dot
+once see in the in the presentation we saw that we were
+initializing w1 w2 and bias to be one so i'm initializing them to be once
+and the shape will be this for this particular
+thing so let's see how it looks so if you do this
+and number of features we know of course it's 2. so then you get something like this so
+w1 and this is nothing but w1 and w2 okay very simple
+all right what is my bias i will initialize bias to be zero by the way you can initialize it to be one
+doesn't matter and then my total samples all right what is my total samples
+total samples is x dot shape zero all right zero now i will
+go through all the epochs one by one so this is my each iteration and every iteration i am using all
+training samples to perform my training okay so first thing that we need to do
+is we need to calculate why predicted so what is my y predicted
+y predicted is nothing but a weighted sum
+between all the features and weight so y predicted here for example would be weight into area
+weight into bedrooms plus bias okay so how do you represent this thing
+so i want to represent this thing well so that is plus bias as well so let me
+do plus bias okay so
+i'm doing plus bias but before that i want this w one into area and w two into bedrooms
+so how do you do that well your area and bedrooms are coming
+through this axe which is a data frame and that will be like two columns and then your weight one and two are
+coming through this w which is an again a numpy array now if you know about numpy dot product
+and if you don't know one of my previous deep learning tutorial has a topic on matrices
+so you should you should the the topic is on metrics so you should watch that video because it
+will give you a clear understanding of matrix multiple manipulation dot product and so on
+uh to do this particular computation by the way
+exactly what you can do is you can do dot product between w
+and the x transpose now why do i do x transpose so so let's
+let's figure that out so let's say i have scale x okay so this is what my
+x will be and i have uh weights which is
+let's say this one okay so when you do a dot product so the way
+you do dot product is np dot then you do w
+and you have to do by the way x transpose so when you do dot t it will give you transpose transpose is
+converting okay what is transpose let me just show you instead of talking you know because
+i like to show the stuff so this is my original scaled x and watch what happens when i do
+transpose see my rows got converted to columns
+so now i had two columns by the way see column one column two
+and so it's it's transpose if you know from excel you know like converting row to column and column two rows
+all right so that's very simple and when i do this kind of a dot product
+what i get is basically exactly this w one into area plus w two into bedrooms
+okay so i'm going to do that here
+so essentially this represents this particular thing all right and it's a vector operation
+and this is one of the big benefit of using numpy you can do this computation
+so fast otherwise you can run a for loop but that will be very very slow now from
+a partial derivative equation we have to find out this one so what are we
+going to find out well we are going to find out this one the derivative derivative of error with
+respect to w1 and with respect to w2 and the equation for that is
+something like this
+so you are doing a true minus y predicted and then you are
+doing a dot product with x transpose and then you are taking a mean and multiplying with with minus two
+now if you if you want to go in all this math uh this is a derivative basically so you
+can accept this equation or you can watch my previous tutorial on
+gradient descent in python where i have gone through some of these equations so it will be clear and i'm going to
+link that video in the video description below uh but this is the math and using that
+math you all you're doing is you're finding a gradient w gradient and b gradient here
+and then how do i just wait well use you say w1 is equal to w1 minus learning
+rate into the gradient all right so i will use the same equation and i will say this
+okay pretty straightforward my weights are being adjusted and my cost will be what so my
+cost is a mean squared error so mean squared error if you look at it
+it is the squared error so first of all you have to sum all your square errors so how do you
+do that so you have to square all your errors so when you do this
+it's again numpy array so when you do that it will give you another array as a
+result and you can do np dot square on that
+and that will give you a square of that okay so let's let me just demo really quickly so if
+you have let's say array this is numpy array by the way
+like this so my a is b this my b is let's say 10
+5 and 7 and when i do a minus b see each it subtracts each
+individual element and when you do so a minus b is this okay
+now let's say i do np dot square what do i get
+square of each of these elements so 9 square is 81 3 square is 9 and 4 square is 16. all right i want to find the mean
+of it the average so when i do average see this is 81 and then 9 is 90 then 100
+106. so 106 divided by 3 okay so it's it's the correct answer so
+we are doing exactly same thing here so when you do np dot mean you get the mean square
+error and that is your cost all right now i
+promise you that in the presentation whatever epoch versus cost graph
+this was a real graph so i want to plot this graph so i need to record the value of
+cost and epoch at few iterations okay so i would say when i
+let's say i want to record it every 10th iteration how do you do that so when you do i person is 10 equal to 0
+it will stop here in the if loop at tenth iteration twenty three thousand thirtieth
+iteration etc at that time i want to record cost and
+the epoch so for that i will create simple python list to record cost list
+and ebook list and then i can say cost list is cost
+and then ebook list is e-book nope it's i
+once and that's it i mean i run this for loop and then i will get the optimal value of
+cost weights and bars etc at this point
+i can just return pretty much everything
+and once i'm done returning i can call the function and i can print
+those values so i'm calling this function with scaled x scale y and
+let's say my epoch is 500
+bias is not defined where bias is not defined let's see
+so bias is not defined okay why predicted
+plus bias it should be b i'm using b and when you run this
+you get the value of weight and b and cos to be
+uh this okay now by the way when you run a linear regression model using sql on
+sklearn model internally is doing this exactly same thing it is finding uw and w2 and bias and
+this is bias and my cost by the way see my cost is this now let me plot that
+chart first of all to see how my cost reduces with every epoch so i'm using
+matplotlib simple plotting so you see my cost was very high and as my epoch
+uh value increased the cost gradually started declining at around 100 epoch my value was already
+low too low and at 500 c you almost see a flat line so i can see
+that maybe these are the optimum weights that i have and this is w1 this is w2
+this is bias again w1 w2 and bias in this particular
+equation see w1 w2 and bi so using this equation now i can actually write a prediction
+function it's pretty straightforward right so my prediction function
+will be let's see what is my prediction function
+so by the way when i call prediction function i i don't want to pass scale value so we
+train our model using the scale value but when i when i actually call prediction function i want to
+call something like this this is my square foot this is my number of bedrooms
+and w and b w and b i already calculated here so i'm just passing that
+so let's say if i open my this thing see for 2600 square
+foot home with four bedroom it cost 120 lakh rupees in bangalore which is 1.2
+crore so i want to see some answer in probably that range you know
+so we need to do something with that scaling all right so first i need to get a scale
+x from area and bedroom okay so area and bedroom
+so area and bedroom see my prediction function will take um i need to transform the
+area and bedroom to the scale so what is that scale so here we use min max scalar
+and we got x x is my x scale and x s y is my y scale so what i will do
+is here i will do s x dot transform transform
+and this expects a data frame or a two dimensional array
+so let's do that here since so instead of area and bedroom i will pass these values like 2604
+and when i do that see it is scaling it in the range of zero and one so that's what i want so
+this will be the value in scale x now my scaled price will be what
+surprise is you know it will be w1 so what is w1 w1 is this c
+w if i do w here this is w1 this is w2 it is an array so this is w1 into
+okay into what into my area so my area is this scale x is my area then w1
+into scale x1 and bias so now i get a scaled price
+okay once you have a scale price you need to a reverse transform
+because the scale price will be in you know zero and one range you want to reverse transform so you get the actual
+price and s y was our y scalar and it has a method called inverse
+transform so inverse transform the scale price
+scaled price let me show you inverse transform real quick and
+these scalars expect two dimensional arrays so i'm just so when the the
+the value is one it gives you 167. why does it give 167
+because the way min max scalar works is it will pick the max value so what is the max value here
+in this max value is 167 so that will be your 1 and your mean value will be the minimum
+value here so the minimum value is what 38 okay 38 32 all right 32 value is your minimum
+so when you supply zero here it gives you 32 see 32 is 0 and 167
+is middle and when you do 0.5 you get like intermediate value
+and that you want to inverse transform so that you get the real price and i can just simply return
+that value so when i run it okay
+index one out of bound let's see there is an [Music]
+error this is probably happening because my
+scale x which was this i need to actually give uh the zeroth index
+because this two dimensional array and i want to get the first dimension so you can see that it
+predicted the value to be one crore 28 lakh rupees and my reality my value was one crore 20 lakh rupees so
+the answer is pretty good actually it's doing a right prediction and since this is also returning
+two dimensional array i can just do this and this to just get a value so here you
+see double bracket you are getting two dimensional array and by by doing the index of zero you'll
+get a single value so now let's do a prediction for
+thousand square foot home two bedroom okay thousand square foot home two bedroom what will be the price
+okay i see here 38 38 lakh here 39 so should be close to 38 39
+in that range hmm this one is coming to be a little off
+well it's it's not perfect after all so it's okay i mean you know
+and then 1500 square foot home uh three bedroom
+will be 69 lakh so let's see 1500 300 bedroom 675 so
+kind of close when you increase the bedroom the price will go a little bit up so 69 to
+92 actually it went too much and then when you increase the square
+foot of course the value goes up so see two thousand and three bedroom is
+this much and now if you have less square foot from 85 lakh it will go to 69 lakh so
+this is working pretty good so we are done with the implementation of batch gradient descent now let's look at
+stochastic gradient descent i just copy pasted some initial part because that part remains same it is exactly
+same as gradient descent in every epoch iteration what you're going to do now
+instead of using all the samples we will use a randomly picked sample
+okay so how do you randomly pick a sample well or there is an random library in python
+and when you do random between let's say zero and six it will give a random value between zero
+and sixty if you keep on control executing you will get some random value between
+zero and six so that's what we want to use here and we want to get a random index
+okay so random index will be basically you are going between zero
+and total samples minus one that will be the index we are doing minus 1 because index is
+always the length minus 1 and then what you're doing is
+you're picking some random sample so you have x and y and from that you are just picking a
+random sample x and y so this is just one data point that you're getting and your y predicted
+the equation is actually the same as what we saw before
+and then uh that's it actually the remaining stuff
+remains the same the only stuff that changes is instead of using x and y you're using
+one sample and once you have one sample x and one sample y you use that in rest of the code
+and the code is exactly same okay i mean we are not doing things like sum
+etc because we are dealing with one sample and once you have trained
+you will of course return and once you return
+you capture those value in a different type of parameters i will just append sgd after each of these variables
+and i'm calling this function stochastic gradient descent function
+and i got these values now let me compare it with my values in
+so the values are quite same c minus 2.3 and by the way i i use different epoch
+because in sgd it will take more time
+you'll you'll have to run more uh epoch here okay so he that's what i'm doing here
+but the thing is in every epoch you are not going through all the samples you are going through only one sample
+so actually computation wise this can be still lightweight if your data set is huge okay
+now let me plot the stochastic gradient descent epoch versus
+cost and this is how you do it this is your x axis this is your y axis
+and this is the chart you see it looks like zigzag it starts with some random cost which might be low then it
+bumps up goes down bumps up it might see zigzag pattern and eventually
+it gets little stable and that's a graph we used in this presentation that's why
+i was saying creatine descent is much smoother versus stochastic is actually
+little like a zigzag pattern and if you do a prediction using the
+say i'm using now the stochastic weights and bias and you will notice the the values are
+quite similar actually so 2604 square foot home would cost you one car or 20 lakh rupees
+here saying one car or 28 so it's it's doing like a good enough
+approximation and similarly you can try more samples by the way just try to play with it here 1500
+square foot three bedroom 69 lakh 1500 square three bedroom 75 so it's
+doing pretty good um prediction
+now comes the most interesting part of this entire tutorial friends exercise just by watching this
+video you are wasting your time if you are not doing exercise you better go watch netflix or you just you know just
+go to sleep so exercise is very important unless you practice you're not going to learn coding or machine learning you know
+forget it so you will implement a mini batch gradient descent in python
+and that is your today's exercise i have a solution link here but this link is very cryptic you know
+if you click on this link without doing solution yourself it will download a corona virus in your
+computer and your ram motherboard cpu they will all get fever and they will not recover so you better
+try on your own first and then you click on this link i have ai embedded into it okay so i'm
+not kidding mini batch gradient decent all you need to do is you know here in here we used one sample
+instead of one samples you just use a bunch of samples basically
+a batch and you implement that so i highly suggest you do that i hope

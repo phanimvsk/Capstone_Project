@@ -1,0 +1,432 @@
+in this particular video we are going to
+look at why activation functions are
+needed in neural network then we will
+look at
+some activation functions and in the end
+we will implement them
+in python first let's look at why
+activation functions are needed in a
+first place
+we looked at our insurance data set
+example in previous videos as well if
+you're not seeing those videos i would
+highly recommend you watch that
+but there we build a single neuron
+neural network
+for classification problem based on age
+income education we want to predict if
+person will buy the insurance or not
+and we saw that having a sigmoid
+function
+helps you reduce output in a zero to one
+range
+and you can make a decision for your
+classification
+if you have value between zero and one
+if you have value between minus infinity
+and plus infinity
+it becomes kind of hard to make that
+decision
+and for that reason uh the sigmoid
+function is
+called activation function which means
+it will decide whether your neuron is
+firing or not firing when neuron is
+firing it is saying that person will buy
+insurance
+when it is not firing it will say person
+is not
+buying the insurance so you can clearly
+see that
+having a sigmoid function or an
+activation function
+is helpful in the output layer how about
+hidden layers we also saw that you can
+have a complex neural network with a
+hidden layer like this here also
+in the hidden layer there are always two
+portions
+one is weighted sum of the input
+the second step in any neuron is the
+activation function
+let's assume that we remove
+our activation from function from hidden
+layer and the output layer
+what happens after that if you do the
+math you will realize that
+you will eventually get a linear
+equation
+where the output is just a weighted sum
+of your input features for that reason
+you do not even need hidden layer
+so if you are having a complex neural
+network with let's say
+five hidden layers and if you remove
+the activation function from all those
+layers
+then you will realize that you do not
+need those layers at
+all because in then that case
+the output can be expressed as a simple
+linear equation
+of your input features now in real life
+we already know that the complex
+problems cannot be solved by linear
+equation
+the patterns that we see in the universe
+they
+cannot be expressed by linear equation
+all the time and that's why you need
+non-linear equation and activation
+function
+will help you build that non-linear
+equation
+all right now let's again go back to our
+binary classification problem based on
+the age
+you want to decide if person will buy
+the insurance or not in this case we
+already saw in previous video
+that a simple approach could be you
+brought up scatter plot
+where your age and whether person will
+buy the insurance or not
+and it is possible to draw a linear line
+like this
+if you don't know how i draw this line
+i would suggest you watch my machine
+learning tutorials and for that
+you can go to youtube type in code
+basics machine learning you will find
+this playlist
+in this playlist i suggest you watch
+linear regression
+tutorial and you should also watch
+gradient descent tutorial they will be
+extremely useful and once you have
+linear
+line drawn like this you can draw
+a boundary basically anything which is
+more than 0.5 value
+you will say person will buy the
+insurance otherwise person will not buy
+the insurance
+if you have an outlier where let's say
+an 85 year old
+grandmother bought an insurance varied
+it as it looks like this
+in that case your linear equation will
+shift a little bit
+and then when you draw boundary using
+0.5 value
+you might end up misclassifying some
+values here
+so here what i'm saying is anything less
+than 0.5 value for y
+person will not buy the insurance but
+here these three data points
+person bought the insurance this
+approach of drawing boundary at 0.5 is
+nothing but a step function
+and step function is one of the
+activation functions it is not very
+popular but it is an activation function
+where for any value which is
+greater than i would say 46 years of age
+you will say okay person will buy the
+insurance otherwise person will not buy
+the insurance
+and you already saw the problem with
+step function which is it is
+misclassifying some data points
+here is a simple representation of step
+step function
+the second problem with snap function is
+when you're doing multi-class
+classification
+here i have an image of 4 handwritten
+digit of course
+and if you have output classes 0 to 9
+if you are using snap function it will
+just give 2 output
+either 0 or 1 and you might end up
+getting
+one for more than two digits and here in
+this case you don't know
+what is your final class you want to
+come up with one digit
+and here it is saying it is two as well
+as four so it becomes
+hard to make a decision and that's when
+sigmoid function comes in
+where instead of zero and one value it
+will give you a smooth curve between
+zero and one
+and because of this when you're doing
+multi-class classification
+you have a number between 0 and 1 and
+now you can take a maximum value out of
+it so
+4 has 0.82 that's why you can say this
+image
+is of digit 4. now agreed
+you can get point 82 for two numbers but
+that is very unlikely
+it's a float number so it will be 0.82
+the other one might be 0.827
+and then you will pick that number
+because you are taking max out of it so
+you can see the benefit of sigmoid
+function this is the equation
+of sigmoid function we have looked at
+this function in deep learning series so
+far so you guys probably know
+about it already and we have
+done uh logistic regression in the same
+machine
+learning tutorial series which is here
+so we mentioned
+a sigma function in this particular
+tutorial in these two
+so again watch these two tutorials they
+will be
+helpful uh in this particular video
+there is another function called 10h
+which is similar to sigmoid
+but instead of giving a range between 0
+to 1
+it gives an output between -1 and 1. do
+not worry about this mathematical
+equation
+all this is doing is taking an input and
+converting it
+into range minus one and one
+the general guideline is use sigmoid in
+the output layer
+because you already saw why we need to
+use sigmoid in output layer
+it can be helpful in binary
+classification
+in all other places try to use 10 h if
+possible
+so 10 h instead of sigmoid is always
+better
+because 10 h will kind of
+calculate a mean of 0 and it will center
+your data so it's
+useful to use 10 h now the issues with
+sigmoid and 10 h
+is this if you know about derivative
+derivative is nothing but similar to
+slope but when you have
+non non-linear function at every point
+the slope is changing
+so then you use derivative to express
+that slope
+so derivative is nothing but a delta y
+divided by delta x
+which is it is telling you
+how much an output changes for a given
+change in input
+so for example in our insurance case it
+will
+say uh how much
+person will likely to buy an insurance
+how much that will change
+based on how the age changes okay and
+that's a very very important concept
+for derivative and how the
+learning happens how the loss is
+calculated
+we'll have to again go back to my
+machine learning tutorial playlist
+and watch gradient descent and cost
+function this particular tutorial is
+extremely useful in understanding
+underlying mechanism
+of a learning process by neural network
+okay now once you have a derivative what
+happens for
+sigmoid and tan h is think about the
+higher values so let's say
+your value is 4 here between a 3 and 4
+you see what is delta y y is 1 for 3 and
+y is 1 for 4.
+so y is not changing much so the change
+is actually 0
+delta x is 1 between 3 and four so when
+you divide zero by one
+of course you get zero here on the
+negative range also
+when the value is higher you get your
+derivative
+uh as zero and that creates a problem in
+your learning process
+because we saw in our gradient descent
+tutorial that
+you need to calculate derivative and
+back propagate your errors and if your
+derivatives are
+closing to zero the learning becomes
+extremely slow
+this is called vanishing gradients
+problem
+i will make a separate video on that but
+just
+for now just have this fact in mind that
+sigma and tan h has this vanishing
+gradient problem and
+for that reason it makes learning
+process very slow so then they came up
+with this new function called relu
+which is extremely simple function by
+the way if your value
+is less than zero then your value is
+zero output
+is zero if it is more than uh zero
+then your output is same as that value
+so if i field two i get two as an output
+if i feed minus one as an input i get 0
+as an
+output very very simple function the
+guideline is
+for hidden layers value is most
+popularly used function
+because you think about the math behind
+value
+it is computationally very effective
+sigmoid 10 h you have to do some
+computation
+but value is very very lightweight
+function
+and that's why it is very very popular
+if you are not sure which function to
+use always go with value
+especially for hidden layers that will
+be your default choice
+value also has vanishing gradient
+problem because
+where if value is less than zero the
+derivative again is zero and for that
+there is another flavor of value called
+a leaky value
+where you know there is still some sort
+of linear line
+it is still trying to reduce the value
+close to zero
+but the equation now instead of 0 is 0.1
+x
+leaky values uh again based on the
+circumstances it could be
+a good choice to use so here's a quick
+summary of
+all our activation function uh which
+activation
+function you should use for your problem
+sometimes there is not
+a clear answer in the output if you have
+binary classification you will probably
+use sigmoid
+in the hidden layer you'll most likely
+use value or leaky value
+but you know you have to try these out
+yourself
+sometimes it's neural network machine
+learning
+these things we already saw in our
+machine learning tutorials as well
+sometimes these things are
+all about trial and error so you have to
+try different
+um activation function and see
+which function gives you the best output
+now let's move on to coding
+we already know the equation for our
+sigmoid function which is 1 divided by 1
+plus e raised to minus z
+i have written a simple python function
+for the same
+equation and that function looks
+something like this 1 divided by 1 plus
+this is e raised to minus z
+or the input which is x and we know
+sigmoid will just trying to
+just try to convert any value in a range
+of
+0 to 1. so let's try it out so if i try
+100 let's see what happens okay see
+hundred it converted it to one
+okay let's see what it will do to one
+so 0.73 any output from sigma function b
+will be in range 0 and 1 okay let's give
+some negative value
+so let's say minus 56 see e raised to
+minus 25 which
+which means very very close to zero
+so you can see that this function is
+very simple just converts
+any number between a range zero
+and one now the second function
+which is a variant of sigmoid is 10 h
+and 10 h the equation
+so the equation is e raised to z
+minus e raised to minus c divided by e
+raised to z
+plus e is 2 minus c
+okay that's the equation here right here
+okay so i just converted that into
+a python code and this function will
+convert a value between minus 1 and 1.
+so let's try it out so
+see minus 56 it converted
+it into minus 1
+and if you have let's say value 50 it
+will convert it into
+one and if you have any intermediate
+value
+in between let's say one so again
+your output will be between -1 and
+1 value is extremely
+easy to implement which is
+you are just taking
+max between 0 and x okay and
+see here let's say if i do any negative
+value
+it will convert it to zero and if i type
+in
+any positive value let's say one one it
+will convert it to one
+if it is six it is six so the value
+remains same for positive
+value but any negative value i supply
+remains zero very very simple
+and leaky value is also very simple
+so the leaky value function is 0.1 into
+x
+so it will uh
+convert so let's see so leaky value 5
+supply minus 10
+it will not convert it to 0 this time
+but
+0.1 into x which is -10
+and then if i have a positive value
+of course it will keep it same as it
+positive value it will not make any
+change
+i implemented these functions just for
+your understanding when you are solving
+any machine learning problem using deep
+learning most likely you don't have to
+write these functions yourself you will
+be using keras tensorflow library and
+those function those libraries will have
+those functions implemented
+so i gave you an idea of this function
+just for your understanding so remember
+you are not going to
+most likely okay unless you are writing
+your own custom machine learning model
+most likely you are not going to write
+these functions you will be using
+ready-made api from tensorflow
+and keras etc .

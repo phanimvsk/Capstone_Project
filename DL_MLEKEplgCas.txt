@@ -1,0 +1,631 @@
+how you can
+build a tensorflow input data pipeline
+using tf.data.dataset
+class in this video we will look into
+how you can optimize the performance of
+that
+input pipeline using prefetch and
+caching we'll just go over some theory
+first
+and then we'll write code alright so
+let's get started
+[Music]
+what we discussed in the last video was
+this usually when you have small images
+you load those images into ram from your
+hard disk
+in numpy array pandas data frame and you
+can train your model easily
+but when you have less of 10 million
+images you know when your data set is so
+big
+your computer might give you an
+expiration like this too much data i
+can't handle it
+therefore the tf.data.dataset is quite
+useful
+because it can load this data into
+batches
+and then train the model on those
+batches
+one by one okay so my batch one batch
+two
+and so on now if you look at the same
+exact picture
+in a cpu gpu kind of time view
+where gpus are mainly used for the
+training so when you're doing
+forward pass backward pass doing all
+those matrix manipulations
+those are happening on your gpu so let's
+say my
+loading first batch is the reading from
+disk is being done by cpu so cpu is
+reading all these images
+into my memory it takes less three
+seconds
+then it gives those images to gpu for
+the training and this is batch one
+similarly batch twos take same time and
+if i plot
+a time view of this whole operation
+you will get a graph like this here the
+first
+you know it took three seconds to read
+batch first
+during that time gpu was sitting ideal
+by the way it was not doing anything
+then it took two seconds to train it
+then you
+read second badge so gcp is reading the
+second batch
+and it takes three seconds or all let's
+say if there are three batches it will
+take 15 seconds
+but we can optimize the performance of
+our data pipeline
+by doing this so assume
+that gpu is processing your batch
+one and during that time
+what about cpu reads batch two
+so both of these units are working in
+parallel
+when gpu is training my batch two
+cpu is taking preparing the next batch
+ready so every iteration
+my cpu is keeping the next batch ready
+okay
+and this approach will take you over all
+i think 11 seconds so just compare 11
+second versus 15 seconds so you
+just saved time in your training this
+can be done by
+prefetch api so all you have to do is
+here
+tf.data.data.prefetch 1 1 means
+how many batches i want to prefetch
+so when i say 1 when the gpu is low
+training my batch one it will pull one
+extra batch in the memory if i say
+prefetch two
+it will at this point it will prefetch
+batch two and batch three okay normally
+you will supply
+auto-tune argument so you will let the
+tensorflow framework decide for itself
+how many batches it wants to load uh in
+advance
+okay so you will see people using
+auto-tune or very often and if you look
+at the whole pipeline you know
+and this is what we looked into in our
+last video as well so if you have not
+seen last video
+i highly suggest you guys all watch that
+last video
+so here you will see that measure up to
+the tensorflow code basis
+you will see prefetch being used
+at the very end so you are forming your
+complete pipeline you are saying map
+filter map whatever
+and in the end you will do prefetch so
+that
+both gpu and cpu can work in parallel
+you want to
+make optimal use of your hardware
+resources
+and prefetch allows you to do this
+now we are talking about this map
+operation
+so just think about this you are reading
+all these images
+you are converting them into numpy array
+then you are doing filtering you are
+doing mapping you're doing so much
+processing okay
+and when you're running deep learning
+training
+for multiple epochs you are doing the
+same
+operation multiple times so remember
+one epoch means let's say if i have 10
+million images
+i will go through all 10 million images
+and perform the training that is one
+epoch
+the second epoch i will repeat the same
+thing i will again go over those 10
+million images
+and i will be doing all these operations
+map filter map
+so do you see some redundancy here
+you're doing
+you're reading the same files and then
+mapping and filtering again
+so this issue can be addressed by cache
+function
+so this is a pictorial representation of
+you know if you're not using any caching
+what will happen is
+you will see here x axis is the time
+okay so you are spending some time
+opening the file
+some time reading it then mapping
+filtering all doing all this
+transformation then you're training
+again you are reading it mapping again
+training okay
+so up till now up till this vertical
+arrow is good but then when the second
+epoch starts
+again you are opening the same set of
+files so let's say you are
+training some kind of text model where
+you're opening one single file which is
+huge which has less than 10 million
+lines in it
+then you have to open the file then
+you're reading the file in chunks
+so let's say you read first 10 000 lines
+then you do mapping you do some
+transformation then you do training
+then again you read next set of 10 000
+lines
+and so on and when the first epoch is
+over
+in the second epoch you again open the
+same file same 10 million line file
+then you take this one is a 10 000 line
+chunk then you do all the transformation
+training again next set of 10 000 lines
+and so on
+so you see some redundancy so these
+operations open read map are redundant
+now this is okay if you have a memory
+problem but let's say if you can fit
+something into memory
+then you can use a cache operation and
+what you can do is now watch carefully
+okay
+now you have this image in your brain
+now
+look at this particular image
+you see so when i do
+tf.data.dataset.cash
+what what it is going to do is it will
+do all this
+open read map in first epoch
+but for the second epoxy this is the
+second epoch okay
+this one it will just
+train the model so you are saving your
+time in opening and
+reading the file all right let's get
+into coding now
+here is the tensorflow official
+documentation where they have explained
+how you get
+you can get better performance by using
+prefetch
+cache etc and in this example
+they have created this artificial dummy
+data set where you can mimic the
+latencies
+in opening the files reading the files
+etc
+so we're going to use the same example
+here and i have a
+jupyter notebook here and here
+the tensorflow version is 2.5.0 which is
+the latest as of this recording so make
+sure you have a latest version because
+some older versions uh have incompatible
+backward incompatible
+apis now i have modified
+this example a little bit just to make
+it little simple
+so what we do is we are going to create
+a class
+with our tf.data.dataset as a base class
+okay so when you supply this
+as a in the argument it it will derive
+this file dataset class from this
+dataset tf.data.dataset
+and again to remind you what we are
+doing here
+is we are measuring the performance
+using prefetch
+we will see how using prefetch you can
+optimize the use of cpu and gpu and you
+can get a better training performance
+and to mimic the real life
+you know latencies in reading files or
+reading objects from the storage
+we are creating this dummy class okay so
+the purpose of this dummy class is to
+mimic the real world scenario let's say
+you are reading files from the disk
+okay and i will say okay reading files
+and matches
+and here you supply number of samples
+that you want to read
+so when you read the file first thing is
+open file okay so let's say open file is
+taking
+you know some time so i'm just mimicking
+i'm just putting dummy timed or slip
+just to mimic the delay in opening the
+file
+then you start reading let's say few
+lines
+chunk by chunk so let's say you have
+million lines in your file
+you want to read first ten thousand
+lines and so on
+so i will say for sample
+index in range
+okay sample index in range number of
+samples
+so i have total listed three samples i'm
+just reading let's say i'm reading
+each line one by one and the delay
+to read each line is let's say
+this much you know point zero one five
+second and
+you are returning that particular sample
+index
+here again this is a dummy class okay in
+real life you will be reading the file
+you will be returning each line so here
+since i'm interested only in measuring
+performance and not the actual content
+i'm just saying yield something and
+yield
+is a generator so if you're not aware
+about generator
+in python go check out my generator
+video so in youtube you can do code
+basics
+python generator you'll get a fairly
+good understanding
+of what generator is then
+we'll override new method so what this
+new method will do
+is this
+let me just show you new called
+okay so whenever you create
+an object of this file data set
+new takes one positional argument okay
+here you have to supply the class
+see new call so whenever
+you create an object of this class this
+particular new method is called
+okay and in this one what i want to do
+is i want to do this tf.data
+data dot data set
+dot from generator so in data set there
+is a method called from
+generator where
+you can say okay class dot
+so this class is the class reference and
+that has this method so
+this is your generator and
+use a output signature is
+the output signature is like what does
+it return
+well it returns an integer say
+tuple of integer comma nothing so see
+double so tensor specification
+you will say integer 64 that's what it
+returns
+and the third argument is args is equal
+to number of
+samples so this is the argument
+number of samples you supply into this
+function okay
+so don't worry about this too much if it
+looks complex as we move ahead in the
+code you will understand it better
+okay now what happens is
+um typically when you have a training
+function
+okay let's say whenever you have
+training function
+you will have a data set and you have
+you will have
+number of epochs listen number of epochs
+is to
+default okay so in usual training loop
+what you do
+is for epoch num
+in number of epochs you go through
+each epoch and you will go through each
+sample in a data set
+okay and you will perform a training so
+let's say the training performance is
+0.01
+so this training performance this dot
+sleep
+okay is basically let me show you
+here is basically this part
+this time this yellow times time slot
+okay
+and this particular time which is
+reading
+the file file lines
+is this and this diagram doesn't have
+this particular
+time but if you want to look at this
+time to read the file
+it is in the other diagram which is this
+see this blue time slot
+okay so i hope that part is clear
+so now your training and
+i'm just introducing artificial delay
+here so here
+i'll just call this function benchmark
+actually because we are benchmarking
+everything
+okay and now
+what is this data set okay so the data
+set
+is an object so when i do this it
+creates an object of this dataset class
+file dataset class and i want to
+benchmark this
+okay and the way you benchmark it is
+by putting this time it
+line magic cell magic okay
+all right let's see number of samples is
+not defined so
+where is it not defined
+let's see where is my number of samples
+i think it's complaining about this
+particular class not having
+this particular method not having that
+argument so by default lesson number of
+sample is three
+so i fix that value here okay getting
+another error values
+must be a signature okay i need to
+return this actually
+because when you do new you're returning
+a class
+still getting an error okay values must
+be a signature what is it
+okay here i need to pass a tuple so
+maybe that's the problem let's see
+now integer object is not ideal for
+epoch number is number
+in number of epochs the number of epochs
+it has to be a range actually
+ah carrying so many others today
+all right it's gonna work this time
+amazing
+so now it's benchmarking the performance
+of file data set
+as is and let's say this is 321 second
+so what just happened is this
+so you read those files in batches so
+while cpu was reading your gpu was
+training
+so you read everything sequentially so
+the performance was
+not that great okay now we are you're
+going to use this
+prefetch api and we'll see how that
+improves the performance
+so just copy paste the same thing here
+and just append this with pre fetch
+and prefetch i'll say prefetch one batch
+or one sample
+now why i can call free prefetch because
+file data set is derived from
+tf.data.dataset
+and this has that prefetch method hence
+i can call it from
+a child class as well and when you
+measure the performance
+you see the improvement 253 milliseconds
+you see
+close to 70 millisecond difference you
+see here and if you run it for
+more epochs you will see more difference
+and the popular argument to prefetch is
+auto tune
+so people usually supply auto-tune
+argument
+uh actually it's tf.data.autotune
+okay and that will give you around
+it's like similar performance but this
+autotune will
+figure out on its own how many batches
+it want to
+prefetch while your gpu is training okay
+so i hope
+this is clear if you have any questions
+you know please post in a video comment
+below
+but the idea is very very simple we are
+just implementing
+this particular diagram that you're
+seeing here so previously
+like in this line the operations were
+happening in this order you know
+step by step so cpu and gpu was not
+utilized to its optimal level but then
+by doing pre-fetch while gpu is training
+you are using cpu to pre-fetch your
+previous batch
+and since we have these artificial
+delays introduced here
+you can kind of compare the performance
+of two apis
+if you prefetch let's say two or three
+samples performance not gonna
+change that much okay but
+majority of the time people use this
+auto tune so in our future deep learning
+tutorials you will see
+us using prefetch a lot okay now let's
+talk about
+the cache api okay so cache all right
+what is cache so let's read the
+documentation
+so if you read the documentation of
+cache api
+caching here
+so here i am reading some documentation
+of for
+for cash api so cache
+what it will do is i think we covered
+this in presentation as well
+where if you're reading the file and
+opening it and mapping it on and and if
+you're running it across multiple epochs
+see for the second epoch you don't need
+to do all this operation so when you do
+dot
+cash you are you you don't see this
+blue and purple blocks here so you're
+saving all the time
+so here we are just going to use
+official tensorflow documentation and
+we'll
+implement that so let's say you are
+creating
+a new data set here
+okay and the data says is nothing but
+just a bunch of numbers and then
+let me do for
+the in data set
+okay print d dot number
+see 0 to 4 number
+and now let's say i want to compute the
+square of that so how do you do that you
+can do
+map and you can so lambda x
+and return mean x square correct
+and that is my data set
+and again if you print this we have
+covered all this in previous videos so
+should be pretty straightforward you're
+just transforming it and you are just
+computing a square of each of these
+numbers
+now if you do cache see
+if i'm running multiple epochs on this
+data set
+then it will have to do this mapping
+multiple times but
+if i just do cache so if i do data set
+is equal to data set
+dot cash if i just do that
+and now when i
+i trade through that so see
+you can i trade through this data set
+using this particular iterator
+see you can do this okay i think you you
+might know about this so if you do
+this let me just quickly show you
+so when you're doing this and the other
+way of doing the same thing would be
+if you just put it in a list you can do
+it same thing in a one line
+so now when you do cash
+it is reading this data from that cash
+when i do it
+execute it a second time it is reading
+it from cash
+you know so it is not
+it is not executing this map function
+again
+if you had um not put this in
+cache then every time you do this it
+will be
+computing this map function again so
+that's the benefit now let's let's apply
+this map function to our original
+file data set
+this guy here okay so
+first i'm going to create some dummy map
+function
+so i will create dummy map function
+again with some type of
+delay
+so time delays let's say time dot sleep
+0.03 now if you're using this in a
+tensorflow
+map api you see eventually my goal
+is to use this in i want to create an
+object of file data set
+and then i want to use this map you know
+this map function
+but when you when you pass this here uh
+what happens is let me run it
+you get some error because uh this
+function
+needs some spatial processing so you
+need to wrap this
+in ef dot pi function
+and say lambda x
+or lambda even if you don't supplies
+okay so
+you're supplying um you are
+saying okay this is the sleep and then
+these are the arguments
+okay
+and then you are returning that
+so same string as it is so the whole
+purpose is basically
+if you don't want to worry too much
+about it is seen it's introducing some
+kind of delay
+okay so when you do this
+see now this is working now we will
+benchmark this function
+we'll benchmark it let's say run this
+for five epochs okay
+and i want to time it so this will
+measure the time of this particular cell
+the whole cell
+and minus n1 minus r1 is just around the
+one
+one loop basically
+okay so file let us set dot
+map let's see what is wrong here
+benchmark is not defined
+okay i have a typo here
+so 1.27 second that's what you see here
+and now we'll see how performance can be
+improved
+by using cache so i'm copy pasting same
+code okay
+but after map i'm doing cache
+and when you do that see it takes half
+time
+because it's actually less than half
+time
+you know because this cache what would
+have done is see i'm running it for five
+epochs right
+so uh first epoch
+okay when i call map function it will
+introduce a delay but second time
+the data is cached so second time on our
+second third
+fourth and fifth epoch it is not calling
+this map function
+it is using the map data from the cache
+itself all right so i hope this gave you
+some idea on prefetch and cache prefetch
+and cache is
+something we'll be using in our future
+videos for
+training tensorflow models using
+tf.data.dataset
+if you need more information i'm going
+to provide a link of
+all these awesome tensorflow
+documentation pages so go.

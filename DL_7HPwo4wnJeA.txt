@@ -1,0 +1,628 @@
+in the last video we looked at what is
+convolutional neural network
+if you have not seen it i highly
+recommend watching that before you
+continue on this video
+today we are going to do image
+classification of
+60 000 small images and this data set is
+coming from tensorflow library itself is
+called cifar10 database
+it has various objects such as aeroplane
+ship
+frog host etc and we will be doing
+image classification using convolutional
+neural network
+so we'll straightaway jump into coding
+and then in the end
+i have an exercise for you so make sure
+you watch till then
+and you do the exercise on your own the
+data set that we are going to
+use in this video has 60 000
+32 by 32 colored images with three rgb
+channels
+and we'll be doing a classification into
+one of the
+10 categories so these are all the 10
+categories that we have
+i have loaded some essential libraries
+here
+and the first thing i'm gonna do is load
+the cfar10
+database into my jupiter notebook
+so when you call this load data method
+what you get as a return value is this
+so you have
+x strain your y train
+and then you have x test white is
+x taste y taste
+and i'll just quickly check
+the shape of the extreme you see that
+the training samples are 50 000
+each sample is 32 by 32 image
+and three is for rgb channels
+now let's look at the test
+so in the test we have 10 000 images so
+this data set is kind of
+decent size you know it is not too small
+now i want to check each of the training
+samples
+so when you of course do this x train
+let's say zero you know
+you get this three dimensional array 32
+by 32
+into three you know rgb channels
+uh i want to just quickly
+plot this to see you know how this thing
+looks
+so you can do method you know matplotlib
+we have already imported here as plt
+and this has a function called i am show
+and you get this is actually a frog and
+if you do one this is a truck
+but the image is pretty big so i want to
+just
+control the size of the image
+so you know when the image is little
+smaller
+you can clearly see that this is a truck
+and this is a frog
+just for convenience i'm going to write
+a function
+called plot sample here and this
+function is
+taking x and y and index
+and printing that particular
+uh image sample so here it will be this
+and i want to also on x label i want to
+print
+the label basically whether it's a frog
+or
+a ship now i know that
+the labels are basically zero to ten so
+airplane will be zero
+automobile will be one and so on
+so i'll just define
+the list variable called classes to be
+this
+okay and then uh
+we can use this classes here
+classes okay how do we use it so let's
+think about this
+so we need to analyze first the
+[Music]
+y actually you know so
+let's check what is there in the y
+so if you do y train dot shape
+you get 50 000 samples and
+one dimensional array so let's just
+quickly check the first five samples
+so what i notice is these are the
+numbers you know
+six will be for what okay six is zero
+one two three four five six six is frog
+then nine we saw it was a ship so nine
+is a
+ship but this is a two dimensional array
+actually we don't need two dimensional
+array here
+because we just need direct uh category
+right so i'm going to reshape
+this particular uh y train
+so i what i will do is so see right now
+it looks like this okay
+now i will do if you know about
+numpy arrays you know that to reshape
+y train you can just call y train dot
+reshape
+and the way you want to reshape is the
+first dimension which is 10 000 you want
+to keep it as it
+is so when you don't want to change that
+dimension you just say minus one
+and the second dimension is
+you want to flatten this so instead of
+6 being an array you want a simple six
+so then you will just leave this blank
+and as a result what will happen is
+now when you do y train
+file okay it is saying
+oh i need to do reshape actually okay
+so you notice the difference instead of
+two dimensional array
+now this is a one dimensional array
+perfect
+so now simply if i have classes
+array like this and in that
+if i pass lesson nine i get truck
+okay uh so
+i can then use that index here
+and that index will be y of index
+okay so
+this will be y of index and i execute
+this
+and now when i say plot sample
+let's say in my training sample
+and here i will do y train
+let's say i give zero so for zero i get
+frog see this
+x label is just printing this particular
+label
+and if you do let's say one
+you get a truck this is a truck it's not
+a ship maybe i misspoke
+but it's a truck so nine number is
+struck eight number is ship
+so you can check various samples what
+the sample this is also a truck see
+this is a then this is a deer and so on
+so this is a just quick data exploration
+part
+that we did now uh
+we want to normalize our data we saw in
+our previous
+tutorials that whenever you have an
+image
+you want to um divide
+each pixel value by 255 because the
+pixel value ranges from 0 to 255
+for each of the channels rg and b
+and if you divide it by 255
+you will be normalizing it into a 0 to 1
+range
+so let's again quickly check this
+you see the values here are 103 59 and
+so on
+okay now if i do this
+you see see this is the power of numpy
+array you can just
+divide it by 255 it will divide every
+element in the
+entire array so
+now i can simply say x strain is
+extreme divided by 255
+next taste is
+okay so the values are normalized now
+we'll build a simple artificial neural
+network first
+to train the model i want to see the
+performance of
+how artificial neural network works and
+then
+we will do a convolutional neural
+network
+in one of the previous tutorials we did
+gpu performance for the same
+c par 10 data set so i'm going to use
+that notebook it is on my github here
+and i'll just copy paste some code from
+there
+so here uh we built a simple artificial
+neural network
+so this is the same neural network i
+will build
+and see how it performs
+so here
+you see it's very simple the input
+layer is a flattened layer it's a first
+layer which accept the shape of 32 by 32
+by 3
+then we have two deep layers one
+having three thousand neurons the other
+having one thousand neurons
+and the last layer is having ten uh
+categories because we have total ten
+categories right see
+this is like 10 so when you
+train this neural network it will use
+a dense artificial neural network with
+all these parameters
+optimizer is sgd and there is pass
+categorical
+cross entropy value as an input
+in that tutorial by the way i use a
+categorical cross entropy and if you
+want to know the difference between
+categorical and sparse categorical
+then see i have this nice image that can
+explain you
+so here uh whenever
+uh you have let me just go in our
+presentation mode
+so whenever you have um
+your y as one hot encoded vector
+so let's say you have ship here which is
+number nine
+and if your y is something like this
+which is one heart encoded
+you will use categorical cross entropy
+but if y
+is directly a value which is number
+eight you use
+sparse categorical cross entropy in that
+video of gpu performance
+we converted into categorical that's why
+we use categorical
+but here we are directly using the value
+8 and so on and that's why
+we are using sparse categorical cross
+entropy
+here after the training uh you see that
+accuracy i am running just five box
+but accuracy is pretty low 48 percent
+you see 48.58
+on training samples when you evaluate it
+on test samples
+it is 47 percent so artificial neural
+network
+is performing really bad on this data
+set
+with five epochs i have also printed
+here
+a classification report and this
+classification report gives precision
+recall an f1 score on each of the
+classes
+so for example this nine nine is what
+truck
+or a ship maybe ship no it's a truck
+actually okay
+so for truck class the precision is 59
+percent recall is 48 percent
+and you can see this matrixes if you
+don't know about precision recoil and f1
+score
+again in my this tutorial series there
+is a video on
+what these terms are so it is better if
+you watch these videos in sequence
+now we are going to use cnn
+uh to improve the performance of this
+model so how do you use cnn
+well in our previous video we saw that
+cnn so let me pull that presentation
+here
+so cnn will have um
+couple of layers so those layers would
+be
+usually you'll have convolutional
+layer then you have value which is the
+activation and then
+pulling then again convolution value and
+pulling
+and then you have a dense network so you
+will keep the dense network
+in front of your current dense network
+all we are going to do
+is add some convolution and
+a pulling layers so
+let's uh do that so let me just
+copy this code here
+okay so here this will be cnn
+and
+so you will have some cnn layers here
+okay and this will be your dense network
+so when uh
+you are in the middle layer you don't
+need to specify the shape
+because the network can figure it out
+automatically
+and just to keep things simple i'm just
+going to keep only one dense network
+because my cnn would have done most of
+the work so i don't need so many
+neurons and so many deep layers okay and
+i'm going to use a soft mix function
+here
+this is one of the popular activation
+function the difference between
+soft mix and sigmoid is that
+so soft max mix will normalize your
+probability
+so it will um if you have probabilities
+like
+let's say your two classes class one is
+let's say
+it gives 0.45 value and class 2 gives
+whatever 0.67 value if you use
+soft mix you get this as an output uh
+you if you use sigmoid sorry then you
+get this as an output
+but if you soft max then you get
+this divided by
+this as an output so what happens is
+now you are normalizing let me just show
+you quickly so you get an
+idea so you're normalizing it to
+a range between zero to one so your
+total sum basically
+will be z
+one so if you sum this point this one
+and this one
+you get total sum as one so that is soft
+max
+but if you are using sigmoid uh and if
+you
+sum this up you don't necessarily get
+one all the time
+now in this code here i'm going to add
+first convolutional layer and then the
+max pooling layer
+uh this goes back to our presentation
+earlier
+so it's pretty straightforward
+convolution is
+are detecting the features in your image
+now when we saw this presentation for
+the image of nine in the previous video
+we saw that uh we can have
+this kind of three filters so the first
+one is
+detecting the loopy pattern and the
+second one is
+detecting the vertical edge which is the
+middle part
+third one is detecting the tail
+the best thing about convolutional
+neural network is
+you don't need to tell it what what the
+filters are
+it will figure out the filters for you
+you only need to tell the filter size
+and how many filters you want see in
+this case
+we had three filters one two three so if
+you look at this image
+we get these three filter stack filters
+feature maps
+here we will use you know just random
+like
+maybe 32 filters
+so this can detect 32 different
+features or different edges in your
+image and then
+the actual filter size is specified here
+so let's say we are using three by three
+filter
+see here also we had three by three
+filter this green box
+so that's what this is and then you need
+to specify activation
+which is value
+okay so here
+i have activation as value and then my
+input shape is
+32 by 32 by 3 okay because that is
+one image so going back to
+the architecture once again
+all right what did we have we had
+convolutional value and then we had
+pulling so we have convolution
+and value and you have pulling so
+pulling
+i'm going to specify a max pooling of
+2x2
+max pooling is very popular pulling
+a method people use average pooling as
+well
+and for activation also you know value
+is quite
+popular it is less expensive to
+calculate
+now you can have only one layer or you
+can have multiple
+doesn't matter you know like you kind of
+figure this out by trial and error
+so just for fun i'm going to have
+another set of convolution and max
+pulling layer okay
+so see here we had like convolution
+pooling convolution pooling
+so that's what we have now
+now we do our usual model compile thing
+this is something we have been doing in
+all our videos
+you need to specify optimizer loss and
+matrix
+i already explained why you use past
+categorical cross entropy here
+there are various optimizers misers sgd
+adam and adam adam is the kind of
+popular one
+that gives the good accuracy so that's
+the reason
+i'm using it here and i need to say
+cnn actually here
+okay and then i will do
+uh
+cnn dot bit and i will run it for
+tan epochs
+there are 50 000 images to train so it's
+gonna take some time so
+please have some patience here you saw
+that
+after tan epochs it gave me 83 percent
+accuracy
+actually if you compare it with a n see
+after phi epoch i get 73
+accuracy in a n
+after 5 i got only 48 so you can see
+that using cnn
+helps you tremendously and now
+i will test this out on
+my test set
+and here you know i got 70 percent
+accuracy which is
+pretty good okay uh if you training for
+more epochs you can probably get more
+accuracy and you can do little fine
+tuning
+but for the images which are like this
+which are kind of
+you see these images are like kind of
+random actually this is actually a tough
+data set
+uh and in this kind of complex stock
+data set also
+we get 70 percent accuracy which is
+pretty nice you know i'm like kind of
+happy with that so
+good job you just built your first
+convolutional neural network
+well done i hope you are also typing
+this code
+as you watch this video uh so
+coding in parallel with me is going to
+be
+definitely useful now i will do
+a plotting of some samples uh
+so let's see
+okay we got some error and i think this
+is happening because we did not
+reshape you know we had to reshape our y
+test
+because our white is okay before
+executing this let me show you
+it is a two dimensional array i want to
+convert it into
+one dimension so if you do this
+it is now one dimensional array and in
+my y test
+i want to see what is my first image
+okay my first image is ship
+now let's use our model to predict this
+and see how it performs so
+what i am going to do now is
+i will just say i will predict all x
+test samples and i will get y predicted
+values
+so if you do y predictor by the way
+the values in each of these elements
+are actually probability distribution
+between 0 and 1.
+it is using softmax and
+you want to find out which element is
+the max
+so for that you can use
+arg max function okay so the way arc max
+works
+is if you do let's say np dot arg max
+see let me just quickly show you
+you know why it gave one because 12 is
+the maximum element and the index
+of 12 is one see if i do this one
+let's say i make this one
+then say it is getting two so that's
+what it is doing so here
+if i supply let's say y print
+0 then the index is 5
+which means number 5 is the
+maximum element i'm going to
+convert this into y classes so what i
+will do is i will say okay
+why classes is equal to
+i'll use list comprehension in
+uh python so the way you do that is
+it's like running a for loop so for
+element in y predicted
+or you're computing arg max for each of
+these
+so you know like what you get as a
+result is something that you can compare
+with
+y test so now if i have y
+test here
+you see this is how so the first sample
+it got wrong
+it was five got three but the second
+third port
+it got right and then see it will make
+some errors okay
+because our accuracy test accuracy is 70
+so it's fine all right
+so now we already saw
+that test
+sample one is a
+ship which is this eight okay and
+if you look at now classes
+you know we have this classes what is
+classes
+class is just a simple list of all the
+classes
+and if you supply y class is one
+see so this is the actual value and
+this is the predicted value so for
+zeroth
+element first element it got it right if
+you look at zeroth element it would have
+made a mistake so it was less a cat
+and it said it's a dog
+but even for you it is hard to recognize
+that this is a cat right
+so cnn making mistake is probably okay
+here
+because this image is very very
+difficult if you look at
+let's say zero one two three
+the third image third image is aeroplane
+see it's flying like airplane and if you
+look at three
+see arrow blind so here it did not make
+a mistake
+i also printed a classification report
+using y test and y classes
+so now using cnn you're getting better
+numbers
+see your f1 score is overall better here
+80 81 percent
+here is less 50 percent 70 percent and
+so on
+but when you looked at simple a n
+the score was a quite low
+i know i did only five epochs but even
+if you try tiny box
+you still get lower score in a n and
+better score in cnn
+in cnn also computation is less because
+we are using
+max pooling layer and that reduces the
+dimension
+the jupyter notebook that we covered in
+this video is uploaded on my github
+i am going to provide this link in the
+video description so make sure you check
+the video description
+and then in the end uh what we are going
+to
+do is uh
+i think it's not this it's this one yeah
+so it is this
+particular notebook and the link is in
+the video description
+and if you go towards the end
+there is an xss for you so what you have
+to do is
+and by the way this is the most
+interesting part of this tutorial i i
+always say that
+exercises are the most important thing
+just by watching videos
+you're not going to learn anything you
+have to practice it
+practice makes the man or woman perfect
+so in one of the previous video we did
+handwritten digits classification for
+mnist data set
+and i have this notebook here
+so what i want to do what i want you to
+do is
+take this notebook and do the same digit
+classification using cnn
+this one is using a n okay artificial
+neural network
+see here and you have to just use a
+cnn and just see how the accuracy and
+the
+classification report improves when you
+use cnn.

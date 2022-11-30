@@ -1,0 +1,261 @@
+vanishing gradient is a common problem
+encountered during neural network
+training
+in this video we will look into how this
+problem affects
+regular artificial neural network and
+rnn
+here i have a simple neural network that
+tries to predict if a person will buy
+insurance or not
+based on factors such as age, education
+income and so on
+when you think about hidden layers these
+hidden layers are
+extracting some features for example age
+and education might affect awareness
+income and saving might affect the
+affordability
+when you train this neural network
+on a sample data where the age is 29 the
+income is 150k and so on
+during training we will have a forward
+pass
+in which these values will be passed and
+initially we will initialize this weight
+w1 to w10 with some random values or
+maybe with zero values
+and then in the end we compare the
+actual output with predicted output and
+we compute the loss
+then we do backward propagation to
+update these weights
+in backward propagation for example to
+update w9
+we will subtract a small factor from w9
+which will be learning rate learning
+rate is like small number point zero
+zero one, zero zero two whatever
+and the gradient the gradient is the
+most important part
+what gradient tells you here is
+it's represented as a derivative of loss
+compared to w9 which means
+how much loss is changing for a given
+change in w9
+so this is a guessing work you're trying
+to optimize your loss or
+minimize your loss and you want to see
+how much w9 is changed so that
+that results into certain
+amount of change in loss so that you can
+reduce that loss
+so you can think of this as
+how much awareness contributes to a
+final output
+let's say awareness contributes to only 57
+20 percent to the final output
+affordability
+contributes 80 percent to the final
+output then you know
+this w9.. this chain.. this gradient will be
+less here
+okay and now
+when we think about
+w1 you want to update w9, w10
+all the weights so when you further back
+propagate
+the equation here will be the gradient
+equation would be
+derivative of loss with respect to w1
+and that will be basically you know if
+you have seen my chain
+rule tutorial it will be your derivative
+of loss
+compared to awareness and derivative of
+awareness
+compared to w1 which means how much
+awareness changes for a given change in
+w1
+so you can see that as you increase
+number of layers in the neural network
+these
+multiplications will increase so here
+for our case
+you know we had like two multiplication
+we had a multiplication of two factors
+like
+we know derivative one and derivative 2.
+and if these numbers happen to be small
+let's say both d 1 and d 2 are smaller
+then the resulting gradient will be even
+more smaller
+it is a simple math if you multiply
+couple of small numbers
+you get even a bigger small number not a
+bigger small number smaller small number
+maybe
+so now what happens is when you have a
+very
+low gradient like a very small gradient
+your learning process becomes slow
+so your equation for w one new will
+be w one o minus learning rate into
+gradient learning rate is less than
+point zero zero one
+then point zero zero one into point zero
+zero one is
+very very small number so your w1 is
+hardly changing
+so during your training process now your
+weights especially the weights in the
+earlier layers
+are changing by a very small amount
+and that affects your learning
+process and this concept is called
+vanishing gradients
+when you have a big neural network in
+the earlier network
+the gradient effect will be very small
+that's why it's called vanishing
+gradient
+it's not good for the neural network
+training because your weights are hardly
+changing and
+you're not really learning anything you
+know it's like a dumb student in the
+class
+whom you're teaching so many things and
+he's hardly learning anything
+on the other hand if the d1 and d2 the
+values of individual derivatives are
+bigger
+then the resulting number will be even
+more bigger
+so again a simple math when you have a
+product of multiple numbers and
+individual numbers either all of them or
+some of them are big
+your overall product will be very big
+and this is called exploding gradients
+now when you think about
+deep neural network you know which has n
+number of layers
+your gradient becomes even more smaller
+so vanishing gradient problem is more
+prominent in deep neural network
+now let's talk about variation gradient
+problem in rnn
+so there is exploding gradient problem
+also but vanishing gradient problem is
+something that
+affects more so let's say you have these
+two statements
+so here i am doing an autocomplete nlp
+task you know in google when you in
+gmail when you type some
+line it tries to auto complete let's say
+my statement is today due to my current
+job situation in family condition i
+when i type i or when i say condition
+comma
+my google let's say gmail tries to auto
+complete
+i need to take a loan whatever okay so
+these are the two statements
+now watch the words which are
+highlighted in yellow
+here if i want to use need
+or head depends on my first
+first few words in the statement because
+see all these words due to my current
+job situation they are all same
+so you can see that in english language
+often the wording that we put in the end
+they they have you know the wording
+which are in the beginning they have an
+impact
+to the words in the end you decide the
+end words based on very
+initial few words so if you're training
+an rnn like this and if you don't know
+how this works i highly recommend you
+watch my
+what is under rnn video in the same
+series
+because watching that video is very
+important otherwise you will be confused
+because
+this is an unrolling of
+layers neural network layers in time so
+it's not like we have six layers
+of neural network there is just one
+layer but this is a time stamp t1 t2 t3
+so this we have unrolled into time
+for that reason you want to understand
+this convention
+and for that you watch my video of
+what is rnn
+so here i'm saying today due to whatever
+my whole
+sentence you know i have daughter
+here and then my neural network tries to
+predict
+i need to take a loan so the word need
+this is derived based on this first word
+today
+if i had last month then i would
+put i had
+so you can see that in rnn since we are
+feeding these words
+in a statement one by one uh
+the vanishing gradient problem becomes
+more prominent
+because you know all these activation
+that you are passing
+so you are passing activation a1, a2, a3
+so by the time you are at a4
+already the effect of a1 is kind of
+reduced
+and if your english statement is very
+long by the time
+you reach here the effect of today
+has significantly reduced and you will
+have a hard time predicting
+this need word so
+traditional rnns are said to have a very
+short memory
+so maybe when you have today maybe on
+due or two
+maybe until here uh there is an impact
+of today
+but as you pass through more words the
+impact of the earlier words reduces and
+that's why we say it has a
+short memory and this
+this shows the impact of vanishing
+gradients because as you back propagate
+right as you back propagate
+the as you back propagate what will
+happen
+is the vanishing gradient problem will
+arise here
+as you know these earlier layers will
+hardly
+change their weight based on the need
+let's say you're feeding this exact same
+statement
+and here i am finding need okay and my
+actual output
+was something else so there was a bigger
+error now that's bigger error when i
+back propagate
+by the time it comes here it it
+it will have resulted into vanishing
+gradients
+and we have two solutions for it which
+is gru and lstm
+and these are like special types of rnns
+or neural networks which
+addresses the problem of short-term
+memory.

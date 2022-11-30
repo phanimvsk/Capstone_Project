@@ -1,0 +1,333 @@
+Whenever you're working on a supervised
+machine learning problem
+the biggest challenge is the collection
+of data. Let's say you are working on a
+computer vision
+problem for dog and cat image
+classification.
+You have to gather so many dogs and cats
+images,
+and you have to annotate them, you have
+to label them, that this is a dog and
+this is a cat
+and in deep learning,
+we know that you need humongous data set.
+If the data set is bigger
+then only deep learning is effective. So
+consider
+gathering million dogs and cats images
+and now you have to manually
+annotate them, it's it's a labor
+intensive work.
+The problem gets even more worse when
+you go into
+object detection. So for example here in
+this image
+not only you have to say that this is a
+dog and cat, but you have to draw a
+bounding rectangle and also specify the
+coordinates of this rectangles.
+And same thing is for image segmentation,
+where you have to
+specify pixel wise pixel mask, that this
+is a dog
+and cat. So you realize that
+the annotate annotating these data sets
+especially,
+for image segmentation and object
+detection so very very labor intensive
+work,
+and some of the brains
+and the thinkers in the world of
+computer vision early on realized that
+this will be an issue
+going forward. So this started working on
+certain uh open source
+image data sets and we are going to
+discuss three popular
+image data sets for computer vision
+problems,
+and those are like coco, google open
+image,
+and the image net project. So these three
+are
+big uh basically image data sets that
+different organization have been working
+on and it's not just a collection of
+different images but the bounding
+rectangles and classes
+and annotations as well so. Let's look at
+those three very quickly.
+The imagenet dataset has 14 million hand
+annotated images,
+out of which one million have annotated
+bounding boxes
+for object detection and these were
+annotated using a crowdsourcing platform
+called
+amazon mechanical turk. So in
+crowdsourcing
+you push small task to the crowd
+and the crowd will handle uh these tasks.
+So crowdsourcing
+is often the best platform for doing
+any type of uh annotation activity,
+for supervised machine learning problem.
+Here is the website for the imagenet
+where you can explore different images.
+For example, I'm looking for an image of
+a frog
+and it will show me the different frog
+images.
+You can also explore popular images.
+So let's say I'm looking at the house's
+data set.
+So here it shows me the whole tree of
+different images and this is as per the
+word nate uh word hierarchy.
+So you see houses has like different
+type of houses right, so I'm going into
+residence and you will see different
+categories within it.
+The website takes time to load so the
+images
+here probably are loading but if you
+look at the
+URLs, okay; so let's check the URLs. Let me
+go back to
+yeah, houses here.
+So they don't they don't keep the images
+themselves but they have a reference of
+all these
+URLs. So if you look at this particular
+URL for example,
+this is the house image
+and this is from flickr, which is a
+popular photo hosting website
+and they also have the bounding boxes. So
+when you download this bounding box,
+you know it will download the star.z
+file,
+which you can unzip using this star
+minus
+xvf command and I unzip that file
+and when I open that file I see bunch of
+xmls. So when I open this xml file,
+see I find this kind of annotation in
+xml format where you have a bounding box
+and if you're writing computer vision
+training program,
+you can take the image from the internet
+and then take associated annotation in
+this xml format
+and you can find out what are your
+bounding boxes.
+The imagenet project has been holding
+different challenges. So in these
+challenges every year
+different entities and individuals
+participate and they can
+build a model which can effectively uh
+train this computer vision
+uh challenge and if you look at the
+wikipedia
+in 2012 the CNN model which won this
+competition is called AlexNet.
+So AlexNet has become popular since then
+but if you hear about this and just
+think about it as a
+specific type of CNN or which
+did an awesome job on this imagenet data
+set.
+Now we did a tutorial on transfer
+learning in last video,
+where we downloaded a pre-trained model
+from tensorflow hub
+and that model was actually trained on
+imagenet dataset.
+So that imagenet dataset was a
+restricted data set with thousand
+categories,
+but in reality the the overall images
+are like
+20 20000 categories, but there is a
+reduced version which is a thousand
+categories
+on which this competition is being held
+everywhere.
+The second most popular data set is COCO
+data set.
+Here if you explore this data set you
+see different
+categories, so here I have selected
+let's say umbrella. Okay, so you select
+umbrella search
+and you will see images along with their
+um
+segmentation pixels or image
+segmentation
+mask. So see here when I move my cursor
+over human
+it shows the human pixels, then only
+umbrella, then bottles,
+then wine glass, see the wine glass
+flower and so on.
+You see these are all the pixel masks
+that you have. So if you say umbrella only
+umbrella,
+humans only humans, bag only bags.
+See this guy has a back
+and when you say URL, it shows you the
+URL of that
+particular image, see this is the
+this is the image
+you see. So they took this original image
+and did hand annotation and
+annotated all these umbrellas and stuff.
+They also do the image captioning, so
+when you click here
+you get all this image captioning.
+Now you can download this data set by
+clicking on download
+and you will find all these files. So if
+you download train and validation
+annotation, uh
+I have downloaded those, so let me just
+show you.
+So once I download uh those
+validity that file I got,
+see I unzipped it and
+I'm going to open the validation json,
+because the actual training json is
+pretty big.
+So when I open validation json
+here um see it's it's a huge file,
+okay huge file with images and
+annotations. So I
+create a trim down version of the same
+file
+and it has this infrastructure which is
+saying okay this is coco dataset and so
+on.
+But the most interesting part is images.
+So here
+um you have this particular image, so
+let's see what this image is.
+Okay, so this is man working in a
+restaurant some scene in restaurant
+and that image height and width is this
+much,
+the flicker URL is this they copied this
+image from flickr to cocoa dataset and
+the image id is this one, and this
+json will have annotation section so if
+you
+reference the image id, here.
+This shows you the bounding box of the
+category 44.
+So if you look at 44 category in this
+file if you go towards end you'll find
+it's a bottle.
+Okay so let's look at uh
+you know so here there is a bottle
+somewhere, which i'm not able to see; but
+there is a bottle in this image which
+they have annotated
+and uh
+the dimensions are this the the bounding
+box is this
+and segmentation is basically the x y
+point. So x y x y x y you literally
+just draw this x y x y points and
+that will create a bounding almost like
+a shape,
+and that will make your um
+your image segmentation mask.
+Okay,
+now coco dataset provides key points as
+well so if you click on key points
+these are useful in like post detection.
+So whether the person is
+you know standing or sleeping like like
+the pose
+and all that. So there is like key points
+as well as bunch of other things, which
+could be very useful in your computer
+vision task.
+The third data set is Google's Open
+Images Dataset.
+This has 478 000 images,
+okay and 15 Million boxes surrounding. So,
+it's too much it's pretty big and if you
+explore it,
+let's say I'm looking at the pastry as a
+category. See
+these are all the segmentation mask for
+pastry..umm
+yummy, if you like the sweet
+and then for detection
+whenever you talk about detection, it's
+about drawing the
+bonding rectangle around it. So see here
+in this person, this is a person, this is
+a pastry, and so on.
+So all these images are available to
+download,
+all annotated, this makes your computer
+vision task
+or training really easy and when you
+click on download
+see in download you can download train and
+validation data sets.
+You can download boxes annotation for
+boxes segmentation relationships so many
+things,
+okay this is all free.
+So I hope you can use all these three
+data sets to train your computer vision
+models
+and you realize how important these
+free data sets are because
+as an individual you and me cannot go
+and download these many images and
+hand annotate them. It's just too much
+work. So thank you for all these
+organizations- Google, Imagenet
+and Coco guys who are doing awesome
+job in providing us the free annotated
+data sets,
+which we can use for our computer vision
+task,
+and uh some of the pre-trained models
+such as
+the imagenet model that we saw in our
+tutorial before
+those are trained on these data sets.
+Also the tensorflow, if you look at
+tensorflow hub for example
+this is a collection of all the
+pre-trained models. For example you have
+object detection model BERT and so on,
+and these models
+are often trained on these free image
+data
+sets. So, it helps accelerate the
+growth of computer vision and AI in
+general
+uh so using the transfer learning and
+these pre-trained data sets
+we can do things much faster. So I hope
+you like this video,
+we'll continue the discussion on
+computer vision in this deep learning
+series
+further so please in the video
+description below check out my entire
+deep learning series,
+where we have covered basic deep
+learning
+and then computer vision using CNN and
+then
+language modeling using rna, etc.; all
+right.
+Thank You.

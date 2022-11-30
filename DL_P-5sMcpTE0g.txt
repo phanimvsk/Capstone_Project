@@ -1,0 +1,470 @@
+Let's say you're building an email
+classification model where you're
+specifying whether email is spam or
+not spam a typical data science workflow
+would be
+you will collect data, do data cleaning
+feature engineering
+and you will train a model. Let's say
+this is a tensorflow model
+you will then export it to a file you
+can just say
+model.save and that will export the
+model to a file on hard disk.
+Then you can write a fast api or
+flask based server. This is the proper
+approach
+people write these servers which will
+load the save model. As you can see in
+this line
+and when clients make http
+call such as this predict
+function
+it will call this function where you use
+the loaded model.
+Now let's say this model is running fine
+in production
+you get new data, you train a new model
+and you are
+ready to deploy the next version which
+is version 2
+to your beta users. So what happens here
+is
+version 1 is production and then version
+2
+is ready to be deployed to beta users.
+Now imagine how you would have to change
+your fast API code in this case.
+You would somehow detect in your predict
+function
+that the given user is a beta user and
+then
+you can call beta model. So see here I'm
+loading
+model one and two into two different
+variables and I can
+so the request based on
+what type of user that is. And this is
+one approach
+maybe you can have a different server
+altogether
+just for beta users. But you can already
+see the complexity here
+here you have to do if else maybe you
+have
+five different versions which you want
+to serve to different type of
+users. Overall you get an idea
+the version management is little tedious.
+TF serving makes this version management
+easy
+and model serving becomes very easy
+here you have to write all this code we
+will see
+in tf serving you don't have to write
+any code
+you just run one command and your server
+is ready.
+So I will show you practically how it
+looks but let me mention one another
+benefit of tf serving-
+it is batch inference . You might have
+let's say
+thousands of incoming requests for
+inference.
+In tf serving you can
+match those requests and solve those
+requests to a model
+in batches the benefit is better
+hardware
+resource utilization. You can have a
+timeout parameter
+say 5 second is a time timeout so and
+your batch size is 100.
+In 5 seconds let's say you only receive 52
+requests
+then it will badge only 52 because you
+don't want these requests to be waiting
+till you receive 100 requests, you know.
+So batching thing also
+works now let me just show you directly
+how this whole thing works.
+In one of my videos in deep learning
+tutorial playlist
+I built a text classification model
+using BERT
+so here is the video if you want to see
+the
+model building process but I'm just
+going to open that same notebook here
+and you can see you're classifying email
+as spam and non-spam
+using BERT and tensorflow once the
+model is
+built and ready you can export
+it to a file using dot save method.
+So here I have called dot save three
+times basically
+just to show you three different
+versions
+and you can see these three different
+versions are saved here so you see
+saved model directory here these are
+essentially the same models.
+But in real life you would have
+different models
+you know version one and version two
+would have some differences.
+But here just for the tutorial purpose I
+save the same model
+so if you go to individual model you'll
+see couple of files
+you know like the assets and
+variables and so on you you don't have
+to worry about what these files are you
+can just directly load this model and
+start using it.
+The first step here would be to install
+tensorflow serving
+the most convenient way to install
+tensorflow serving is
+docker so you can just pull the docker
+image
+by running this docker pull command.
+There are by the way other ways like if
+you're using Ubuntu you can do
+apt-get and things like that but here
+I will just use docker okay so in my git
+bash
+I can just run docker poll tensorflow
+server
+and it will pull the latest image I
+already have the latest image
+so it's not doing much but
+if you run docker desktop
+I have windows and on windows I have
+already installed docker desktop
+and if you look at docker desktop you
+see I
+I already have tensorflow serving
+image on my computer
+you can use git clone this this will
+just
+download you know some sample models for
+you but we are going to use our own
+model
+so you can follow these commands just
+for your own
+learning. But here I'm going to
+just lower the model which I saved so I
+have saved
+again in df serving I have all these
+saved models okay
+so now I'm going to open
+windows powershell so you open windows
+powershell I already have it open here.
+I'm just going to
+call it clear and
+okay it will look like this and
+once you have this open you need to
+first
+load the docker container. so how to load
+that?
+Okay, I have created a github page
+where I have given all the commands and
+I'm going to put the link of this in
+video description below
+but the way you load docker
+is by calling this docker run minus v so
+I will
+just gradually type in those commands so
+you get an idea so you will say
+docker run okay.
+See there are a couple of command line
+options this is not a docker tutorial so
+I'm not gonna go
+into each option in detail but
+minus v is an important one so here
+you supply your
+host directory. So
+I want to use this directory here right
+so I will just say control c
+okay and control v.
+so I want this directory to be
+mapped to some directory
+inside my docker container so I'll just
+give the same name you know
+tf serving so this directory from my
+host
+maps to this directory in my docker
+image
+then I will loop port. So let's say
+I want
+8605 port to be exposed as 8605
+so 8605 on my host
+system is mapped to h605
+on my on my what
+on my docker container image
+and then I will do entry point now if I
+don't do entry point directly
+what's gonna happen is docker will have
+its
+default entry point so the image that we
+loaded
+the default entry point will directly
+run the tf serving command. But we don't
+want to do that so I will just
+do entry point. Entry point is bin
+bash. Bin bash will take you to command
+prompt basically okay and then
+you give the name of your image
+so what is the name of your image well
+it is
+tensorflow slash surving
+when you do that you will enter into you
+see
+you have entered into now your docker
+image
+and within the docker image since you
+mapped this 48 serving.
+See 48 tf serving? You see that
+here and if you do let me just clear it.
+If you do ls.
+See if you do ls
+minus you see all these directories you
+see saved models which is good.
+Now the way you run tensorflow serving
+is
+by running this command this will run
+your tensorflow serving
+and here you need to supply your rest
+API port.
+So my rest API port where i'll be making
+my you know http calls
+is eight six zero five
+and you can have any any port pretty
+much but
+we decided h605
+you need to give model name
+let's see my my any anything you can
+give x y z
+my model name is email model
+and what is my model base path?
+So my model base path is nothing but
+this directory. Okay when you run this
+command
+see in one line we
+okay what is what is it saying there is
+some
+error happening okay we forgot to give
+the name of the model file so it is
+actually
+actually saved models right you need to
+give saved models actually.
+Okay so that was the reason i was
+getting an error. So now
+this means my model server is ready
+see just by writing one line of code I
+I created my server now how does this
+server work
+well for that you need to run postman
+so install postman it's a popular tool
+which is used to make
+http request you know what before I run
+postman let me just show you
+in a browser itself so 8605
+is my port then you do v1 is just a
+fixed thing okay v1
+then you do models then you do email
+model
+so when I do this it is saying I have
+version 3 available
+which means by default when I ran that
+command
+it looked into save model directory and
+whatever is the highest number
+version 3 it says that is the model
+which is available. Now I will use
+postman to make actual requests so in
+the postman
+what you can do is you can say
+email model colon predict.
+okay so I have same url basically
+see this part is kind of fixed.
+I was confused initially by v1 but
+ignore that v1 is always v1.
+It's not the actual version okay
+then email model and then colon predict
+in the body so by default you'll be here
+you have to come to body
+and in the body click on row raw
+and this is the format that it expects.
+Okay so let me reduce the font size
+a little bit okay so here
+you will say instances this is a fixed
+format okay don't ask me why it is like
+that
+that's a format that tf serving expects
+and I'm giving two emails this one is
+not a spam email
+this one is a spam email and when I say
+send
+see it is sending the request and it got
+this prediction back.
+It got this prediction back from the
+model server that we just started.
+So here if the value is less than 0.5
+it is it is not a spam if it is more
+than 0.5 it is spam.
+So you can see is clearly see second one
+is spam that's why value is
+more than 0.5 this one is not a spam
+hence the value is
+less than 0.5 if you want to call this
+by version number.
+You can simply say slash versions
+slash 3 column predict and you get the
+same response.
+But we already saw this has only version
+two of three available if i do version
+two
+and send see what happens.
+It says where this model is not found
+even
+version one is not found so what if
+I want to make all three versions
+available?
+I want to make all three versions
+available okay?
+For that you have to use model config
+file
+how do I do that okay let me exit ctrl c
+it will exit. Okay
+I can do that by changing the command a
+little bit
+so here
+[Music]
+I will say model config file
+is equal to so I need to supply
+model config file
+so I already have this config called
+model.config.a
+and if you look at that file what it
+says is
+model version policy all which means in
+this directory.
+Whatever version you see make them all
+survivable instances.
+So I'm going to run this
+see successfully loaded version 2
+version 1 version 3. All
+threes will be survivable so now when I
+say see version one predict
+it works version two predict
+it works I get the same output by the
+way
+because my models are same but in real
+life scenario
+version one, version two, version three.
+This they will give a little different
+output.
+version three works.
+Version four what's gonna happen
+obviously you don't have version four
+guys
+many times you have a production version
+let's say one is a production version
+then you build version two and you want
+to deploy that only to beta users
+and you don't want this call to be
+happening through version. Maybe
+it will be better if I can do something
+like okay production
+you know like production versus beta
+do you think that would be better? Well
+that's also supported
+and in order to do that you have to
+use version labels. So I have the same
+exit file
+but I added this section. I'm saying my
+version one
+is my production version two is my beta
+and I'm going to run my model server now
+with that particular file so it's a
+different config file
+basically c. okay so
+request to oh I see okay
+you need to if you get you get this
+okay let me just show you okay if
+if you give this command it gives this
+error and to
+tackle this error you need to give
+this particular option here.
+If you supply this particular command
+line option
+then you don't get this error. Okay so
+now my
+you know tf serving is ready whenever
+you see this.
+It means it is ready and it can serve
+using labels
+so let's see so first of all
+you can obviously call using version
+numbers. So let's verify that first
+so here I will supply
+version number one. You know it works
+just okay
+but now I want to use labels so you will
+just say instead of version
+labels and lesser beta.
+See my beta works you can also do
+production these are the two labels I
+have
+this works just okay and in your client
+code
+what you'll be doing is you know let's
+say you are making this code in
+Javascript.
+In Javascript you will have all these
+urls or beta whatever
+and based on beta or production user you
+can
+switch your users so this is almost
+like
+a b testing type of scenario where you
+are
+testing you know new version for
+beta users. If you look at documentation
+model config file has few other options
+as well.
+For example you can serve two
+entirely different models. You can have a
+dog and cat classifier
+here and truck and car cat classifier
+here.
+And just by running one command
+you can have your server which can do
+different type of
+inferences. So just go through this
+documentation.
+I did not cover all the options we
+talked about
+batching. So matching configuration can
+be this
+you just pass this batch parameters file
+and in the file you can say okay batch
+128 request with certain timeout
+and it will help you utilize your
+hardware resources
+in a most appropriate way.
+That's all i had for this tutorial. I
+have a Github page
+where I have given my notebook
+you can export the models i did not
+upload
+exported models because they were very
+big
+you have all this config files so see
+this is
+config.c and so on I highly encourage
+that you practice whatever you learned.

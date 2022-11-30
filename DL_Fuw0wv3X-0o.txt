@@ -1,0 +1,554 @@
+the last tutorial we looked at what word
+embeddings are
+in this tutorial we are going to look at
+how word embeddings are calculated
+they're calculated using two techniques
+one is supervised learning the other one
+is self supervised learning such as word
+to work or
+globe in this video we are going to look
+at
+supervised learning technique for word
+embeddings
+in the future video we will cover what
+to whack and glow and today's video will
+go over some
+some theory on how supervised learning
+works for word embedding and then we'll
+write some python code as well
+in last session we saw how you can
+represent
+words using the vectors like this where
+it can represent the meaning of word
+meaningfully for example
+here I have two cricket players Dhonian
+Cummins
+and one of the ways to represent the
+word
+vector is by using the features such as
+person healthy fit location and so on
+and when you do that what you find is
+the vectors for
+Dhoni and Cummins who are cricket player
+they look quite similar you see like one
+one point nine point eight seven and so
+on whereas the vector for
+Australia which is a country looks
+quite different and you can have
+number of features that you can use for
+word embeddings so that you know when
+you're comparing humans and Dhoni which
+are cricket players their vectors look
+same
+and when you're comparing the teams
+Australia and Zimbabwe their vectors
+also kind of look same
+now the question is how do you
+come up with these features it seems
+very labor some task
+the good thing is neural networks can
+compute
+these features for you these are not
+hand crafted
+they are derived while training your
+neural network
+and there are two techniques which I
+already talked about
+initially which is supervised learning
+and self-supervised
+so word-to-wear can glow are the
+self-supervised
+learning techniques in this video we are
+talking about
+supervised learning technique what
+happens in this technique is
+you take a NLP problem
+and then you try to solve that NLP
+problem
+and as a side effect you get word
+embedding now the term
+side effect is very important and you
+will see why
+let's say you are doing a food review
+classification
+whether the review of the food is
+positive or negative
+this is a typical NLP task now in order
+to
+do this food review classification
+you have to train your neural network
+and after the neural network is trained
+you will get word embeddings as a side
+effect
+so the problem that you're solving here
+for food review classification is almost
+like a
+fake problem you know you don't care
+about this problem very much
+you care more about the word embeddings
+now you have let's say 100 food reviews
+for that what you will do is you will
+first
+decide the vocabulary so vocabulary is
+all the words that appear in the full
+review so let's say you have 5000 words
+in your vocabulary
+your goal is to come up with this word
+embedding vector
+with dimension 4 it could be dimension
+10
+dimension 300 is very common
+so this is something like trial and
+error let's say for my problem I'm
+saying I want a word vector which is of
+dimension 4
+and these numbers will be calculated
+in such a way that similar word will
+have
+similar type of vectors
+so eventually your goal is to come up
+with this
+four by five thousand embedding matrix
+also known as
+e so the first thing you need to do is
+you need to come up with a one hot
+encoded vector you all know about one
+hot encoding already
+where you know for the after this is
+this row
+is the one hot encoded vector where you
+know there is one here and remaining
+numbers are zero
+similarly for four one is here and
+remaining numbers are zero
+so now you start training your neural
+network so what you do is you take your
+first training sample
+you know just to keep this thing simple
+I'm saying my
+review is only two words nice food
+actually it will be long you know like
+20 30 40 words
+then you come up with a random weights
+in your embedding matrix see this
+embedding matrix is that
+four by five thousand okay let me show
+you
+it is this matrix okay don't confuse it
+with this one hot encoded vector
+so it is this matrix so you want to
+compute this matrix so
+initially you will come up with some
+random weights
+let's say these are the weights 0.5
+0.2.3 these are randomly initialized
+at the beginning now you take one
+hot encoded vector for word nice
+so you see nice is a third word so 0 0 1
+and you multiply it with embedding
+matrix
+if you know about matrix multiplication
+what will happen as a result
+is you will get this particular column
+because to multiply matrix you take the
+first row
+you multiply it with the column and the
+column has
+one in the third column so third column
+is 1 so you get 0.9 here
+because remaining numbers are going to
+be 0. you do the same thing for the
+second row the second row
+multiply it with here the third
+element has one so third element is 1 to
+3.2 so you get 0.2 here
+if you don't know much about matrix
+multiplication I advise you refresh your
+concepts
+then you flatten the vector so i have
+two
+word embedded vectors now these are not
+perfect neural network is trained
+still training okay so these are two
+individual word vectors for nice and
+food you flatten them so you get like
+eight dimension vector then you feed it
+to sigmoid function
+it's like a single neuron sigmoid
+function
+which will give you y hat which is why I
+predicted you compare it with your white
+truth
+so nice food is positive review correct
+so you compare y hat with
+your positive review which is one then
+you get loss
+and you back propagate that loss now
+when you back proper get that loss using
+gradient descent
+these weights will operate see right now
+it's 0.9
+0.2 and so on see the weights are
+updated
+you see it was 0.9 0.2 now
+2.3 1.6 I have put random numbers
+friends
+but you get the point so in this pursuit
+your matrix embedded matrix
+will keep on changing then you take the
+second training sample you know poor
+quality food
+this review is of course negative so you
+repeat the same process flatten out the
+vector compare it with how i had
+do back propagation and you again
+uh change these weights so this time you
+will be changing the weights for poor
+quality food like these
+two three columns
+now you'll ask me a question which is in
+the first sample we had only two words
+the second sample we have three words
+so the neural network architecture needs
+to be fixed it cannot change right
+in the previous one I had only eight
+neurons in my first layer
+here I have 12 neurons how is that
+possible
+well you take the maximum sentence size
+and you
+do padding for the remaining words so
+let's say my maximum sentence size is
+three
+when I have nice food the third word I
+will say
+padding padding means or zeros so all
+zeroes you get
+all zeros so that way my neural network
+architecture
+doesn't change the first layer has fixed
+number of neurons
+which is equal to the word embeddings of
+the
+maximum length sentence
+and you feed all your samples let's say
+10 000 sample you keep on feeding it
+neural network keep on training
+eventually it will come up with a
+matrix you know embedding matrix
+that can represent words nicely so if
+you look at this particular example
+nice and good are kind of similar words
+so
+the numbers are kind of similar you see
+0.4.38
+8.18.2 so when you compare these two
+vectors it will say yeah these two words
+are similar similarly poor and weak are
+similar
+so it will uh compute
+the vectors in a way that those numbers
+are match you know
+and if you look at the cosine
+similarity between these two vectors it
+will be
+close basically you know cosine
+similarity of one means the vectors are
+closed
+so it will be like that so this is the
+quick theory behind
+supervised learning approach for
+embedding metrics
+this approach is not very popular
+nowadays the more popular approaches
+were to work but I still wanted to show
+you
+how this particular method works and
+we'll now write python code
+for this problem before we begin I want
+to say
+thanks to Jason Brownlee for his
+excellent article I'm going to provide
+the link in the video description below
+the article mentions the word embeddings
+in a nice way and
+some of the codes I have written is
+based on this
+awesome article the website machine
+learning master is awesome
+he writes so many good articles so
+please check it out
+here I have imported the important
+libraries
+in keras and numpy
+and then I'm going to do the food review
+classification I have like 10 reviews
+here
+very simple data set and then 10 labels
+so the first five are positive reviews
+you can figure it out and the next five
+are negative reviews so the first thing
+we're going to do
+here is you know we'll convert that
+into a one hot vector so there is a
+method called one hot
+and what that method will do is
+it takes the review and then you specify
+your vocabulary size
+so let's say if you say 30 it will give
+a unique numbers you know so amazing it
+gave 5 number
+restaurant it gives 16. so the number
+will be between
+1 to 30. if I say 500
+you know it the number will be the max
+number will be 500 basically you see
+256 39 so
+this is the vocabulary size this is the
+review okay and so one hot encoding
+again it's giving the fixed number
+unique number
+and internally keras that the layer will
+convert it to 0 0 1 1 and so on okay
+so that's number one thing now
+what you want to do is you want to let's
+say initialize vocabulary size let's say
+my vocab size is
+30. and I want to encode all these
+reviews so see how I did amazing
+restaurant 5 16. so similarly all the
+reviews I just want to convert them into
+one hotend code or encoded vector so if
+I write this code
+it's a simple list comprehension I went
+through
+all the reviews here for each review I
+created encoded vector
+so you will now
+get this encoded reviews you can see
+now we saw in our presentation if you
+remember our presentation let me pull
+that up
+that we need padding so we need a
+maximum sentence size
+and we need to pad okay the sentence
+because see
+some sentences are three word long some
+are two
+so the two word sentences we need to do
+padding and we need to append
+zero so let's say my max
+length is four
+okay or maybe I can
+make it three as well okay
+and then I will do this
+so there is a method called pad
+sequences
+in tensorflow keras so i'm
+supplying all encoded reviews into pair
+sequences I'm saying my maximum length
+is four
+padding post means pair the reviews
+towards the end so now see towards the
+end I get zeros
+okay I can do three as well actually
+three makes more sense okay
+so now my uh padded reviews have us
+equal size right every every
+vector's size is three now
+the next step would be embedded vector
+size let's say I want my embedding
+vector size to be five
+you know like here I had it four like
+one two
+three four here I had four in my code
+unless i want to do five
+all right so I did five then I need to
+create my model so
+my model is what like sequential okay
+and then
+i need to add my first layer
+so my first layer if you again look at
+the
+this particular diagram my first layer
+will be embedding layer okay this
+particular layer
+okay so embedding layer for that I have
+already imported
+embedding class and the way embedding
+class
+works is it takes a couple of argument
+okay so what is the first argument the
+first argument
+is vocab size
+then the second argument is the vector
+size so vocabulary size is 30
+you see 30 here then my vector size
+after the vector size you will supply
+the
+length
+so max length is three
+and I need to give it a name so that
+I can use it later okay
+and then my second layer is okay what is
+the second layer
+again if you look at the diagram once
+you get embedding vectors these vectors
+from your embedding layer you want to
+flatten them you want to flatten them to
+create this particular vector so I will
+just say
+flatten
+and the layer after that is
+one neuron sigmoid activation function
+so it will be a dense layer with a sigma
+activation
+okay and then I will execute that
+now just to make it more convenient
+my x is padded reviews and y sentiment
+correct
+this is my x training samples and this
+is my labels
+y so just to make it easy
+I'm just putting them in a different
+variable called x and y
+and I will now compile my model now
+usually we end up using
+adam as an optimizer and binary cross
+entropy because the output is either one
+or zero right like the
+review is positive or negative that's
+why binary cross entropy
+and then you can print
+the model summary and my model looks
+something like this
+see embedding
+embedding vector size is five in this
+particular example here I had like
+four I can make it
+I can make it four actually just so that
+it matches my presentation
+so four here
+and when you run it see the embedding
+vector size is four
+the max sentence length is three all
+right
+once you do flatten you will get twelve
+y y12 will
+see four four four so 12 so this will be
+at 12 exercise
+and then there is just one neuron which
+is dense
+and now you are ready to train so you
+supply your x and y epochs 50
+you train your model so my model is
+trained I got an error by the way
+initially because I had another notebook
+running which was using my gpu so I had
+to kill that
+once the model is trained you will let
+the accuracy accuracy is one
+it's a small data set friend so it's
+expected the accuracy is one
+now what you do is see
+I mentioned earlier the sentiment
+classification is a fake problem I'm
+more interested
+in word embeddings so while solving
+a sentiment classification problem i
+also
+got my word embeddings and word
+embeddings are nothing but
+those parameters in your neural network
+and you already know
+when you have a neural network layer
+you can use this method so you can say
+model dot get layer embedding
+so this is the name we gave here now you
+realize why we gave that name
+you can call this method call
+get weights
+and that will give you all the weights
+see these were the weights I was
+looking for like four embedding let's
+see
+one two three four so that
+four embedding vector is nothing but
+this
+one two three four okay
+all right so the length
+okay let me just store this into this
+and see what is mine well length is 30
+because my vocabulary size what
+was 30 so now if you want to look at
+word embedding for let's say food nice
+so nice is 29 okay
+I mean somehow it give 29 for nice and
+food
+both if i had increased the word i'm
+bidding to let's say 50 maybe
+it would have given a different
+different
+so you see it give a different kind of
+embeddings
+so here i'll probably run
+that okay
+and the weights are 50 basically
+and if you look at the word i'm waiting
+for nice
+the number that we got for nice was
+eleven
+and four was one so the
+word embedding vectors for nice
+see nice is eleven and amazing is 3 so
+let's look at 11 and 3
+okay so I will look at 11 and 3
+so weight 11
+and weight 3.
+so 11 and 3 okay what is 11 and 3 so 11
+is
+nice and 3 is amazing
+now these two numbers are not these
+vectors are not same actually
+you know nice and amazing are kind of
+similar words so you would
+you would think these numbers should be
+same but
+our data set was very very small okay
+if you run it on a huge data set maybe
+you will find this vector to be similar
+and you can compute the cosine
+similarity of these
+two vectors but at least this
+coding session gave you an idea on how
+keras embedding layer works
+many times people have a question how
+keras embedding layer works
+so the way keras embedding layer works
+is during the
+process of solving the NLP task
+it will compute the embeddings on fly
+now the other way
+of computing embeddings is you can
+save this like usually what people do is
+they compute this they save it to a file
+and later on when you want to perform a
+different type of task
+you can load saved embeddings
+from that file into this way into this
+layer okay
+and that's what this awesome article
+goes through it it see it supply
+it talks about loading
+the embedding lay embedding vectors
+from file as well so it has a section
+number two
+you know pre-trained and global
+embeddings
+so I'm not going to cover all of that
+hope
+this video give you some understanding I
+would
+highly suggest that you also try this
+code out
+maybe try it out on a bigger data set.

@@ -1,0 +1,579 @@
+to build a career in natural language
+processing domain
+you need to have a knowledge of BERT
+which is a very popular language model
+by Google.
+In this video I'm going to explain you
+in a very simple language
+as if you're a high school student
+you can also understand it easily.
+What is the point behind BERT? How BERT
+is used in NLP tasks?
+We will not go into details of
+transformer architecture etc.
+But we'll have an overview of
+how BERT works basically the BERT model
+the usage
+and we'll also write some code in
+tensorflow
+and will generate some sentence and word
+embeddings using BERT's so let's get
+started.
+Let's assume you are working on a text
+classification task
+where the input to the model is a word
+and you want to classify that
+as either a person or country. The input
+word here is Dhoni
+who is a an Indian cricket team captain
+and he's a person so that's why you
+would classify the word Dhoni
+as a person. Now the input is not an
+image I am showing you image
+just as a reference but the input is
+only a word.
+If the input is Australia you would of
+course classify it as a country
+Mahmudullah, another Bangladeshi cricket player,
+you will classify as a person.
+Now think about how this model would
+process the
+input world if it has seen
+Muhammadullah or Dhoni words before it
+can classify them
+as a person. But let's say the input word
+is Cummins
+now the word Cummins. How does the model
+interpret this word and can classify as
+a person? It is little bit challenging
+you know. You might be a little confused
+on
+how the model would do it?
+So the essence here is how can we
+capture
+similarity between two words? Similarity
+as in
+Cummins is a person and a cricket
+player at the same time. Muhammadullah is
+also a person and a cricket player.
+How can you say Mahmudullah and Cummins
+are similar?
+And let's say Australia which is a
+country
+and Cummins are not very similar.
+All right, let's think about if you have
+two homes
+how do you say they are similar? You look
+at the features of this home.
+The features are bedroom area, bathroom.
+These two homes you can say yeah they're
+kind of similar.
+But when you have a third home which is
+a bigger one you know 10 bedrooms, 7500
+square foot
+a pretty rich person would own this kind
+of home.
+You can say the second home and third
+home are not similar.
+So if for an object which is home here
+if you can derive the features then by
+comparing those features you can say
+if those two those two objects are
+similar or not.
+Similarly think about how you can
+translate these words
+Dhoni, Australia etc into
+features? The feature could be this-
+Okay the one is a person healthy and fit.
+The values are between one
+zero to one one means like point nine
+means like really healthy
+if it is point one you know sick a
+person who cannot run even one mile
+and if you compare these individual
+features
+you can say Dhoni and Cummins are kind of
+similar but Australia is not
+because see Australia location value is 1.
+Here location value is 0.
+Person value is 0, percent value is 1. So
+if you take all these numbers and create
+vectors out of it and compare those two
+vectors
+you can say that Dhoni is more similar
+to
+Cummins and Cummins and Australia are
+not similar.
+If you are doing a, if you're building a
+model on
+let's say some cricket vocabulary you
+might have words such as
+ashes, bat, Cummins etc and
+you can generate feature vector for each
+of these words.
+These vectors are called word embeddings
+and we have covered that in previous
+videos. So I recommend you watch those
+videos.
+But the essence here is that when you
+compare the feature vector
+or word embedding of Cummins and Dhoni
+you will find that these two are kind of
+similar
+whereas Australia and Zimbabwe are kind
+of similar so those two are countries
+those two are people. So this is a very
+powerful concept
+and one of the ways you can generate
+the word embedding from the word is by
+using
+word to wack. So go to Youtube search
+for code basics word to wack
+or code basics word embedding. Watch
+those videos
+you will get a good understanding. Here
+we took these features individually but
+in the real life the models can figure
+out these features on its own.
+It almost sounds like magical how they
+can do it
+but it is possible so for that you have
+to watch those videos.
+But the issue with word to wack is this
+carefully read these two sentences,
+the meaning of fair is very different
+in these two sentences and the first one
+fair means you know unbiased
+like a equal treatment in the second one
+fair means
+really carnival or you know like fun
+activity.
+But word to wack will on generate
+fix embedding vector now if you use a
+fixed embedding vector in both the
+context
+then it's not right because really
+the meaning of fair in both the
+sentences is different
+so you need a model which can generate
+contextualized meaning of a word.
+Meaning you can look at the whole
+sentence
+and based on that you generate the
+number representation
+for a word. And BERT
+allows you to do the exactly same thing.
+It will generate contextualized
+embedding meaning when you have to these
+two sentences
+you look at these word embeddings. They
+it will generate it differently here
+this one here is zero
+you can compare these two and they are
+different but at the same time
+it will capture the meaning of a word
+in a right way so that when you have a
+statement like Tom deserves unbiased
+judgment
+unbiased and fair are kind of similar
+and you will see
+it will generate a vector which is
+similar. See one one
+point nine point eight and so on.
+Similarly when you have
+statement like this carnival was packed
+with fun activities
+carnival unfair are similar in these two
+sentences and it will generate similar
+embedding. So you can see BERT is very
+very powerful it can look at the context
+of the statement
+and generate the meaningful number
+representation for a given word.
+It can also generate an embedding for
+entire sentence.
+Let's say you're working on a movie
+review classification task
+for the whole sentence it can generate a
+single
+vector. Usually BERT will generate a
+vector of size
+768 it's just a number you know it can
+be anything
+but usually they will generate this this
+much the the vector of this much
+dimension.
+I came across this very good blog on
+BERT by
+Jay Alamar. He explains things in a
+visual way.
+So you will understand more details
+about
+BERT. BERT is based on a transformer
+architecture
+which is the most latest one as of 2021
+very widely used in the industry
+you have to know it if you are in NLP
+domain there are two versions of BERT.
+BERT base and BERT large. BERT base uses
+12 encoder layers but large uses 24
+encoder layers.
+If you want to understand what these
+encoder layers are and details of the
+model itself
+you can go through this article. But if
+you don't want to bother about it
+it is okay you can just follow my
+presentation and kind of understand the
+purpose of the you know the overview
+of BERT. But here in this article see
+the BERT will generate first of all for
+BERT
+you will have to use this special for a
+sentence in the beginning you will use a
+special token called CLS
+and in the and you will use a special
+token called
+sap, scp or a separator.
+So he talks about all of that I think in
+this article- CCLS and mask.
+Actually CLS and we talked about the
+I think we did not cover the mass
+language model which we'll cover later
+but
+see like you have a word like this
+and it will generate the individual
+vector. So you can go through this
+a useful article but was trained by
+Google on
+2500 million words in the wikipedia
+800 million words on different books you
+know. They took look at
+different books and they generated this
+BERT. They trained the BERT
+using two approaches- one is mass
+language model
+so I have this wikipedia article on Elon
+Musk
+and what they did is they masked 15
+percent
+of the worst for example here there is
+enterpreneur so they would just mask that
+and they would generate this training
+samples
+and they would train board model. Now
+using this artificial task when they
+train bird model
+as a side effect they are getting word
+embeddings.
+So really the end purpose is to get word
+embeddings
+but in order to get word embeddings you
+have to train
+the you know BERT model on artificial
+tasks. So the
+mass language model was really the
+artificial tasks
+that they used to train the model but as
+a side effect you got
+meaningful word and sentence embedding.
+The other task that they trained on was
+next sentence prediction for example if
+I say I am hungry predict the next
+statement.
+If the next statement is I would like to
+have pizza.
+that the probability of that happening
+is more
+than you know table has four legs who
+cares? I'm hungry
+give me some food! Right? So the
+probability of that statement is very
+very low.
+Using these two approaches they train
+the BERT model
+and today, Google search is powered by
+BERT.
+So BERT has a direct impact on your
+life
+the search become more better
+in Google after they onboarded BERT
+in their search engine the full form.
+Here is the full form if you're if
+you're curious about
+what BERT means. Now let's look into
+Tensorflow code and we'll generate some
+sentence and some word embeddings in
+python and tensorflow.
+Let's try to locate the BERT model on
+tensorflow hub website so if you Google
+tensorflow hub.
+You will go to the tensorflow hub which
+is a repository of
+all the different models and when you go
+see the models go here in embedding
+you will see a section for BERT and
+word has different models you know
+like l12 this is like layer 12
+hidden state 768, attention
+12 this one is a bigger one so there
+is a
+12 so this is a BERT base and 24 is a
+BERT large so if you read
+J Alamar's blog
+it talks about BERT base which has 12
+encoders and BERT large has 24.
+so we are going to use the basic encoder
+basic BERT model.
+This one and the good thing here is you
+can use
+this url directly to download the model
+or
+you can just copy. It sits 389 megabytes
+so it's going to take some time so I
+will just copy this URL here
+and I will create a
+variable called encoder URL
+and then for each of these models
+there is a corresponding pre-processing
+URL so if you look at
+this table here here there is a
+pre-processing
+URL. Now pre-processing will pre-process
+your text
+okay so I'm just going to copy it here.
+I'll just call it pre-process
+all right so I have these two urls and
+now the next step for me is
+to create
+hub. So hub is this hub, okay?
+And you can out of this this thing you
+can create
+hub layer almost and you can pass in
+your preprocess
+URL here and what it will give you
+is like a function pointer so I will
+call it
+word preprocess model and
+this you can treat it as a function
+pointer. You know
+here you can supply some bunch of
+statements and it will do pre-processing
+on those statements.
+So let's say I am building a movie
+classification
+model and I can have
+you know statement like this or I can
+have a
+different model and I might want to
+create a word embedding or a sentence
+embedding for this statement I love
+Python programming
+of course you do so now here text
+test so I will supply that
+into this and i will call the
+output object text pre-processed and
+it's gonna be dictionary
+hence I will just print up you know keys
+because the
+object might be big and it pre-processed
+these two sentences and it produced
+this particular object so let's look at
+individual elements in this dictionary
+the first one is input marks
+here the shape is 2 by 128
+2 because we have two sentences
+so for the first sentence this is the
+mask for the second one this is the mask
+now first sentence has three words
+whereas the mask is five words so what
+does it mean? all right let's
+try to understand that. So when
+the way word works is it will always put
+a special token called CLS in the
+beginning
+and to separate two sentences it will
+put a spatial token called separator.
+so now if you count tokens one two three
+four five
+so see five and these are four
+and four and two will be six
+and 128 is a kind of like a maximum
+length of the sentence. So that's why you
+have 128 and remaining are 0 because you
+actually have only 5 words so input
+marks
+is pretty easy to understand the
+input type ids are really
+they're really useful if you have
+multiple sentences
+in one statement so you will see
+for our use case it won't be very
+interesting everything is zero
+so just just don't worry too much about
+it now let's
+look at input
+word ids
+all right again I need to put this thing
+here so there was
+special CLS statement in the beginning
+and in the end there was a separate
+statement and
+the word id for CLS is 101
+for separator is 102 and these are the
+individual
+unique ids for these words and these
+could be the ids from a vocabulary
+so this is part of the pre-processing
+stage in the next stage we will actually
+create the word embeddings and so on
+this is for the first statement which is
+nice movie indeed the second statement
+is I love python programming
+so this is the kind of the input word
+ids for that
+and you can see for CLS it is always
+fixed one zero one
+for separator it is always fixed one
+zero two
+once the preprocessing stage is done you
+want to create
+another layer so you will use the same
+function here you will create
+another layer so I will just copy paste
+this one
+and the another layer will have encoder
+URL okay
+so the encoder URL will be
+this and this
+we will call it BERT model
+let's say okay
+and the BERT model
+will act like a function pointer just
+like what we did before
+so now you can treat it as a function
+pointer almost like a function and you
+can supply your
+pre-process text. So I will say text
+pre-process supply that
+and this should generate my sentence or
+word embedding
+and I'm going to store that into this
+particular object
+and i will call this is a dictionary so
+I'll
+try to get the keys of that dictionary
+it's going to take some time but it
+it will come back at some point all
+right so this
+has three keys let's try to examine
+what those keys are first we are going
+to look at
+the pull output pulled output is an
+embedding for the
+entire sentence we have two sentences
+so for nice movie indeed this is the
+embedding
+and the embedding vector size is 768.
+So this 768 vector accurately
+represents the statement nice movie
+indeed
+in form of numbers similarly
+for the second statement this is the
+embedding
+vector and this is pretty powerful now
+you can use
+these vectors in your natural language
+processing task.
+It could be movie review classification
+name entity recognization it could be
+anything but
+BERT help you generate a meaningful
+vector
+out of your statement now let's look at
+the second one which is a sequence
+output sequence. Output
+is individual word embedding vectors
+so the size will be two so for two
+sentence like for each of the sentence
+for each of these word it will have 768
+size vector. So see size is 2 by 128
+why 128 because
+so so 2 is for these two sentences
+and for each individual sentence
+you will have some padding. Okay so you
+will have some padding
+and you will have total 128. okay?
+And for each of these words for each
+word listen nice
+there is a 768 size vector
+for movie this is the vector.
+Okay and so on now you will say okay why
+if there is a padding why there are
+numbers well this is a contextualized
+embedding so the vector for even padding
+will have some context of this that's
+why
+these are having some values if you look
+at
+encoder output. Okay
+encoder output let's look at the length
+of the encoder output
+that will be 12. Now the reason this is
+12 is because
+we are using small
+BERT base so 1 2 3 say up to 12.
+so and each layer has 768
+size embedding vector okay
+so these encoder outputs is nothing but
+the output of each
+individual act encoder. So we have 12
+that's why 12 is the size
+and each of them let's see if I look at
+the first one okay the first one will be
+again
+2 by 128 by 1 768 two because we have
+two sentences
+okay 128 is because
+you know the statement has 128
+words including the padding and for each
+word
+there is a 768 size embedding vector
+and the last the last vector by the way
+the last one like from this layer is
+nothing but it is same as your sequence
+output.
+Okay so this particular vector if you
+compare
+that with
+let's say sequence output
+see they are same I mean you can do this
+operator
+and you will find that they're all same
+so I hope you're getting the point that
+encoder output is the encoder output of
+all 12 layers and the last one
+is same as the sequence output
+now if you want to read more about the
+api you know like what different
+elements do here then the good thing is
+you can just copy paste
+this URL here like this and below
+you will find some documentation so here
+you know it says the last value of this
+list is equal to sequence output
+from 12 transformer blocks so read
+through this
+documentation and I hope you found this
+tutorial useful. I'm going to put the
+code
+link in the video description below in
+the next video
+we are going to use these pulled output
+these embedding vectors for doing
+the movie review classification so
+in this video I just showed you how you
+can use BERT to generate
+sentence embedding in the next one we'll
+do the actual movie review
+classification.

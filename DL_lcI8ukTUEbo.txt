@@ -1,0 +1,463 @@
+when you go out to buy a t-shirt for
+yourself
+you will not buy something which is very
+fit to your body because then if you eat
+pizza or
+paratha and biryani and if you become
+fat it will not be
+convenient you will also not buy
+something that is very loose because
+then it looks like a cloth hanging on a
+skeleton
+you will try to buy a right fit for your
+body
+the problem of overfitting and under
+fitting happens in the machine learning
+world as well
+and there are techniques to tackle this
+overfitting and underfitting problem and
+these techniques are called
+regularization techniques when you have
+a training data
+you try to train your model too much it
+might
+overfit and when you get the actual test
+data for doing prediction it will not
+probably perform well dropout
+regularization is one of the techniques
+that's used to tackle
+overfitting problem in deep learning
+field and that's what we are going to
+look into this video today
+as usual we'll go over some theory first
+and then we'll write
+a python code using tensorflow
+and we'll see how adding a dropout layer
+increases the performance of your neural
+network so
+let's begin i did a google image search
+on overfitting versus under fitting and
+i'm finding some useful
+images so let's look at this particular
+image
+so what's happening here is when you
+have
+a data set let's say classification
+problem
+and these are like you know like
+circles and check mark these are like
+two different classes
+and when you try to under fit what will
+happen is you're generalizing too well
+in that case your performance on test
+data set will be
+hampered this is all training data set
+but in the training data set itself
+you're saying it's you're seeing
+it's drawing a linear line when you're
+trying to overfit
+you know it just tries to squeeze the
+boundaries somehow
+so that it can perform best on the
+training data set
+but when it comes to test data set again
+this model will not perform
+well what is appropriate is this middle
+image
+where you have a good generalization
+of your equation and that is the best
+thing
+you can do with any machine learning
+model try to
+find the right balance between under
+fitting and overfit
+just find the right fit just like your
+t-shirt size
+here is the example of a deep neural
+network
+actually it is not very deep it has only
+two hidden layers
+in reality you will have many hidden
+layers and each of these hidden layers
+will have many many neurons
+now when you have this kind of complex
+structure
+the neural network will
+try to over fit your data set let's say
+if your data set is big even if you run
+too many epochs
+this neural network will try to over fit
+your data set
+and it will not perform well on test
+data set because now it cannot
+generalize well
+one of the things you can do is just
+randomly drop
+some neurons so from the first layer i
+drop these two which are marked in red
+from the second hidden layer i also drop
+the
+two neurons and i'm dropping them
+at random doesn't matter which neuron
+you drop
+also i am dropping at the rate of 50
+percent because you see i
+dropped two out of four or there is this
+factor which you can specify when you
+are creating dropout
+layer and you can say 0.5 means 50
+percent
+if you say 0.2 which means if you have
+10 neurons you'll be only dropping
+two and you feed your
+first training sample in your feed
+forward pass
+you calculate the error and when it
+comes to
+second sample you again randomly choose
+some different set of neurons to drop
+the drop out range rate is still 50 50
+in both the layers
+well i can have 25 percent rate as well
+in the second layer
+and the first layer can have 50 percent
+rate it all
+is trial and error really and when you
+do that
+you are addressing the problem of
+overfitting and why is that because
+uh when you are dropping these neurons
+now your neuron cannot rely on one input
+as it might be dropped out at random
+for example i have this
+this particular neuron which is relying
+on one
+two three four neurons okay but if i
+drop
+these two at random now this neuron is
+not seeing the output from these two
+neurons
+so that way it doesn't create any bias
+you know sometimes if you have
+prominent feature your neurons might be
+biased with
+some specific features and you don't
+want that
+hence this technique works and neurons
+will also not
+learn redundant details of the input so
+now let's write python code
+build artificial neural network and see
+how dropout layer helps us
+we are going to use this particular data
+set
+which is basically a binary
+classification and it tells you whether
+sonar signals are bounced off metal
+cylinder
+or a roughly cylindrical rock
+if you download this data and if you
+open this csv file
+it has bunch of these features and in
+the end it has this value either
+r or m you see this is
+r this is m so you are you are just
+using all these numbers and classifying
+uh it
+either in r which is a rock and m is a
+metal cylinder
+i will jupiter notebook where i have
+already downloaded that data
+and i'm going to provide the link of
+this jupyter notebook as well as csv
+file in the video description below
+and i loaded this data into a data frame
+my data frame looks something like this
+now let's do some exploration for our
+data set so first thing i always do is i
+try to
+identify the shape so i have 208 rows
+so it's not a very big data set and then
+i want to
+know if any of the columns are
+containing
+null or not and looks like they're not
+they all have values
+also here when i loaded this data frame
+i used header is equal to none
+because this file doesn't have any
+header
+you see it doesn't have a column name
+and when you specify header is none it
+will just
+use this integer sequence as column
+names
+now since i don't have to tackle the
+null values let me just do some more
+exploration i
+just want to print the column names so
+column names are
+just numeric range 0 to 59
+and 60 is your target variable which is
+your
+this particular column by the way okay
+this is your target
+and i want to analyze that column and
+see how many values do i have
+so i have total 111 samples which are
+metal
+cylinder and 97 samples which are
+rock so it's a binary classification
+problem basically
+so now i'm going to create my x and y
+and how do i create x well from the data
+frame drop
+the column 60 x is equal to 1 which is
+columns you can also say columns here
+columns okay and why is that
+and when you do your y y
+looks something like this and if you do
+x
+x it looks something like this it just
+doesn't have that 68th column
+so now that my x and y are kind of ready
+let
+me know you know what actually my y is
+not ready because let's look at phi
+see y has uh tax data r and m
+so we need to do one hot encoding and
+convert it into
+integer number now this is simple
+it's just two labels so what i can do
+is you know just use get dummies
+and then you drop the first dummy you
+know if you have two dummy columns you
+can drop one
+and now it looks something like this
+which is
+i have this r column and one means it is
+a rock
+and zero means it's a metal so you need
+only one column
+here and that will be your target
+and when i do value count again here i
+find this so see m is converted into
+zero
+r is converted into 1
+all right now my x and y are looking
+pretty good
+so the next thing as usual in machine
+learning what you do
+is you divide your data into
+train and test data set and i'm using a
+test size of 25 percent i use random
+state
+for reproducibility if you are running
+this again and again
+if you specify random state it will are
+divided into
+similar type of splits okay so now my x
+train
+and y train are kind of ready
+if you want to just you know
+check the shape
+so i have 156 train samples and 52
+are taste samples now i'm going
+to import some keras libraries and then
+build a artificial neural network now in
+my
+previous tutorials you have already seen
+how we build artificial
+neural network which is using keras dot
+sequential function
+so here now
+you created this model and you can start
+specifying your layers
+so the first layer is
+okay how many neurons you have in the
+input layer
+well 60 because
+uh there are 60 columns total okay
+so i will create input layer like that
+so input layer is 60
+and this is actually hidden layer
+because you know i have input layer as
+60 and they are
+connecting to hidden layer which also
+has 16 neurons
+and for hidden layer the most popular
+activation function is value
+after that i will create maybe two more
+hidden layers
+and see this neurons style and error
+friends
+i didn't come up with these numbers
+using some formula or something
+okay you just try it out and you'll know
+what is not trial and error is the last
+output layer this is output layer
+where i have only one neuron because
+it's a binary classification problem
+and i need to have just one neuron
+and when i do model compile i'm going to
+use the popular optimizer which is atom
+loss has to be binary binary cross
+entropy because a binary classification
+problem
+and then i call model dot fit
+to or train my neural network
+so now here my batch size is eight
+so you can see that i am using a mini
+batch i had a tutorial on
+stochastic gradient decent mini batch
+and
+batch gradient descent so you should
+watch it if you want to know what this
+batch size is doing
+but in each iteration i feed eight
+samples
+calculate the error and then do a
+backward propagation
+now you'll see that i achieved
+an accuracy of one so i did this
+purposefully i want to overfit this
+model
+so now it looks too good but let's see
+how it does in in terms of
+your test model performance
+so this this is the accuracy by the way
+so it got 78 percent prediction right
+so it predicted 100 samples only 78 are
+right
+so it made a mistake with 22 samples
+okay
+i'm still still good not like very bad
+okay
+now here i'll just try to make some
+prediction and see how it goes
+so it's a sigmoid function so it will
+make a prediction between 0 to 1
+and you need to round it so when you
+round it you're converting
+that to whole number so it this was the
+initial prediction and then i rounded it
+so i get all of this and when i do
+my y test i'm just trying to compare y
+test with
+y predicted i'm going to go back from
+behind so see it was one it predicted
+one it was zero predicted zero
+it was one predicted one and then see
+here zero it predicted one so it made
+some mistakes
+but that's okay model looks overall good
+architecture wise i can also
+print the classification report we have
+already seen this before
+uh this report prints to precision and
+recall
+f1 score and microphone score is
+79 percent and you can see all the
+precision and recall numbers here
+so now let's try a model with a dropout
+layer
+so here i'm going to copy paste this
+code
+and in this i will introduce dropout
+layer
+okay so the way you do that is
+by using keras dropout layer and what
+this will do is
+it will drop fifty percent of the
+neurons if you want to drop
+twenty percent of the neuron you can do
+this
+the usual practice is to put a dropout
+layer after hidden layer
+okay so i'm putting maybe three layers
+and you can you can have different
+dropout factor by the way
+uh in your different you know different
+layers
+and when i run this what i find is my
+accuracy for my training set is lower
+so training set accuracy at the end of
+100 epoch is 85
+here it was one so you can see that
+using dropout will reduce the accuracy
+on training set but that is okay
+you care more about test set this set
+here it was 78 percent
+here it is 80 percent so it's a little
+improvement
+but since it is dropping these neurons
+at random
+i you know you will get some variability
+but clearly the performance is improved
+i did one more run and found the
+accuracy to be 75 percent without
+dropout layer and when i use dropout
+layer
+the accuracy went up to 80 percent
+by the way i change the variable name to
+model d here
+so make sure you do that otherwise if
+your same variable name if you're
+jumping around in jupyter notebook sales
+it get it can get really confusing
+so make sure you don't get into that
+trap
+and i will print the classification
+report now
+so the classification report
+classification
+report between y test and vibrant okay
+so i need to create my new white bread
+here
+so how do i do that well
+i can just i need to use model d by the
+way
+i don't want to do all of this and i
+can just put all of this in one cell
+actually i need to do rounding because
+the sigmoid predicts between 0 and 1 i
+need to convert to
+1. so you see 81 percent in precision
+and recall
+overall we care about f1 score so f1
+score for both the classes is
+83 percent 78 percent without dropout
+layer
+78 71 percent so you can see clear
+improvement
+now if you run this code on your
+computer you might get a different
+result
+so don't complain that why you're
+getting different result because
+understand one thing here
+it is dropping the neurons random even
+when i run
+this 10 times i will see different
+result all the time
+okay so dropout is
+is not like a sure short guaranteed way
+that you will see the improvement
+but you will likely see the improvement
+so it's all about trial and error and
+it's being used mostly in
+computer vision type of problems where
+your your neural networks are really big
+and complex you know but they have too
+many deep deep layers
+deep layers and too many neurons in each
+of these layers
+the one we tried was a very simple
+neural
+neural network and hence sometimes you
+might see
+you know the accuracy will be same or
+accuracy might go down with the dropout
+uh dropout layer
+but that's that's okay all right so i
+hope you like this video.

@@ -1,0 +1,388 @@
+hello everyone ken here back with part five of the data science project from scratch series in this video i will use a couple of
+different models to predict the expected salary of different positions that we scraped from glassdoor in part
+two and that we cleaned up in part three i also did a pretty cool exploratory data analysis in part four
+that i recommend you check out if you enjoyed this video please hit that like button and remember to subscribe and turn on notifications
+to be alerted when i post the next segment of this series okay let's get started here so remember
+that we're going to want to go on and pull all of our github repo
+so we're going to open the git bash we're going to get we're going to change into our folder
+um which is this this and we're going to get hit pull that's going to bring down
+everything online we're going to create a new branch for our model building so we're going to go get
+out b model building and then we've now
+created this new branch so i'm going to go back to using spyder for this use case
+i think that that generally makes the most sense uh when we're when we're writing this
+type of code i can see how it's run i can see how things are being published again for exploratory analysis the
+jupiter notebook really shows things in in the most effective way
+but for for model building there isn't as much of a visual element so i i think that this spyder ide uh has
+a good use case here all right now that we've pulled our git repo let's actually uh start planning this out so first we
+want to import pandas as pd import map plot
+live.5 plot as plt import numpy as np i'll move these in
+and then let's also just load in our data real quickly equals so let's go to our file explorer
+eda data pd.read
+[Music]
+there we go and then we should have our data in and
+then let's think about some of the things that we actually need to do here so first we need to
+choose relevant columns right next we want to get dummy data
+so when we're when we're building one of these models and we have categorical data we need to
+make what is known as dummy variables so for each column each like type of categorical variable
+so let's say we have our job simplified right so for data scientist data engineer machine learning engineer
+each of those need their own specific column so we make a column for each of those
+and there's a one in the column if they have that attribute so if you're a data scientist the data
+scientist column would have a one in it and so that you know greatly increases the number of columns in our data frame
+so um that also has some implications on the type of models that we use
+so next we're going to create train test splits
+and when we create a team we create a trained test split because we want our models to generalize well
+so usually a train set a test set and a validation set uh i'm sorry a
+train set a validation set and a test set so you train and validate and then to make sure that your models
+are are actually effective in the real world you use that test set so i generally use
+the test set to test the ensemble models but i'll show you how i go about doing
+that in a second here so the first model we want to make is a linear
+a multiple linear regression the second one we want to do is a lasso
+regression and we're going to use a lasso
+regression because this data set is going to be so sparse with all these dummy variables that actually helps us normalize that
+the third thing we're going to do is let's just do a random forest
+so we'll have a tree based model to compare to our linear models i think just judging based on time
+that'll be as much as i really want to do here but you know you could also use a
+gradient boosted tree you could use a support vector regression these are other ways that you
+could actually spice this up a little bit uh after that we want to um
+basically tune between these models using grid search
+cv and then finally we want to go back through and test uh
+ensembles so let's just start by choosing the relevant columns we're going to do df.columns
+here and we're just going to [Applause]
+choose the ones that we think are relevant so we probably want
+um we don't want any of those we're going to want reading for sure i'll just put them in
+like this rating we're gonna want
+um size we're gonna want um type of ownership
+we are going to want industry sector
+um revenue and then we want num comp we don't want
+the actual competitors hourly employer provided salary
+um company no we won't want company text we
+want job state uh same state
+age python we're not going to do the res no because
+there were so few uh aws excel
+um simp
+seniority
+and description length and then the most important one let's
+include in front is average salary
+there we go and then let's load these guys in
+perfect so we have our oops that's just um we have to make this df
+there we go i was going to say that look kind of weird good job that's correct we need a state
+see if this works now great so we have our model data and then
+now let's get our dummy data so a lot of people use like one hot encoder i think pd get
+dummies works most effectively so we're gonna do df uh dumb
+and then we're gonna df pd.get dummies df model great
+so as you can see we went from 20 columns to 178 let's actually see what this looks like
+so the things that were already dummy variables to start like python spark aws excel
+they remain that and then we have all these dummy variables for for example the different size
+categories that we had so you know that's a really good start there and we can actually start
+um kind of doing our model building here we're going to go to our handy uh handy
+internet here uh and sk learn train test split
+and we're just gonna go down and copy this in
+here we go and then we're going to go back to that page and copy some more
+stuff in so we're going to take their trained test split code here and this just creates
+all of the train test splits that are out there and so we want to remove this dot dot
+and we have to create our x and y variables as well so x is going to equal df
+dumb dot drop average salary
+axis equals one y is equal to df
+dot average salary dot values so when you do values there
+that makes it so that it creates it an array instead of
+a series so i'll just show you the difference so if we do that we see that that data structure is
+different from this and the the the latter is what is generally recommended to be used
+in models so what this is going to do is this is going to give us a train set
+and a test set and we're going to split it by 0.2 here instead of 0.3
+that means that there's 80 percent in our train set and 20 in our test set so we built that
+out as you can see train and test so we can actually start building our models so i'm going to do a
+linear regression in stats models using their package and then also in sklearn because
+i just think it's cool to compare them so stats models ols regression
+so we have to all of these have examples which i really like so let's go down and right here import
+that so uh let's see what that looks like so
+we're gonna have to go um
+so we're gonna do x uh s m equals to x at constant
+so in what are using stats models you have to create a constant and a
+constant creates the constant in the model so whenever you have a regression you're fitting a line to data right
+so you have to have the slope of the line but you also have to have the intercept a column of all ones creates that
+intercept in stats models so next we're going to do
+um model eagles s m dot ols
+ols it's yelling at me um and then we do y comma x so we're gonna
+do y comma x underscore sm
+uh build model and then we're gonna do model dot fit dot summary
+and we'll be able to see all of the output here so um actually i take that back
+we want to do this on our oh yeah we'll just do it on all the data for right now um
+for the sklearn one we're just gonna do it on the on the train test split so our r square is pretty good it's
+around point seven that means that our model explains around seventy percent of the variation
+uh in in glassdoor salaries right here the p-value is kind of what
+we want to focus on so a p-value of less than 0.05 means it's significant in our model and
+let's take a couple look at things so rating is not number of competition is um so we look
+at the coefficient and so for for each additional uh competitor it looks like we would add um basically
+two two thousand dollars to their salary salary hourly is and obviously you're
+making less money if you're um if you're in that position and it goes the other way for employee
+employer provided um python clearly relevant here but it
+looks like some of these other skills are are not um let's keep going down
+keep going down 0.2 so public companies looks like you're making if you're the company's public they'll probably pay
+around 10 13 000 more um let's keep going keep going
+um industry wise you know banks credit unions are paying less actually which is
+which is really interesting um i saw like a 0.3 somewhere in here
+okay so uh investment banks though paying more industry wise you know between industry and sector
+there's probably some multiple linearity because one's a sub-category of another um
+but you know science information technology not a surprise let's look at you know revenue for example so
+companies that are five to ten million look like they pay are paying more which is also very
+interesting and then uh you know statewide obviously california we know that see here um
+connecticut interesting um i would expect dc to be one but it is not here
+um florida spain loss uh 136 new mexico
+and then oh this is okay so and then our our simplified jobs uh as you expect are all relevant so
+analysts everything except engineer is relevant here to a model and then seniority senior is
+the only one that makes sense again there's a reasonable amount of multi-linearity here so i wouldn't put
+too much weight into this this is more exploratory to understand the data but when we go through and build some of
+our other models we'll probably use this as a baseline to see how well it generalizes so let's actually
+um import the sklearn linear model
+i don't want an actual example let's go to this so we're going to do a very very similar
+thing here except we're going to cross validate it so
+equals linear
+linear regression and then we're going to do lm.fit um
+x train y train um there we go
+we actually don't have to fit it for the approach we're taking because we're going to use cross validation here so let's do
+escalant cross val score and we're going to take this
+all right so let's include that here let's
+actually include that above so what crossfile score does is it goes through and it takes
+samples from the model so it'll pull out a sample and a validation set a sample of data
+and a validation set it'll run the the model on the sample and evaluate on the validation set
+that's held out to see if it generalizes okay so again this is like a mini train test split uh and
+this helps us to see you know give us a good sense of like how the model is performing in reality
+so this will be our baseline that we're that we're going to evaluate all of the other tests off of so we're
+going to do cross val score so lm
+x train y train and then let's do
+or is this scoring
+equals neg uh mean
+negative mean absolute error so we're going to use mean absolute error because i think it's the most representative
+this will show how far on average we are off of our general prediction um so you know
+if we're on average off by 21 that means we're on average off by 21 000 um and let's see what that looks like uh
+i have to import it that would make sense
+okay so it looks like we're getting a couple pretty big values here
+and i'm not sure why that is the case
+okay well i think maybe i was just putting it into two big uh two big sets so we're getting some
+really skewed values when i make the cross validation equal to three we're getting that on average we're off
+by around 20 20 [Music]
+so let's just take the mean of this and then again we can use this as a benchmark so again that's around 20 20 uh
+20 000 off so we were talking about how sparse that matrix is for a multiple
+linear regression it's a little bit difficult to actually get good values from that
+because there is such limited data a different
+regression model model a lasso regression normalizes
+those values and it should be better for our model so what we use is a normalization term
+alpha and if alpha 0 it's the exact same thing as the ols
+multiple linear regression as we increase alpha it it increases the amount that the data is
+smooth so let's go up here let's also import lasso
+oops and that data term is going to be called alpha in this so
+um so let's just look at this and it looks like alpha
+starts at it defaults to one so let's just try it at that and see how
+that cross validates as well so let's do lm l
+uh equals lasso and then we're just gonna copy this code
+and we're gonna use that same lm l instead of lm
+so it looks like when it starts out it is just a little bit worse but now let's
+try a couple of different values of alpha and to see which one performs
+the best so let's just make a loop so let's make alpha
+a couple lists here and then error
+so we're going to do 4i in range 1 to 100
+and i'll walk through all of this code in a second we're going to do lm l is equal to
+lasso alpha equals to i
+divided by 10 so we're going to do alpha values from 0.1
+all the way up to ten um let's we wanna actually alpha dot
+append i over account and then we're going to
+errors error dot append this average score
+and we'll see what this actually looks like here so we're just gonna plt.plot
+i'll error let's see what this looks like
+okay so it looks like maybe we should try this divided by 100 and see if we get something something
+different because it clearly really tapers off as we get into higher numbers but it looks
+like closer to the bottom or getting something decent so there we go that's something that we
+want to see so it looks like this peaks maybe around point uh 2
+as an alpha and let's figure out exactly what that is so we can make error equal to
+um tuple zip i'll alpha error
+and so what that does is it just ties them together and makes it into a tuple which is like a paired list
+that is not iterable and then we can just make this into a data frame
+df error equals pde dot
+data frame uh error columns equals
+alpha error and then we just want
+df there's definitely a quicker way to do this
+uh dot error equals to
+[Music] max
+df error dot error
+nice so we can see that an alpha of you know 0.13 is giving us the
+best error term basically and you know with that
+let's benchmark that again against our normal regression where we're looking at
+um you know an error around 20. so again we made a little improvement through tuning that model we can improve
+upon like model tuning in general with a grid search and i'll show you how to do that after we create
+this random forest model okay so again we're going to go sk learn
+random forest regressor so as usual we go to the
+examples here so we're gonna import this and i we would
+expect a random forest to perform pretty well here uh especially because
+it's kind of a a tree-based decision process and there's a lot of zero one values we
+also don't have to worry really at all about multi-colinearity if we are um if we're
+using this type of model so let's do rf equals random
+force regressor again this is using all the defaults we're not tuning this at all yet um and we are going to
+um right uh well let's actually just right off the
+bat get the cross file score so across vowel score equals to rf comma
+x train y train and then we
+want to use the same scoring for each same cross validation for each
+there we go i should probably define it that would make sense do a lot
+okay so immediately
+we are getting better values so we're getting you know an error um
+that's you know basically four or five less than our our previous best model so
+you know the next thing we would want to do is actually go about um tuning this and so we're going to use
+your grid search to tune this and what grid search does is you put in all the parameters that you want
+and you actually uh it runs all the models and it spits out the one with the best results
+so we're going to go to here so scalar grid search cv and click here
+and then we are going to just like before import grid search
+there and then what we need is the actual parameter set
+so this might it shouldn't take too long with um with a random force regressor so
+let's look at the actual parameters that we can tune right so
+here we go so the number of estimate number of estimators right so what does that actually look
+like and underscore
+and estimators and then we want um
+let's do range um 10 comma
+um 300 in steps of 10. so that's a reasonable
+one um so if we want to try and generalize better
+we can um we can try some different
+uh like different depths like some of the trimming the number of samples per leaf like the weight fractions
+so you can adjust all of these let's just focus on depth and um
+and the criterion so we want let's just change this to
+criterion because we're we're using mean absolute error for ours
+so let's see which one it actually uh generalizes best with let's see how
+this example looks so
+[Music]
+and then we want um
+yeah let's let's try a couple of the different max features
+um so then we'll do again max
+features colon
+auto screw log2
+and you know there's a couple different approaches you can do a grip normal grid search or a
+randomized grid search so if we use a normal grid search it goes through all of the exhaustive
+scenarios so you get kind of like a factorial of complexity so we'd be doing um
+you know all all 30 of these times all two of those times all three of those that we selected
+so it can get kind of big so if you're hurting for time you can do a randomized one where it goes through and
+and it takes a sample of them which is generally recommended if you have time um i think being exhaustive with
+the grid search also makes sense um you know as you can see there's a ton of different things
+that we can optimize on or that we can experiment with and i recommend kind of seeing um
+you know seeing what what you can adjust and and what makes sense to you um we're going to go back to the grid
+search and remember we want to set the um the actual score of this to be
+um to be a the negative mean absolute error so it's
+important that we keep that in mind when we do it so let me squirrel
+okay so we want
+okay so let's just do this real quickly um so
+yeah yes yes equals grid
+search cv make sure to import these
+and then what we do is we include our estimator which is rf parameter grid parameters
+scoring equals nag
+in absolute error and then we want
+cv equals three
+i run this and then we do [Music]
+do i know we have to fit it um here's our
+example here oh
+why do i forget how to fit this okay yeah there we go
+and so do gs dot fit x
+test
+x train y train and again this is going to take
+quite a bit so i might give a little break in them
+true alpha
+i did not like criterion
+probably spelled that wrong that would be my guess
+invalid parameter uh max filters
+t u r e max features there we go okay
+so this is going to run for a while um this will probably take at least five
+minutes so why don't i break on this and come back after we've tested it okay so that took quite some time um
+but now we can see just that best score let's see what that looks like
+so it looks like we did a little bit better than our previous random forest
+looks like we're having some errors there um you know so we we improved by a very
+very small amount um but let's see what that gs
+uh best
+estimator looks like see so this will tell us all the parameters of that model so it looks like
+the number of estimators at 170 was the best max features auto and the criterion mean
+absolute error that shouldn't be a surprise that that performed best when that is our evaluation function
+so what we want to do for all of these is to actually use these different
+models to predict the test set data and see if we get similar
+results so we already have lm so we're going to do y pred oh
+we're going to do sorry t pred equals to lm
+um dot predict um x train
+y train uh so
+let's make this two thread lm
+and then we're going to make this tpred lml so
+let's make this lasso what did we find that our best results were
+for the lasso regression i think it was like point one three
+there we go
+so um and then
+lml dot fit x train
+y let's just make sure those are up to date let's make sure these are up
+to date and then we want to do
+um
+estimator dot predict x train um
+i'm sorry i don't know why i'm doing uh these trainings here this is what we're doing for the um y test
+sorry so all of these will be y test
+sorry guys my brain's a little fried why test and then we're predicting
+why dust
+[Music]
+so we have to reshape these so not sure why it necessarily does this
+sometimes the data just wants specific fit type let's see if this fixes it
+should one mismatch dimension [Music]
+oh my goodness ken i am such sorry guys i'm off my game today
+you should all be the x test
+and then we're going to compare it against the y test
+so so yeah all right
+and it worked all right so what we're gonna do again is we're gonna do uh mean
+um have i imported mean absolute error
+okay so we're going to do from dot dot metrics import
+mean
+mean absolute error and we're going to do mean absolute error and then it goes y
+test t red lm so that should be the first one
+so that's our linear model how it performed two pro to lml
+so we actually did worse with our lasso which is not ideal and then we're going to do t
+print rf okay so i mean our random force is
+absolutely knocking this out of the park comparatively
+you know sometimes it makes sense to try and combine a couple different
+models and see if you can actually improve your performance through that so let's just take
+um so we're going to do [Music] t pred lm lm
+times uh t i'm sorry uh plus t pred
+uh rf let's see if this actually works divide
+this by two
+okay and then we're gonna try that
+instead of that so we did there i mean
+you would expect that it would be somewhere between there but sometimes one plus one equals three um and one model that's maybe
+overtraining generalizes a little bit better so you know it looks
+like again our tuned random forest model performs the best
+we're actually able to get something that um that produces results within you know
+ten thousand dollars which which i think is pretty reasonable we know the estimate ranges on glassdoor
+are fairly wide anyway and that's probably why the ranges are so big is because their model uses
+um kind of the range or the or the error as as a band um you know
+one thing we could do to actually improve upon upon this where we're just adding the two together
+and you know we're taking the average of them is we could run that through another regression model and get actual
+um like weights associated with it so maybe an optimal um an optimal ratio is
+you know we take 90 of the random forest and we take 10 of one of these other models
+so i i recommend you trying to explore that in your own groups i i like
+this type of ensemble approach better for classification problems so if you have
+three different models that all vote and you take the the top two votes that
+that generally is an improved approach from there so i'm going to save this and we're
+going to call this model building
+and in the next one we're going to take this random force model that we built and we're going to try and productionize
+it following that i'll show you how to write this up in the readme of the github repo so this
+is something that you know if you did a similar project you could go on your resume again this is just an example i don't
+expect you to do this same project but this shows you the approach the time everything that goes into this
+i mean i think this is going to take me five six hours to put together completely maybe even more than that
+uh probably way more than that with the video editing so let's just go to our github real
+quick so get add get
+um models for product
+glass door get push and then we're going to have to
+set it up stream git push set up stream origin
+model building cool once that goes up
+we will go again uh indoor github we're going to refresh it
+we're going to go to the model building where we'll have some additional files we're going to
+compare and create a pull request
+and then we go and merge pull request confirm merge that's it for today's project
+i mean as you can see there's so many different approaches you can take there's so many more models you can build
+that that each one of these steps can can take a full day a full week even longer and
+part of the project is not you know trying all the models but it's trying the ones that are most effective trying
+the ones that that make sense to you and being able to tell a story about why you chose specific ones
+you know for example with the linear regression versus the lasso regression even though the lasso performed worse in
+this use case the lasso regression should make more sense because there's a normalization effect and we have kind of a sparse
+matrix the random forest also makes a ton of sense because we have a lot of zero one values
+uh and you know that is a good use case because we're using a bunch of decision trees
+so again thank you so much for watching stay tuned for part uh part 6 of the series where
+i start building you know the productionized model we make this into an api have have fun watching this and good
+luck on your data science journey
+you
+

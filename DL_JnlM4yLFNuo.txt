@@ -1,0 +1,331 @@
+fraud detection is a common problem that people try to solve in the field of machine learning but
+when you're training your model with a training set for fraud transaction you will often find that
+you will have 10 000 good transaction and only one will be fraud this creates an imbalance in your data
+set and even if you write a simple python prediction function which returns false all the time
+even with that stupid function you can get 99 percent accuracy because majority of the transactions are
+not fraud but on the other hand what you care about is the forefront injection
+so although accuracy is 99 percent uh the function is still performing horribly because it's not telling you
+what is fraud so this kind of imbalance creates a lot of issues in the field of machine learning
+and there are ways to tackle that and we are going to cover all those ways in this video we'll start with some
+theory first then we'll implement various techniques for handling
+imbalanced data in machine learning and in the end we'll have an exercise for you to solve so please stay
+till the end and let's get started the first technique to handle imbalance
+in your data set is under sampling majority class let's say you have 99 000 samples
+belonging to one class let's say green class and 1000 samples belong to
+belonging to red class let's say this is a fraud detection scenario where thousand transactions are fraud
+99 000 are not for transaction to tackle this imbalance what you can do
+is take randomly picked 1000 samples from your 99 000 samples and discard
+remaining samples and then combine that with thousand
+red samples and then train your machine learning model but obviously this is not the best
+approach because you are throwing away so much data so the second option is
+over sample the minority class now how do you over sample it well think about it one obvious
+technique is you duplicate this thousand transactions 99 times and you get 99 000 transactions
+it's just simple copy and then you train uh the machine learning model while this
+works you would think there should be a better way well that is your third option you do over
+sampling using a technique called smooth so here you use k nearest neighbors algorithm
+and try to produce synthetic samples from your thousand samples
+that's why it's called synthetic minority over sampling technique and in python there is a model called imb
+learn which can be used for smooth the fourth technique is ensemble so
+let's say you have three thousand transaction in one class one thousand in another what you can do
+is you can divide those three thousand in three batches take the first batch combine it with
+thousand rate transaction build a model call it model number one
+similarly you take second and third page and create model two and three so now
+you have three models and you use a maturity wart something like random
+forest you know you have a bunch of trees and you're taking just the majority of what the fifth method is focal loss where
+it's a special type of loss function which will penalize the majority class and it will give more
+weightage to the minority class there is this article
+on medium which i'm going to refer in the video description below which talks about the math behind focal
+laws and why it works these are some of them examples of
+imbalance classes customer churn prediction whenever a company is stable and is
+going you know doing a good service the churn rate will be very less
+similarly device failures when device iot devices are sending continuous data and if device is stable enough
+the failure rate will be pretty low and that creates imbalance in your data set
+if you take let's say 10 000 patient maybe five of them will have cancer so cancer prediction is also one
+other example of imbalance data set let's start python coding now
+you need to watch tutorial number 18 from this deep learning series because i am going to use the notebook
+created in that tutorial for predicting customer churn when i made this video couple of you
+commented that don't i have to take the imbalance into target variable the command came from teaching chi
+also basic nagar raised the concern about the imbalance in the data set
+same thing with few other people like vid and i know that there is this problem
+because if you look at my notebook which i created in that video uh and if you look at the
+precision and recall for class one class one is how many customers are leaving your
+business you will see f1 score is very low whereas the f1 score is pretty high in
+here the accuracy is 78 percent but accuracy is kind of useless if your data
+set is imbalanced what matters is the f1 score for end user classes
+you want f1 score for individual classes which is zero and one to be higher and that's exactly what we
+are going to do in this video we'll take this exact same notebook and our goal will be to improve the
+f1 score for this class 1 which is pretty low right now 59 percent for class 0 it is 85 percent
+so i have taken that notebook and made some little change i created a function called a n and put
+the code that was creating the neural network into this function
+i have also the weights parameter which many people use to tackle imbalance i when i tried it it did not
+help me with my uh f1 score but i still want to keep it so that
+if you want to try it out you can otherwise this notebook is same as what we saw in tutorial number 18. and
+when you run it you will uh by the way when you run this cell
+there will be a scroll bar and you need to go at the down bottom to see the reference score you
+can see for class 1 the f1 score is very low point 53 so class one is
+number of customers who are leaving the business and for them precision and recall and f1
+score is not high if you if you want to know what this parameter means again in the same deep learning tutorial series i have
+another video the goal here is to improve f1 score for both of these classes
+so that model can predict equally well for both these classes so now the first
+technique we are going to try is under sampling so if you look at our model samples
+you see there is an imbalance for zeroth class there are 1033 samples
+first class there are 374. so for zeroth class we will try to take only 374 samples
+and train our model so the first thing i'm going to do by
+the way i have another notebook i am copying pasting because if i start typing it will just waste a lot of time okay
+so let's see so i'm just checking my code here df2 is this
+okay so here i took
+uh zero samples in into this data frame and one samples into that data frame
+okay and if you look at the shape
+also this is the shape actually so this is df2
+okay so you can see the balance here imbalance here one class has 5163 second class has 1869
+samples so now i will under sample this df0 class now how do you undersample it so if you
+call sample function sample is a function in pandas data frame where if you just say 2 it will randomly
+select two samples randomly you see the index here
+so all we want is we want to select how many samples well count see
+here i i created a count class by the way so if you look at this count
+see count of zeroth class and count of one class
+okay so i want to sample zero with this
+and when you create that data frame the new dataframe has c small 1869 samples
+so now i will uh store that data frame into this variable
+called this one and then same thing
+and now when you have this thing created uh you want to combine a
+class 0 data frame okay class zero data frame is this and
+class one data frame is this you want to concat together and in
+pandas the way you can concat it is by doing pd dot get
+these two okay should be an array
+and axis is equal to zero so when you do that you will create
+a new data frame which will have same number of samples from both the
+classes okay and if you do tf taste dot taste under
+shape you see 1869 from one class and 1869 from another so if you do the
+sum you will find these many classes okay so now
+i'm just you know for the sake of it i'm printing it
+and i'm verifying both the classes have same number of samples very good now what do you do now you
+create x and y from this new data frame so x and y are created by doing this which is
+dropping your target column creating x and then from target column creating y
+and then you do train this split this has an argument called stratify
+which will make sure uh you have balance samples you know
+okay now
+see okay let me give more clarification so when you do 35 is equal to y this y is this okay
+and um the samples in x train and x test will have balanced
+samples from zeroth and one class because let's say your x train has all the samples from one class
+and x taste has samples from other class then also it's not good so stratify equal to y will uh help you
+ensure that and let's uh verify that so
+i do
+see my y train uh has equal number of samples from class 0 and 1 and that is
+because of the stratify argument all right now using these new samples
+i am going to train my model so how do i train my model using this method okay
+so this method is just training the same model but x train and y train and all those things
+are different so it will take some time i have epoch set 200
+if you want to if you don't want to wait maybe you can go and reduce this epochs
+but that might affect your accuracy so i just run it 400 i have a gpu so
+it runs fast you see that my precision and recall is improved
+see precision and recall is improved to this so let me do this i like using the
+snipping tool i am going to take the
+numbers for from imbalance classifier so this was an imbalance classifier
+and that you compare it here you see so in the imbalance classifier
+my precision was 0.63 recall was this and my f1 score was 0.53 which was
+very low it improved here 71 pretty good for class 0 from 86
+it dropped to 72 but that's okay because now you are doing a fair treatment for
+minority and majority class
+now let's look at second method which is over sampling so again i am going to print
+class count zero and one so zero has more samples one has less
+sample so this one data frame that i have i'm going to over sample
+okay so if you look at this data frame it has 1 869 sample
+but if i do let's say sample 200
+see it gives me 200 sample if i do 2000 it will oh it is
+actually it needs this argument called replace is equal to true that way it will know how to duplicate the samples
+so it has 1 869 samples when i say 2000 the remaining the difference between
+2000 and 1 869 it just copied it picked up random samples and copied
+and somehow created this 2 000 samples so here what we want is class
+0 that way i can have 5163 samples in my class 1 as well
+and that i'm going to store in a variable called df
+class 1 over means over sampling
+okay and let me just quickly bring the shape
+you see now i have this data frame and i have
+another data frame called df class 0 okay these two data frame
+as these two data frame i want to join them and create a one data frame what is the function for that well
+pd.concat if you've seen my pandas tutorial playlist you will get an idea on what
+this is so it is just concatenating two data frames and creating a new data frame
+let's call it df day store and when you look at the shape of that
+it is 5163 multiplied by two
+and just to be sure i will print you know the value count and i see now
+i have oversampled my data frame and my both one and zero has five one six three samples
+all right what do we do now same thing create x and y
+from your taste over data frame drop your target column which is john
+get x and then why your y is john and then again you do train the split
+same as this you know i'm just doing copy paste copy paste is your best friend
+the best programmer knows how to do copy paste okay so now when i specify stratify is
+equal to y i'm making sure in my train and test the class distribution is equal
+so why train value count is this if you look at my test value count that is also you see it's uniform
+and now i'm going to train my model again
+so again same core see this is the reason i put everything in this function
+because i knew i'm going to call this function and again and again it's a function which creates your
+tensorflow model but uh when i'm trying simple
+different techniques for handling imbalanced data i am supplying different values of x train wiretrain and so on that's why i
+i wrapped all this code into one function so now see i'm just calling one method
+and it kind of works all right it is training [Music]
+it will take some time based on what kind of hardware you have but eventually don't forget this scroll
+bar by the way because some people uh com comment oh i don't see the classification score
+well dig deeper dude your f1 score for class 1 is improved to
+79 percent remember what it was in our original class it was point 53
+see point 50 to the point 79 thus f1 score for zeroth class reduced
+from 86 to 76 but again it's fine because now you are giving a fair
+treatment to both of the classes your accuracy overall remains same
+it was 78 here so let me do red pen here so 78 percent
+it was here and it is here 78 percent so it kind of
+works okay the next method we are looking at is smooth or over sampling by producing
+synthetic samples in this method when you do sample dot sample
+this is just blindly copying your current samples and creating new samples so just a copy it's not perfect method
+smode is little bit better because you are creating new samples out of your current samples
+and it uses k nearest neighbor algorithm for that i'm not going to go into detail math you
+can just google about smooth but first i will get x and y from our df2 data frame
+and dft data frame you can check the previous code it is our original data frame
+and i'm going to use now imb learn module from uh
+from pythi so if you don't have this installed you can just do pip install i am
+i am b i am balanced i am balanced lon
+okay i am belong so python imb lon install
+okay if you don't know how to install ask google
+see install imbalance lawn all right so
+then you import this and after you import it
+this is how you create smooth so you are saying sampling strategy is
+minority and you are creating this um
+object of this class called smoot and when you say smart dot sample
+x and y x s m y s m
+i mean before you do that you can just do for why you can do value count you will
+you will find imbalance just value counts
+see number one class is imbalance and now i'm doing smooth sampling and creating these new
+samples and when i create this new sample
+let's do value counts
+ah see both the classes have same number of
+samples so it is balanced all right now let's create
+extra in white rand same old boring code trained as split
+now since you specify stratify is equal to y i want to make sure my y train has equal
+samples which it does and even my white test will also have
+same number of samples yes life has a perfect balance now
+okay what do we do now well it's a deep learning tutorial so you are supposed to train a deep learning
+network sure we have a function a n call that function call it again
+running the epoch one two three hey by the way you guys know about epochs and uh see here
+it is doing 259 batch because by default the batch size is 32 it is using a mini
+batch grading decent and with 32 well let's see what is the batch
+size okay i'm i don't want to bluff here
+yeah when you don't specify anything the batch size is 32.
+okay all right my training is over and let's
+see the score oh see 81 everywhere it is pretty good now so from 53 percent
+my f1 score improved to be 81 percent hooray party the fourth method is
+using ensembl with under sampling so again i'm taking my original data
+frame which is df2 it shows there is an imbalance in here creating x and y
+okay fine what's a big deal here and then creating the
+x train y train okay again what's the big deal well nothing is a big deal i'm just
+checking my y train value count again there is an imbalance so we have not tackled imbalance so now what we are
+going to do is uh we have total
+four one three zero samples right in the zeroth class so four one three three zero
+are and and the other class
+see it is approximately one two three ratio so my zeroth class i need to divide it
+into three batches okay so if you do three batches i get roughly one
+three seven six or i will just do one four nine five
+okay i will just do one four nine five like i will do one for nine wi-fi one batch
+second batch and third batch could be anything or you can do one three seven six uh
+batch so uh let's do that now
+so the first thing all right let's now create df3 class zero and one
+so here all the charm with is equal to zero samples are going into this data frame john one samples are going into that
+data frame and it says df3 not defined
+let's see what is saying that okay so i think
+i need to do this and because x and y are this okay
+and df3 is this okay now i want to
+what do i want to do well i want to um do ensembl
+and in ensembl we saw earlier what we do is we will create three batches out of our
+majority class so we divide that into three different data frames okay so uh the way you can do that
+is by let's say what is your major class so major class is
+i'm just gonna print the shape of both of this and you see the
+zeroth class is your major class so now in that major class one thing is
+you can do sample okay and that sample will be one
+four nine five one four nine five
+all right so you can do this three times and three times it will
+return random samples but i'm going to do very primitive stupid method
+which is start and end like something like this so first 1495 sample now one disadvantage here is
+that sample will have imbalance distribution of no it will not because these are like
+zeroth classes okay so this should work all right so i will do this and that will
+if i do that and if i get a data frame uh sorry here
+then that data frame has only these samples so then i combine that with class one data frame
+and create a new one okay so i will do something like df train is equal to pd dot
+com get cpe.com get watch this so this data frame and then
+the minority data frame which is class one
+okay so i do concatenation of this two
+along x is equal to zero
+and that new data frame like if you do df train dot shape
+what is going on df3 here it will have
+twice this sample 1495 into two so that is this okay now i need to do this three times
+so maybe i should create a function you know like if i have a function like this get train batch
+this kind of function which just takes like start and end see here here
+whatever when i don't specify anything it means you know start so let's say take start and end as a
+variable argument in this function and um instead of calling class 0 or class 1
+let's call this df majority so df majority ndf majority will come as an
+argument in this function and this class let's call it minority and that will also come as an argument
+in this function and once you have df train um
+x train and white train getting that is super easy this is what you do okay so you have
+your function ready you need to call it for your first batch and that batch is
+this so this is your majority class minority class zero to one four nine five
+y one four nine five because you have total this samples the the rough ratio is one
+two three so i'm doing one four nine five one four nine five and whatever is remaining will be your third batch
+okay so once you do that
+last two c2990 so this is working fine i'm going to now
+again call the same a n method that we created earlier
+and i will store all the prediction prediction one because we are creating three models see one two three
+so this is y prediction one y prediction two y prediction
+three and you run it and epoch started running
+so it finished the f1 score is not impressive but that's fine we are creating three models and taking
+the average so the second model will be 149 to 2990
+and third will be 29902 remaining
+okay so all three my three of my models are strained my third model was two nine zero zero
+two one four three zero i have three individual model with three prediction okay don't look at their
+induced reference score yet i have y prediction y prediction one two three now
+when you take a majority vote just like you want to predict this model
+is saying one this is saying one this is saying zero then the majority what is one if this is
+saying one this is zero zero then majority voltage is zero so how do you find that out well you
+have three watts okay so let's do this okay what one what two
+and what three [Music] if you have this kind of case
+and if you just do addition what do you get one when you get one it
+means your majority what is zero if you get two majority what is
+one if you get three then also majority what is one so what is our logic anything greater than one means one
+okay i think that's pretty straightforward okay now let's do
+the length of so we got y print one wipe red two wipe red three
+these are the lens and i want to create a final prediction so
+this final prediction is kind of like a union uh it's like i'm not a union basically a majority what
+so i will just copy white from white red1 i will just copy this so i'll create a new numpy array and
+then i will go through all the
+samples in y prediction one and i will do this
+so what is this these are like individual words see we did this what one what two what three thing
+so these are individual votes and if what did we discuss here by the way if
+anything greater than one then it means majority what is one so then y
+spread final is one otherwise
+it is zero okay so we create a new numpy array
+which is just a majority vote between y print one two and three okay
+now i can print my classification report
+you know with classification report you have to call print and then it does pretty formatting so you still see the score is improved
+it did not improve that much it im from 53 is 60 percent
+so when you are trying all these techniques um a small see machine learning is more like art
+and just trying things out there is no sure sort that okay you try and symbol
+you will surely get high prediction uh there is no guarantee you have to try
+different methods so we tried different methods and i think smooth worked the best the
+ansible did not work best and that's okay i also tried focal loss
+and i don't have a code here but i tried it and it did not work actually it reduced the f1 score i don't know why
+but based on the different scenarios you can try all the five techniques which i
+discussed in the presentation and see whatever works best for you
+now comes the most interesting part of this tutorial which is an exercise you have to do exercise
+otherwise you will not be able to learn simple in this exercise you will use the
+notebook which i showed in this video so if you click on this you find the notebook
+you just copy it in this notebook we handle imbalanced data using five
+different techniques using neural network what you have to do
+is you have to try the same thing but using a simple logistic regression from sk learn
+library if you don't know what is logistic regression go to youtube and search for
+core basics logistic regression you'll find my videos you can also use decision tree
+support vector machine use one uh statistical model from escalant
+basically and try all these techniques under sampling smart and so on and see how the iphone score improves i
+have a solution link but do not click on that solution link okay otherwise you will get into big trouble
+you can link click on that link only after you have tried this on your own the second
+exercise is to use bank customer churn prediction data set this has
+90 to 90 percent to 10 percent imbalance first build a deep learning model and
+see how your f1 score looks then do the analysis of your classification report and then
+improve that using the same again all these different techniques i don't have a solution link for this
+solution right now but if you find the solution then i request you
+that you give me a pull request on github give me a pull request for this solution.

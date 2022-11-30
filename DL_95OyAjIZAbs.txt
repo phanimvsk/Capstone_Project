@@ -1,0 +1,181 @@
+I'm going to show you how you can use tensorflow mirrored strategy to perform
+distributed training on a multi gpu system I have nvidia djx
+which has four gpus and I'm going to be doing
+image classification for small image data set we have total
+50 000 images and we'll be building a convolutional neural network
+and we will split all these images in such a way that will take a thousand
+image batch and then we'll distribute those thousand images to
+four gpus that my system have and we'll do
+a distributed training now we have seen this tutorial already in the same series
+but the thing that we're doing different this time is we are using a
+distributed training now this is useful especially when you have a huge data set
+right now we are using only 50 000 images which is still less but when you
+have million images or humongous database
+this kind of distributed training really helps in terms of your performance you
+know you can train things really fast I'm going to be running the distributed
+training on nvidia dgx station 800 this has four
+high-end gpus so we'll be splitting the training samples and
+distributing them to these four gpus for the training you can
+run this in a multi-gpu environment on cloud as well so
+let's get started the first thing i'm going to do is ssh
+into my dgx station it's going to be super exciting
+see I'm already connected with this nvidia station so if I run nvidia smi
+is going to show me all those powerful gpus you see
+uh let's see all right so these are all the gpus I have
+there are there are see there are four main gpus
+and this fifth one is for just for the display
+so they want to make sure that when you're running deep learning
+we are using only those gpus and for your monitor they have given a small gpu
+as well so we'll be utilizing all these gpus for
+running our distributed training now I ran jupiter notebook on that
+computer and that computer's IP is this one you
+see 192 168
+1.2 so now from this computer I'm connected to djx station
+and whatever command I run here the the training I run
+here will be run on that multi gpu system
+now we are doing small image classification for these 10 categories
+10 or whatever categories right so these are like small pictures 50 000
+of them and we are using convolutional neural
+network to classify them I already did a video on this so if you
+go to youtube type code basics deep learning and go to
+gpu benchmarking video you will find that I have built a
+convolutional neural network already for this but in today's video what
+what different thing we are doing is we are using distributed
+computing so that's the only difference okay so I have downloaded my
+data set here and the first thing I'm going to do
+is I'm going to list down my devices okay just to make sure I have those gpus
+available and you can see that I have those four
+gpus and one cpu available okay I'll just confirm
+the training data set size which is 50 000 images 32 by 32 pixel
+and three channels you know for rgb and I am going to create a classes
+so I have another notebook I want to save time on copy pasting so
+I created all these labels here and if you look at y train y train is
+basically those label numbers so if you look at
+let's say first file label in y train you know nine means struck zero one two
+three four five six seven eight nine nine means truck
+and so on all right now let's begin the training
+before we begin the training I'm going to do some pre-processing
+okay so I scale those images I will convert it to
+categorical variables again I'm not going to
+go too much into detail because we have already covered this
+before so I'm just going to quickly copy paste cells from
+the previous mod a previous notebook that we have built
+okay so we are building a convolutional neural network actually okay
+I think I forgot to say that it is not a convolutional neural network it's
+so simple neural network with some flattened layer and two dense layer
+and one output layer okay so that was my bad but
+yeah we have this network available and now what
+we're going to do is see these x strain scale and x day scale
+right now these are numpy arrays and I want to convert
+numpy arrays into tensorflow data set and the reason I want to do
+this is because tensorflow data set supports
+batching okay so if you uh google tensorflow data
+pipeline you will find an article on why we need to build a pipeline
+basically sometimes when you have humongous data set you
+want to read the data from the disk step by step let's
+say your database set size is 2 terabyte and your 32 gigabyte memory it might not
+fit that if you just read everything in one shot
+so this data set allows you to build a pipeline
+where you gradually read your data step by step and you can improve the
+efficiency of your code I'm going to build a
+separate video on tensorflow data pipeline but for now
+let's assume that this data set allows you to build an
+efficient pipeline okay so now I'm going to create
+a tf data set variable from xtrain scale and
+y train categorical okay so I'm just again going to copy paste some code here
+so this see what this will do is you have x strain
+scale and y train categorical from these two numpy arrays it will
+create an object of data set like tensorflow
+data set type okay so I will say
+execute and if you look at the type
+of this data set yes tensorflow slice data set okay now
+I will just show you what kind of magic this will allow you to do but
+before we do that uh we need to create tensorflow mirror strategy okay and
+again if you want to read about tensorflow mirror strategy
+if you go to tensorflow's tutorial distributed training with keras
+you can read more about mirror strategy but essentially
+the what it allows you to do is this kind of splitting you know
+you have thousand images you want to split 250 images
+send it to each gpu for your training so the tf mirror strategy will allow
+you to do exactly that so i'm going to create
+a variable here okay so this is my mirror strategy and
+since I'm running this code on dj station
+if I do number of replicas you'll find that I have four gpus okay so I have
+four main gpus the fifth one is for display it's not
+being used so those are the four gpus I'll be using
+and I will what i'll do is I'll say batch size per replica is 250
+so you see this image I will take a batch of thousand images
+and distribute 250 images to each gpu okay so that's why I have 250 here and
+my batch size would be
+okay images per replica and how many gpus I have
+okay so this one okay so that will be my best size
+and once I have that I will create my train data set
+from this train tf data set okay and the way you do that is
+you need to do batching so you will say batch
+batch size okay
+dot prefetch
+pf dot data dot auto tune so all right so this there is a mistake
+here on to tune so what
+we just did is we split this data set we created batches basically
+so this batch size will be thousand correct so 250 into four
+so this would be thousand so we are out of main our main data set we are
+creating a batches of thousand so here okay so we have 50 000
+images we are creating thousand batches so we'll have 50
+such batches per epoch so when we run the training
+you know the epoch is going through all your training data set
+and per epoch you have 50 batches each base has thousand
+samples and out of those thousand samples interesting thing is
+250 you're giving it to each gpu for the training
+okay and the prefetch auto tuning again we'll talk about that in a
+separate video but what this will allow you to do is when
+you are training on your model
+at that time let's say i'm training my model for thousand images at that time
+I need to fetch remaining thousand the the thousand images for the next batch
+from my training data set and this prefetch will optimize the performance
+so while my gpu is training the thousand image
+data set the next thousand images will be loaded
+into my data pipeline so this is all about data pipeline efficiency
+and again we'll talk about that in detail in the
+second video okay so here
+I created this train and test data set and now I am going to run strategy so
+with strategy
+dot scope so this is how you run distributed training
+in tensorflow so my mirror strategy is utilizing all these
+four gpu so what i'm saying is now use those four gpus and run my
+training okay so I will say gpu
+model is equal to get model
+so this is the model we have and then gpu
+model dot fit train data set epochs let me run it for
+50 epochs okay so now this is running 50 epochs and I'm
+going to add
+time it line magic okay
+all right so my training is over it will take some time
+I rent for 50 epochs okay and the total time it took was 47
+seconds so 47 second was using distributed
+training then i ran the same training on cpu now the cpu on dgx station is
+very powerful by the way it has 64 cores okay super powerful cpu
+if you run the same training on your regular computer
+it's gonna take so much long you know so running on just a cpu
+we realize that 50 epochs will take one minute 57 seconds
+so you can clearly see the difference here
+when you're using distributed training on gpu your training took 47 seconds
+and if you are using cpu which is not a distributed training
+it will take one minute 57 seconds so you see the
+huge difference now the data set I have used here is again it's not a
+big data set like seriously like 50 000 images
+on dgx is kind of it's a joke basically for dj x
+in reality people run millions or trillions of data points on dgx and I'm
+going to be building a tutorial on that kind of data
+set in the future but this video was to just give you an
+idea about tensorflow mirror strategy
+how you can use distributed training on dgx or on any multi gpu
+system you know you might rent a multi gpu system in a cloud
+and you can speed up your training you can read more about distributed
+training by google in tensorflow distributor training
+go here and you will find a tutorial or a guide
+where you know it talks about various kind of strategy we talked about
+mirror strategy here but if you go to tutorials here
+and look at distributed training
+you know it will give you an understanding of how
+overall distributed training works so I hope you find
+this video useful.

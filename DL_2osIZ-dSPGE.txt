@@ -1,0 +1,276 @@
+in this video we will go over
+f1 score precision recall true positive
+true negative
+all those terms because if you are
+trying to learn machine learning or data
+science
+knowing these terms is extremely
+important they will be used
+everywhere so if you don't know these
+terms it's really bad
+uh so i have this data set of dog images
+where six images are dog images and then
+four images are not dog images
+so there is a binary classification here
+dog versus not a dog
+and let's say you build a machine
+learning model or let's say you
+ask someone to make a guess of what
+these images are
+and let's say this is your prediction
+this is a prediction hence it will not
+be true it will be making some mistakes
+okay
+uh so now let's first i have grayed out
+no dog uh predictions okay so we just
+think of predictions as your base
+and let's only talk about positive
+predictions which is dog
+okay that's why i'm graying out this no
+dog
+predictions okay so forget those no dog
+predictions for now
+and you have now a total seven
+are dog predictions out of those seven
+how many of them are correct well one
+this is not correct this is correct okay
+so you have classified you have
+basically marked
+your prediction as correct or not
+correct okay for your positive class
+which is dog
+whichever predictions are correct here
+are called true positive
+so here the positive thing which is the
+second word means your
+class our positive class which is in
+green is dog
+so out of those positive prediction how
+many of them are true really
+so when you try to identify them as true
+you compare it with reality
+so when we compare all this with reality
+we found only four predictions
+where true for dog
+and three were wrong so those are called
+false positives
+so this again the second word positive
+indicates what's the outcome of your
+prediction
+okay the outcome of the prediction was
+for these three samples which are uh red
+mark
+was positive but they're false so the
+first
+word indicates the reality in reality
+they are false okay now think about
+no dog predictions okay so forget all
+those greens that's why i will grade it
+out
+so here again i will go and compare all
+these three predictions with the reality
+so two of these predictions are right uh
+two of these are wrong and one is right
+so true negative here is called one
+the negative the second word means your
+class
+which is no dog which is which is
+negative class right in our case
+and out of these three predictions
+only one was true that's why it's called
+true negative is one
+and false negative is two basically out
+of our three negative predictions
+two are false
+so now i have marked all my uh
+predictions here so basically this shows
+out of all my predictions which
+predictions are correct and which are
+wrong
+okay so we got total five right
+and that is called accuracy how many of
+your predictions you got right
+doesn't matter positive or negative
+predictions how many of your predictions
+you got it right so we got five out of
+ten right hand
+and hence accuracy is 0.5
+okay now in this diagram again we are
+going back to
+only positive class
+so forget the no dog prediction just
+take those out of your visualization
+here we saw true positive was four and
+false positive were three
+so precision is
+out of all log predictions how many you
+got it right
+so it is four by seven so you have total
+seven dog predictions right seven things
+you predicted it to be
+dog out of that only four are dog
+so that's why precision is four by seven
+point fifty seven
+so this is the formula for precision
+true positive divided by true positive
+false
+plus false positive okay
+now let's talk about recall so that
+when you're thinking about recall you
+always think about
+truth as your baseline so what is my
+truth
+my in my truth total six samples are dog
+samples
+okay but when i predicted
+only i got four as correct predictions
+for dog
+so recall is out of all your
+dog truth samples how many you got right
+so you had total six dog samples
+out of that you got four right
+hence four divided by six point sixty
+seven is your recall
+okay so recall is basically
+here is my truth okay and
+in my truth i have six dog samples out
+of that
+how many we are able to predict
+correctly
+so now precision recall has subtle
+difference which is when you're thinking
+about precision always think about
+predictions as a baseline when you're
+thinking about recall
+think about truth as your base
+now let's talk about the negative class
+so by the way precision and recall is
+for individual class so the previously
+what we saw was
+precision and recall for dog class
+now we are seeing precision and recall
+for
+not a dog class so in not a dog class
+precision is one by three because
+when you're thinking about precision
+you're always thinking about
+predictions so it's like how many
+prediction do i have
+for no dog class well three and how many
+of them are are correct predictions well
+one
+so one by three point thirty three when
+you think about
+recall okay pause this video try to
+guess what will be your recall
+for recall you think about truth is your
+baseline okay so what is my truth all
+right
+in my truth how many no dog samples i
+have well
+one two three four
+and how many of them i got right
+well only one see there is a green check
+mark here
+so out of four no dog images i had
+i was able to predict only one image
+correctly
+that's why one by four is 0.25
+now you'll ask me what is f1 score
+because you see f1 score everywhere
+along with
+recall and precision whatever
+okay so reference course um
+definition on wikipedia is two into
+precision into recall
+divided by precision plus recall it is
+just a
+harmonic mean of precision and recall it
+just
+gives you the overall health or overall
+performance of your model
+so now we are going to write some code
+in python to check all these things okay
+so i have imported some libraries in my
+jupyter notebook
+and i have written this function
+actually this function
+i have uh sourced it from this
+gist so thank you for whoever wrote this
+function
+and it will just plot a confusion matrix
+confusion matrix
+is uh let me show you what is confusion
+matrix okay
+so i have all this sample so like a dog
+not a dog
+these these are the same samples that we
+saw in our presentation right so in our
+presentation that we had
+see we had dog no dog
+dog dog dog so see dog
+no dog dog dog dog all right
+and then prediction okay what was the
+prediction dog dog dog
+no dog okay dog dog dog no dog
+so that's what we have in truth in
+prediction when you do confusion matrix
+you need to supply truth and prediction
+and when you print confusion matrix
+this is how it looks like so on the
+y-axis you have truth
+x-axis your prediction what this 4 means
+is
+four times i had dog as a truth
+and i predicted that to be a dog so four
+times i got it right this is my true
+positive
+two times the truth was dog look at the
+y axis two times
+the truth was dog but i actually
+predicted it to be not a dog
+so i got it wrong similarly three times
+it was not a dog but i predicted it to
+be dog
+and one time it was not a dog i
+predicted to be not a dog
+so anything that you see on a diagonal
+those are all correct predictions and
+these all are errors so two and three is
+an error
+okay when you print a classification
+report using this function
+so in in sklearn there is a
+classification report
+that you can after building your machine
+learning model you can always print that
+report
+and in that report just see the accuracy
+says 0.50
+so if you look at our presentation
+see the accuracy was 0.50 then the
+precision for dog was 0.57 and recall
+was 0.67
+so pre-season was point 57 and a recall
+was
+point 67 similarly not a dog was 0.33
+0.25
+0.133.25 sorry
+okay what is f1 score now f1 score is
+i just use this formula two into
+precision recall pieces and processor
+recall
+and this is the f1 score for a dot class
+which is see 0.62 almost so
+here 0.62
+and not a dot class is 0.28
+here's 0.29 because see these are also
+not rounded these induced numbers are
+known so there is some rounding thing
+going on but but it is true believe me
+so now you understood precision recall
+f1 score true positive
+true negative so this understanding will
+help you a lot
+when you are learning machine learning
+or in general statistics.

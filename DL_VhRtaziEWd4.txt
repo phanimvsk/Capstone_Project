@@ -1,0 +1,335 @@
+we will be looking at theory behind a
+single neuron neural network today and
+we are going to use this particular data
+set where you have persons age and
+whether the person have insurance or not
+using this you want to build a function
+that can tell you or that can predict if
+person will buy an insurance given an
+age and this is not nothing but a binary
+classification problem you are giving an
+age and as an output you are getting 0
+or 1 which is a binary output 0 means
+person will not buy insurance person
+might buy insurance now if you have
+followed my machine learning tutorials
+you might have some memories regarding
+this data set you will be like yeah I
+have already looked into this problem
+and you are absolutely right if you look
+at my logistic regression tutorial this
+particular one I'm going to link this
+playlist in a video description below so
+check this particular video out it's a
+prerequisite for this tutorial if you
+don't want to bother about it I will
+still go in the theory but if you go
+through this video it's gonna be helpful
+guys so please do that
+so logistic regression is basically in
+algorithm that can be used for
+classification problem so let's go over
+some theory I am going to plot this
+particular data set on a scatter chart
+like this it's a simple chart my friend
+x-axis you have age y-axis you have 0
+and 1 0 means person doesn't have
+insurance
+1 means person having shown us now again
+going back to my machine learning
+tutorial playlist using linear
+regression you can draw a best fit line
+and that goes through this data points
+like this now you'll be like how did I
+draw this line well there is this
+concept of linear regression linear
+regression if you don't know that
+concept again go to my tutorial playlist
+and follow these two tutorials tutorial
+number two and three they talk about
+linear regression so using that you
+draw a best-fit line see if you want to
+draw a single line that passes through
+all these data points it's not possible
+so you have to somehow come up with the
+best fit line so this is that best fit
+line and after you draw that best fit
+line you can do something like this okay
+so I have this line which is my
+prediction function and unless I want to
+predict if an 85 year old
+dadima or grandmother want to buy any
+insurance or not so here where is it if
+I okay let's see on x-axis 85 is here so
+if you look at this data point it is
+more than one so anything more than 0.5
+person will buy the insurance so you'll
+be like yes person will buy the
+insurance
+so you anything which is 0.5 or up
+person will buy the insurance less than
+that person will not buy insurance so
+then you get this red color boundary
+almost so you can see on axis is around
+42 years of age a person starts buying
+insurance so linear regression by the
+way for this given problem works
+perfectly fine but there is one issue
+let's say your data set has an outlier
+like this let's say you have some very
+aged people in your data set who have
+had the insurance now you're best fit
+line when you are using linear
+regression will look something like this
+and when you draw a boundary using 0.5
+what happens is you end up
+misclassifying certain data point see
+all this data points now your line will
+say they do not need to have insurance
+because your age criteria has gone up
+now it's like okay anyone who is 48 year
+old or more that person buys the
+insurance so you can see the problem
+with linear regression here what if I
+can draw a line like this this line is
+much better because when now I draw my
+boundary I will not be misclassifying
+those data points of course there will
+be some data points like this and these
+two guys
+there will be some outlier see machine
+learning all we are doing is some coming
+up with some best guess function it
+might not be perfect and that's fine but
+most of the data points this works okay
+so this function is pretty useful it
+looks like an S in alphabet this is
+known as a sigmoid or logit function if
+you have done some mathematics it is
+it's just a name of the function french
+do not worry too much about what is
+Sigma and logit like whenever you hear
+mathematical terms I know you guys freak
+out but don't worry it's a very simple
+function as safe function and the
+function equation is like this 1 divided
+by 1 plus e raised to minus Z is Euler's
+number what is Euler's number it's just
+some constant like you know how about pi
+how pi is a constant number in the
+universe same as Euler's number 2.71 why
+is it 2.71
+universe decided it to be that way why
+do humans have two legs or why do humans
+have two eyes it's just some constant
+universe has constants friends Euler's
+number is a constant all this function
+is doing is converting an input value Z
+into a range of 0 to 1 now look at this
+function carefully let's say you use
+this function for the value of 200 when
+you put 200 in the value of Z see this
+number becomes very very small so 1
+divided by 1 plus very small which is 1
+divided by a number which is little
+greater than 1 you will get a value
+almost close to 1 if you have a negative
+number then this becomes really big and
+the number goes to 0 so all that this
+function is doing is take an input value
+and convert it between a 0 to 1 so if
+you have way like a bigger positive
+values it will it will max them out to 1
+it's like almost like a
+so ok well Luis goes beyond some point
+it will just max it out to one value
+goes beyond certain point on a negative
+direction it will mix it out to zero so
+any value you fade into this function it
+is a simple function which will convert
+it to zero and one and why do we do that
+why do we need a sigmoid function like
+this so basically we had we have not two
+steps so in the first step we are still
+drawing a linear line using linear
+regression ok so y is equal to MX plus B
+where X is actually an age and B is some
+bias so again go through my linear
+regression tutorials you will get an
+idea if you are still not sure about
+this mathematics but the first step is
+you draw a linear line using linear
+regression and the line is y is equal to
+MX plus B and the step two is applying a
+sigmoid function so sigmoid function is
+you know you have this line and you
+apply sigmoid function and it becomes
+like s so Sigma function is doing
+nothing so it is taking the vibe from
+step one which is the output of step one
+and converting it into this nice curve
+which is little better for our problem
+of classification and if you look at X
+it is an age Z is nothing but if person
+will buy the insurance now when you're
+working on a classification problem all
+you want to know is zero and one zero
+means person will not buy insurance one
+will part one means person will buy the
+insurance so you are interested only in
+two outputs remember from my machine
+learning tutorials when you have a
+regression problem there is a continuous
+output like housing price prediction
+where you give bedrooms square feet
+etcetera and you get a particular value
+like $400,000 or $500,000 so there are
+values in regression but in
+classification like zero one spam or not
+spam categories basically
+and Sigma function is used exactly for
+that purpose because it converts any
+value to zero and one and what we can do
+is now any value which is less than 0.5
+we can say it's 0 anything greater than
+0.5 it's 1 so it helps you with a
+classification problem now when we look
+at our equation when you solve this
+equation using linear regression all you
+are doing is you're coming up with M and
+B so let's say in our case we came up
+with this M M value is point zero forty
+two B value is minus one point five
+three now I did not randomly put these
+numbers my friends these are the real
+numbers for our insurance data set and
+if you have good memory if you go to
+Milan logistic regression tutorial which
+again I'm going to link in the video
+description below you see these two
+constant so the coefficient which is M
+is zero point zero four one five so you
+can round it to point zero forty to
+intercept is minus one point five two
+seven
+so again round it to 1.53 so these are
+the numbers I am putting on my PPT I'm
+not randomly putting any number okay
+so now thinking about step one and step
+two we get this so this is y that we
+calculate using M and B and then the
+next step is Z which is your sigmoid
+function so now once we have this two
+step function this is nothing but the
+logistic regression okay so we are doing
+logistic regression in this circle so
+when you give let's say age 35 to this
+function it will first calculate Y and
+by the way you can put 35 in the value
+of x and you can have calculator just
+compute the value and you will get point
+48 again I am NOT randomly putting these
+numbers these are the accurate numbers
+and then step two is sigmoid function so
+now when you have point 48 it is less
+than 0.5
+which means person will not buy the
+insurance hence the red color I use red
+color with a purpose here and when you
+have age 40 T 43 you get this value 0.57
+which is more than 0.5 which means
+person will buy the insurance yeah you
+want to lottery so now this already
+looks like neuron so this particular
+thing in the round is nothing but a
+neuron neuron has this linear equation
+as a first part and an activation
+function as a second part so activation
+function is nothing but our sigmoid
+function
+what does activation mean you know you
+have those LED lights at home so when
+LED light activates it is on when
+deactivates it is off which means 0 1 0
+1 0 1 so sigmoid function is exactly
+doing that you give any value it
+converts it to a value between 0 and 1
+which means you can classify okay so
+this round here is nothing but a neuron
+so logistic regression you can think of
+it as is simple like a single neuron
+okay now we used only one feature so in
+the machine learning terminology the age
+is called a feature or an input
+parameter or an independent variable the
+dependent variable is if person will buy
+insurance or not now you can have
+multiple factors actually you can have
+instead of age you can have age income
+and education so you can have something
+like this where in this particular
+equation let's say if I have income and
+education because sometimes person if
+person's income is high then he will buy
+the insurance okay so person will buy
+the insurance or not might depend not
+only on age but on income and education
+if the person is not educated at all and
+doesn't have health awareness he or she
+might not buy insurance so when you have
+this
+kind of data set where you have three
+features which is age income education
+then you might come up with this kind of
+equation now this time by the way point
+zero eight and point two I just came up
+with this number out of thin air I did
+not do any math here just putting some
+numbers and generic way of representing
+this equation is w 1 into X 1 W 2 into X
+2 W 3 into X 3 so this numbers the
+constant that you had Oh point zero
+forty two point zero zero eight those
+are called weights W 1 W 2 etcetera X 1
+X 2 X 3 is nothing but the features the
+features of your data set and B is some
+constant number bias that you saw
+already in linear equation in
+mathematics generic way of representing
+this equation is this so you are doing a
+summation of I is equal to 0 to n the I
+have n because I am showing three three
+features here that could be five feature
+there could be ten there could be
+hundred features who knows generic way
+to represent this is this summation of 0
+to n W I into X I so it is w 1 X 1 W 2 X
+2 W 3 X it all all plus B and that's
+when you get your Y now if you want to
+represent same equation in terms of
+neural network you can present it like
+this where you have the single neuron
+which is your logistic function you have
+the input parameters or the features
+which is age income and education and
+the way you represent them is X 1 X 2 X
+3 then you have weights W 1 W 2 W 3
+which is some number like some constant
+numbers here and here as a first step
+you will do W 1 into X 1 W 2 into X 2 W
+3 into X 3 then you use activation
+function which is nothing but a sigmoid
+function that converts the number
+between 0 and 1 and when Z is 0.5 or
+more it is yes which is neuron is
+activated it is less than 0.5 which
+means
+Iran is deactivated okay so I hope this
+clears your understanding on neuron it
+is actually simple you already know it
+if you know logistic regression we will
+be looking into more mathematics and
+more theory behind a neural network but
+in this tutorial I just wanted to
+restrict it to a simple explanation of a
+single neuron neural network.

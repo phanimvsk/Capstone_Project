@@ -1,0 +1,516 @@
+are doing a gpu performance test for our
+deep learning job today
+we will take 60 000 small images and try
+to classify them using
+artificial neural network i'm not using
+convolutional neural network because
+that is something we have not covered in
+this deep learning trade
+series so far that's why i'm using a n
+and we'll train this model for
+by using cpu first and then gpu and
+we'll just benchmark the results
+in fact i have the job running right now
+using cpu and it's crazy slow whereas
+gpu makes it really fast
+i have nvidia titan rtx gpu if we are
+looking at
+specific details on a gpu but
+whatever gpu you have on your laptop uh
+you can use it and see the performance
+difference
+also if you don't have gpu do not worry
+this tutorial will be still
+useful because we will be doing a
+classification we'll be doing
+one hot encoding so there is a lot that
+you can learn other than the
+gpu performance test in the end i have
+an interesting exercise for you to solve
+so let's get started
+i have imported necessary libraries in
+my jupyter notebook
+and the next thing i'm going to do is
+list down the physical devices
+which are available to tensorflow for
+use you can see the gpu here
+if your computer has a gpu you need to
+install certain libraries or certain
+software
+in order to make use of that gpu gpu in
+your deep learning job
+there is this nice article i'm going to
+provide a link of this in video
+description uh this article describes
+what all you need to install
+especially cuda toolkit and cudn which
+is
+kuda deep deep neural network
+library and only after
+that you will see gpu as a listed device
+now i had
+hard time getting gpu in this list of
+devices
+so i had to use specific versions of
+all of this so if you are facing
+this issue where you don't see gpu here
+uh don't worry
+these things are not stable and you need
+to have these specific
+versions of all of this only then it
+will show up
+so if your laptop has a gpu install all
+these things and then
+run this command and it will show up gpu
+here
+okay now another thing is you can verify
+uh if the you know the
+the tensorflow is built with cuda so
+since we have installed cuda
+it is uh showing it as true and this
+means we will be able to use gpu in our
+deep learning
+job so now the first thing i'm going to
+do is
+i'm going to load our data set now what
+is our data set
+so you google keras data set and you get
+a link of
+all the data sets which are available in
+keras and then
+you click on so for example i will go
+here
+then i am interested in this cfr 10
+small
+image data set and it shows here and
+when you click on this home page
+this is the data set i have i have some
+60 000 images 32 by 32
+uh dimension these are my training
+samples
+and i have 10 classes so these are the
+images of aeroplane and bird and cat and
+so on
+and we are going to do this image
+classification using
+artificial neural network we are not
+using convolutional neural network here
+which is typically used for image
+classification but we'll cover those
+videos later okay
+so we are using a n and the goal of this
+video is to classify these images and to
+run the
+gpu performance test so now let's
+load that data here and this is how you
+load your data set
+and it will load it and you can now
+check the dimension of x train and y
+train so you see that you have 50
+000 are training samples
+and the x and y the dimensions are 32 by
+32
+you have third dimension which is your
+rgb in any color like a red
+green so
+any image has three channels red green
+blue
+and that's why we have this uh third
+dimension
+and if you look at any image here for
+example let's let's check any
+let's say the first image you will see
+three dimensions so for example the
+first dimension itself is is
+uh your
+okay so this is showing you the first
+sample
+and the first sample itself is 32 by 32
+by 3
+and the zeroth one is i think
+all right so this one
+you see this is 32 by 32 by 3 image
+so that's what you have and if you look
+at y train
+uh that is just uh showing you your
+class so for example
+i can say what is in my let's say my
+first
+five images so first five images shows
+six nine nine four one and six
+means six means what zero
+one two three four five six six means
+frog
+nine means truck okay
+so this is frog image this is truck
+image so let's let's quickly verify
+if that is what it is so i'm going to
+write a function
+called plot sample here i'm using
+matplotlib
+to just show an image and i am sure is
+image show function which will just show
+you the
+image and if you plot your first
+sample which which we saw was it should
+be frog
+so see this is a frog i know the image
+is not very clear it's a small image but
+that's what it is and the first image is
+struck
+you see truck yeah so nine means truck
+and this let's print one more image
+the second image is also truck
+see this is also a truck now just to
+make it convenient i define this
+classes so these are airplane whatever
+this class is in an array and if you
+let's look at one more image so
+the third image looks like this is dear
+and if you want to see that class
+what you can do is so this is plotting
+my
+x train and i'm looking at the y
+train okay so let's look at what is
+there in y train three
+before i pass it to classes i want to
+make sure
+i am passing the right index so y train
+3
+is 4 but see this is an array so i don't
+want an array so i want the first
+element so when i see first element
+there
+so this is saying that this image is off
+deer
+okay so this was a quick
+data visualization now we should move on
+to scaling the images because
+when you scale the images your model
+tends to perform better
+and in numpy array
+you can uh divide your our training
+sample values with 255 y255 because
+the rgb values are in range
+0 to 255 so let's print the first sample
+you will see all these values are in
+range 0 to 5.
+so when you divide it by 255 what you're
+doing is
+you're normalizing it between zero and
+one
+and by doing that you are going to
+help your deep learning uh model
+training
+so here i will create
+new uh numpy risk called x strain scale
+and x day skill
+we don't need to touch white rain
+because you know it's not it's it's a
+ultimate class label
+so you don't need to do anything with
+that and these scale images
+the shape is same as your original image
+it's just that the values are in
+a range 0 to 1 now instead of 0 to
+255 okay
+one more thing i'm going to do is
+if i look at my y train here
+it is a discrete value
+i'm doing image classification 0 to
+9 so this time what i want to do is
+i want to divide this into categorical
+values you you know
+know about one hot encoding so we are
+doing one hot encoding okay
+so let's print couple of y train values
+here so that you get an idea what
+exactly is being done here
+and this value is six if i want to do
+one hot encoding i will create an
+array of size 10 where the sixth element
+will be one and remaining will be zero
+and for doing that there is a
+an api in
+tensorflow keras which is saying keras
+dot utils
+which means it will convert that into
+categorical categorical values and
+number of classes are 10
+because we have total 10 type c
+total 10 output classification
+categories so let's run this and let's
+see
+what happens with y category train
+categorical the first
+five examples so now here you can see
+instead of six i have one in the sixth
+position
+instead of nine i have one in the ninth
+position and remaining
+are zero so this is called one hot
+encoding
+we are going to do the same thing with
+y taste samples as well
+all right now i'm going to do
+my model building so let's do
+the model building here and
+here i want to use keras sequential
+so you've seen my previous video on
+handwritten digits classification
+in that we use scala sequential and this
+keras is by the way imported from
+tensorflow
+itself so you don't need to install
+keras separately
+and kiras provides a convenient api all
+right so
+in the sequential i want to pass
+my neural network layers so what are my
+layers
+the first layer is an input layer
+now my input is so let's see what is my
+input so
+let me print x strain
+scale or or just extreme shape
+see i have 50 000 images each image is
+size 32 by 32x3
+and in neural network you need to kind
+of flatten that layer
+if you look at my uh deep learning
+network so this is my github by the way
+i have so many
+notebooks which could be useful to you
+and in digits
+recognization neural network what we saw
+was whenever you have here we had an
+image of 28 by 28
+and if you look at the network what we
+did is
+28 by 28 you want to flatten it to a
+single
+one dimensional array which is 784
+elements
+so we'll do similar thing here and to
+flatten it
+we can use a flattened layer in keras
+and in that tutorial we we used that
+layer so you if you have seen that video
+you
+this should be pretty straightforward so
+i recommend you watch all my videos in
+sequence
+all right now i need to create
+some hidden layers so let's not worry
+about hidden layers let's let's think
+about
+output layer so output layer clearly has
+10 neurons because i have 10 classes
+and it is using sigmoid activation
+function
+if you don't specify any activation
+function it will use
+linear so it will not use activation
+function at all and
+we want sigmoid because sigmoid function
+is good with the
+classification all right now
+how about hidden layers so first let me
+look at my
+input layer size so this flattened layer
+will
+flatten this three dimensional array
+into one dimensional array
+and it will be off size three zero seven
+two
+so input has three zero seven two so i
+want to
+you know create a hidden layer with
+neurons
+that are somewhat equal to input layer
+so i'll just go with some random value
+let's say 3000
+and we all know in hidden layer a value
+activation function is preferred i want
+to create one more hidden layer
+because it is empirically proven that if
+you have more hidden layers
+it tends to work better because it can
+in each layer it can extract the
+features
+uh very well so again i'm supplying all
+these values at random
+so it's a little bit trial and error so
+i created two hidden layers if you want
+you can create only one as well
+okay i'm just creating two once you have
+a model
+you need to do model compiled
+and in that you need to specify some
+parameters
+so i'm using a stochastic gradient
+descent as an optimizer
+because my data set is little bigger
+for the loss i am using categorical
+cross entropy
+in this one i use past categorical cross
+entropy so what's the difference between
+the two
+so when you have sparse categorical
+cross entropy
+my white test here in this previous
+video that we saw
+was something like let me just show you
+so my why training was here it's not
+visible but it was a discrete
+value discrete value as in
+you know let me just show you so
+if you have y training like this this is
+called discrete value
+if i was using y training here i would
+use pass categorical
+but i am not using that i am using
+y ah train categorical
+and this is one hot encoded so whenever
+you have one
+hot encoded output parameter output
+value
+you use categorical cross entropy if you
+have something like this
+you use sparse categorical cross entropy
+so that's the
+difference between the two and then of
+course you will do
+model dot fit these are the standard
+steps
+so x strain um scale is my first
+parameter
+my second parameter is y
+train categorical
+and epoch also you can run it random i
+had run this code before so i know like
+50 epochs is probably
+going to give you give me more like
+better accuracy
+now when i'm running this uh by default
+it is using gpu
+it took some time to run the complete
+training but
+after 50 epochs the model
+is trained and now i can do some
+prediction
+so i'm gonna do model dot predict
+and x test scale
+before that let's check the widest
+so y test 0 for example
+is 3 and if you look at our class labels
+class labels
+okay so class labels is not defined so
+let's see
+why the class labels is not defined
+oh it's called classes actually so
+classes
+it's a cat so this should predict cat so
+let's see if it
+it can do that so model.predict xd scale
+and once you do x day scale
+you have to do 0th example
+so here since we have 10 output classes
+you got the
+probability of each of the classes and
+what you want to do is you want to get
+the maximum number of this so
+you can use this function called np dot
+arg max
+it will give you an index
+of the maximum number and this is coming
+at at three and if you look at the
+classes
+three you'll see this cat
+so it was the truth was cat our model
+predicted it to be a cat
+let's try it with the first sample so
+first
+sample here is
+ship and this is predicting eight so the
+eight
+is let's say if it made a right
+prediction
+well it is ship so it is doing actually
+fairly well if you want to know
+the if you want to know the accuracy
+then you can use model dot evaluate
+okay so evaluate will predict the
+accuracy of your
+overall model so why test
+why it is actually categorical
+now i'm going to run the performance
+test
+on both the models for that i need to
+define a function called get model so
+it's the same model i'm just putting it
+in a function
+and you'll see later on why having this
+function is helpful
+and i will now run this on a cpu first
+so if you want to run something on a cpu
+the syntax is this
+when you do with tf.device cpu0
+why we are doing cpu 0 because
+if you look at this thing here so your
+device name is cpu column zero
+okay so this will run the
+training on cpu so i'm just going to
+call it cpu model
+and then i will run the training for
+only one epoch because for this tutorial
+i don't know
+like kind of too much i don't want to
+get into much waiting
+so while that is running um
+one thing we need to do is we need to
+measure the time of the cell so first
+option is you can open the stop clock
+and measure it
+but that's not very efficient so in
+jupiter notebook there is this
+time it magic so this will measure the
+time it took to execute one cell
+it has these arguments so i am
+going to execute this cell only once if
+you don't provide this
+this arguments what it will do is it
+will
+execute this cell multiple times and it
+will take an average time
+of all the executions but just to keep
+this short
+i want to execute it only once and we'll
+see
+how much time does it take and we'll do
+the same thing for gpu as well
+so for gpu uh
+once it is done running for cpu i will
+run it for gpu and we'll see how much
+time it takes to run
+one epoch for cpu as well as gpu
+so it came back up and it took 44
+seconds
+for a cpu for gpu it took 3.6 second
+so it is almost 15 times faster to train
+your deep learning model on a gpu
+i also ran the same test for tan epox
+and for tiny box what i found was
+these are my final performance numbers
+so again
+15 times faster so the training which
+takes seven minutes on cpu on gpu is
+taking 30 seconds
+i'm going to provide a link of this
+jupyter notebook in the video
+description below so you can
+download it and you can run it on your
+own machine now based on what gpu and
+cpu model
+you have your performance numbers
+will vary now comes the most interesting

@@ -1,0 +1,367 @@
+in this video we will be doing customer churn prediction using artificial neural network
+customer churn is nothing but a measure of how many of your customers are leaving
+the business for example if you are in a wireless business sometimes people stop their wireless
+service and they move on to the different services similar with banks banks also use customer job prediction
+where the customer closes the account and they go with some different bank so then
+the previous bank wants to know why customers are leaving the business this uh concept applies to pretty much
+any business where you have incoming loyal customer and all of a sudden the customer leaves the business
+and deep learning can help you with a great amount in you know kind of measuring why
+customers are living and once you know why customers are living you can take appropriate business
+actions so that the customers don't leave the business we will write code in python using tensorflow
+we'll be building simple artificial neural network and we will also discuss about precision
+recall f1 score all of those terms will demystify will also
+run a classification report so overall it will be a very useful hands-on coding
+session today in the end we will also have an exercise for you to solve so
+let's begin i will be using telecom customer john dataset from
+kegel i have a link of this data set in the video description below so you can go
+here click on this download button and i downloaded it to a file which looks something like this so if you look
+at this file there are various features or attributes such as customer this is one record for one
+customer okay and that customer is a female senior citizen is zero means the person is not
+young it's not a senior citizen partner then we have dependents the 10-year tenure is in like how long
+this person is with this particular service phone service multiple lines
+and internet service see there are so many useful attributes that we can make use
+of uh if you look at monthly charges total charges because
+customer churn might be impacted by the monthly charges if the monthly charges that you're offering is
+very high then maybe customers might decide to leave
+i have loaded that data in my jupyter notebook and my data frame looks something like this
+i have also imported some useful libraries and now whenever you are working on a
+machine learning problem the first thing is that you do is you try to do data exploration
+now the very first thing i noticed was customer id is useless
+when you're building machine learning model customer id is not going to help you so i'm just gonna straight away drop
+this column and when you do in place true it will drop this column and it will
+update this our data frame okay so when you do ctrl enter and run it
+and when you do df dot d types it will show you all the columns along with their types so you
+see that customer id is gone also for remaining columns it is showing the data type
+one quick thing i noticed was my total charges here
+is object see my monthly charges is float but total charges is
+object so why is that so what's really going on here so here what i will do is df dot total
+charges dot values you see this is a string
+actually i need to convert it to a number i don't know why the data is like this
+if you look at monthly charges and then monthly charges will be
+a number so first thing of course you need to convert this into a number column and the way you do
+that is by using pd2 numeric function something like this
+so when you do that it will convert this into numbers now i'm getting an error because
+there are some values which has space into it so we need to tackle the spaces so first
+uh i want to just quickly look at those rows which has space i want to see what's going on
+so one way to do that would be doing this which is i'm doing pd to pneumonia
+numeric and by the way when you do pd to numeric and when you supply
+errors is equal to coirs it will ignore the errors basically it
+will do conversion for whatever columns and wherever you have space it will ignore it will put like
+n a in it um so that's the purpose of errors now i want
+to do is null so this is returning a numpy series
+and when you do is null for each of these rows it will tell you if the value is null or not
+and of course you see false because we have so many rows and that those rules some of those rows are
+probably hidden the one which has spaces so how do you find those rows well this thing you can
+supply into your data frame so when you have a data frame like this
+and when you supply this whole thing it will serve as an index and wherever the value is set to true
+it will show you that row so see i found total these many
+rows and if you scroll here you will see the total charges is blank
+for all these rows now i can drop these rows because
+if you look at this data frame i have like what 11 rows here okay i mean you can do like this is a
+data frame by the way so if you do dot shape it will tell you 11 rows 20 columns okay
+so 11 rows dropping 11 rows out of out of how many rows okay let's
+see so df dot shape will show you the original data frame rows and columns out of 7000 rows if you
+drop 11 it's not a big deal so i will just keep it simple and i will
+just drop it uh also if you want to look at this 488th row
+the specific value for a total charges one way you can do that
+is using i lock so i lock is i is integer lock is
+location so integer location this is like array indexing basically so here it is showing you the row number
+488 and you see total charges is blank you
+can also do something like total charges and you notice the value is blank all
+right so let's drop all of these rows which is close to i think 11 yeah
+so how do you drop this rose well you can do this you can say total charges if it is not
+equal to space then keep it otherwise drop it and the new data frame this will return data
+frame by the way and i want to store it into a new data frame called df1
+hope it is all making sense if you don't know much about pandas please follow my
+pandas tutorial on youtube you can go to youtube say code basic space pandas tutorial and it
+i have created a very nice tutorial playlist for pandas where anyone even a high school student
+can learn it easily all right so i dropped all those rows and my
+total charges is still object so all the blanks are gone so now the next thing is you know we did
+this thing and it was giving an error so now let's do the same thing again and see if
+after dropping space if it gives error or not we have df1 by the way now see now it's
+not giving an error so what i can do is i can store that into
+the total charges column okay and when i execute this um
+now my data type for the total charges
+will be float so you can quickly
+see now it is float all right so that part looks good
+now the next thing i want to do is i want to do some quick visualization okay
+so let's do some quick visualization so here um okay so what kind of visualization i
+want to do all right so tenure seems to be an interesting column tenure means how loyal the
+customer is if you have wireless plan if the customer is with your company for 20
+years 30 years it means the customer is loyal i want to know how many of the loyal
+customers are living and for that i think histogram
+might be a good idea where you know you draw the histogram where you draw side by side
+uh the number of customer living and number of customers not living and um basically your x axis will be the
+tenure okay so how do you find out uh the tenure of the customers which are
+not living so just think about this when you do this
+you are finding all the customers with no okay see this customer is not living okay
+fine if this customer is not living then what is the tenure
+okay so ten year or total charges whatever yeah say this customer is with
+company for one year is not living this customer is with the company for 34 i don't know 34 months or 34 years maybe
+34 months yeah because it's 72. so 34 months
+and the person is not leaving so all these guys are not living all right
+and if you want to know that tenure if you do this you get the tenure so
+these are the customers with 72 months 10 months and so on and they are not living
+so i will store this into a variable called tenure john no okay and then similarly i
+will get another numpy series where my tenure here uh is john is yes so these are all the
+customers which are not leaving the company and it is displaying their tenure okay now if i want to do
+a plot of this i can do like plot dot hist okay
+and in the histogram you can plot these side by side okay so first i will plot yes
+and then i will plot no all right so this is showing some chart
+i don't know what is what so i want to just make the visualization little better and
+i want to say let's try to paint color as green and you know like green and
+red because green means customer is staying yes red means customer is leaving no you
+know so when you do that all right my colors are looking good i want to have a label actually so that
+i know which color means what and that label i can have it like this
+all right so it's not showing because i don't have a legend so you have to in
+matplotlib you have to do this again for matplotlib i have a nice tutorial playlist where i
+have very simple examples so please watch it if you don't have
+idea about matplotlib so this chart is nice okay i will just add um
+you know like x and y because x axis it doesn't know we don't know like what it is what it is
+representing so i'm saying okay x is just let tenure y axis means number of customer and the
+the title of the charge is chart is customer churn prediction visualization okay chart looks much better
+if you observe this carefully you will notice the people who are with the company for
+a long time let's say 70 months here is like 70 months there uh more majority of the customers
+are not living see around more than thousand customers with tenure equal to 70 or more are not
+living and less than maybe less than 100
+customers are living who have that kind of tenure so see this kind of visualization can
+help you give a quick insights on what's going on with your data i did this plot for
+tenure we can do the same plot for let's say monthly charges you know
+sometimes the monthly charge is very high customers might leave so all you will do it's exactly same
+chart i'm copy paste i'm doing copy paste of code just to save time but here really it's the same code as
+previous one but instead of tenure i have monthly charges okay so it's the same chart just the
+column is different and here what it is saying is
+our customers who have very high charge for example close to 120. see they're there they are
+living more customers who are in mid-range they are kind of okay overall this company has customer
+living you see like customer with no is more than customer with yes so because
+overall companies in in a trouble i would say one thing i noticed while i was looking
+at a data frame is many of the columns as yes and no so i want to find out the unique values
+in each column and kind of figure out the yes no columns so that i can do label encoding
+and for that i will quickly run a for loop so what i will do is
+how do you run a for loop on every column you can do for call indeef dfs okay for
+column in df see when you do for column in df and print column it will print all the
+columns as simple as that and then if you print df column dot unique
+it will print unique values in each of the columns you see of course you want to know what
+column that is and you can use python app string for that so here
+what you can do is you can say okay my column is this
+so it will take this variable and it will print it and then the unique values will be this
+so again you have to put it in a curly bracket this is python f uh format
+strings so this is telling me gender has female and males senior citizen has zero and
+one so you'll see many columns which has know your type of values all right
+now i want to put this code in the function because we'll be using it
+a lot and i also want to print those columns where the data type is uh
+an object because those are categorical columns like tenure etc are numerical
+columns so i want to skip it and this is the way you skip it so now it is showing you all
+only the object type of column so let me put this into a function
+okay so now this is a function and you can call this function on df1
+data frame by calling this function you are printing unique values for all your
+categorical columns here i observe no internet service no
+internet service is kind of like no only so i should probably replace
+all these values with no so if you have no internet service i will replace with no if you have no phone service i want to
+replace it with no okay and
+so let me just see here for example here no internet service this so in this row
+i want to install this i want to say no because that is same as this no okay
+and you all know if you have followed my pandas tutorial that data frame has a function called replace
+so you can replace no internet service with no and when you do in place it will modify
+the exit this data frame if you don't supply in place by the way you have to do this okay i don't want to
+do this that's why i'm saying this oops all right and after i replace no
+internet service i also want to replace no phone service with no
+so everyone like we are doing data cleaning right now we are in a data cleaning phase trying to get our data frame ready so
+that we can run neural network on it okay and when after doing that when you print unique
+values you'll notice it now you don't see this no internet service no phone service now you see just no yes
+no etc there are these categorical columns uh
+which we need to handle but we'll do that later but first what i want to do is i
+want to replace yes and no with maybe one and zero right make sense because we all know
+machine learning models do not understand text so we have to convert every text or a string type of column to a number
+and the best way to com convert yes and no to number is one and zero so let's see how many
+columns have yes and no so see all these columns of yes and no and i
+have created this array
+see all this the partner has yes and no yeah dependence has yes and no yeah and what
+we'll do is we'll go through all these columns so just think about it
+we want to replace we already solved the function replace you need to go through all the columns
+and call a replace function so i will do replace here like this
+by the way in replace you can supply dictionary where you can say replace cs with one no with zero
+okay and so when i execute it
+i executed this twice and that's why it is showing me that um but it actually worked so
+i'm gonna just ignore it okay and when you now print the
+unique values in this data frame you'll see that those years and no are replaced by one
+and zero okay so i'm again going through all the columns and just printing the unique values
+all right we're making a good progress friends we have done i think 50 of our data
+cleaning we also have gender column female and
+male so again you can replace it with maybe one and zero we don't need to hot hot encode all this
+because if your two categories it's okay if you do like zero and one
+so for female and male column also i will just do this
+and um you know if you want to know now after
+doing this replace if you do unique you'll find one zero all right so that is also looking
+very good what is not looking good is still these columns have this
+tax data and since there are more than two categories we all know about one hot encoding
+so if you don't know about one hot encoding you go to youtube you do code basics
+one hot and coding you will find this tutorial and in this
+video you can just i have given a very good idea on what one hot encoding is it's basically
+uh creating let's say for example for this guy we'll create three columns and if the value is month to month the
+the value in the month-to-month column will be one and a remaining column it will be zero
+and you can use pandas get dummies function for this purpose okay so what does dummies do so the
+function looks something like this where in the data you supply your data frame
+and in the columns like which columns you want to
+or do one hot encoding so let's say internet service
+okay dsl fiber optic no when you do one hot encoding of that what happens really is
+this you'll see it created three columns internet dsl
+fiber optic no so for one column it created three columns and when the value was dsl
+it created one here and remaining are zero this is one means the customer has fiber
+optic and remaining are zero again go through my one hot encoding video and you will
+get an idea on what that is what that thing is so i want to uh one
+hot encore not only internet service but other two columns contract and payment method
+so let's do that so here in the columns i supplied all these three columns and then i'm
+getting a new data frame which i'm storing it in df2 and here you will see for my payment
+methods the payment method mail check electronic whatever so you
+got all those awesome new columns if you do if you randomly sample let's
+say three or four rows it will show you all that see at the end
+we created so many new columns so for this internet service it created
+three columns for this guy it created three more and for this guy it created four out of
+3 we created 3 and 3 6 and 4 10 columns okay so you see 27 columns now
+all right so previously there was 20 columns we removed 3 and added 10 that's why 27 columns
+all right so now let me quickly check the data types
+okay so all data types are now numbers there is no string or text okay so
+let's move on to the next step in deep learning uh the scaling step is very important
+and if you look at our data the tenure is in range see 64.60
+all these variables are in range one and zero whereas monthly charges will be in some different range like if you look at
+monthly charges see thousand eight four zero etc
+so we need to scale it all right so how do you scale this really okay so let's check that
+so for scaling um i want to figure out which columns i
+want to scale so there are three columns that i need to scale
+ten year monthly charges and total charges so let's check see these two are not in zero and one
+range remaining columns are yes and no so it's like one or zero and the ten here these three columns are
+not zero and one and hence i want to scale it so that they come into zero and one range and for that we can use min max
+scalar okay so from scale on you can import a min max scalar so mean max scalar will
+do nothing it will just convert the values in this range 0 to 1. so if your values in range let's
+say 0 to 50 it will convert to zero to one and
+after you created min max scalar you can actually call fit and transform
+on that columns and then you can store those columns into this data frame okay
+and when you do this [Music] now i want to just quickly see
+what happened see tenure is now in point four three point five zero so it's in
+zero to one range similarly um if you had i can print the unique values
+of all the columns by the way and you will see tenure has values
+zero to one range similarly monthly and total charges are in the zero to one
+range so great my data frame is ready to be used in my machine learning
+now before you create machine learning model you need to do train and test split okay so let's first figure out what is
+our x and y all right our x is all the columns except john
+and y is john okay this is very straightforward and let's do train and stay split again
+i have a tutorial on trend split if you don't know what this is we are just splitting
+our data set into train and test samples okay so our train shape
+because we are doing 80 to 20 percent split so percent of samples we are using for
+training and twenty percent sample we are using for testing
+hahaha this is eighty percent this is twenty percent all right sorry i don't have a
+great sense of humor that's why i'm just trying whatever i can okay all right so now
+uh let's look at the columns in our training data set so we have 26 columns
+because we had 27 the chun column is removed now i'm going to import some tensorflow
+libraries and say imported this sensor program right and when you create a
+neural network it's in neural network let me create a neural network here so model is
+keras dot sequential okay so here now you can
+enter all your layers one by one so the first one is an input layer and the input layer is
+a dense layer okay this is an input layer
+so how many neurons do you want to have well i will have same number of neurons as columns so 26
+okay so just visualize the neural network each neuron and the input layer is accepting one feature all right what is
+my input shape well my input shape is 26
+okay and this is how you do it um
+then by the way this is not so this this is
+an input layer and this one the the layer we are creating here is the hidden layer it's
+the second layer so you can have your own like maybe 20 neurons if you want okay and the activation function
+we know the general guideline is for hidden layers we want to have a value as an activation function because it's
+easy to compute value and now for the second layer i will just
+have some hidden layer okay how many neurons do i want well okay i want to have something less
+than input so input is 26 and 1020 so let's have 15 maybe okay
+and activation you don't need in this in this layer you don't need input shape because it is derived it knows what that
+shape is and the output layer uh has
+one and zero so the activation is sigmoid because it's one and zero and the neuron is one
+okay you know what i'm thinking you can have this dense layer or you can
+remove it because there is input layer and there is one hidden layer and there is one output
+layer okay so after you do that you create model.compile where you
+specify optimizer loss and matrix loss is binary cross entropy because our output is
+binary zero or one adam is a very commonly used optimizer you can use an adam you can
+try different things see machine learning is an art of like experiments there is no like golden rule here so try
+different things whatever works best for you and then what i always do is i first run
+like five epochs and just see you know how that is doing
+so running it for five epoch gave me some eighty percent accuracy so now i have a faith
+that my parameters are looking good if you don't have a good looking parameters meaning you
+should always try with less epoch and just kind of see see here it started 74 percent accuracy and then it was increasing
+so i'm sure if i uh if i just change it to 100 it will keep on increasing my accuracy
+you see that it's increasing but the first time when you're trying or try with less epoch
+and try to play with the neural network layers maybe add a few hidden more hidden on layers and
+just kind of see what works and once you run it for five or ten epochs you will get some feel of where your
+accuracy is going if accuracy is increasing uh you can increase your epochs okay
+so i have a gpu so it is taking very less time but if you don't have a gpu it might take more time
+but in the end i got 82 percent accuracy all right so this looks good
+now let me evaluate the model on x taste and white taste and on why test it give me 80 accuracy
+as well so this is looking okay um you know like a reasonable
+score i'm getting and i am now ready to test so when you do model dot predict or next
+test vibe is y predicted by the way um so i see that it is returning me the
+prediction but the problem is here is two dimensional array so i want to convert this two dimensional
+array into one dimension and the thing is white is that you have
+is see why it is that you have i'm just comparing white is with yp so
+why it is either 0 and 1 and since this was a sigmoid function this is in range 0 to 1 so it could be any value between 0 to 1.
+so what i want to do is take this array convert from 2 dimension to 1 dimension
+and convert all these values be ah to zero or one for example if it is more than point five let's say this
+value i will convert it to one if it is less than point five for example this i will convert it to zero
+okay and i can run a very simple for loop friends this is so easy code i ran a for
+loop okay and then i'm saying okay if element in this is greater than
+0.5 then do this so when i do now um
+so y red see now it's converting it into that range like zero two one
+so my widest first ten samples was this value and first ten sample here was
+this value so you can see first two samples is made a write prediction zero zero third one is zero and one so it got it
+wrong fourth one is correct fifth one it got it wrong remaining last four zero zero zero here
+last four is zero so it got it right okay we understand it's 80 percent
+accuracy so it might make some mistake now i want to
+uh print a classification report so classification report will print
+statistics on preseason and recall and we'll see what precision recall is
+but this is plotting the performance of overall my overall model i will come back to this
+uh but let's first look into the confusion matrix now confusion
+matrix we have seen in all our previous machine learning videos so it should be pretty straightforward what this is telling you is when the
+truth is one which means when in my excel file when i'm saying customer is leaving uh
+225 time it predicted one but 180
+three times when the truth was one it predicted zero which means this was an error so anything which is
+on a diagonal is a correct prediction anything which is not on the diagonals is error so we our model made
+183 plus 110 total errors and total correct uh prediction it made
+889 and 225 okay so let's go into so what is our accuracy
+okay so now accuracy should be very clear right so accuracy is basically correct
+prediction so 88 anything on diagonal is correct so 889 and 225 okay
+so that is correct prediction divided by total prediction so total prediction is eight eight nine
+one one zero two two five one eighty three sum it up okay and when you round
+this to two decimal places you get point seventy eight that is an accuracy
+okay so you see point that's my accuracy
+okay it's lit it's varying a little bit but it's that's what it is
+all right so then what is precision and recall so what is this number point 83 okay
+so pre-season means this so precision
+for see this is zeroth class and this is one class so we have two precision number okay so zeroth class means uh
+zero means customers who left your business so out of uh the
+predictions that your model made which is let's say 889
+okay so just a second
+okay let me ah one second okay let me pull my other notebook
+because the data is a little bit different here so this is the notebook i have so this
+is how it looks 862 and also on so here my accuracy was 0.78
+and that's what it gave me 0.78 so my precision for the zeroth class is the number of correct predictions
+that you made for zero so how many correct prediction 862 divide by 862 plus 179
+meaning how many samples it predicted it to be zero
+so this is predicted so total 862 and 179 it predicted it to be zero and out of
+that only 862 were correct so 862 divided by 862 plus 179
+gives you the precision for zeroth class and it's 0.83
+so 0.83 okay how do i come at point 63 so that is the precision for class one
+so one is this okay so how many are the correct prediction for one well
+anything on diagonal is correct so 229 correct prediction but
+how many it predicted it to be one so it predicted 229 plus 137. so 137 sample it predicted
+it to be one but actually they were error they were in reality they were zero the truth was zero but totally
+it predicted so 229 divided by 229 plus 137 uh that's what i do here and i get point
+63 which is 0.63 here okay recall why the recall for zeroth
+class is 0.86 okay so recall is
+862 divided by 862 plus 137 okay so recall is your total truth
+uh so total correct prediction for zero where 862. that divided by
+total uh actual zeroth uh samples
+so total samples which has john set to zero are 862 plus 137
+and the recall is nothing but 862 divided by the total samples which has
+zero in reality and same thing for one so i hope that clarifies your
+understanding on precision recall i will make a separate video probably so that i can give you a more better understanding
+all right that's all i had for this tutorial and now the most important part of this tutorial which is an exercise in
+the exercise i have given a link of another kegel data set for
+bank customer churn prediction this is the data set you should click on this button and
+download this data set and build a similar artificial neural network
+model once you build it try to analyze accuracy precision recall and different
+parameters so it will be very similar model that we build in this tutorial but since the data set is different you

@@ -1,0 +1,377 @@
+gradient descent is at the heart of supervised machine learning it could be statistical machine learning or
+deep learning and in this video we are going to cover exactly this topic so we'll go through
+some theory first and then we'll write python code to implement gradient descent now if you have seen my machine
+learning uh tutorial series previously i had a separate gradient descent tutorial that was
+specifically built for a regression problem for housing price prediction
+in this video we are going to cover some of the same theory but we will build gradient descent for
+a simple neural network or a logistic regression for an insurance data set so if you're
+not seen my previous video i would highly recommend you see that and if you don't have time
+don't worry i will try to cover most of that theory in this video as well now if you're
+targeting a data scientist role or a machine learning engineer role grade and decent is a common topic that
+they ask in the interviews so it's very important that you understand the math behind it you understand how the technique works
+because it is as i mentioned earlier at the heart of machine learning
+especially supervised machine learning so gradient descent is everywhere it is the core of uh
+ml domain um so that's what we'll cover uh today uh let's get started let's start with a
+little quiz here i have x and y values and i want you to figure out the relation relationship
+between the two so the function that describes the relationship between these two variables
+will be y is equal to x into two all right how about this pause this
+video and figure it out what is the linear equation for this table
+well this one is also easy y is equal to x by x into three
+how about this okay again pause this video and try to figure it out
+well this is x into two plus three because let's take an example if x is 2 2 into 2
+is 4 plus 3 7 so you get 7 x is 3 3 into 2 is 6 plus 3 is 9 so you get 9.
+all right how about this one well this might not be that easy correct
+the smile or the curiosity this little child has is actually valid because as a human
+being sometimes you have a hard time figuring out relationship between these two tables
+but if you give this to a computer computer has a technique called a gradient descent
+using that technique it can find out the linear equation
+for this table and this gradient descent is at the core of machine learning and
+deep learning especially supervised learning because in supervised learning you have truth data which is x and y
+so you you'll often have this type of table and then gradient descent all it does
+is it finds the relationship between these two this is also called a predict prediction
+function so that tomorrow if you have a new value for x let's say 11 you can put that into this equation and
+find out the value of y here 0.5 is called weight
+and 1.5 is called bias this is simple linear algebra as i mentioned before
+this is a prediction function and it's the main point behind any supervised
+machine learning technique could be regular machine learning or deep learning let's look at our
+insurance data set now let's say you have a table agent affordability and have insurance
+uh which is a output column now we have talked about this insurance
+data set in our previous tutorial as well so if you have not seen my previous video i would
+highly recommend that you watch those here based on asian affordability
+we can say if the person is likely to buy the insurance or not and often in binary classification type
+of problem which is this type of a problem you want to find a function that can
+take agent affordability as an input and it can tell you whether person will buy the insurance or not
+so agent affordability is obviously x why is having insurance
+and all you're trying to do is simple trying to figure out this function f of x and we have seen
+our previous videos that we can define a simple neural network with a single neuron
+we have two neurons in the input but often when we we're talking about neural network we don't
+take into consideration the input neurons hence this has only single neuron and it's a logistic function we have all
+already seen in previous tutorials that logistic regression can be thought of as
+a very simple case of a neural network having a single neuron
+and in logistic regression you all know there are two components one is a weighted sum and the second one
+is the sigmoid function all right now when you're training a
+neural network and remember that gradient descent is used during the training of a neural network
+so let's say i have this 13 data samples so i have this truth data which has 13
+data points i want to use all of this to train my network
+so what i'll do is i will first feed the first sample so age is 22 so 22 is here
+affordability is one one is here and i will initialize the weights to
+some random value here i initialize them to be one so you see two purple ones here one and two and
+i will also initialize bias which is here in purple 0. so i initialize
+them to 1 or 0 you can initialize to some random value as well doesn't matter
+and then you feed the first sample into this network this
+is called a forward pass in the forward pass you will put the
+value of age as 22 affordability as one and then you get a value of y
+then you put y here and get the value of z for this sample it will be 0.99
+and your truth data is zero so what you predicted was in 0.99 and
+your prediction value is often indicated with y hat so whenever you see this hat or a cap
+on top of y it is a predicted value you have predicted value and you have
+the truth value so you find out the error so the error we have seen in a
+previous video that for logistic regression we use
+log loss we don't use mean square error or a mean absolute error and there are reasons
+behind it but we use this log loss and this is a mathematical equation for log loss don't
+worry too much about this math you can just think of it as some kind of error function for a log loss
+and you find that your first error comes uh to be 4.6 you will repeat the same process for
+your second sample which is 25 as age 0 as your affordability
+again you find out y hat and y and calculate the second error here y hat seems to be same
+as the first sample which is 0.99 but that's okay you go through all the
+samples until the last sample which is the 13th sample where the age is 27
+affordability is 0 you feed that you get y hat to be 0.99 your actual y
+is 1 and your error number 13 is 0.01
+so now you sum up all the errors for all the samples and then
+you calculate the loss so here we are using log loss which is also known as by
+the way binary cross entropy and that is nothing but sum of all the losses and you take the
+simple average of it so after the first epoch so what is
+epoch epoch is going through all your training samples once so once you have gone through
+training sample number one to 13 that means you have completed one epoch
+after first epoch your total loss is 4.31 and i'm just making this up but you can
+do the math and then your goal is to
+back propagate this loss so that you can adjust this weight 1 and weight 2.
+remember that when you train neural network you might have to run multiple epoch until you get a
+correct value of w1 and w2 so after the first epoch my log loss was
+4.31 i need to do something to now update the weights w1 and w2
+in such a way that my log loss can be reduced so my goal is to
+adjust w w1 and w2 such a way that the log loss is less than 4.31
+so how do i do that well from w1 i need to subtract some value i need to adjust it basically
+so either subtract or add some value so what is that value now if you have seen my derivative video
+in the same series that's why i keep on repeating that you need to watch previous videos so
+that you have that mathematical mathematical background so that whatever i am talking about doesn't make like you know
+it doesn't sound like a rocket science because it is not
+so uh derivative so now let's talk about derivative
+so derivative of your loss compared to w1 indicates the what it
+what it will indicate is how my log loss changes for a given change in w1
+and that's an important parameter to understand because now you can do something like this
+you can say that something is actually learning rate into this is a derivative of loss compared to
+or with respect to w1 learning rate is usually 0.01 that's the
+value people use but it's a small value so that you don't adjust your weights too drastically
+so learning rate is just limiting your derivative function and what this is saying
+is how the loss is changing for a given change in w1
+and for w2 the equation is same as w1 and for bias again the same thing
+uh is just that you are taking your derivative of loss with respect to bias b
+okay now uh for our long loss function the derivative seems to be this equation
+on the right hand side again do not worry too much about math don't think i am not good in math i used
+to get 5 out of 100 in my math class that's why i suck at math you don't math is not as hard as you think it is
+this derivative function is something that we got using the derivation derivation
+formula and again in our derivative video we looked at various ways of
+calculating derivative function mathisfun.com is a great website if you want to refer to math in detail but for here
+just assume that this is the derivative okay and again for the law uh bias this is
+the derivative uh i have not shown the derivative for w2 but it's same as w1
+so now we started with weight one and weight to be one and our bias was zero we found a total
+loss which was 4.31 something and then we use this derivative
+to find the new value of weight one and weight two and bias b and then
+we find that the new values will be this so now my new weight is the 0.8
+w2 is 0.7 and my bias is minus 0.2
+now you repeat once you got this new weight you again feed your entire training set
+to your neural network and you do a forward pass so you first feed the first sample you
+find out the y hat and y then you calculate error number one then you feed the second sample third
+sample until the 13th sample and then you find the total error so
+this is the end of second epoch and by the way we are using a batch
+gradient if you are using stochastic or mini batch gradient the technique will be little different and
+we will go into the difference of these three gradient decent techniques in the later videos so don't worry about it
+right now we are using batch gradient descent where you need to feed entire training
+data set for one epoch uh and before we start back propagating
+so this is the second epoch and if you remember from our handwritten digits classification neural
+network epoch was one of the parameter when you call model.fit in your tensorflow code
+so we have looked at this before and now you can kind of make sense of what this epoch is
+okay so now when should you stop so let's say you run secondly third
+epoch fourth hip-hop when would you stop so usually if your error function is a convex
+function convex function is nothing but like a board like a function like this
+where here this chart again friends it's a very simple chart on axis you
+have loss on x axis you have w1 and it's a 3d chart so x axis says again w1
+and b i have not shown w2 because you cannot visualize four dimensional um
+you know four dimensional data in easily in our 2d screen so this is the best we can do but it
+mathematics wise it works equally it doesn't matter it's a two dimension or ten dimension
+so if your loss function is like a boat you know this looks like a boat the boat
+in the river the boat in the river so you start with some random weight and
+random b and your loss is usually high so let's say you start at this point and when you use derivative
+you are constantly shifting or moving towards a point where your loss is
+minimal so here at this bottom point your loss value on the y axis is minimum
+all you're trying to do is find out the value of corresponding w1 which is see here
+maybe 72 or something and the value of b which is here near to minus 5.
+so you are trying to find these values once you find these values you're done you have your prediction function
+and gradient descent allows you to do exactly same you are traveling from some random point
+to a global minima this rate the rear point is called global minima
+now if i take an intersection and if i visualize this in a 2d plot this is a chart of w1
+versus cos this is the b versus cost and both the planes are like this
+they're like both type of u-shaped function and you start at the random point where the loss is very high which is the star
+and you're trying to gradually move to a point where loss is minimal and that point is nothing but a global
+minima so this is your process and in this
+process at every point you are drawing a tangent
+and that tangent is nothing but a derivative we have seen in previous videos so that's the derivative
+and then using the derivative you multiply that with learning rate and you try to move
+from this point to this point to this point to gradually here
+all right enough of the theory show me some code let's write some code so you get even more better understanding of what's
+going on here so i have a jupyter notebook open here where i have imported my insurance data
+set and if you look at the csv file it looks something like this age affordability and whether person
+bought the insurance or not if you don't want to use jupyter notebook locally on your computer you
+can also use google collab that's perfectly fine now
+i have loaded my data into my data frame until now the code should be familiar pretty straightforward now i want to
+scale my data i want to do pre-processing because my affordability is in a scale of one and zero
+whereas my age could be from the scale of ideally in theory 0 to 100 right all
+or less 1 to 100 so i will uh what i will do is
+first i will do train and test split and you have seen my machine
+learning tutorials it's very easy so this is how you do train and test split you import
+or train to split and then you call this function on your data frame my test size is 20 of the samples
+okay and if you look at my x train
+looks something like this okay and the length if you look at it
+is 22 whereas if you look at total number of samples 28 okay
+so 22 for training and 6 for taste all right now let's do the scaling so
+for scaling you know that if you want to scale your age
+into 0 to 1 and since the age is from 1 to 100 you can just divide it by 100 and you
+can do something like this so here i made a copy of my data frame i'm calling it x strain
+scale and then i'm dividing h by hundred
+okay same thing i'm doing with the x test so when you do that um
+my x train scale you see my age was 22 i converted to
+0.22 so now this number is between 0 and 1 and why do we
+why do we do this well because to bring the age and affordability on a same scale so
+if you do scaling your machine learning model tends to work better okay now what we'll do is
+we will use uh first tensorflow and we'll build a simple
+neural network for predicting the insurance okay
+so if you know from my previous tutorial the way you create keras model is by
+doing this so here i'm creating a sequential model with only one layer where
+my neuron is just one and my input shape is 2 because a is an affordability there are
+two parameters in the input and my output is 1 which is telling you
+whether person will buy insurance or not and activation is sigmoid i am initializing
+the weights to be one and biased to be zero so this goes back to the
+picture that we had which was let me just show you that picture
+so it is this picture here so two neurons okay as an input so where is two
+so it is this two activation sigmoid uh kernel initializer one so you see
+these weights are initialized to one and bias is initialized to zero so that's why i have zero all right now i will do model compile
+in model compile i'm using binary cross entropy because all you experts know that binary cross
+entropy is same as log loss excellent and now i will do
+model lot fit and model.fit will run the training it will go through
+all these training samples and i'm specifying my epoch to be 5000
+i figured this out by trial and error i initially tried 1000 2000 whatever
+and then 5000 gave me the best accuracy
+all right so you can see the loss was 0.4631 so this is that same loss uh
+this loss is this one once you go through all your training samples
+what was the loss 4.31 so what happened was when we ran our first epoch see first
+epoch the loss were 0.7113 so it was this first epoch
+okay and then we ran again a second epoch so when we started second epoch after adjusting my weights
+uh my loss was this so i kept on running this until my accuracy on my training samples
+came to be 90 percent this is 90 per 91 percent so it looks pretty good
+now you can evaluate your model on your test data set so my test is widest and x
+day scale of course and when you do that this is your accuracy see
+1.0 so for my test samples my model performed
+excellent it give you 100 accuracy that's what that means
+and if you want to predict some of the values so see x stays scaled so you have x day
+scale and you're predicting the values so let's see
+this is your x day skill and i want to predict okay so what this is saying is and you
+know the scale is like i'd be divided by 100 but actually this is 47 years of age
+so if it is 47 years of age affordability one
+then the output is 0.7 so if anything is more than 0.5 it means person will buy the insurance
+so let's look at our csv file where's my 47 yeah this one see 47 and 1
+will buy the insurance one perfect so my model predicted it right
+18 years and one affordability will not buy insurance because this is less than 0.5
+so let's see yeah see 18 and 1 person will not buy
+the insurance so again excellent prediction 61 and 1 affordability
+so 61 and 1 the person will buy the insurance and that's what my model is saying 0.82 is more than 0.5 which means the
+person will buy insurance so this model is performing excellent
+and if you want to verify you know buy a test so the first one is 1 see this 0 means
+anything less than 0.5 okay all right now let's look at
+so now i want to know by the way what was my final weight i want to know my weight 1 and weight 2
+and bias like again going back to this example
+i want to know what was this weight on weight to and bias after i train my neural network
+for that you can use get weights function so in your tensorflow keras
+model you have this method called get weights and once you
+get that when you print it so the first one is coefficient so w1
+was 5.0 w2 was 1.04 and your bias was minus 2.91
+okay so this was 5.0 this guy was 5.0 1.4 so this guy was 1.4
+and bias was minus 2.91 all right now
+i used tensorflow for this now i want to do implement the same method from
+scratch in python so now you're getting into building a neural network from scratch
+without using tensorflow okay all right so
+before we do that let's do some simple prediction so you all know how you can define a
+sigmoid function by the way we have seen this again in the activation
+function tutorial we wrote this python method so this is not new if you have seen my previous tutorial
+and the sigmoid to test it for some sample value let's let's do this okay so this is your sigma
+okay now your prediction function okay so what is a prediction function
+okay so my prediction function takes edge and affordability and it will tell you if person will buy the insurance or
+not so if you look at prediction function
+it's nothing but this so weight one into age weight too into
+affordability plus bias so let's do that first okay
+so weight one is what okay weight one is coefficient
+zero okay so weight one into h plus weight two
+which is one into affordability
+plus intercept intercept is nothing but a bias
+and this is your weighted sum
+[Music] okay once you've got weighted sum which is y all you do is call sigmoid on that y and
+that is your final output so i will say return sigmoid
+weighted sum so this is my prediction function okay okay now let me call
+this prediction function on this value 0.47 and 1.
+so my tensorflow model give me 0.705 let's see if my raw method will give you
+the same thing excellency 0.07054
+0.7054 got it cool so what i just showed you was how the
+prediction function works once you have weights and bias
+similarly i can take the second value which is
+18 and one so wherever is 18 and one yeah point eighteen and one
+okay and i expect the answer to be point three five five so let's see
+well you got the answer you expected all right now
+what i'm going to do is i'm going to implement gradient descent function in python from
+scratch so i need couple of helper methods for this
+so the first one i need is a log loss and this function we have already seen in our previous
+video so i'm not gonna go over it again if you have questions on this function if you're asking me why the hell are you
+directly typing this function then i will say friends please watch the previous video
+we already went into detail in this function so i'm just copying pasting
+i will also define another function which is a sigmoid function but for numpy
+so sigmoid numpy which is a vector type of function so instead of taking a one value it this
+function takes an array okay so for example if you do 12 0 1 it just gives you the
+sigma of the entire array and when you're using numpy and vectors um
+using these vectors could be very useful uh in your computation so
+that's why i have this function so now i'm going to define a gradient decision function and
+remember gradient decent function helps you find out weights so
+at the end of this function what we will find out is w1 w2 and bias okay so for age
+affordability by true epoch whatever it will tell you the
+okay let me remove this so here i am specifying how many epoch i want to run
+i have age affordability by true and these three is nothing but your csv file see age affordability
+bought insurance so you are passing the vectors vectors in array one two three as an input here one two three
+and how many iteration or epoch you want to run okay so we already saw that
+we want to initialize w1 and w2 to b1 and bias to be 0 this is random you can
+initialize all of them to be 1 or 0 or some random value it doesn't matter
+and i want my learning rate to be
+0.01 i'll start with 0.5 and see if it lands fast if it doesn't or if there is another
+issue you know i can change it to 0.01 is the standard thing that people use
+and the length of the samples is the length of age you can do age or
+affordability okay and then i am going through for i in range
+epochs so i want to run the iteration as many times as my epoch
+and in the every epoch i want to first
+find out the weighted sum so weighted sum is nothing but w 1 into h plus w 2 into affordability
+okay plus bias now when i call this function by the way see
+let me show you how i am going to call this function so i will call this function
+on a numpy vector so i am specifying so this age is not
+one age value it is an entire row array so total like all this number
+in an array i'm passing same thing with affordability and the great thing about numpy is
+you can do vector operations so you are doing all this operation in one shot and you are getting your weighted sum
+okay and what is a y predicted well y predicted
+is nothing but a sigmoid which is a numpy sigmoid
+of weighted sum see friends until now you should be very clear these two things are very common for any neuron
+you take weighted sum and then you apply sigmoid function so if you look at this neuron you see
+this vertical line two part the first part is weighted sum second part is
+sigmoid so it is extremely simple and then you calculate your loss by
+applying this function so we have this log loss function which takes y true and y predicted so we
+specify y true and y predicted we find out the loss okay now
+until now this was very simple now once we have this we want to operate our weights
+okay based on the derivative functions that we had so what was our derivative function so
+in our presentation the derivative function was this so derivative of loss was x i into
+y hat minus y i so what we're doing is we are subtracting from
+so let's do this first so let's do y hat minus y i so how do you do that
+y hat minus well y predicted minus y two right this is what it is okay so
+we did that now what else we want to multiply that
+with x i so x i is nothing but our age it could be age or it could be
+affordability so for weight 1 this x i would be age okay
+so we want to multiply that with age so let's say you multiply with that h okay
+and then you want to sum it up sigma is sum it up
+but see uh this one if you want to sum it up and after
+summing up it up you are doing uh average so one by n so in numpy
+the way you do that is by doing dot product okay so you do a dot product between
+these two and you have to do transpose of
+age okay so np transpose of that and
+this is the dot product and then you take an average so this one by n is nothing but this
+one by n okay you get the derivative of with respect
+to weight one and same thing you do with uh the affordability which is a w2
+derivative and once we have derivative by the way okay we need the derivative for bias as
+well so bias derivative is this so if you look at bias derivative y hat
+minus y and simple average of that so that's a simple mean of that
+now w1 and w2 is nothing but minus learning rate into
+the derivative so again going back to the equation you see w1 minus learning rate into
+the derivative all right this is so simple until now
+and same thing you do with bias okay and then you want to print in every
+epoch you want to print your weights your loss so that you know what's going on
+okay all right and once that is done
+you want to return w1 w2 bias okay so let's do
+thousand epoch just to be you know epoch is friends style and
+error to be honest so i'm just trying randomly thousand okay
+what did we get okay we got our loss to be point
+four two zero zero now when do you stop well some people will stop when the loss
+uh changes at the very lower rate so you see we are already getting into that situation where
+every epoch we are not seeing much difference between the loss so i think we have run probably
+more iteration than needed so what i'm gonna do is i'm going to stop when my loss is this
+so i will stop when my loss is same as my tensorflow function so that i can compare
+my weights that whatever tensorflow the weights the tensorflow give can i
+replicate the same thing in my plain python code so one way of doing this is i pass a
+loss threshold okay and i will say stop there when my last threshold
+so it's a new parameter and i will say my last three years old i want to stop when that threshold is this
+okay and you want to of course in your function you want to break when your loss
+reaches that level i hope it makes sense so far so you'll
+realize that at the end of 366 epoch i
+got that loss 4.4631 you know 0.4631 was the one that i
+wanted to stop now let's compare that with our coeff
+and intercept so this coefficient intercept was the one i got from tensorflow
+so now let's see the tensorflow coeff w1 was by 5.06
+okay let me write it down so tensorflow w1 weight was
+this w2 was this
+and my bias was this
+and compare it with our plain python code by the way see 5.05 5.06
+almost same 1.45 1.40 again almost same minus 2.95 minus 2.91
+again very very same so this shows that we are able to replicate what tensorflow
+did internally using our plain python code so if you're in a data science interview
+or machine learning interview they might ask you to write code for great indecent then that
+that will be this code okay in my machine learning tutorial whatever code we wrote was for regression this one is
+for neural network or a simple logistic regression
+we don't have any exercise but i hope you enjoyed this tutorial i know there was a lot of math and a lot of
+coding but see that is what is needed if you want to master deep learning you have to
+go through some of the complex topics and i hope i made these topics a little bit more
+simpler in this video so if you like the video please give it a thumbs up i'm going to
+share this python notebook in a video description below so get it i will also share the
+insurance data set and everything uh download it on your computer run it locally on your computer or google call
+a collab play with some different parameters such as lost threshold and so on
+and see uh what you experience basically.

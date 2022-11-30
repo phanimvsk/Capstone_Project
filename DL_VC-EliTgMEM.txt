@@ -1,0 +1,55 @@
+install
+tensorflow on your Windows computer I'm
+using anaconda on my computer so I am
+going to install tensorflow with in
+anaconda environment the other way is
+you have plain Python installation in
+that case you can just run pip install
+tensorflow and you will be all set so
+since I have anaconda environment first
+thing you need to do is install anaconda
+for that I have a link video I made a
+video on how to install an icon on
+Windows so just follow that and I am
+assuming you have now installed anaconda
+the first thing you need to do is go to
+add and remove program and make sure you
+don't have to python installation
+because anaconda comes with python
+installation so here search for python
+and if you see another python
+installation here remove it otherwise it
+will create a lot of issues you should
+have just anaconda or just have plain
+Python installation you should not have
+both now I am going to launch git bash
+so git bash is a command prompt which
+you can again install on your computer
+easily right click run as an
+administrator it should be notebook
+and this is launching a jupiter notebook
+in my anaconda environment and you can
+just create like a new Python 3 notebook
+I already have something created here
+and I will just try to import or
+tensorflow in this notebook and see if
+it works so ctrl enter and when you do
+ctrl enter is trying to execute that and
+you you see that it is not important
+right now
+so now what I will just say ctrl C and
+exit out of that and I will now run pip
+install tensor so this will just take
+few seconds and then it will install
+tensorflow so now it says successfully
+install tensorflow to 10 suppor 2 is out
+so we are you going to use that
+and now again you can use Jupiter
+Notebook command to launch the same
+notebook and we'll try to import
+tensorflow and see what happens
+and let's see if this works this time or
+not
+control-enter great I am able to import
+tensorflow now I'm all set to write my
+first neural network program thank you.

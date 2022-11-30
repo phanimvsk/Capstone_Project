@@ -1,0 +1,331 @@
+tensorflow installed on your computer in this video we are going to write code
+in tensorflow and python to recognize a hand returned digits uh using uh deep
+learning in the same series there was a video called what is neuron where we use
+insurance data set and i showed you a simple neural network with one neuron we'll discuss that
+insurance data set and i will show you how our deep uh neural network will look like or
+how a neural network with hidden layers will look like for the insurance data set then we will cover some theory on the
+hand return digits data set and then we'll jump into coding i will quickly refresh the concept that
+we went over in what is neuron video here i have an insurance data set where the person
+age and whether the person has an insurance based on the age is given and we are doing binary
+classification basically based on the age we are trying to decide whether person will buy an insurance or not
+and for this case we saw that we can have a single neuron or a logistic
+regression where the first part is the weighted sum and the second part is the sigmoid
+function and here point zero forty two is a constant that i came up with from my machine learning logistic
+regression video and once you have this neuron you can give the age and it will tell
+you whether person will buy the insurance if the value is more than 0.5 person will buy otherwise he will
+not buy and you can supply different rages and you can know the answer this was a simple form
+of a neural network now this had only one feature which was aged but you can have
+multiple features such as age income and education in which case your linear equation would some look
+something like this and your uh neural network might look something like this
+where you're feeding the input features using the input neurons and your output
+neuron is doing two-step mathematical calculation number one is
+weighted sum and the second one is sigmoid and it is telling you if the person will
+buy the insurance or not your data set in real life will be even more complicated
+it will have even more features so let's say you have age education income and savings
+in this case you can have a hidden layer in the neural network where what you can do is use age and education
+to determine the awareness factor of a person awareness meaning how much aware a
+person is to buy the insurance usually if the person's age is uh young people think that they will not
+fall ill and they don't buy the insurance as the person age increases uh he or she will buy the insurance
+similarly if the person is let's say laborer or and his he or her education is not
+much the awareness tend to be low income and saving factor can define affordability
+because sometimes person has awareness but let's say person doesn't have income or he or she doesn't have enough
+saving to buy the insurance then the person will not be able to buy
+the insurance so there is affordability factor as well and awareness and affordability can
+ultimately decide if person will buy the insurance or not so this is an example of a neural
+network with a hidden layer and these are the weights that i have shown here
+actual neural network will look something like this where every neuron is connected with every
+other neuron in the hidden layer this is the reason it is called a dense layer of network dense
+meaning every neuron is connected with every other neuron in the other layer
+now let's move on to our digits recognization our data set so i went
+over this theory for insurance data so just to give you an idea on the hidden layer
+now hand written digits are something like this this is the problem that we have solved in our
+logistic regression machine learning video if you have not seen that video i would suggest that you watch it so you
+get some context we can define a very simple neural network for this
+where we can feed an image into the input layer like this and the output
+layer will have 10 neurons because we are classifying an image into
+10 different into 10 different classes basically we have 0 to 9 which is total 10 and we want to
+classify an image as one of these classes so if you feed let's say
+eat this image into your neural network the output will have this kind of score now
+since we are using sigmoid function the output will be in between
+0 to 1 okay so this 4 looks like
+82 percent it looks like 4 this is what is saying it's something like similarity score 0.08 percent it looks like
+or maybe eight percent it looks like three okay so these are the score but the
+highest score is with four that's why we'll say okay this image is the digit four similarly when you
+have number 2 you will see that out of this 10 neurons number 2 neuron will fire
+the fire means it will have more score now the question is how do you convert
+this image into input neurons because you have x1 x2 xn neurons so you have to feed this
+image into neurons so the question is how do you actually supply this image to neuron because when you have insurance data set
+you have uh clearly defined values such as age income education etc and you can directly feed it into your neural
+network but image is little tricky so for image what we do is it is ultimately a two dimensional
+metric where each pixel is represented with a number between 0 to 255 255 is white 0
+is black and in between you will have numbers so you can actually have those pixel as a two dimensional
+array something like this where you know the darker region will have zero
+this region is very bright so it has 240 the maximum value will be 255 and you get a two dimensional array for
+representing this image and then you can
+supply that two-dimensional array and you can basically convert that into
+one dimensional array so you can flatten the array so flattening means you are converting it from two
+dimensional array to one dimensional array here in the first row we have seven zeros and then eight zero and a
+ninth element is 87 so you will count here you have 9 0 and then 87 then 240 and so
+on so you're just very simple friends two dimensional to one dimensional array conversion
+and this is seven by seven grid so this this array will have total 49 elements
+and then you can have 49 neurons in your input layer so this 0 goes to x1 this 0 go to x2
+and so on the 9 87 will go to x9 and so on
+and these values now can be propagated into this neural network which has
+10 output neurons so this neural network doesn't have any hidden layer it has just
+input and the output layer into it now the problem that we are going to solve we will actually have
+28 by 28 grid okay and we will flatten it so it will
+become 784 neurons in our first layer and then you have the output layer when
+we are writing code in python and tensorflow we'll first try to solve it using a simple neural network like this
+and then we will add a hidden layer and we'll see how the accuracy improves
+i ran a jupyter notebook command and that will launch a notebook like this where i have
+imported some necessary modules we already installed tensorflow so tensorflow i already
+imported and from tensorflow i also imported kira which will give me some convenient api
+to use we are going to use handwritten digits data set from
+keras library and that is something you can load using this particular line here and what this
+will do is it will load the train and test digits data set into these
+variables so let's see how many samples we have so we have
+in x train 60 000 digits images similarly in x
+test we have 10 000 images so this is a pretty good
+like a big data set now if you look at each individual sample
+that sample is a 28 by 28 pixel image and the weights represented
+in numbers is a simple two dimensional array like this
+so just a two dimensional array zero means those black points and you know 253 means 255 is white
+so these are between 0 and 255 values if you want to see how it looks really
+you can use matplotlib library so matplotlib we have already imported as
+plt the pi plot and we can in that library there is a function
+called let me just remove this these lines and if you press b it will create a new cell
+and here i am plotting the first training image so this is obviously five
+you can look at couple of other images see the second one is zero
+third one is four but you can see these are like clearly handwritten uh digits and if you
+look at y train so y train let's say y train
+in let's say see this is four in in at position two so now i can see
+at position 2 there is a number 4. so if you look at y train overall it is containing a number between
+0 to 9. see i put print the first 5 symbol and this is how it looks
+so this is straightforward our data set is loaded now now what we are going to do
+is we are going to flatten our training data set because
+we saw in the presentation that we want to convert this 28 by 28 image
+into the single dimensional array that will have 748 84 elements so how do
+you flatten it in pandas there is a function called a reshape so when you
+have x train you can call a reshape function on it and in the reshape
+you can say okay length of x strain that is your first dimension so
+it has two dimensional if you if you just do this x train dot shape
+you will see the first dimension is number of samples you have which is 60 000
+second and third dimension is each individual image so when you when you reshape you still
+want see in the reshape what you want to eventually get is this 60 000 and the second dimension
+should be 784 that's why i am saying length of x strain which is 60 000 and
+then 28 by 28 so it does something like this let me
+store that in a variable and i will call is
+flatten and when you put in the shape of it see
+this is what i wanted sixty thousand and 784 you can similarly flatten
+x taste as well and x taste looks something like this
+and both are flattened now so if you look at the shape of okay let's guess what will
+be the shape of x uh x stays flattened exactly 10 000 number of images and 784 is the
+second dimension pretty good and if you are looking at
+let's say first l individual element you see that we converted from this presentation
+which was two dimensional array to single dimensional array until now
+all the code that we wrote is extremely simple
+now what we are going to do is we are going to create a simple neural network okay
+so that simple neural network will look something like this it has just two
+layers input layer with 784 elements output layer with 10 elements
+and the way you create this in tensorflow and keras is you use keras
+dot okay so you use keras dot sequential so sequential means i am
+having a stack of layers in my neural network and
+since it is a stack it will accept every layer as one element so the first
+element here is input but keras has this
+uh api where you can say clay keras dot layers dot dense dense means all the
+neurons here in one layer are connected with every other neuron in the second
+layer that is why it is called dense okay so i'm creating a dense layer here
+and see the input shape
+input shape is what 784
+say input is x1 x2 x3 to 784 so that's what i have 784 here and
+the output shape is 10 so this way you are defining
+both input and output layer basically this is the output which has 10 neurons so 10 neurons are
+this 0 to 9 and the input is 784 neurons
+so that's what you're saying input shape is 784 you need to specify the activation
+function which is sigmoid okay that's it
+we defined our neural network very simple neural network and we are going to store that into
+a variable called model and once we do that we need to compile it so in tensorflow
+and kera this is something you have to do all the time where you kind of
+compile that neural network and you pass bunch of arguments so first
+one is optimizer so i'm using adam optimizer uh
+you will have now a lot of question what is adam why we are using it hold those questions
+till later point in the later videos we'll cover uh these optimizers but optimizers allow you to allow
+you to train efficiently basically when the backward propagation and the training is
+going on optimizer will allow you to reach to global optima in efficient way
+and the second parameter is loss so loss function
+if you uh follow my machine learning tutorials especially let me just show you so if
+you go to youtube by the way and if you just search for
+core basics machine learning tutorial you see this playlist where
+in the linear regression tutorial i have talked about the loss function i use mean square
+error or msc loss function okay here we are going to use
+sparse categorical cross entropy so what this means is uh
+our output class are categorical because we have categories basically 0 to 9
+we have like 10 classes in our output and sparse means our output variable which is
+y train is actually an integer number if it is 1 hot encoded array
+you would probably use categorical cross entropy and you can look at the documentation
+and find different type of loss see in tensorflow there are different types
+of laws the one that we are using here is this sparse categorical cross
+entropy if you click it see this is the string that we're using
+one can use mean square error as well so mean absolute error mean square error
+and if you want to use mean square error you will supply this and if you want to know more about mean square error and the loss
+you can follow this linear regression tutorial also you can follow this gradient
+descent tutorial where i have talked about gradient descent and cost function i
+would highly suggest watching this because this will clear some understanding on how actually these algorithms
+optimize and how they reach the global optimum value for the equation
+i'm also going to maybe cover some math later but for now just to i want to
+build a working neural network in this video that is my goal that's why i don't want to go too much deeper into these parameters so
+hold your curiosity for some later time and we will look into these parameters in detail in future videos
+and in the metrics you are saying accuracy so accuracy
+is my metric when neural network is compiling my goal is to make it more accurate
+basically okay and then
+you can call model.fit so fit is where the training actually happens
+so you are supplying here the training set basically
+okay so x train is flattened y train we did not flatten it because simple array and epoge is like number of
+iteration for which your neural network is going to run the training again
+all these parameters optimizer loss metric epoch we will cover these in future in detail
+so do not worry too much right now we just want to execute uh this neural network so
+keras is actually small okay input shape is not defined
+so input shape is this when you run it now it is performing the training in
+each epoch you can see that it is going through these samples 1875
+and then at the end of this run it is measuring the loss and the accuracy and you will
+notice that as the time goes the accuracy uh will increase now here in our case
+actually the accuracy came out to be really very low
+so one reason that i'm suspecting that the accuracy here is very low like 0.99 would be uh
+high accuracy basically 1.0 will be like perfect but we got 47 percent so one thing i'm
+suspecting here is that our values are not scaled often in machine learning you need to scale
+the values okay so what i will do is i will try to scale them now how do you scale them
+the value each individual value is in range 0 to 255. so if if i divide this uh whole array by 255
+it will be scaled from 0 to 1. so let me do that here
+so after i load my data set or just before doing this
+i'm going to now divide it by 255 okay so if you can see in my
+x train i see two dimensional array values are between 0 and 255
+okay fine i'm now dividing it by 255 so it will divide each and end
+individual value with 255 and when you do this now
+you can see that see 0.99.98 so now the values are between 0
+and 1. so i will just control enter and execute this code
+again and see what happens because scaling is a technique
+that improves on the accuracy of machine learning model we saw in in our in this particular machine
+learning tutorial as well that when you do scaling it tends to improve the accuracy and we are already seeing that here see
+in third or fourth and fourth iteration we got 92 percent accuracy so now we have
+92 percent accuracy which means our model is trained in a way that 92 percent of time
+it will make accurate prediction okay let's try to evaluate the accuracy
+on a test data set because when it is running training it is actually evaluating accuracy on a
+training data set before deploying model to a production we always evaluate the
+accuracy on a test data set and this is how you evaluate accuracy on a test data set and that is also coming to be same 92.68
+so this model looks pretty good it's a simple neural network it takes less time
+for training so what i'm going to do now is i will
+just do sample prediction you know just for fun
+so i have x test flattened and i want to predict it
+okay so this predicted probably all my sample images so let me do this first so i will do
+only prediction for only first image so let me see what is my first image
+my first image okay the x test is flattened actually so
+let me just print this okay my first image is seven
+i want to predict my first image x tastes flattened okay we are getting
+some error here
+okay looks like i need to predict it for all the values and i'll just store it in y predicted
+which will be an array and the first image should be seven
+okay so let's print seven okay so the prediction is coming out to be
+this and it has ten values because what it is now doing is it is c printing
+those 10 scores like this 0.29.07 and so on
+so this 10 scores are printed in this array and we need to look at the score which
+is the maximum okay and to look at the maximum score
+in numpy so you see we imported a numpy module here numpy as npe right so in that
+there is a function called np.argmx it will find the maximum value basically
+and it will print the index of that value so now it's coming to be 7 so this is
+your prediction actually so see it is predicting it to be really okay you can
+try maybe some other sample let's try the first image so first image is 2 here
+okay the first one perfect good job guys first
+see this is this is predicting really nice now if you want to get a feel of how
+your prediction look like we looked at confusion metrics in the same machine learning tutorial playlist
+so we will just build a confusion matrix and the way you build confusion matrix
+is we imported tensorflow as tf in tf there is a module called
+math which has confusion matrix function and i will show you
+exactly what confusion matrix is so labels is basically y test
+so this is your truth data and here you want to supply a prediction
+so y predicted okay but this cannot be y predicted
+because this is expecting the real labels you know like white taste if you look at y taste
+okay let's look at y test these are the integer values and if you look at why predicted these
+are whole values so we need to convert this into like concrete class labels so
+the way you do that is you will say y predicted labels is equal to
+you will use list comprehension basically you want to call np dot arg max for
+all the elements and in python you can create a new array out of
+existing array by running a for loop for i in y predicted
+you can say for each i you want to find np dot arg max so np dot arg max i
+okay and when you do y predictor labels let's
+just print first five see now i am getting the first five
+prediction and you can see that first five predictions are actually matching with the first fight truth data
+okay so i will pass y predicted labels in my confusion metric
+and let's store this into a variable called cm cm is confusion matrix
+it's not chief minister by the way okay now what is this exactly well
+uh print this confusion matrix in a some visually appealing way so that we
+can visualize it better and i'm going to use c bond library you can just look at this code
+basically instead of this visualization i am having some fancy colorful visualization
+that's all this is and what this is telling you is
+960 times 63 times the label was zero and our model
+predicted it to be 0. so 0th prediction was was correct 963
+times 1106 time it was 1 and our model
+predicted it to be 1. nine times like this nine the truth was
+two but our model predicted to be one so see anything that is not in the
+diagonal all these numbers are errors and you see we have quite a few of errors for
+example look at 14 number here so 40 times it was number 2
+but our model said it is actually 8. so you can see all the errors you can
+see how those errors are distributed using confusion metrics it's a very good tool
+to evaluate the performance of your model now i'm going to copy paste the same
+uh same model here and then i will add a hidden layer into this
+so as you add hidden layer it generally tends to improve the
+performance so what i will do here is this
+see my last layer doesn't need input shape because whatever first layer it is
+connected it knows how to figure out the input shape from that okay but my first layer
+input neurons are 784 and here i need to specify number of neurons in my
+hidden layer now how exactly you can specify how many neurons you want well it is
+short of trial and error there is no like fixed thumb rule there are some guidelines but
+i am just going to start with some value which is less than input shape so i will
+start with hundred in the activation function i will use an activation function called
+relu we will look into later videos what value is you guys already know
+about sigmoid there are other activation functions such as 10 h leaky
+value and so on we'll look into those in details again do not worry too much about this
+as i said my goal of this tutorial is to work build a working model and then we will
+uh look into details like you know filling the layers of the onion we will peel all those layers in later
+videos okay invalid syntax because i don't have
+comma you will realize one thing which is when
+you have a hidden layer your neural network will take some more
+time to train because now it has to do more computation you can add more uh hidden layers here i'm
+having just one hidden layer but you can have more hidden layers as well and you can figure out
+how the performance is going to look like and once the model is trained of course
+we are going to evaluate the performance on test set
+and test set shows 97 percent this means 97.15 percent
+is my accuracy when i did not have hidden layer my accuracy was 92
+percent so you can see 92 to 97 it's a good improvement
+and then what i will do is i'm just using the same code base okay
+same code base that i used to draw this uh confusion matrix i'm just plotting
+the same thing here and you will realize that the number of errors in this black boxes have
+decreased the numbers in this diagonal
+those numbers are increase in a perfect state you will have 0 in all these black boxes and in the
+diagonal boxes you will have big numbers that is a perfect state when your model is
+perfectly accurate and it's not making any prediction but you know friends life is not
+accurate so in life you see this imperfections and which is okay
+now one thing i did not like personally is whenever i am building a neural
+network i have to make this flatten array but luckily if you don't
+want to make this flatten array keras comes up with a spatial layer called flatten
+so what i'm going to do now is i will use the same code base here so
+ctrl c ctrl v ctrl c ctrl v is your friend okay and here let's say i don't want to
+create flatten array i just want to supply extra environ how do i do that
+think about that for a second there is a way called
+keras dot layers dot flatten yes
+in that you can say my input shape is what 28 by 28 because that's uh
+one image dimension 28 by 28 in the second one you don't need to specify input shape because it can
+figure it out on its own this makes it simple so this this way
+you don't have to create a flattened array and also i will
+i'll just say epos 5 but you can make it tan as well okay
+so that's all i had for this tutorial uh this this code is same as the other one
+it's just that i don't want to create flatten array and that's why i i added this thing
+but accuracy everything you'll you'll get it to be same uh now what i want from you
+is this uh so there is a little exercise for you all what you have to do is uh
+just try different optimizer and different laws here look at the keras documentation you can
+just say google keras loss functions and you will find losses in
+keras or maybe tensorflow tensorflow
+tensorflow loss functions and you will find all these losses so i want you to try different losses
+different values of metric different values of optimizer also different values of e-pose and
+tell me if you can get more accuracy than 97 percent you can play with some more hidden
+layers as well also try to play with different activation functions and tell me if you can get more
+accuracies when you try different values of loss you will also get stuck into errors.

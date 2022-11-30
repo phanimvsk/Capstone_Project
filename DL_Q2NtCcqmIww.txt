@@ -1,0 +1,454 @@
+in our last video we looked at theory
+behind word to work
+this is part two of that video and we
+are going to do coding here
+so we will be using Amazon product
+review for cell phone accessories
+and build a word to back model in a
+gensim library
+I know this is the tutorial series for
+tensorflow but gensim library is an
+nlp library for python
+and it's very easy to use the syntax is
+very very
+easy compared to tensorflow so that's
+what that's why we are going to use that
+and train a model so I have given the
+outline of the whole video here so there
+will be coding
+and there will be an exercise as well in
+the end let us begin
+already so let's first install gen sim
+library so you can just do pip install
+gen sim
+and it will install it I already have
+this installed you need to install
+another
+module called python levenstein
+so just copy paste and install it
+by the way if you uncomment this line
+and run this
+cell it will install as well
+now I have imported gensim and pandas
+and I'm going to download
+Amazon product reviews data set and
+these are the product reviews especially
+for cell phone
+accessories category so if you click on
+this
+what's going to happen is it is going to
+download you see
+43 megabyte file here
+in this particular folder and I'm going
+to
+open that folder so show in the folder
+and ctrl x okay so
+i am going to now
+put that here ctrl v
+so this is a zipped file okay z
+g z is a zip file version and you need
+to unzip it
+so your data set needs to be unzipped
+by running a
+this command g unzip command okay gnzip
+command
+you go to that particular folder and run
+it on that
+gz file and it will unzip the file you
+see
+now I have this huge json file by the
+way I'm not
+trying to open this file because it's
+135 megabyte
+it's a very big file okay now this has
+json records with all product reviews
+and
+pandas actually support reading
+json file okay so that's what we're
+going to do here
+and we're going to create a data frame
+so here
+df is equal to pd dot
+read json
+name of the file
+all right and lines equal to true
+so if you don't know the meaning of
+lines equal to true you can go here
+shift tab it will open the documentation
+and when I read the documentation
+see the lines it will say that it will
+read the json object read the file as a
+json object per line so
+one line is one json object in that
+particular file
+again I'm not opening that file in
+notepad because it is
+very huge and it's probably going to
+hang
+internal editor I'm going to just
+print couple of rows of that data frame
+and you can see there is a reviewer id
+some identify identification number as
+in
+reviewer name helpful you know in Amazon
+people
+say okay it was zero
+two people found it useful out of three
+so it is that tuple
+and there is a review text here okay and
+overall rating
+looks good whatever so these are all the
+cell phone accessories and we are going
+to train a word to
+wek model using only a review text
+so we are interested only in this column
+remaining columns are not
+useful to us now I will do df.ship just
+to get an idea on how many records you
+see
+we have 194 000 records that's a lot of
+data
+actually all right so that data set is
+enough to
+train our model and now see when you
+have this review text so let me
+just do tf dot
+review text so this is the column we are
+interested in okay
+and if you look at any review
+see the review is like okay they look
+good and stick good whatever
+the first step in our training world to
+work
+back model is to do preprocessing
+because these texts have
+things like you know a and the
+these are the stop words that they they
+have
+for example a and it
+so we don't want those and the another
+thing is
+you know we want to convert this word
+into lowercase
+so that you know everything is in
+lowercase and comparable
+then remove the trailing spaces
+you know removing punctuation marks and
+so on
+and all of these things can be done
+using a function in gensim so gensim
+library
+so we have already imported the enzyme
+right
+has utils dot simple
+preprocess now this function
+will simply pre-process
+this particular text just to show you
+let me copy paste this particular review
+text
+into simple process function and let's
+see what it will do with it
+so you see it is tokenizing the sentence
+meaning
+the t was capital it converted all to
+lowercase
+then look good and stick good see the
+good
+had this punctuation mark which it
+removed
+then it removed i as well because
+when you're building vertical model
+things like i the
+these are not very useful then in don't
+it remove punctuation mark and t
+now it's not very perfect by the way so
+it is using some simple heuristic rules
+for doing this preprocessing but this is
+good
+enough to build our word to wack model
+so I used one sentence
+here but if you want to use the entire
+column
+you can do apply function so here
+see I have this review text function
+right so
+on this review text function if i=I do
+apply this function okay
+if I apply this function what's gonna
+happen is
+it's gonna return me a new numpy series
+you know pandas pandas column is a
+series object
+so pandas series object basically and I
+will call it
+review text
+and let's print that here so now it is
+applying this symbol process function on
+all of our reviews so we have 194 000
+reviews so for each of these reviews it
+is applying that function
+and it is going to create a new
+panda series and you see each object in
+the series is a list
+and the list has tokenized words
+now if you remember from part one of
+this video
+where we went over the theory of word to
+back there was a concept of a window
+so when you have this kind of
+statement
+you take a window moving window so here
+this window is of size 2 okay because
+you are there there is this word a and
+then you are taking a word
+before and after okay so
+when you do this thing this kind of
+thing king order his
+so there is order his and that is king
+so there is so this is called a context
+window so you keep on moving this window
+and you generate your training samples
+so here
+my training samples are see load a and
+then
+it will the target is there
+so target is there and this is your
+these are your context words so context
+words and the target context force and
+target
+so when you have paragraph of text you
+can generate
+these kind of training samples and I
+highly suggest that
+you go through this particular video
+part
+one so let me just show you so this was
+the part
+one what is word to work so it's very
+very important that you go through it
+to understand the theory first because
+otherwise
+understanding code will be hard for you
+okay now we are going to
+initialize a gensim model so injen sim
+jinsim dot models gen sim
+is an nlp library and it
+comes with word to vect class
+okay so now I'm going to create a model
+using this okay now this takes couple of
+parameters
+okay what kind of parameter does it take
+first parameter is window
+so window is equal to 10 so what is the
+window window is this thing
+this is the window okay so when I say
+10 it means 10 words before your target
+word and 10 words after your target word
+you can experiment with the size there
+is no fixed rule you can make it 5
+7 whatever then there is another thing
+called
+mean count so mean count is basically if
+you have a sentence
+which has only one word then don't use
+that sentence
+at least two words need to be present in
+the sentence in order to be considered
+for the training
+workers is how many cpu threads you want
+to use
+to train this model so
+I said four my cpu has four cores so I
+will be using
+four threads okay now we need to
+build a vocabulary
+building vocabulary means building a
+unique list of
+words and again if you have seen my
+previous videos you will get an idea so
+I will call
+a function called build vocab by the way
+I know about these functions but if you
+don't know you can just Google it
+you can Google jen sims document so
+let me just show you intense
+documentation
+and here you find the
+documentation so if you're doing
+build vocab
+so build vocab will have
+some examples they would have given
+here so
+build
+okay see
+so you can look at the parameters there
+is this parameter called progress per
+which means when you are
+training a model after how many words
+you want to see a progress bar
+or progress update so
+progress for let's say thousand words
+okay now it is training the model and
+no this is building a vocabulary by the
+way I don't know because of jupiter
+notebook the way it is set up it did not
+show me the progress bar but
+that's probably okay all right
+so it it initialized a model now let's
+look at this model so
+model has things like epoch so by
+default
+the epochs are set to five so what I'm
+going to do now is
+perform the actual training so we'll do
+model
+dot train okay now what kind of
+parameter does it take
+obviously it will take a review text
+first so see
+review text so review
+text then total examples okay how many
+total examples do we have
+well it will be equal to model loss
+or plus count model dot corpus count is
+total examples how many total examples
+we
+we had 194 thousand all right
+and then epochs is equal to model.ebox
+epoch again if you have seen my previous
+deep learning video you will know what
+epochs means
+it is how many times you want to iterate
+through the entire dataset
+and when I do the training now it's
+gonna go through all the 194 thousand
+sentences and build my word to weak
+model so the training is going on right
+now while i'm talking
+it might take time based on your
+computer your cpu gpu
+I'm not sure it will be using gpu though
+but
+it's a big data set so you have to be
+patient
+patient okay my model is trained
+and i'm going to first save the model
+to some file because usually
+what they do is train a model
+save it to a file and then use that
+pre-trained model in most of the
+occasions
+okay so I'm going to let's say call it
+this
+dot model and if you look at my
+not this but this see dot model so I
+have saved this model now I can
+take this model deployed to cloud and
+kind of use it
+for my nlp needs all right so
+I just saved the model i'm not going to
+use that model
+saved model because I already have model
+loaded in the
+in the memory okay so I'm going to now
+experiment
+so the way you experiment is you do
+model dot word to wack
+okay what to a and it has a function
+called most similar
+so let's say there are product reviews
+and someone is saying a word
+bad so what are the words which are
+similar to bad
+you see that is wonderful
+so bad and terrible and this is a
+similarity score
+you see sebby horrible now
+good is similar in a sense that good and
+bad are antonyms but they're kind of
+in a similar category okay so
+that's what it is showing if you train
+this on even
+bigger data set then it it will be even
+more accurate so this is not
+very perfect but you kind of see the
+power of this model
+you know after training it it can now
+start understanding the language it
+knows which words
+is similar to which other word
+all right and then we can
+print a similarity score as well cosine
+similarity
+so you can print similarity score
+between two words let's say cheap
+and inexplic inexpensive
+another one I would like to try is great
+and good
+see the similarities higher and if I do
+great and let's say product
+see grade and product are not very so
+minus means see they're not very similar
+but great and good or great and
+let's say awesome
+you see this is already working so cool
+0.73 is a higher score
+0.1 means like that exactly same 0.1
+let's see
+see one in great and great is exactly
+the same so it says
+one but great and good and great and
+nice
+this is already working fine but great
+in iphone
+0.09c so very less
+all right you can do further reading on
+this
+by going to official documentation of
+gensim again jensim is a very popular
+nlp library
+we are doing this video as part of our
+keras and tensorflow series but
+gensim is very easy to use in terms of
+for training world to vac model that's
+why I showed gensim here
+and there is an exercise for you this is
+an important thing
+so you need to train a worldwide model
+on sports and
+outdoors reviews data set so if you open
+that data set again 65 megabyte
+data set and you have to build a similar
+notebook
+and after you're done building it click
+on the solution so don't click on the
+solution
+until you have done your due diligence
+okay
+and this notebook is available on my
+github i'm going to provide a page
+of my github so this is my github by the
+way and if you go to deep learning
+and if you go to word to work
+the this is the notebook which I covered
+in the video
+and towards the end there is an exercise
+and if you click on the solution it has
+a solution but you're not going to click
+on the solution because you know what's
+going to happen if you click on the
+solution without trying on your own
+your computer will start burning and
+there is a curse
+you know so you make sure you come your
+computer doesn't burn
+you try things on your own before you
+look at my solution I hope you found
+this video is useful
+if you did share it with your friends
+try it out
+maybe try it out on different data set
+try to build your own word to work model
+to understand the power of it thank
+you
+have a nice day.

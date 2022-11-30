@@ -1,0 +1,73 @@
+In computer vision, image classification
+is not the only problem that we try to
+solve.
+There are two other problems that we
+solve using computer vision, which is
+object detection and image segmentation.
+In this short video, I will explain you
+the difference between these three using
+a simple example.
+For image classification you try to
+classify entire
+image as one of the classes, for example
+is this
+a dog or not. Image classification
+with localization means you not only
+classify the image as one of the class
+but you
+find the location of that object within
+the image.
+So this is called image classification
+with localization.
+If you have multiple objects in your
+image such as
+cat and dog, you might want to find their
+location
+and you can try drawing these
+bounding boxes or rectangles specifying
+the location of these classes.
+This is called object detection. In the
+image,
+you're trying to detect an object, which
+in this case is
+cat and dog and you're drawing these
+bounding boxes
+or rectangles, so this is object
+detection.
+You can go one more level up and
+classify each pixel
+as one of the classes. For example, here
+all the red pixels belongs to dog and
+yellow pixels belongs to cat.
+This is more fine grained classification
+where you're exactly specifying
+each pixel belonging to each class.
+So just to summarize when you classify
+the entire image as one of the classes is
+called Image Classification.
+When you detect the objects within an
+image
+with rectangular bounding boxes, it's
+called Object Detection;
+and when you classify each of the pixels
+as one of the classes
+it is called Image Segmentation.
+Image Segmentation is little more
+involved, I just gave a very simple
+definition of it.
+The the image segmentation which, I
+showed you is called instance
+segmentation.
+There is semantic segmentation as well
+but for this video just to keep things
+simple
+you can leave this, with this
+understanding,
+and I hope you like this video and I
+hope you are enjoying this deep learning
+series.
+In the furthest further videos we'll go
+more into object detection image
+segmentation and we'll try to write
+python code
+using tensorflow.

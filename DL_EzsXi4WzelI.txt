@@ -1,0 +1,104 @@
+we'll quickly cover
+different types of
+recurrent neural networks. In our last
+video we looked at the example of
+named entity recognization where given a
+statement,
+you can tag each of the word whether
+it's a person or not.
+so in this case
+for example Dhaval baby and Yoda
+these are the person so there is one as
+an output
+so this is the case of many too many RNN
+because you have many inputs or x
+and you have many outputs or y so
+generic way
+you can say something like this x1, x2
+all the way till xt and y1, y2 all the
+way
+till yt so this is a many to many
+recurrent neural network the other use
+case is language translation
+here in this statement there are three
+input words and three output
+words but actually you know that the
+output words could be different
+okay? and in order to translate this you
+need to pass the whole statement so
+the architecture will look something
+like this where
+in your RNN hidden layers you would
+input
+all your words initially after you are
+done with
+your last word then your RNN will start
+producing the output and we looked into
+this
+a little bit in the last video so if you
+have not seen my last video on what is
+RNN
+I highly recommend you watch it because
+this video is a continuation of that
+video
+this is also another case of many to
+many and generic way of representing it
+would be using this notation so here xt
+means the last word t is the last word
+and x1 x2 these are like different words
+in a statement.
+sentiment analysis in here the input
+would be a paragraph
+and the output would be your review for
+example these are like product reviews
+okay
+so given a text of productivity you can
+save it
+it is one star or two star so the RNN
+would look
+something like this it will be many to
+one
+so you have many words as an input but
+the
+output is one which is your product
+review
+and generic way of representing this
+would be this
+x1 x2 all the way xt and then there is y
+hat which is a predicted output
+the other use case is music generation
+where
+you can pass a simple like a sample
+note or like a seed node and then you
+can ask
+to produce a music melody you know
+RNN can sing a song
+or even poetry writing you can feed a
+single word
+or like a seed word and it can
+write a poem so in this case
+it this is the case of one too many
+where your input node is just one
+sometimes you it sometimes you know you
+don't have input at all
+and you can ask RNN to just produce some
+random music
+and it will do it for you and the output
+has
+you know y 1 y hat y 2 hat y 3 hat and
+so on that's why it's one too many
+and this is a generic way of
+representing this architecture
+so that's all I had I think for
+this video I hope that clarifies your
+understanding on
+different types of RNN we will be
+looking into
+LSTM, GRU those kind of special cases
+in future videos but in this video we
+covered
+one too many many too many and many to
+one type of
+RNN. I hope you like this if you do
+please give it a thumbs up and share it
+with your friends. Thank You.

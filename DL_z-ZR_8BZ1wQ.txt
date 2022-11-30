@@ -1,0 +1,60 @@
+i want to discuss the difference between
+pytorch
+tensorflow and keras in this video
+pytorch and tensorflow are two
+most popular deep learning frameworks
+there is a
+third framework called cntk by microsoft
+but it is not as popular as the other
+two
+pytorch is by facebook and tensorflow is
+by google
+now you will ask me what is keras then
+keras is not a full-fledged deep
+learning framework
+just like pytorch and tensorflow keras
+is just a nice
+wrapper around tensorflow cntk and
+theano
+so previously when people were using
+tensorflow or cntk directly
+or the programming uh in these
+frameworks was not that easy
+it was a little difficult so then keras
+was created as just a nice wrapper
+around these libraries and it just
+provided
+a convenience so it is not a
+full-fledged framework
+but it just provides your convenience
+here i have a code snippet where
+you can see if you import keras by the
+way if you want to install keras you can
+just do paper install keras
+and the code snippet will look something
+like this if you're directly using keras
+and nowadays with tensorflow 2.0
+they have made it a part of tensorflow
+library itself
+so here is another code snippet where
+you can use keras
+directly from tensorflow so in all our
+tutorials we are not going to install
+keras separately
+we will just use tensorflow and then we
+will use keras which is
+inbuilt into tensorflow to make use of
+their convenient
+apis now if you're using
+a keras previously like you can specify
+a backend so in the code snippet of
+keras
+you you have you would have seen the
+back end was
+tensorflow by default and you can change
+the backend you can change it to cnk
+cntk or theano but we're not going to go
+into all of that
+we'll just use tensorflow and use
+keras within the tensorflow or to write
+our programs.

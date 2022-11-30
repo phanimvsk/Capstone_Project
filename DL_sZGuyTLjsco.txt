@@ -1,0 +1,321 @@
+in last video we looked at
+bi-directional RNN today we are going to
+talk about
+how you can convert words into numbers
+when you are dealing with any natural
+language processing task, your input is
+text
+and machine learning models can't
+understand text so you have to
+get it converted into a number let's
+take the example
+for the game of cricket let's say you're
+building an NLP model
+for this game and the task you have in
+hand
+is to recognize entities in a given
+sentence for example here
+Dhoni would be a player name India will
+be a team name and world cup would be a
+tournament.
+Similarly you can have a different
+statement and you want to identify the
+entities so this is called name entity
+recognization
+and based on previous video you can
+build
+an RNN that looks like this but if you
+observe carefully,
+there was one big problem when I
+covered
+NLP tasks for rnn in my last video
+and the problem is the input
+the machine cannot understand text see
+here the input is
+Dhoni or team India whatever
+the machine learning model can't
+understand text we have to convert that
+into a number
+so how do you do that
+so you see you have a text you have to
+put this extra layer as an input and you
+have to convert all these words to
+numbers.
+Now let's say for training the model
+you scrap the internet okay so you go to
+websites like ESPN click inco
+Clickinfo, Wikipedia and so on you try
+to
+grab all the articles you know to build
+your language model.
+and you build a vocabulary out of it so
+vocabulary is nothing but list of words.
+So let's say this is your vocabulary you
+know you start with
+a Axar is the name of the player Dhoni is
+the name of the player
+Zimbabwe is the name of the team and so
+on
+let's say my vocabulary has 50,000 words
+you can assign unique number to each of
+these words and then you can
+use those numbers as an input to your
+RNN
+for example Dhoni has number seven so
+see use 7 here
+now that's your option number one
+basically converting words into unique
+numbers based on your vocabulary
+but there are issues such as the numbers
+are random
+they don't capture the relationship
+between two words
+for example in this particular case
+dhoni's number is 7 access number is 2
+Dhoni and Axar are both are players so
+maybe these numbers should be similar
+but they are far apart
+whereas asses is the name of the
+tournament it is more near to Axar
+so these kind of random numberings
+cannot capture the similarities between
+the words
+so then the second option you have is
+one hot encoding
+if you've seen my machine learning
+videos you might have
+seen one hot encoding tutorial which is
+basically you take all your words
+and when it is ashes for ashes you put
+one, remaining
+words you put 0 and you get a vector
+for example the vector for Axar would be
+zero
+one one so wherever Axar appears you put
+one remaining numbers are zero
+so this is a very popular approach in
+machine learning but this also have
+a couple of issues like number one issue
+is obviously they don't capture the
+relationship because see
+again there is no relationship
+established you know
+if you are if i don't tell you the words
+if you are just looking at these numbers
+you can't tell if two words are same you
+know
+like banana and grapes for example these
+are the two fruits
+so if you have these two fruits maybe
+you want their vectors to be little
+similar
+the second problem is it is
+computationally inefficient
+if your vocabulary has 50,000 words
+for each word you get a vector whose
+size
+is 50,000. Often
+in machine learning problems the number
+of words could be in millions or
+trillions
+millions of billions not maybe not
+trillion or it could be trillion in
+future
+but you get the point so the
+computational cost is very very high
+so the third option you have is using
+word
+embeddings. Word embeddings allow you to
+capture relationship
+between the two words. Let's see how do
+you capture similarities between two
+words.
+So let's take the example in order to
+explain
+how word embedding work I want to take
+you back to your
+first machine learning problem which is
+predicting home prices
+so if you have two homes and you want to
+let's say figure out if these homes are
+similar or not
+how can you do that well you look at the
+features of the home
+what are the features it's simple right
+like the bedrooms area
+bathrooms and so on. So if you look at
+these two homes
+the bedrooms are same area is almost
+same you know 1700 versus 1850
+bathrooms are also kind of near to each
+other
+so then we can say that these two homes
+are similar
+based on the features
+if I have a third home let's say big
+mansion you know
+which is very big home and if I look at
+the features of this home you know the
+feature vector would be 10
+7500 and 2 and when I compare this
+vector with this vector
+I will obviously figure out that these
+two homes are not similar
+can we apply similar concepts to the
+words
+let's say these are my words dhoni
+humans I put just pictures for the
+reference
+otherwise we are comparing just the
+words okay so Dhoni
+cummins who is an Australian player and
+Australia which is name of the country
+how can you compare these three words
+now as a human we know that
+Dhoni and Cummins are similar because
+these are players
+you know names of players but Australia
+is not similar because it's the name of
+the
+country or name of the team so then
+just think about is there a way
+to retrieve features
+from these words? If you think hard
+you might be able to come up with some
+features such as
+person whether the person is healthy or
+fit location has two eyes has two
+government has government
+so in the case of Dhoni he's a person
+healthy fit yeah he's pretty healthy but
+you know maybe point nine we can put
+some number one means like perfect
+point nine is like really healthy
+is Dhoni a location well no so zero
+does he have two eyes now in order to
+qualify for
+the you know international cricket you
+need to have two eyes so that's why
+I'm so there could be many features I
+just hand crafted these features there
+could be
+ten features here you know how fast he
+can run
+whatever then has government
+does Dhoni have government no that
+doesn't sound that sounds
+weird actually so then I put zero and
+when I put
+similar numbers for comments I will
+probably get
+similar kind of vector you know here I
+have one point nine zero one zero
+one point eight seven zero one zero kind
+of similar vector and and I put these
+numbers randomly okay so there's no
+logic to it
+so don't tell me like don't ask me how
+the number of Cummins is 0.87 here but
+for Australia
+when you put the same number of is not a
+person so of course zero
+but he often has a location so it's one
+Australia has government so it's one and
+if you're any other countries they will
+match
+uh the feature vector that I have
+presented here so essentially what we
+did is
+we converted word into a vector
+vector is just a bunch of numbers right
+and when I converted that what I found
+is
+Dhoni and Cummins are kind of similar
+see one one point nine point eight
+seven and but comings in Australia are
+not similar
+but Dhoni and Australia are not similar
+because the one zero
+point nine point seven yeah of course
+point nine point seven
+y 5.9 oh yeah maybe healthy and fit
+meaning for
+a country is if the country is healthy
+economically
+Australia is doing pretty good so we can
+say 0.7 yeah
+so some of the numbers might match but
+the entire vector if you compare the
+similarity
+it is not very similar
+so now we found this feature
+feature vector for the words and that
+could be very effective
+to solve a variety of problems in NLP
+tasks
+and this is basically word embedding
+so if I look at our original vocabulary
+maybe you can come up with this kind of
+a feature vector
+you know where you can say okay my
+features are person country health and
+fit event
+gear and when you have words like that
+well it's gear so it's one
+is it healthy and fit you know like when
+you train machine learning model
+you might come up with these random
+numbers so but
+overall you get an idea that if it is
+Australia country then 0.97
+one means it's perfect 0.97 yes it's
+like like country so again I'm not
+putting one here but
+showing 0.97 as an example because
+these features by the way are not
+handcrafted here I handcrafted this
+feature
+but we will be using machine learning
+model later
+to come up with these features and you
+wouldn't even know what these features
+are
+and it will just magically work. I will
+cover more
+that of that in future but for now just
+assume
+there is some magical way of retrieving
+features from the words when you process
+a large corpus
+of text data using
+using machine learning. So using machine
+learning you can derive
+this kind of feature vector okay
+and once you have that of course when
+you look at the
+features for Cummins versus Dhoni
+they're matching so you know that these
+are
+these two are players and when you look
+at feature vectors for Australia and
+Zimbabwe
+they are also kind of matching so you
+also know that these two
+are countries or
+team names so you use machine learning
+to convert words into
+this kind of vectors and those vectors
+are fed
+again into RNN okay and then we
+solve variety of problems like the
+sentiment classification
+or name entity recognization so on
+variety of NLP tasks
+so just to summarize we looked at three
+methods of converting words into numbers
+one was unique numbers second was one
+hot inquiry third was word embeddings
+and in word embeddings there are variety
+of techniques available such as
+tfidf and word to wack now word to wack
+etc will be covering in future videos.

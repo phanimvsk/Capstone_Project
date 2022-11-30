@@ -1,0 +1,156 @@
+in this video we are going to discuss
+convolution
+padding and stride if you remember my
+cnn video
+in that we discussed the handwritten
+digit
+recognization and we
+came up with three different filters or
+feature detectors
+for digit nine those were
+loopy pattern detector which is like a
+head of digit nine
+vertical line detector which is a middle
+part
+and the tail which is a diagonal line
+filter
+and when we apply this filter what we
+find is
+we reduce the
+input size by a little bit so in this
+case
+the input was five by seven when you
+apply three by three filter
+you get three by five feature map
+which is an output and the formula is
+m by f plus 1 into n by f plus 1
+so here m is the dimension of this
+input phi by 7 and
+f is filter dimension and if you do the
+math
+you get three by five this is called a
+valid
+convolution or valid valid
+padding the problem with this approach
+is that the pixels on the
+corner they don't get to play
+important role in feature detection for
+example this pixel which i have
+highlighted
+in this color it participates
+only in one convolution operation
+which is this corner whereas if you look
+at this pixel
+it gets to participate in this
+particular convolution
+as well as this
+so you see it participates in multiple
+uh convolutions and multiple feature
+directions hence
+this is not ideal basically the
+the pixels on the corners are not
+playing an important role for feature
+detection in your image classification
+to solve this problem what we can do is
+we can
+pad the original image with let's say
+here in this case
+i'm using one by one padding so
+on each each side of your rectangle
+we are adding one
+row or one column of empty pixels like
+this
+and you can put some values like minus
+one here minus one represents
+basically a black background so minus
+one everywhere okay
+i did not have time to draw minus one in
+each of this corner but just imagine
+minus one everywhere
+now when you apply three by three filter
+you can start from
+very corner and you can go like this
+so this way um even this
+this corner pixel like this minus one
+it will play a lot of role because it
+it will be see it will contribute in
+this one
+then when this filter moves down it will
+play a role in at multiple
+times you know while detecting these
+features
+now if you think about dimensions the
+original image was five by seven
+but we added see two columns and two
+rows so it became
+seven by nine so pay attention to this
+number it was 5 by
+7 but it now becomes 7 by 9 okay
+with padding 1 and if you do the math
+using that formula
+m minus f plus 1 and so on you will
+realize that this time you get the
+original image back
+so original image was what five by seven
+you applied padding of one
+when you do filter you get five by seven
+back so you're kind of
+preserving that image back and at the
+same time the
+corner pixels gets to play a fair role
+in the feature detection this is called
+same convolution so just to summarize we
+have
+valid convolution which means no padding
+same convolution means
+pad such that the output is same as
+input now if you're using tensorflow api
+often you will find this argument
+padding
+where you will either supply a value of
+same or valid so if you
+come across this argument now you know
+what is valid convolution versus same
+convolution
+now let's talk about strides we
+saw in our previous cnn tutorial as well
+that
+when we apply convolution we have this
+kind of filter window which we keep on
+moving
+so right now we are moving it by one
+pixel you see one pixel
+left and one pixel down so this is
+called stride of one by one
+so in a x direction see x direction we
+moved by one pixel
+when we cam down we also moved by one
+pixel
+that's why it's called stride of one by
+one
+you can also have a strike you can have
+a more stride it's
+it doesn't have to be one by one all the
+time you can do
+maybe two by two so in two by two you
+will move by two pixels you see that
+i moved by two pixels so
+one and two now my window is here
+similarly when i move vertically i'll
+move by two pixels see right now
+i'm at the top see one two
+this is called a stride of
+two by two and
+again when you're using tensorflow api
+you can specify the
+stripes like this by default the styles
+will be one by one
+and by default the padding padding will
+be valid which means
+there will be no padding but you can
+modify this
+now these are hyper parameters to your
+model
+so based on your situation based on your
+data set
+you might want to specify different.

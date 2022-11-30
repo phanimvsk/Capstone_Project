@@ -1,0 +1,382 @@
+many occasions we need to deploy a
+machine learning model on cell phone on
+microcontroller or a variable device
+like a fitbit usually machine learning
+models are of bigger size. So if they're
+running in a cloud, on a big machine is
+okay. But if you want to deploy them on
+edge devices by edge devices I mean all
+these devices which I just mentioned
+then we need to optimize the model and
+reduce the model size. So when you reduce
+the model size it fits the requirement
+of a microcontroller. Microcontroller
+might have only few megabytes of memory
+so it meets the requirement of limited
+resources and also the inference is much
+faster in this video. We will look into a
+technique called quantization which is
+used to make basically a big model a
+smaller one so that you can deploy on
+edge devices. We'll go through some
+theory and then we'll
+do coding as well as usual. we will
+convert a tensorflow model into tf
+flight model and will apply quantization.
+Let's Begin!
+Devices like microcontroller wearable
+devices have less memory compared to
+your regular computer and quantization
+is a process of converting a big tf
+model
+into a smaller one so that you can
+deploy on edge devices. by edge devices I
+mean all these devices small devices are
+called edge devices and if you look at
+your
+neural network model
+when you save this model on a disk you
+are essentially saving all the weights
+these weights are float
+sometimes they use float64 precision
+which is eight byte so to store one
+number you are using eight bytes
+sometimes you might be using four bytes.
+So let's say you're using four bytes to
+sort store your one weight and by the
+way I have shown you a very simple
+neural network. Actual neural networks
+are much bigger so many layers so many
+neurons.
+Now if you convert
+this weight into integer
+let's say you are just approximating
+this number from 3.72 to 3, then you can
+reduce your memory storage from 4 byte
+to 1 byte. This is int 8 by the way and
+if you're using 8 bytes and if you go
+from 8 bytes to
+1 byte that is
+that is a huge saving in terms of memory.
+So quantization is basically converting
+all these
+numbers which requires more bytes to
+store in each induced number
+into lets say int. So it's not always int.
+Sometimes you are converting from
+float 64 which is 8 byte to float 16
+which is 2 bytes. Even that case also you
+are reducing the memory size so that is
+basically quantization. It's a simple
+approach. Now you're not blindly
+converting these
+weights into numbers. For example, here
+you have 3.23 you might not be saving
+that as three maybe you are saving it as
+four. There is an algorithm that you have
+to apply and I'm not going to cover that
+you can read the research paper online
+on how exactly quantization works. In
+this video I will just keep it to
+you know a very higher level higher
+level you are basically reducing your
+precision
+and each individual weight that you want
+to store you are using maybe into 8 or
+float 16 so that overall size of the
+model can be reduced and
+obvious benefits are you can deploy your
+model on a microcontroller which might
+have only a few megabytes of memory and
+even the prediction time is much faster.
+So the performance when you're you know
+actually making prediction is much
+faster if your model is let's say into
+eight.
+There are two ways to perform
+quantization in tensorflow post training
+quantization and quantization aware
+training in post training quantization
+you take your trained tf model
+and you use tf light convert. By the way
+if you don't know tf light, tf light is
+used to convert
+these models into smaller ones so that
+you can deploy on edge devices.
+Now when you do this conversation
+you can see this is a bigger circle this
+is little smaller circle. So it will
+already reduce the size
+because the memory format that it is
+using is different
+but if you apply quantization at the
+time of conversion it will make it even
+more smaller. You see the smaller circle
+here on the right hand side.
+Previously it was bigger but when you
+apply quantization the model size is
+much
+smaller.
+Now this is a quick approach but the
+accuracy might get suffered. So the
+better approach is quantization or
+weight training. In this case you take tf
+model then you apply
+quantized model function on it and you
+get a q model in tensorflow. We are
+talking about tensorflow
+and then
+you do
+training again. So this is more like a
+transfer learning you know you are doing
+fine tuning here so you're taking your
+model
+quantization
+you're doing quantization and on
+quantize model
+you're fine-tuning that you are running
+the training again maybe for fewer
+epochs. And you get fine-tuned quantize
+model. And that
+you convert again using tf light see if
+you want to deploy tensorflow model on
+edge devices you have to use tf light.
+You have to do tf light conversion that
+step cannot be avoided.
+This approach is little more work but it
+gives you a more accuracy. Now let's do
+some coding so that you get an exact
+idea.
+I'm going to use a notebook which I
+created in one of my deep learning
+videos. So if you go to
+YouTube search for code basics deep
+learning you'll find my tutorial
+playlist. Here I made a video on digits
+classification so I have taken a
+notebook from here if you don't know the
+fundamentals, I highly recommend you
+watch this video first and then you
+continue with this particular video. So
+here
+as you can see I have trained a
+handwritten digit classification model
+in tensorflow and then I have exported
+that in into a saved model. See model dot
+save save model
+and that created this same model
+directory and the size
+of this directory is
+around one megabyte I have a very simple
+model but in reality if you're using a
+big complex model the size might go even
+in gigabytes.
+The first approach we're going to
+explore is
+proof training quantization. For that you
+will use
+tdf dot light module so tensorflow has
+this tf light module which allows you to
+convert your model into tf light format.
+You will use tf flight converter format
+and
+a method that you're going to use is
+from
+saved model. So here you can supply
+the directory where you have your saved
+model
+and this will return you a converter and
+you can simply call converter.convert
+and that will
+return you
+a tflight model. So this approach is what
+we discussed during our presentation
+which is without quantization.
+So even if you directly convert using ta
+flight model your model size will be
+little less but if you use quantization
+it will be even more or less.
+So this is without quantity quantization
+and if you look at
+the size
+by the way
+this is just the bytes okay and you can
+get a rough understanding it is around
+312 kilobyte.
+Now
+I will
+use quantization for quantization. Just
+copy paste this code and only add one
+line
+and that line is
+optimizations.
+Optimizations is equal to
+this
+and now you got
+your quant model quantize model
+and the size
+of
+this quantized model
+is much less. It is almost one-fourth so
+by doing this
+you converted this into
+an integer. You converted all the weights
+to integer.
+Okay and if you want to read more about
+this API and what other options you have.
+Here I'm going to link an article in a
+video description below where
+you know we have used this method which
+is just quantizing the weights.
+You can also quantize activations too.
+That will be even more better. That's
+called full integer quantization and you
+have to use this particular code.
+Okay.
+Now let me save
+these
+two models
+into a file. So I'm going to
+just write this model into a file. So I
+will call it.
+I'll first save non-quantized model and
+the extension is tf lite since it's a
+bytes data. I will use right and bytes
+mode
+as f
+and then
+f dot write.
+Well
+this particular one
+and I can copy paste this
+and do the same thing for quantized
+model.
+So
+here here
+and execute it both the files are
+returned here see
+this model is how much 312 kilobytes
+without quantization
+with quantization 82 kilobyte. Hooray!
+1 4 size reduction
+now let's talk about quantization aware
+training.
+Post training quantization is quick but
+the accuracy might get suffered
+with quantization of a training. You can
+get better accuracy you need to first
+import
+the model optimization called tf mode
+from your tensorflow and
+I will use a method
+called quantize model. Okay so I'm going
+to use this method called quantize model
+here
+and let me just save it in a variable so
+that I don't have to write this whole
+thing all the time.
+And I'm going to
+this is basically a function which I am
+going to call on my regular model my
+regular tensorflow model is this you see
+model variable.
+I am applying that quantize model
+method on that
+and I get
+my
+quantization aware model
+so if you go to
+my presentation say this is the first
+step
+on your regular tf model apply quantize
+model
+function you get quantized model. Then
+you have to fine tune this is like
+transfer learning you have to
+run
+training on that model again maybe with
+less epoch.
+So I'm going to
+compile this particular model
+okay and for compile I have used same
+parameter as I used here originally
+and I'll quickly display the summary
+before you know fine tuning you need to
+compile and then
+the summary just shows you know how many
+parameters non renewable trainable and
+so on
+and I will use
+the training
+only for one epoch. Okay I think one
+epoch is good you're already getting 98
+accuracy
+and let's measure that on my
+test data set. Test data set accuracy is
+also like 97 percent so my accuracy lose
+looks
+beautiful
+and now
+I'm going to use again
+the same converter okay but for this
+converter previously we use what from
+save model because we were
+uh
+loading from the disk.
+Here
+I will use a different api
+from keras model so you use from kira's
+model if you are loading an in-memory
+model okay
+and then
+that will get you converter and then you
+are using the same
+technique. See converter
+optimizations
+let me do this
+so optimizations. So here you are
+applying quantization here and then you
+are actually running quantization aware
+training so it is two step you first run
+quantization away training and then
+during the tf light conversation you
+apply the
+the
+quantization. Okay. And I will save it in
+a different variable.
+okay?
+and let's write
+this as well to a file because these are
+just the bytes that you got.
+You need to write it to a file with
+extension tf lite.
+So now what I got so if you go back to
+my
+you know diagram
+you quantize then you do fit for fine
+tuning then you do your ultimate ta
+flight conversion
+okay
+and
+the size of this model
+is 80 kilobyte
+without quantization over training it
+was 82 kilobytes. So now it's
+we are reducing it even further and the
+main benefit of this model is the
+accuracy is a little better compared to
+the other approach that we took. So just
+to quickly summarize
+in this notebook or we train our model
+in a usual way we saved it to our hard
+disk, we saw the size was one megabyte
+then we did post training quantization.
+Our quantized tf light model was around
+300 and
+without quantization it was 312 kilobyte
+then we got 82 kilobyte 84 kilobyte
+model 82 kilobyte actually and then when
+we're in quantization of weight training
+we got
+you know 80 kilobyte model. But the main
+benefit of this model was the training.

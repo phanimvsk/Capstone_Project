@@ -1,0 +1,257 @@
+Are you using tensorflow for your deep learning project? Do you know about tensorflow input pipeline?
+Well tensorflow input pipeline is very important it offers so many benefits. So in this video we are going to look at some of the benefits of
+tensorflow input pipeline will do coding and then in the end we'll have an exercise. Let's get started! Let's say you are
+building your typical cats and dogs image classification model. These images are obviously stored on hard disk and you
+need to load these images into RAM into some kind of numpy array or pandas data frame. You have to convert these images into
+numbers because machine learning model understand numbers they don't understand images. So now you have loaded them into lesson Numpy
+x train y train and you give it to your model for training things are looking fine when you have thousand images
+what if you have 10 million images in in deep learning environment you know typically you have a lot of data and when you're running this on your
+computer which has only eight gigabyte of RAM, When you try to load it you know what your computer is going to tell you?
+It will be like too much data buddy, I cannot handle it! please help me! Alright so one approach
+of tackling this issue is how about we load these images into batches this is called a streaming approach
+so batch one is thousand images you load this into some kind of spatial data structures by the way
+this table is not your Numpy array or pandas data frame it is some kind of spatial data structure
+and we'll talk about what that data structure is you load thousand images you give batch one for your model training then
+you do batch two, batch three, batch four and so on and things work perfectly okay so now you'll ask me what is that
+spatial data structure? well that spatial data structure is
+tf.data.dataset and this is what helps you build your tensorflow input pipeline. Tensorflow input pipeline in order to
+build this you need to use tf.data api framework and
+tf.data.dataset is the main class in this framework
+all right what if I have some blurry images, you know? I don't want to directly load the images and do my model training because you all
+know we have to do data cleaning data transformation scaling, things like that. tf dataset
+fortunately has a lot of good apis to support the transformation so for
+example here the red row is that blurry image and you can
+use filter function you can say dot filter and this filter underscore func is a function
+custom function defined by you where you will detect if the image is
+blurry or not we are not going to go into details on how exactly you detect the blurry image but you get the point you can have a
+custom filter function which you can supply to tf data set and it will filter it out you see the red row
+is gone now in this particular instance of this data structure
+and then you can do model training. You might want to do more transformation
+where you all know typically when you are when you're training your image data set you want to scale it.
+So all these values by the way that you're seeing I don't know if you noticed but there are three dimensional arrays you
+know rgb so an image is presented by rgb channels and these values are from 0 to 255
+and it's a usual practice that we scale this by dividing it by 255
+so now you can do dot map and then define a lambda function
+if you are aware about python lambda function it's a simple function which will do x divided by
+255 on each of these values so you can see that 34 divided by 255 is 0.13 70 divided by 255 is 0.27
+I took all the four to do this math so all these values are correct you can verify, okay? Alright and then you can do your model
+training so overall you can use tf dataset
+to do filtering mapping shuffling lot of different transformations now
+what if I can write all this transformation in a single line of code yes single line of code you want to see it how it looks
+this is how it looks so I'll explain you don't be afraid okay? this is a single line of code this is forming your complete data input
+pipeline so the first step list image list files that will load the images from your hard disk
+into memory. Okay? then you do dot map so dot map is like you know pandas
+dot apply function where you want to run some transformation on your images so I have just loaded these images from
+hard disk I would probably want to convert it into Numpy array and then do some transformation by the
+way Numpy array is internally it's inside your tf data set so tf data
+set is kind of you know providing abstractions over it so you essentially your Numpy array is
+converted to a tensor you know and the tensor is an underlying data structure for tf data set.
+now you converted these images into array extracted label from the folder
+and then the next step would be filtering blurry images. then you do mapping. So mapping is just
+your scaling you know bringing values from zero to one and that is your tf data set. So that first step is called building data
+pipeline. In this pipeline you perform etl extract transform load all kind of transformation. I just showed you few
+transformation you can do repeat you can do batching you can do so many transformation we'll look at some of those in our coding
+which is part two of this video but you get an idea that you build a data input pipeline
+Look at the code look at the beauty single line of code and then the second step would be training the model
+where you supply tf dataset in your model.fit until now if you've seen my previous videos we would use
+either Numpy array or Pandas data frame as an input of fit function but now we'll be using tf
+dataset okay? You can load text files spreadsheet.
+It's not just images you can load any kind of data you can load images from s3 you know from cloud it doesn't have to be your local
+hard disk and you can use this data input pipeline for doing batch loading, shuffling, filtering
+mapping and all of this is called etl extract transform load and in the end what you get is your tf data
+set which you can directly feed into your tensorflow model so just to summarize the
+tensorflow input pipeline offers two big benefits first you can handle huge data sets easily
+by streaming them from either disk or s3 or any other cloud storage and second benefit is you can apply
+various type of transformation which you typically need to train your deep learning model all right so that was a theory let's
+begin coding now. You should go through this page it has
+useful information on tf.data api framework little code snippets etc so we are going to practice all of this
+in today's coding session. So I have imported tensorflow as tf and I'm going to create now a simple tensorflow dataset object
+okay let's say you have a daily sales number something like this these are your daily sales number twenty one thousand dollar
+twenty two thousand dollar you have some data errors as well see negative. Daily sales number can't be negative so these are all data errors
+and you want to build atf data set out of it. So you can use this api see here in the documentation
+they've shown this is how you build a simple tf data set from
+a python list. Okay, so here I'm going to say that this
+is my tf data set let me increase the font size a little bit
+okay and I will print tf data set.
+I need to execute yeah so you can see that it created an object now if you want to know the content
+you can just iterate through it so you can say for sales in tf data set print sales you know an individual
+element here is a tensor and if you want to convert this tensor into a Numpy object you can do
+it by calling a Numpy function. So see you got all your sales number here this
+looks fairly simple. If you don't want to do dot numpy in your for loop you can use as numpy iterator so as
+Numpy iterator and that way you don't have to write
+this you'll get the same output so here it needs to be a function. Okay so you will
+iterate tf data set either directly or using as Numpy iterator. Let's say you have your data set is 10000 elements you want to just
+look at first three elements so there is a function called take you know so if you do
+take three, let's say, I want to print only first three elements so I can do it so by using this
+take function now as I mentioned before the sales numbers
+can't be negative so you have to filter those numbers you know when you're building your data pipeline you will
+get rid of invalid data points so how can we filter these data points. So the way you can do that
+is using filter function so you can do tf data set dot filter and here supply your filter function. So your filter function could
+be a simple lambda where you can say x has to be greater than zero. Okay? And that will return another data
+set so you can do data set is equal to this and then once again I just iterate through it. So you see now I don't see any negative
+values here. So this filter function is quite convenient now these numbers are in us dollars
+let's say i'm doing some data analysis in indian market I need to convert these numbers into indian currency and one dollar is equal to 72 rupees
+so I want to apply this transformation I want to multiply all the elements in this data set
+with 72 and the way you do that is using map function.
+So map function will take each individual element and it will apply that particular function so you can do
+Lambda x. So x will be each individual element and you are saying multiply by that by 72. And you can do.
+Alright! I'll just save this here and then again i will print those
+numbers you see you multiplied everything by 72 so
+you formed a pipeline where you filter invalid elements you did currency conversion and so on. You can also
+shuffle these elements you know sometimes especially when you are doing like image data analysis etc you want to randomly shuffle these
+elements. So I can say shuffle and shuffle expects an argument called a buffer and if you want to first let me show you
+how this works. So let's say I have a buffer of size 2. I will show you how shuffle works and this shuffle will randomly shuffle the
+elements. let's say I have shuffle of three. So you see
+it just randomly rearrange all these elements now if you want to know what is that argument? What is this three? Then
+you need to look at this very useful stack overflow post. So see when you have a buffer size of three
+and let's say these this is your data set one to six. What it will do is first it will create a window of three elements it will pick
+a random element from it. So let's say random element is two then in the remaining elements it will add one more so now
+your remaining element is c2 is gone so now you have one three and now you add four now from one three four you pick another
+random element okay let's say it's one so you keep on doing that so I will provide a link of this very useful
+stack overflow post thank you vlad for posting this answer. And you can clearly understand you know it's very simple so you are taking a
+buffer and from that buffer you are taking a random element.
+You can also do batching you know last video we talked about
+batching the training samples and distributing them on multi-gpu environment. So similarly in the data set you can create batches
+like this you can do tf dataset dot batch. Let's say I want to create a batch of size two. So now
+see if I don't do batching okay see if I remove this then it will I trade through these elements
+one by one but when I do batch it will create a batch of size two see
+if I do batch three batch of size three four batch of size four and so on. This batching concept is useful
+especially if you are running in multi gpu environment where you want to distribute these batches on different gpus for your
+training purpose. Now how can I do all of these operations in one single line? In the presentation we
+saw that it's possible to do everything in a one single line. So let me just create my data set once
+again so I'm creating the data set once again and I will do tf.dataset dot okay dot what did we do first well first we
+did filter. Okay? So you do filter and you want to filter out any negative numbers
+then you did dot map where you converted US dollar to Indian rupees and then
+you did shuffle. Okay so you shuffled it. Let's say using buffer two whatever this buffer is something you can it's a free
+parameter and then you did batch of two okay so see you can chain all these operations
+and in the end you get a new data set and as usual when you iterate through
+that same data set you will get the whole result in one shot.
+Okay I'm getting some error because I think I have two lambda functions here so I need to just replace this x with y let me do that
+see so whatever I did previously like in probably a few steps right so
+one two three four. I combine all of that in single line and this is
+what your tensorflow input pipeline is so tensorflow input pipeline is
+reading the data from your data source then you are doing filtering mapping, shuffling, batching all kind of transformations
+now we are going to load some images from hard disks you know let's say I have this images directory where I have cats images and docs images
+so I have downloaded a couple of cats images using this useful extension called
+Fatkun batch download. So if you add this to your chrome you can do Google search on images and you can download all the images in bulk.
+So I downloaded these images from Google so I have some cat images I have some dog images and I'm going to show you how you
+can use tensorflow input pipeline to read these images and apply various transformations okay?
+So let me just go into full screen mode here and first thing is reading those images so
+you can use this function called tf.data.dataset.list files okay? So list files what it will do
+is you can supply images so I have image star dot star
+right? So see I have images and then images have a directory
+and directory has those actual images so I'm listing all these files here and I'm going to say shuffle is equal to
+false you can say shuffle equal to true if you want to randomly read them and this I will store into images
+data set and then I will go through this data set.
+I will just print maybe first three file paths and see how it looks so when you run this, it's now reading those images. So basically it
+actually stored the image paths it has not yet read the images. So you got all these image paths okay here in your image data
+set I printed only for three elements first five you can print however many element that you want to
+print. Now I want to shuffle this if I did software equal to true here it would have shuffled it already but let's say if you
+want to do it inside your tensorflow pipeline then you can just do
+simple images.ds shuffle 200 is your buffer size okay and if you want to
+again know more about buffer just read that stack overflow article so you see like now I have dog, cat it's it's like randomly arranged.
+okay now the class names that I have are cat and dog. So I'm just going to create
+a list and create those class names and then I'm going to divide these images into training and test images now.
+If you have used sk learn you would use test trend split function but in tensorflow the function to do this split
+is take basically. Okay so I will say okay first of all let me know what is
+my image count so image count let me do this so
+image count is length of this images database okay and when I
+print my image count comes to be 130 and my training size
+is let's say image count into 0.8 and I want this to be a whole
+number so ofcourse so 80 of samples are my training size so then my training data set is nothing but images
+ds dot take. So take function will take the first eighty percent of images as your training data set.
+Okay so train size and my test ds
+is skip so when you do skip, skip is a an opposite function of take it will
+skip first 80 percent samples so now you're left with remaining 80 and images are shuffled already so you
+don't have to worry about the order here. So now I got my training test data set
+if I do length of training data set it is this and length of test data set is this again the purpose of this whole tutorial
+is to give you an idea of tensorflow input pipeline you will be using that while training tensorflow
+deep learning models so here we are not in this video we are not doing any training we are just building the pipeline so
+that you get an idea on the api now what I got was
+image path okay from image path I need to retrieve the label so
+in classification problem you will have the image and then you have you will have corresponding label which is dog or a
+cat so how can you retrieve the label from the string so let's see that see if I have a string like this
+and if I want to retrieve a liv this middle portion get a dog. How do I do
+that? Well just think about it okay it's a simple python split
+question so you can just say do split and a split will give you this array okay and you can go
+from backward you can say see this one is minus 1 and this one is -2 so if I do minus 2 I get the
+label so we're going to write a function that can get a label from your image so you have a file path
+and then you will take uh that file path and you will split and
+you will get this minus 2 right? Like something like this.
+So this is your label. correct? Okay now I'm going to
+call this label on on what on my images data set, right?
+So let's see where is my image data set
+so I have trained yes you can use a function called map so
+again if you go to the documentation here you can read
+about all these functions like map and such
+but I'll just quickly show you so what map will do is it will apply this
+get label function on all the elements in training ds
+okay so if you look at training ds right so for t in train ds dot take
+let's say four element printing dot Numpy so training
+trend ds has nothing but the set of image file paths. Okay so now how do you retrieve this label from all these cool
+file paths well you call map function you say dot get label and get label will get you those file
+paths so you can say for okay label in this print label okay now I got an error why
+the error is tensor object has no attribute split so the the file path argument that I'm getting here is a
+tensor object and for tensor object you need to apply spatial functions okay so you need to here say that instead of
+this split okay it's the same thing what I would say is tf dot let me write it here tf
+dot strings dot split
+file path and we'll use os separator so if you import os utility and you can say
+os dot path dot sep this means the os separator and once you
+have that you are you want to get the last second element okay? So when you do this
+see I get cat and dog I got the actual label
+so I want my map function to be such that it not only gets labeled
+but it reads the contents of the file you know what is your x and what is your y well your x is if you look at our
+presentation here do we have a presentation yes. So if you look at our presentation here our
+x x c x strain where is my extreme my x strain is the actual image data and my y train is cat and dog
+so so far we got only y part we need to get the x part so for x
+part i will define a new function called process image file path.
+And in this I will get the label as well as the image so what is my label
+okay my label is cat label file part. I love this tabs okay so my i got my label, now how do I
+read my file in tensorflow there is an api called tf.io dot read file this will actually read
+your file. Okay so let's say I store this in an image. Now my file
+is a jpeg image. So jpeg image I need to decode it so there is a
+function called decode jpeg image, okay?
+and then I need to resize the image because the image are of different dimensions so I need to resize that image you know
+kind of make every image the same size and I will say okay make it 128 by 128
+cool and once you have that now I return my image and label so what you got here is x string is your image
+y train is your label okay so we'll run this and in this process function
+you will get call here okay and then let me just call it for only first three elements
+because otherwise it's going to be too much. And when I call it for first three functions
+what's now gonna happen is since this function is returning a tuple
+I need to return a tuple here so I will say imagine label okay? Okay. Now let me print image as well so
+print image see if I nt image is gonna be
+too big okay so I will print maybe only first
+few characters or let me just print it you see it's printing the whole like
+three dimensional array okay
+but you kind of get an idea that now my training data set has basically
+all my images and labels so my training doesn't look so far so good all right now the next step we are going to do is I hope you
+guys are not tired if you practice along with me when I'm coding it's going to be super useful so I
+recommend you watch this video you practice you pause it then you play it. I think that's the best way to learn something.
+Okay, so now I got my numpy array, I need to now scale it so if you look at again our presentation.
+[Music] Okay so in the presentation we do this map lambda 255 so you we want to convert these
+numbers in a range 0 to 1 okay so let me write my scale
+function so my scale function what is my scale function so my scale function takes log both image and label and it will return image
+dash 255 and label as it is okay
+and then when you do training ds is equal to trained yes
+dot map scale and then I will just
+I threw it through this okay error what is that ts skill missing one requirement position argument.
+Alright! Let's see what's going on here.
+Okay what happened was here I did not when I converted this I had to do
+train ds is equal to this because if I don't do that it will just keep that copy in memory okay? So trained here so this step was
+not there and that's the reason we got this error so now I'm going to do this and you can see that
+scale down by the way I did not print the entire image I just printed like first few elements here but you can see that the numbers which
+was see these are rgb values okay and rgb values you know they are between 0 to 255 so I divided that by 255 and I
+now I get a value between 1 to 255. now sorry I get a value between
+0 to 1 okay now I'm not going to write it here but you can of course chain all these calls you know you can do scaling,
+mapping, you're filtering everything in one shot like like the way we did it here you know
+so you can chain all these calls and make your code look very compact that's all I had for the coding part
+now comes the most interesting part of this video which is an exercise if you don't work on exercise
+you're wasting my time my friend you better watch a movie on netflix and relax if you don't want to practice coding you
+know so practicing this exercise is very important and what we are doing in
+this exercise is i have provided a reviews folder so if you look at this reviews folder that are positive
+and negative obviously these are movie reviews I'm talking about you might have made a guess and the way the data comes here
+is each review is an individual text file so see, there is this review and this is a negative review and there
+is another review negative review. Third review now this is a blank review by the way so there are data errors here which I have
+introduced them purposefully similarly positive reviews okay? You need to read all these reviews into your tensorflow data set
+then you need to filter those blank text reviews okay? And then also split that review into your text
+text review as well as your label which is positive or negative and then perform all those transformations.

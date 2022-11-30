@@ -1,0 +1,362 @@
+In this video we will do real object
+detection
+using YOLO. Now we'll go over some
+history behind
+YOLO, the different versions -
+version - 1,2,3,4
+As of January 2021, there are
+total five versions of YOLO. So
+we'll go over that whole history and
+then
+we will use pre-trained weights for
+doing
+object detection. So we are not taking
+any custom
+object image Dataset and then doing
+object detection in that instead we are
+using COCO Dataset
+using pre-trained weights and doing
+object detection for those COCO Dataset
+labels.
+In future we'll have a separate
+video
+on how you can train your own classifier
+or not the classifier but the object
+detector you know,
+and run YOLO on the custom
+Dataset. In 2016 the first version of
+YOLO was invented by Joseph Redman,
+Santosh Divvala,
+Ross Girshick and Ali Farhadi. I'm going
+to provide a link of this research paper
+in the video description below. You can
+just . it and you can find
+what they proposed in this particular
+research paper.
+Then in 2017, they came up with YOLO
+version 2
+mainly Joseph and Ali Farhadi, where they
+improved the speed.
+You see that they have speeds which
+supports
+the rate of 67 frame per second . So this
+algorithm detects the objects at a very
+very fast rate . So if you have a video
+playing at certain of frame rate, it can
+detect
+the objects really fast and this could
+be useful in
+let's say autonomous cars. In 2018,
+a YOLO version 3 was created and again
+Joseph and Ali was the pioneer
+in this incremental improvement . So
+they kept on improving
+the original YOLO framework till version
+3 and then at some point Joseph
+Redman stopped working on it because of
+some concern, some conflict that he had
+with his personal values and the use of
+this
+in military. In 2020
+YOLO version 4 was created. Now the
+reason I have this in different color
+was because
+Joseph Redman was not part of
+it.
+Alexey Bochkovskiy created a fork
+of his GitHub repository and he
+created
+this separate branch of this
+version 4 algorithm. Nowadays
+there is YOLO version 5 as well but
+there is some controversy going on
+with it so I'm not going to cover that.
+We will be doing coding using YOLO
+version 4.
+You need to go to Google and search for
+YOLO v4 GitHub
+AlexeyAB and you will find a repository by
+AlexeyAB
+that has YOLO v4 core and this is
+the repo name is darknet it is
+forked from
+pjreddie . So this one is
+if you look at this repository, this is
+the original repository by
+Joe Redman and he stopped development of
+YOLO after version 3 . So then
+AlexeyAB
+forked his repository and he built this
+YOLO
+version 4. Now YOLO is not available as
+like you can't do like paper install
+YOLO
+something like that. You have to get
+clone
+this repository and follow certain steps
+in order to use it. Now once you are on
+this repository,
+you will find this particular section
+where it says
+'how to compile this on Windows' If you
+are on linux
+there are instruction on doing this
+linux . So
+this was built originally for linux so
+building this on linux is
+straightforward.
+On Windows you have to follow certain
+steps, it's not
+very very straightforward . So first
+what you need to do is git clone this vc
+package and vcpkg is needed to
+compile the dark net project . So what I
+have done
+is here - open a PowerShell
+So when you open a PowerShell Windows
+PowerShell, click on this
+and you get this Windows command prompt
+this is like
+PowerShell is a new version of old
+Windows command prompt and here
+I made a temporary directory okay. So if
+I do
+cd tmp and see this is an empty
+directory which I
+made . So now I need to do git
+clone and you can copy and if you
+mouse right click it will copy that . So
+this will
+copy the vcpkg Microsoft
+project once it is copied
+see you're just doing copy paste . So you
+go to that directory
+you set some environment variable this
+is just setting some Windows environment
+variable
+and then you are compiling
+your bootstrapping that vcpkg will
+might take time.
+okay so after a few seconds this step is
+done.
+Now I'm just, see this will install the
+whole darknet version.
+I want to install only
+the one for x64 Windows
+So this will save you a lot of time if
+you try to install the whole version
+it will take hours and hours
+So here
+I think I did not
+copy the whole thing so okay . So what you
+need to do is
+this install darknet opencv
+CUDA cudnn okay
+So now again it will take some time for
+this tip to finish
+So it is installing the cudnn and all
+these dependencies.
+I forgot to mention one thing is before
+you do all these steps you need to
+perform these three steps where you need
+to install either
+visual studio 2017 or 2019 the community
+edition
+okay community edition is free . So that
+is
+Microsoft IDE and we need that for
+compilation process. You might be
+wondering why are we installing visual
+studio?
+Well it is needed for the compilation
+process . So install that
+then you install CUDA. CUDA is Nvidia's
+library for GPU and Machine Learning so
+install that make sure you enable
+VS Integration okay . So CUDA is not
+really machine learning it
+is GPU library you know it allows you to
+access GPU for faster computation
+But when you're installing that make
+sure you are doing
+VS Integration . So see when you do
+CUDA installation . So basically when you
+do CUDA installation, just go to custom
+step
+and make sure you install everything
+they will have express tab
+but don't use express tab go to custom
+and
+install everything including VS
+Integration.
+When I was following these steps I was
+facing horrible issues with
+CUDA because I had CUDA
+11.0 or 11.1 and it was giving me
+a lot of trouble because it was not
+compatible with the rest of the software
+I have on my machine
+So I had to install CUDA 10.2
+okay . So if you are facing any errors at
+any step let's say at this step when
+you're compiling darknet if you face the
+error
+make sure that you look at the error
+properly.
+If it is saying that the error is in
+this particular
+file path, open that file and try to see
+the error most likely it might be
+incompatible CUDA version . So try to
+resolve that.
+Again following these steps
+it might be easier or it might not be
+easier based on what kind of system
+software you have . So you have to have a
+patience, look at errors carefully, do
+Google search
+and try to install the things which are
+needed. This is still downloading looks like
+this is slow.
+Now that step is done without any errors
+so we are ready to move on to the
+next step which is
+go out of this directory . So you'll see
+that right now this
+c code temp directory . So if you see
+code temp
+this has only vcpkg . So see this is
+vcpkg
+Now you're coming out and you're doing
+git clone
+the darknet repository . So once you do
+git clone you will
+have that particular directory here . So
+if you do dir
+see you have now darknet repository here
+and then
+you do
+cd darknet and then
+now this command doesn't quite work well
+like we can try it . So
+see some authorization issue it is
+giving
+so we will be running a different
+command
+which I have given in the video
+description below.
+So this is the command that will run.
+Again it's available in the video
+description below . So check it out.
+So now this is building the dark net
+repository
+and it will take some time
+for it to build. It took me long time
+around 40 minutes for this to finish . So
+make sure you
+have enough patience. This process,
+the compilation of darknet is going to
+take long time.
+Now when I look at my tmp directory here
+in the darknet folder
+I will see a thing called darknet.exe
+Using this you can do object detection
+and also here there are a couple of
+files, for example -
+there will be this image yolov4.sh
+So if you open that
+here this has a command to detect
+the objects basically
+So if you look at data directory here
+data directory dog.jpg
+So see there is this image where there
+is dog, bicycle,
+car and so on and we want to do object
+detection on that so it
+draws the boundaries around this . So when
+you do this command here,
+just copy paste this command okay
+So this will run the detection and
+now see here it says the yolov4.weights
+couldn't find . So
+we missed one step which was to
+download YOLO weights from
+this particular folder . So let's go back
+to
+the directory here
+and if you do yolo.
+YOLO for or just do weights
+See use this link. When you use this link
+you will be able to download those
+weights . So when I do this
+see it is downloading this now . So I
+copied that file into darknet directory
+. So yolov4weights that you just
+downloaded copy it in this darknet
+directory and then run the same
+command again.
+See now it detected those objects you
+see that
+. So there's a truck, there is a
+bicycle. This these are like scores you
+know 0.96 percent this is matching with
+a dog, bicycle,
+truck. So you can see that when you have
+driverless car type of application this
+kind of object detection can be really
+useful.
+I have one more image where I'm trying
+to
+break my computer okay . So let's detect
+objects in this particular image . So the
+name of the image is laptop.jpg
+you can put any of your image . So here
+I will just say
+laptop.jpg
+See it is detecting some of the images
+right but for this hammer it is saying
+toothbrush.
+The reason is that the
+COCO Dataset probably doesn't have
+this hammer
+as a label or maybe
+or maybe it did not detect it fine . So
+let's look at our COCO
+Dataset labels . So in the previous video
+I talked about
+different Datasets such as COCO image
+net so watch that video if you don't know
+what COCO
+Dataset is but it's an image Dataset
+with all the annotations, pixel
+segmentation and so on.
+And this and the weights that we
+downloaded
+where train on that COCO Dataset and
+if you
+look at this website this has all the
+labels of COCO Dataset . So the link of
+this website is in the video description
+below.
+You can see that it has around, let's see
+around 91 labels and
+like 91 classes which it can detect . So
+whatever output you get will be one of
+these classes
+and this probably doesn't have a hammer
+So
+you know but it has toothbrush . So it is
+trying to do detect toothbrush . So any
+image you take which has
+any of these objects it will
+do the object detection all right.
+So this was on the COCO Dataset if you
+want to
+train YOLO on your own images,
+there are instructions here we are not
+going to go into those details in
+today's video.
+Maybe in future we'll cover that but
+just follow these instructions
+to train your own custom object
+detection model.

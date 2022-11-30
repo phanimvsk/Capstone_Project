@@ -1,0 +1,352 @@
+we are going to be discussing chain rule
+today which is a
+a very important concept in terms of
+neural network training
+chain rule is something that is covered
+when you study differential
+calculus now don't get scared with the
+term differential calculus
+actually it's very very easy i will try
+to give you the best
+and very simple explanation of chain
+rule today
+as a prerequisite of this video you
+should watch my derivatives video
+and it is best if you watch the entire
+deep learning series in sequence step by
+step so that there is a continuity
+so let's get started we just have theory
+today we don't have
+any python coding i will use home price
+prediction example because that's the
+most
+simplest one but the chain rule applies
+to all kind of
+deep learning neural network problems
+the neural network for home prices uh
+example would look something like this
+where you have area and bedroom
+and all you are doing is price is equal
+to w1 into
+area plus w2 into bedrooms plus some
+kind of bias
+in my machine learning tutorials for
+linear regression we have covered this
+formula
+already so if you have watched those you
+should be familiar with this
+when you are training your network what
+you do is you
+feed first sample to this equation
+and you by the way initialize your
+weights to
+let's say some random value here i
+initialize weight 1 and weight 2
+to be 1 and then you feed the first
+sample
+you calculate the predicted price which
+is called y
+hat you compare that with your actual
+price
+and then you find out an error which is
+a difference between your predicted
+value and your actual value and then you
+square the error there are reasons why
+we square it because your gradient
+descent converges
+in a better way i will probably make a
+separate video because
+so many people have asked like why don't
+you just take absolute value and
+why do we have to take squared value but
+i will make a separate video
+but just uh accept the fact that it
+helps with your grade and decent that's
+why we do square so we go through all
+the samples one by one
+or at till very end and
+we accumulate all these errors and then
+we take a mean out of it
+it's called mean square error it is also
+called loss and once you have a loss
+you back propagate that error so till
+now
+what you did is your forward pass so in
+back propagation algorithm there is a
+forward pass there is a
+backward pass so in the forward pass you
+get
+a value of loss and once you have the
+value of
+loss you want to back propagate and
+adjust your weights
+and the simplified uh architecture
+of our neural network might look
+something like this
+where you do weighted sum of your inputs
+then you have y hat
+you take difference between y hat and
+your actual
+y and then you square the error and then
+you get a loss
+and once you get a loss you want to
+adjust your weight
+so you want to uh subtract something
+from your w1 right so neural network
+training is
+all about coming up with the right
+weights
+so here or we have seen in previous
+tutorials by the way
+that w1 it will be equal to w1 minus
+learning rate into the
+partial derivative of loss with respect
+to w1
+if this is new to you again i recommend
+you
+watch all my previous videos in this
+series that way you have
+a background or a foundation to
+understand this mathematics
+and we do the same thing with w2 and
+bias
+and then after one epoch which is going
+through all the training samples
+you had your loss
+from loss you calculated partial
+derivative and then you adjust your
+weights
+so here i will just put some random
+values and let's say i get my new
+weights to be 0.8.7
+and my new bias is minus 0.2 and then
+you do another epoch which is you feed
+forward
+all your training samples with the new
+weights
+and you keep on doing this until you get
+the optimal weights
+where the error is minimum or you have
+reached
+global minima in terms of your gradient
+descent
+so going back to our generic
+architecture here
+what's happening is we are taking a loss
+we are taking a partial derivative of
+loss with respect to e
+now going back to the power rule for
+derivatives
+the derivative of loss with respect to e
+which is an error
+will be 2 e because when you have e
+square you put
+2 in front of it and then you subtract 1
+which is 2 minus 1 is
+1 so it becomes 2 e
+and then the partial derivative of
+error with respect to y hat
+is actually minus 1 because when you're
+taking partial derivative
+the other parameter which is y you just
+discard it
+and then what you get it minus y hat
+and if you have followed my derivatives
+video you will know that the partial
+derivative of minus y hat is actually
+minus 1
+and then the partial uh derivative of
+y hat with respect to w 1 will be an
+area
+because again when you're taking partial
+derivative you
+make all your parameters 0 so w2 will be
+0 b will be 0 so this thing is gone
+now you have only w1 into area and the
+partial derivative of that with respect
+to w1 is
+is is an area
+so now what is the partial derivative
+of my loss with respect to w1 because we
+got this individual partial derivatives
+now we want to get the partial
+derivative of loss with respect to
+w1 and why do we do that
+partial derivative is all about for a
+given
+change in w1 how much my loss would
+change
+so when we are doing neural network
+training i want to know
+when i feed area and bedroom those
+samples one by one
+i want to know for a given change in w1
+what is the change in loss because we
+are trying to
+come up with the optimal value of w1 and
+w2
+and partial derivative helps in that
+process
+so this one will be nothing but multiply
+all these partial derivatives and if you
+have studied math
+you know that if you do the math here uh
+pi
+this this d e and d e cancels out
+d y hat and d y hat cancels out so
+eventually what you get
+it dl divided by d w dw1 and that's what
+you
+have right it mathematically it makes
+sense
+so all you're doing is taking the
+partial derivative in each step
+then backward propagating and
+multiplying the
+partial derivative in the second step so
+here
+our final partial derivative of
+loss with respect to area will be minus
+2 e
+into 8 yeah because i multiplied 2a with
+minus 1 which is minus 2e
+into area and this equation is called
+chain rule
+it is very simple you are just chaining
+your partial derivatives multiplying it
+basically you are taking product of your
+partial derivatives
+and that product is nothing but a chain
+rule
+we might have multi-layer neural network
+like this
+for our insurance data set up
+if the probability that person will buy
+the insurance or not might depend on
+these four factors age education income
+and saving
+and age and education decides f
+awareness and then
+income and savings might def decide
+affordability
+this is a dense neural network here in
+the case of
+awareness my rate w5
+and my weight w7 might be zero
+because let's say awareness might not
+have a relation with income or saving
+similarly for affordability this w to n
+this particular weight might be zero
+because that might not have a relation
+between
+affordability might not have a relation
+between age and education although it
+might have but i'm just
+simplifying uh the explanation here
+and i want to present this neural
+network
+maybe in a generic way because we i
+don't want to talk about just the
+insurance data set so generic way
+uh in terms of mathematics you can have
+neural network like this
+so all you're doing is you are having
+bunch of mathematical equation at each
+step
+now neural networks are mostly
+non-linear you always have this
+activation function but again i'm
+simplifying an explanation here
+so when you have this kind of graph by
+the way this is called a computation
+graph
+you know you are having this fine grain
+computation and you are uh
+summing the or you are aggregating this
+uh
+smaller equation to come up with a
+bigger equation
+and that is your computation graph again
+this
+these all mathematical terms like
+computation graph
+chain rule these are actually very easy
+there is no
+no rocket science into this so let's go
+into this particular example
+here z is my final parameter and if i
+want to
+find out how much z changes
+for a given change in x
+so just think about this when you're
+talking about your insurance data set
+the likelihood like how much the
+likelihood
+of person buying the insurance changes
+based on the change in awareness or
+based on the changes
+in affordability and
+tracking these changes are very helpful
+in neural network training to come up
+with the
+optimal weights the whole art behind
+neural network training is to come up
+with optimal weights and once you have
+weights
+it becomes a simple mathematical
+equation and that is called your
+prediction function
+so this is the crux of deep learning
+guys you have to pay
+close attention to this whole game of
+given a change in x
+how much how much given a change in
+x how much my wire is changing that is
+the crux
+of the entire deep learning science okay
+so here for a given change in
+x i want to find out how much my z
+is changing and that is nothing but a
+partial derivative of a z
+with respect to x and based on our rules
+it will be four because the you know
+when you're taking partial derivative
+you make y
+zero so this becomes zero and then the
+partial derivative of four x is four
+then uh you want to know
+for a given change in a
+how much my x is changing well that's
+partial derivative of
+x with respect to a and that is 2a
+because since you're taking partial
+derivative
+with respect to a you make b 0 so this
+becomes 0
+2 comes in the front so it becomes 2 a
+and 2 minus 1 which is 1 so you don't
+write it generally so it's 2a
+so now my partial derivative
+of z with respect to a is nothing but
+the chain rule you just multiply these
+two
+and it becomes 8 a so i can say that
+for a given change in a which could be
+your feature in your data set such as
+age or affordability now you can say for
+given change in
+age how much my final output is changing
+so you see this is very powerful and the
+same thing
+if you want to do with b
+the derivative of z with respect to x
+remains same which is 4
+and derivative of x with respect to b is
+7 because then a becomes 0
+7 b is derivative is 7
+and finally your derivative of z with
+respect to becomes
+with respect to b becomes 28. so i hope
+that clarifies
+some of the confusion you might have on
+a chain rule i

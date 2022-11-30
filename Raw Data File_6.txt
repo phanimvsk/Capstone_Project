@@ -1,0 +1,2175 @@
+
+hello everyone so welcome to this data science roadmap and in this session i'm going to talk about how to do a
+preparation for a data science uh data science is one of the hottest skill you can say uh nowadays
+and most of us are trying to prepare for a data science industry but some of us are able to make a transition
+or we are able to get into a data science industry easily and some of us
+are facing uh some sort of issue and yes that is that is very very common and it happens with all of us nothing new right
+so not even a data science so let's suppose if i'm trying to uh get into any other industry so for sure i'll have to do a
+preparation and according to my industry i have to adopt a couple of things i
+have to learn couple of things and i have to do a couple of projects so here in this roadmap i'm going to talk
+about that how to do that preparation what and all things are required what and all things are not required even if
+things are required but till what extent we are not supposed to get a mastery
+into each and everything this is not our industry expectations right for sure you all or we all will be able to work if i
+know about a couple of things and this is something which i'm going to discuss in my data science roadmap i have
+divided this entire things into a four segment so first of all i will be
+talking about uh fresher so zero year experience to a two year experienced person how they will be able
+to get into a data science industry and what in all kind of preparations they are supposed to do and then two to five
+year five to eight year and eight plus year this is how i have divided this entire road map in a very clear way so
+that you all will be able to get an advantage of these things and if you are
+going to do a preparation according to these things which i'm going to discuss believe me
+anyone will be able to get into this industry it's not tough the only thing is we have to structure ourselves we
+should know that what we are supposed to study and what we are supposed to leave otherwise if you will just keep on
+studying something uh there is no limitation right there is no limitation after some time you will feel
+frustrated and you will say that no uh it's it's not it's not something which i can do but no that is not a fact
+everyone can do it right either you you are from a tech background or maybe from you are from a dante background but
+yes it is possible to do all of these things so fine guys let's talk about a
+very first segment a junior data scientist let's suppose if i'm a fresher right
+and if i'm willing to get into a data science industry then what in all preparations i'm supposed to do as a
+junior data scientist here as you can see so in my slide i have mentioned that you are supposed to aware about a
+computer science fundamentals right when i say computer science fundamental means about an operating system which is very
+very important and i believe nowadays most of us are aware about it 90 plus people are aware about it a computer
+science fundamental uh linux i have mentioned over here a basic terminal uses i have mentioned over here what is
+api again not in depth just as an overview i'm supposed to aware about all
+of these terms right so this is the only requirement that we have over here now
+coming to this part now this part is very very very very important for all of
+us as a fresher so if i'm a fresher i'll try to focus more and more on
+programming and coding side even if i don't know about a programming or a
+coding even if i have no interest in programming and coding but still that is
+a requirement and here we have python one of the best
+language one of the best library available so far on this planet to learn
+it's very very easy as well as compared to a c c plus plus java scala or any
+other languages you will be able to find out that python is one of the best and
+one of the easiest possible language exists on this planet so it's not tough
+to learn even if you are coming from a non-tech background let's suppose a civil background or mechanical
+background i don't say that as a non-tech but yeah it's a people's perspective i'm just talking about it
+right uh we we all have done let's suppose uh engineering or bca mca that's
+completely fine right so at least we have studied some sort of a tech so i i just like uh keep every one
+of them into uh tech itself but still there are some people who say that i'm coming from a non-tech background civil
+mechanical electrical according to me it's tech so yeah
+moving ahead so programming is important for sure so you are supposed to be aware about the programming now again if i'll
+talk about a python programming so there are couple of library like python basic is important oops concept in python is
+important logging exception handling modular programming all of these things
+are very very important as we have mentioned over here object oriented programming numpy is important pandas is
+important so all of these libraries are very very very very important again
+whenever you are trying to do a coding whenever you are trying to learn coding always try to take a piece of data and
+then try to do some sort of implementation some sort of exploration on top of those data this is the way to
+learn programming because see again if i'll talk about libraries and of
+functions or apis which is available inside a particular library so it's kind of ocean you will not be able to
+memorize you will not be able to remember each and everything so the best possible way to learn any kind of a code
+or any kind of a programming is just try to solve some sort of use cases
+initially yes you are going to face a problem and yes we all face a kind of a problem every time right so whenever we
+are trying to learn something new it's a human behavior it's a human nature right but still
+if you are going to practice for a couple of weeks i'm not talking about uh years or maybe a six month or ten month
+i'm just saying that if you are going to practice if you will keep on solving uh some sort of a problem on a regular
+basis right some sort of a real problem on a regular basis so for sure you will be able to learn each and everything in
+a best possible way and this is something that we have included inside your data science master's course which
+is available inside your one neuron tech neuron segment so data science masters i
+will be talking about it right so in data science masters course this is designed in a way that you will be able
+to see each and everything in a similar sequences so let me show you so how this data science masters
+curriculum looks like and where from where you will be able to learn this programming so here is a data science
+masters if i'm going to search a data science master so this is the course that we have designed for you and let's
+suppose if i'm going to click on any of these videos so here you will be able to find out a python basic you will be able
+to find out oops concept you will be able to find out a concept of databases pandas numpy matplotli plotley c bond
+edas so everything is already available and the way i'm going to discuss a
+sequences so you can try to explore things in a similar way you can try to practice in a similar way and believe me
+it's very very easy after doing a couple of week of like a practice so i believe
+it's it's easy to do it now so here i have mentioned our programming language
+as well but keep one thing in your mind either go for python or go for r
+if i'll talk about industry so 95 plus people are using python programming
+if i'll just talk about two segments r and python so if i'll try to do a comparison between i'm not talking about
+all the languages so uh don't take me wrong over there so if i'll talk about a segment who is using either python or r
+so it's 95 is to one so it's always better to go for a python and it's
+actually very very easy right you will start taking an interest once you will start like solving some sort of a
+problem with the help of python and you will find out that yes now it's very easy i can do it easily right so either
+go for python or are not for a two programming languages at a
+time i'm not going to advise you to learn a multiple programming language in a first place if you are able to learn
+python and then if you are going to explore any languages right you are not
+supposed to put up a similar kind of effort easily you all will be able to learn it it's very very easy because
+syntax is the only thing which is going to change if suppose if i have learned python and then if i'm going to explore
+java so it is not going to give you like a lot of pain you will be able to adopt you will be able to even write a code
+and again you are not supposed to reinvent a wheel from a very scratch right so always try to focus on single
+language that will be better now if i'll talk about uh query languages so sql
+right so yes little bit of sql is required for sure because at the end of the day you
+are going to deal with lots and lots of data set and that data set will be available in some sql system or maybe in
+some no sql system or maybe in some file system so yes sql is important and you
+are supposed to know a basic of it if you are fresher it's better it's better
+to have an idea about a sequel so that you will be able to perform a multiple things you will be able to build an
+application and you will be able to deploy something in a production server now coming to the next
+segment right so here database fundamental i was talking about sql so yes database
+fundamental is very very important because without databases you will not be able
+to build any industry grade application anywhere believe me so that is the
+reason this databases are very very important so i have mentioned a multiple databases
+over here but if i'm aware about one equal system and
+one no sql system that is more than enough if i'll talk about a sequel again
+my sequel postgres sequel maria db db so sorry so like uh there are many databases
+which is available so again you're not supposed to explore each and every database that's completely fine again if
+i'll talk about a nosql so initially it will be better if you are having an idea about a mongodb again easy to learn easy
+to explore this one right so one from a sequel and one from a nosql db you are
+supposed to learn and again as and when it is required so let's suppose i have joined the organization and there is a
+requirement for an implementation of a cassandra over there or maybe an hbase
+or maybe a graph db so yes you will be able to do an implementation if you are
+aware about at least one from this segment and one from other segment you will be able to explore and you will be
+able to implement with no time so one sequel is very very important whenever
+you are trying to interact with the sequel so always try to interact with a python api python is a powerful language
+that provides you a driver that provides you an api to connect with any kind of a sql system and any kind of a nosql
+system so always try to learn in that way and same thing we have discussed even inside your data science masters
+again mastery is not required keep these things in your mind if you will think that first of all i'll
+try to get a mastery into a sequel and no sequel and then i will move ahead my advice to you will be no it is not
+required right if you have a basic understanding if you are able to consume
+a data set from a sql system to your like a current machine learning system that you are going to build on a
+statistical analysis system that you are trying to build that is more than enough and it's completely fine then coming to the next
+segment as we all know that basic of mathematics is required right as a data
+scientist and many people try to focus just on mathematics
+that so again i'll give you one piece of advice over here that mathematics is required but not for all
+job not for all job which exists inside a data science so
+there will be another video inside this uh roadmap you will be able to find out so
+where i'm just talking about a data industry so how data industry is divided so you can try to watch that particular
+video and i think you will be able to get a neat and clean understanding about it so mathematics is required but again
+a similar kind of a mathematics that we all have studied in our 9th and 11th or 12th right again not all kind of a
+mathematics is required so basic of linear algebra algebraic equation right
+a basic of calculus a differential calculus is required a basic of statistics and basic of probability so
+these are the only thing which is required again don't think of doing a phds because math is again an ocean you
+will just uh like keep on solving a mathematical problem but you will not be
+able to get an end of it so it's better to have a basic idea about a linear
+algebra a descriptive statistics in financial statistics probability right
+or some sort of a calculus now these segments is going to help you out to
+understand a machine learning algorithm theoretically and when you will try to
+do a practical implementation right so these things these mathematics will help
+you out to understand that whether i'm going into a right direction or i'm
+going into a wrong direction when you will try to explore a data when you will try to build a relationship in between a
+data even at that point of a time mathematical concepts are going to help you out and it's it's more like a
+kind of uh i would say uh like uh exploring uh things it's more
+like a kind of a building a perspective about the data so where this mathematical
+things is going to help you out right now after this there is an instruction
+that we have mentioned so once you are able to reach out to this till this label it simply means that that you have
+completed python you have completed a db you have completed apis and you have completed a basic of mathematics part
+now if you have completed a basic of mathematics part now you can start building your network so even these
+piece of advice is mentioned inside your roadmap you can start joining a data
+science community there are so many communities you will be able to find out over a linkedin uh over a facebook insta
+everywhere you will be able to find out a multiple data science community now why i'm asking you to join a community
+there is a reason behind this one the reason is very very simple so see
+you are trying to get into our industry but you are not having any kind of idea that what i will be able to get when i'm
+going to join this industry and that's true so when you will see a different people uh with a different different mindset a
+different different geographical location with a different different perspective at that point of a time so you can start
+building your own perspective that okay which one is required which one is not required uh you will start evaluating
+yourself and this is where community is important you can start joining a data
+science community you can start exploring a perspective of a different different people persons
+and yes accordingly you can start talking about or data science or maybe
+you can start exploring about a data science this is where this start joining a data science community comes into a
+picture now here once you are done with a little bit of mathematical concept then you are
+supposed to do what so then try to focus on data analysis now inside this data analysis you are supposed to learn
+feature engineering data wrangling and then eda exploratory data analysis
+and then you can start writing a article this part is again important so you can start writing article so that you will
+be able to build your public profile building a public profile showcasing a
+work to someone is very very important nowadays because let's suppose if i have a resume and if i'm not able to showcase
+my work no one will be able to believe or no one will give me a call because uh
+maybe like uh there is some alternate profile that they will be able to get where people
+are showcasing all of their experiences all the expertise that they have so articles are very very important again
+while you will write an article so when you will write an article so at that point of time uh you will be able
+to see that yes i'm able to get some sort of a hold on top of a particular
+topic and that is the reason so we have mentioned start writing an article section over here you can try to focus
+on baby scrapping better scrapping is again important things because every time it's not like you will be able to
+get a data in an excel seat or maybe in a csv or maybe in some other document it's like sometimes so we have to scrap
+a data from an internet from some website from some server or something right at that point of a time bib
+scrapping is very very important and yes we all are going to use bevel scrapping
+even in our professional life so i believe you are supposed to aware about this baby scrapping things and which is
+going to help you out to build your next project and to do a multiple things at that point of a time so that is the
+reason so we have mentioned that okay fine so try to do uh bev scrapping and uh it is it is going to hit you it is
+going to give you some sort of advantages in some way and then you can start talking about machine learning
+now inside this masinali section so again we can try to divide these entire things into a multiple segment there are
+hundreds of machine learning algorithm but you are not supposed to learn
+mathematical concept and implementation for each and every algorithm there are some lists which i'll give you
+so machine learning algorithm wise so yes there is something called a supervised machine learning there is
+something called as unsupervised there is something called as like a semi-supervised machine learning algorithm which is a combination of
+supervised and unsupervised again inside supervised you will be able to find out regression you can find out a
+classification again inside a regression there are a multiple algorithm inside a
+classification again there are multiple algorithm so at least a basic algorithm
+or a very very common algorithm we all are supposed to know again it's not like
+these other algorithm you are going to learn maybe 10 set of algorithm you are going to learn and
+you will be able to do each and every task for your entire life no that is not true but
+why i'm advising you to learn only 10 there is a reason behind it so these
+basic 10 algorithm let's suppose i'm aware about a linear regression a multi-linear regression
+and then i'm talking so i'm aware about a polynomial regression i'm aware about a ris i'm aware about lasso in
+classification segments so let's suppose i'm talking about uh like svm svr logistic decision tree
+random forest so there are again multiple algorithm which you will be able to find out on this particular
+segment classification segment so if you are aware about these algorithm it's well and good it's more than enough
+you're not supposed to like uh think that okay fine so i'll not be able to explore i will not be able to understand
+other algorithm no when time will come when it will be required you will be able to understand you will be able to
+explore now there are some algorithm from a clustering site like a cabin clustering hierarchy clustering or
+dbs scan so these are the basic clustering algorithm that we are supposed to know if i'm talking about a
+dimensional reduction so pca ldas so tsne so these are the things that we are
+supposed to know from this particular segment plus performance matrix is wise performs metrics for a classification
+algorithm regression algorithm as well as clustering algorithm so we are supposed to know at any point of a time
+which is very very important plus hyper parameter tuning so if i'm aware about a
+couple of machine learning algorithm from this supervised unsupervised or semi supervised segment i'm well and
+good so when i'm saying that you are supposed to aware about a machine learning algorithm i simply mean that
+that theoretically mathematically as well as in a practical way
+you are supposed to aware about all of these algorithm it's not like if i just know about the theoretical things about
+a machine learning someone is going to give me a job no this that is not going to happen because people are going to
+hire you companies are going to hire you so that you can productionize something you will be able to build or deliver
+something to their client right so unless and until you are not going to explore these things still deployment
+how to do a deployment how to host a machine learning model how to like do a
+retraining and all those things how to build a complete pipeline for a machine learning implementation how to dockerize
+this machine learning algorithm or how to build a complete ci cd pipeline for a
+particular project i believe your knowledge is going to be a partial or it's going to be half so
+you are supposed to focus on end to end deployment of a machine learning algorithm if you are just aware about 10
+muslin algorithm that's completely fine no one is going to complain but if you know just uh if you know hundreds of
+machine learning algorithm but just a theory of it it is not going to help you out right so 10 is better than 100 but
+those 10 till deployment this is the expectations of a market
+now after this for sure you will be able to get a confidence and you can start participating in a hackathon so again
+there are multiple companies even i don't keep on conducting a hackathons right so you can start participating in
+a hackathon and you will be able to win some of the hackathon i think that is going to boost your confidence for sure
+right now there are like uh again machine learning algorithm which we have mentioned over there so you can try to
+explore maybe ensemble technique or machine learning advanced technique a boosting approach time series again you
+can try to explore with the help of machine learning you can try to build a machine learning recommendation system
+you can try to like uh develop some sort of a recommendation system for some of the website or some
+of the businesses that is completely fine now after machine learning so you can start reading a research paper if
+you want again this is not mandatory but yeah try to explore some sort of a research paper and this is what we have
+mentioned over there and then you can try to explore a little bit of deep learning
+again deep learning is not required in very depth but it's better it's better to have it right it's better to have it
+at least a basic of it again inside a deep learning there are multiple libraries which is available like a pie
+torch keras or tensorflow so it's better to explore either of these libraries so
+that you will be able to extend yourself for a next one and this is something that we have mentioned plus a little bit
+of deep neural network rna lstm cnn this is the variance just an overview about
+again i'm not saying that you are supposed to explore something in very very depth no if you're just aware about
+it if you are just able to talk about it it's more than enough if you know something in depth if you if you have
+that kind of interest please go ahead no one is going to stop you right but
+if you think that okay fine so this is like a too much for me and maybe uh
+like i will not be able to give this much of time it's completely fine you can stop yourself over here and then you
+can start working on your profile and resume a building and as we have given you
+a service right that you can come for a resume discussion so you can start
+raising a request at this point of a time that okay i'm done with my study i'm done with my project right now i'm
+able to deploy it i have done couple of the things now tell me how to build the resume you can come for a resume
+discussions and we'll be happy to have you in our resume discussion one to one session at this point of a time and that
+is our guidelines from i neuron now if i'll talk about a machine learning ops so yes tensorflow extend queue flow
+amazon sagemaker these are nothing but it's a ops so operational site and a
+little bit of these things is required so let's suppose if i'm trying to build a product so without these things i will
+not be able to build a product i will not be able to host it on some server again so
+docker kubernetes teraforms ci cd github action jenkins all these things are
+required now if i'll talk about a cloud right if i'll talk about a cloud so you're not supposed to explore each and
+every services which is available inside a cloud alone in aws itself there are more than more than 270 plus services
+which is available now if you will uh like a start exploring all of these 270
+services which is available which is provided by alone aws right it is going to take a huge amount of
+time person is not going to hire you as an aws expert or cloud expert person is going to hire you companies are going to
+hire you for a junior data scientist role so you are supposed to be aware
+about a services which is required for your machine learning algorithm deployment and creating and building a
+complete end-to-end system and that is my advice for all of you and these are
+the only thing that you are supposed to explore now i'll show you your data
+science master's curriculum so where we have covered each and everything in detail so here as i was talking about uh
+python so yes python basic is there oops concept is there database is there pandas is there right numpy is there
+matplotlib is there plotly is there c-bond eda biff framework python project
+with deployment i was talking about a scrapper right so yes that projects are available over here i was talking about
+a basic of mathematics yes those mathematics are available over here like i said many of us try to focus just on a
+mathematics see uh study or learning is a never-ending process we will keep on
+learning but our first priority is to get into a job if i'll just think that
+that okay i'll get a mastery and then i will get into a job i think you will end up losing so much
+of time so it's better to get into a job it's better to always focus on a things
+which is going to give you a quick result right okay so here machine learning so again
+all these algorithms has been discussed if i'll talk about a machine learning project there are so many machine learning pipeline based project which is
+available if i'll talk about a basic of deep learning so yes all of these things are already covered so whatever is
+required every and everything is available inside your dashboard itself now if i'll talk about your raising a
+demand option so here you can raise a demand for a resume discussion so once you think that that okay i'm now i'm
+good so maybe i can i can go for a resume preparation and i should start applying for the job now if i'll talk
+about a mock interview right so yes uh you can come for a mock
+interview with us and we are going to do an assessment and we are going to tell you that okay so this is where you stand
+as of now and maybe in this area or that area you are supposed to practice a lot
+coming back to this section so again to complete this section how much time is required on an average right so on an
+average how much time is required for a pressure to do a preparation like i said technology is not tough
+and again some people say that yes it is tough but yeah it's just a matter of time i would say
+so here a time which is required to do this preparation is max to max a four
+month right max to max four month if religiously you are involving yourself
+if on a daily basis you are trying to do a preparation for two hour to three hour not more than two to three hour so two
+hour to three hour for four months right so you can try to keep a
+time for six months i would say six months so four month just go for the
+preparation just try to do a preparation for four months right a complete hardcore preparation you can try to do
+for a four month and then for next two months just go for a revision plus
+resume tuning plus just a project building and just a mock interview that
+is and that should be the strategy and this is how you will be able to get it in a easiest possible way
+right that should be your strategy at any point of a time two to three hour for four months regularly and then next
+two months just on revision because multiple things many things i would say or maybe
+everything that you will be able to find out over here is going to be new for you we completely agree right and as a human
+being so it's a nature that we will not be able to retain each and everything and we will not be able to like uh tell
+each and everything and everything will not be on your fingertips right so it's better it's better to do a revision for
+two months parallel to this you can try to work on your resume parallel to this you can come for a mock interview and in
+this way it is going to help you out a lot so sixth month is maximum timing for
+doing this kind of a preparation for a fresher more than this is not required
+and each and everything is there inside your data science master's curriculum which i have shown you inside your tech
+neuron dashboard that's it and any kind of a help that you need in between let's
+suppose if you have a doubt or something you can raise a request over there and from our side so we are going to resolve
+all of those doubt for all of you so with this uh thank you so much so hope you will try to spend at least a four
+month of time plus two months for a revision and your final job preparation
+as a pressure and hopefully it is going to help you out a lot and just let me know about
+your feedback if i have to add something over here or if you would like to discuss something over here so based on
+your feedback so i can try to modify and then uh maybe i'll come up with the latest version of it with that thank you
+so much
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Data Science Roadmap For 2-5 Year | One Neuron
+URL- https://www.youtube.com/watch?v=3cfVOEyKSro
+TRANSCRIPT-
+all neurons so in this session i'm going
+to talk about how to do a data science
+preparation uh for a people who is
+having experience more than two year or
+in between two to five years
+so
+i've just like uh released a previous
+video in which i was talking about
+roadmap for a pressure so now this is
+going to be an extension of the same
+thing so here when i'll talk about a
+senior data scientist because when you
+have an experience in between two to
+five year
+there is a very high chance that
+position wise they are going to offer
+you a position as a senior data
+scientist now what in all things are
+required so again computer science basic
+is required that is very very important
+programming as i have mentioned in my
+previous lecture
+that
+programming wise
+at least one single language is required
+and my preferred language will be python
+because
+if i know one single language for sure i
+will be able to explore other languages
+as well in the easiest possible way so
+don't try to focus on a multiple
+programming languages python itself is a
+very very powerful language try to focus
+always on a python programming
+and
+yes so
+data structure algorithm now many people
+ask me a question that whether data
+stitch algorithm is required or it's not
+required
+let me tell you one thing very very
+clearly over here
+if you are going to start your career
+with a product-based companies
+so yes it is required even as a fresher
+it is required even if you are getting
+into a data science profile it is
+required a basic of data stretch
+algorithm linked list queue tree tree
+traversal uh like a red factory like a
+binary tree all those things are
+required
+now if you are going to apply for maybe
+a
+service based companies or some sort of
+a startup in that case data switch
+algorithm is not required so again make
+sure of it it depends upon your
+requirements so you can try to adopt
+data algorithm or maybe you can try to
+go ahead with the simple programming
+again programming is very very important
+side object-oriented programming modular
+coding again inside a python multiple
+libraries all those things are required
+for a data processing as i have already
+discussed in my
+previous section of this video
+now if i'll talk about a programming
+technique so here you are supposed to be
+aware about a design pattern so how we
+can try to design an entire solution for
+a particular problem that is something
+which is very very important now if i'll
+talk about a test driven deployment
+again it is important so how you are
+going to move your product or your
+implementation from a development system
+to a testing environment or to a
+production environment dependency
+injection so what in all dependencies
+that you are going to face may be
+improvised maybe a software device may
+be solution code wise so yes that is
+required functional programming is very
+very important because without this no
+one is going to accept your code in a
+production environment and then database
+fundamentals are very very important
+because
+at the end of the day you are not going
+to keep your data set inside your local
+system your data must be available in
+some sql server in some file system or
+maybe in some nosql system and hence
+this database is required so you can
+maybe try to explore a sql and then you
+can try to explore one from nosql which
+is a mongodb easy to implement easy to
+understand and easy to consume these
+things inside your code again i have
+mentioned a multiple nosql db again
+there is a huge list of sql and a nosql
+db each and everything is not required
+at any point of a time if you are good
+with one i think you will be able to
+crack an interview in the easiest
+possible way so please make sure of it
+and programming design pattern as well
+as database these things are very very
+important and please make sure that you
+have and complete understanding about
+these things when you are going to apply
+for the job now coming to the next
+section mathematics
+again so don't try to like uh get a phd
+into it so yes math is required but till
+certain extent so not
+like everything is required inside a
+mathematics whether it's a linear
+algebra whether it's a calculus whether
+it's a probability whether it's a
+statistics so a couple of things is
+required and more important thing is how
+to do an implementation right how i will
+be able to use a particular things let's
+suppose if i'm talking about a jet test
+if i'm talking about a p value if i'm
+talking about a b testing implementation
+wise how i can utilize all of these
+concept and all of these knowledges in
+my development so this is how you are
+supposed to understand a mathematics not
+just in terms of a mathematical way
+right uh just by solving some sort of a
+simple problem no this time so you are
+supposed to understand this methodics in
+a way that you will be able to solve
+some of the data related problem and
+then you can start joining a data
+science community because again
+community is very very important here
+you will be able to see a perspective of
+our mindset of a different people and an
+expectation of our companies and many
+more things you will be able to learn
+and these things is going to help you
+out even to get a job right so start
+building your com community but always
+in a constructive direction not in a
+negative direction so when i say
+community i think we are supposed to uh
+get an advantage of it maybe in a
+positive way
+now coming to our next section so here
+data analysis again it's important it's
+required right data analysis like a
+feature engineering data wrangling edas
+and then you can start writing an
+article and then bib scrapping so like i
+said in my previous section that some
+time so you will not be able to get all
+the data from your client and this is
+where
+scrapping is required sometime there
+will be a data dependency there is some
+sort of a derived data you have to
+create now at that point of a time
+scrapping helps us a lot to prepare
+those kind of a data now you are
+supposed to justify that how i will be
+able to use and scrapping if you are
+going to mention a scrapping project
+inside your resume but yes
+that is something that you are supposed
+to understand now uh like coming to the
+next section so indexation so machine
+learning is important
+obviously you are trying to prepare
+yourself for a data science so
+how you can leave a machine learning
+without machine learning so you can't
+become a data scientist that is like a
+abcd of data science so yes machine
+learning is required 10 algorithms i
+believe not 100 but a way by which you
+will be able to productionize those 10
+algorithm you will be able to build on a
+scalable system you will be able to do
+everything that you want so in that way
+you are supposed to learn a machine
+learning algorithm
+keep always these things in our mind
+knowing just a theoretical concept or
+maybe just a mathematical concept for a
+machine learning algorithms are not
+sufficient nowadays it's not relevant in
+a current industry scenario because
+let's try to assume uh one one case over
+here so let's suppose there is a company
+xyz and uh who is trying to hire you for
+their like a senior data scientist
+position or this particular role
+and you're just aware about a
+theoretical concept a mathematic concept
+those companies will not be able to
+deploy you they will not be able to
+assign you any kind of a job any kind of
+a portfolio because you have never
+worked into a deployment you have never
+worked into a scalability you have never
+walked into a model retraining you're
+not aware about it right
+and that is something which is required
+you have never you have never worked in
+a pipelining
+of any kind of a production grid
+solution which is a requirement which is
+a requirement of a particular project so
+why they are going to hire you
+just for a reason that you know some
+sort of a machine learning algorithm
+in a theoretical way they are not going to hire you they are going to reject
+your profile they are going to reject
+your resume so it's always better
+to learn all of these algorithm till
+deployment how i will be able to
+productionize these things how in a real
+sense i will be able to use it and this
+is how each and every algorithm whether
+it's a machine learning or machine
+learning advanced algorithm so this is
+how in that way you are supposed to
+learn and then you can start reading a
+research paper if you have an interest
+because sometime in an interview so they
+try to ask you a question saying that
+that
+what is the source of your knowledge
+right so maybe you can give an argument
+over there that okay fine so i keep on
+reading a research paper i keep on
+exploring multiple things by my side and
+this is how i just keep on like uh
+updating myself on a regular basis right
+so this is where research paper comes
+into a picture now
+product wise yes it is very very
+important there are so many projects
+that we have given to you in your data
+science master's curriculum
+now
+somewhere
+data visualization is also important so
+not all maybe just a w maybe just a
+power bi maybe just a looker maybe just
+a click view so at least one
+you must be having a basic idea and
+understanding about this w power bi
+lookup click view any of these things
+i'm not telling you i'm not asking you
+that to get a mastery into each and
+everything either of these is completely
+fine to mention those things inside your
+resume and that is going to increase our
+weightage saying that that yes i'm a
+person who knows how to build how to
+deploy how to productionize a machine
+learning algorithm i know how to play
+with the data i know even a statistical
+concept so if you are going to give me
+some new challenges for sure i will be
+able to solve it apart from that
+i will be able to create a complete
+dashboard right so where manager will be
+able to see a stats they will be able to
+visualize each and everything they will
+be able to see a report and for a
+reporting site these things as important
+now so as a senior data scientist yes
+there will be an expectations on a deep
+learning side you are supposed to
+available you can't say that no i don't
+know deep learning i just know machine
+learning i have already worked into a
+machine learning and i'm just looking
+for a machine learning profile because
+nowadays almost every companies are
+trying to explore trying to build a
+solution by using this deep learning
+which is again very very important and
+you are supposed to learn a deep
+learning concept this is important so
+please try to make sure that deep
+learning concept try to explore there
+are a multiple vision algorithm you will
+be able to find out nlp based algorithm
+you will be able to find out or basic of
+deep learning basic of a and that's more
+than enough but yes please try to
+explore those things and then you can
+start building your resume this is
+something that you should do
+now computer vision so yes a little bit
+like i have mentioned nlp a little bit
+whatever algorithm that we have
+mentioned over there so you are supposed
+to aware about it
+big data
+so you are going to work as a senior
+data scientist and let's suppose if i
+have to ask you i have to assign you a
+task for a pipelining
+this is where this big data comes into a
+picture a basic of big data is very very
+important at least you must be aware
+about a component like a pig hive kafka
+spark airflow nifi all those solutions
+and why we are going to use the solution
+so that in an interview if someone is
+going to ask you a question that are you
+aware about this take a stack you can
+say yes i'm aware about it and maybe uh
+like uh
+i can work if this task will be assigned
+to me so yes that is important and
+please make sure that you must be having
+some sort of idea and we have already
+given you a lecture inside your data
+science master's curriculum now if i'll
+talk about uh cloud computing again
+cloud computing is required because at
+the end of the day everything you are
+going to host inside a cloud it can be a
+aws azure it can be a gcp it can be some
+other cloud but yes it is going to be a
+cloud in majority of an environment in
+missouri of a companies so cloud
+computing is important to build into a
+solution because you are going to work
+as a
+senior data scientist and without this
+how you will be able to productionize a
+solution into it you will be able to
+build a solution plus machine learning
+operation or ai ops we used to say or ml
+ops we used to say somewhere so these
+things are very very important we are
+supposed to aware about an ops part so
+that i will be able to use a docker
+kubernetes or jenkins or maybe i will be
+able to use our tfx and many more things
+right
+so please make sure that try to explore
+uh ai offside or maybe a mlob side which
+will give you a complete system design
+perspective for any kind of ai system
+that we are going to build and this is
+something that we have mentioned over
+there so like a model retraining
+validations deployment scheduling
+everything comes under the op section
+again inside the op section so docker
+kubernetes teraform jenkins all those
+things comes into picture and cloud
+services so
+these this is the roadmap for a senior
+data scientist which is an extension of
+a junior data scientist itself not
+talking about a time so if i'll talk
+about a time how much time you are
+supposed to spend so far sure if you are
+going to apply for a senior data
+scientist position so in that sense you
+are supposed to spend at least three
+hour two four hour
+on an average on a daily basis for five
+to six months
+and apart from this so maybe you can try
+to keep a buffer period of one to two
+months
+for your projects right for your resume
+discussion for your mock interview for
+your detailed project report creation
+and a fine tuning of yourself you can
+try to keep a buffer of like one to two
+months so in seven to eight months it is
+possible if you are if as an average
+person so if you are trying to spend
+this quality hours three to four quality
+hours i'm telling you i'm not saying
+that you're just sitting on a chair for
+three to four hour for five to six
+months and then it's it can happen no
+the quality hour is very very important
+if you are going to spend this much of
+time it's easy to get a job as a senior
+data scientist plus focus more and more
+on project side and if you are applying
+for a product based company focus on dsa
+as well
+data structure algorithm which is again
+mentioned inside your tech neuron each
+and everything which i'm talking about
+is already available inside your data
+science master's curriculum and you can
+try to explore each and everything from
+this tech neuron itself nothing will go
+beyond it
+plus
+even interview questions we are like uh
+we have already uploaded inside a 30
+days interview question series plus
+there is a github profile of i neuron
+github like a link of iron where you
+will be able to find out interview
+questions and believe me no one is going
+to surpass that particular label so you
+can try to plan yourself accordingly and
+then you can try to crack
+this one and these things can these
+things is possible so again i'm
+considering a fact that we have started
+from
+zero right i'm not saying that you have
+some sort of experience and then this is
+going to work for you no i'm talking
+about just a ground zero from where we
+have started and then if i'm going to
+start my preparation with this one
+called as data science masters and
+everything everything and
+whatever whatever i have discussed
+everything you will be able to find out
+inside this section itself there is a
+1100 plus video which we have uploaded
+so it's a huge curriculum that we have
+designed
+just say machine learning deep learning
+aiofs big data data analytics everything
+projects and everything will be
+available over it's already available
+over here so please try to explore
+according to your requirements and if
+you are doing a preparation so from
+today onwards you can start a
+preparation create a chart create a
+table saying that okay fine so i'll try
+to invest three to four hour of time for
+next five to six months and then last
+one to two months i will try to expand
+on a revision side on a mock interview
+side on a resumer side and on a project
+side because
+learning is completely fine but learning
+is not going to give you a believe me
+your experience your expertise and a
+capability to build a solution is going
+to give you a job the kind of packages
+that you're looking for the kind of a
+profile that you are looking for each
+and everything will come out of your exp
+not out of your learning if you know
+hundreds of machine learning algorithm
+but you don't know how to productionize
+even a single one believe me
+one is going to help you
+right so always try to focus on a real
+thing
+just try to maintain a habit
+of like uh sitting on on a chair for
+three to four hour
+and that is something which can change
+again
+right so that is my advice to all of you
+guys and hope you will do as it is as i
+have discussed and keep on writing your
+comments uh so if you have any kind of a
+doubt any kind of a concern so for sure
+i will be happy to clarify those things
+with that thank you so much
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Data Science Roadmap 5-8 Year Experienced | One Neuron
+URL- https://www.youtube.com/watch?v=guwOATf9U-A
+TIMELAPSE-
+hello everyone so welcome to oneiron and
+today i'm going to talk about how to do
+a preparation so if i have an experience
+industry experience again i'm talking
+about so if i have an industry
+experience of in between maybe uh five
+to eight years so in that case how i
+will be able to do a preparation so here
+uh like uh yes computer science
+fundamentals or maybe i will say like
+operating system fundamentals is very
+very important so i believe i'm supposed
+to be aware about uh basic of linux
+command that is pretty much obvious what
+is uh uses of terminal or what is a rest
+api
+or what in all different different
+frameworks which is available to create
+apis plus a programming language again
+programming language wise i will not
+advise you to go after a multiple
+programming language i think one is more
+than enough
+and the best one is python so it's a
+very very powerful language and easy to
+learn as i have mentioned in my
+like a roadmap of afresha in a very
+detail again inside a python programming
+modular coding is important object
+oriented programming is important a
+couple of libraries are very very
+important like a numpy pandas
+matplotlib seaborn
+cuff links all those things very very
+important plus programming technique you
+are supposed to know a design pattern
+how to create a test environment uh
+deployment dependencies and all those
+things right so programming technique
+wise because you
+will be given a task to deploy to
+productionize and to build a complete
+system
+uh there is a chances that if you are
+going to join an organization as a lead
+in that case you will be able to get
+your team now you have to drive that
+entire team so you should know all the
+standard procedures and protocols
+for example uh model coding right so
+logging monitoring debugging right
+everything must be like there you are
+supposed to know about it you must be
+like a
+like a doing all of those things inside
+your project apart from that the
+knowledge of databases because yes
+without databases you will not be able
+to build anything in like anywhere right
+so knowledge of sql system and nosql
+system is very very important if it is
+required so try to learn a multiple
+sequels and a nosql system again
+after some time you will be able to find
+out that everything is same and it's
+like if i can do if i can work in one
+thing i will be able to work in other
+thing so just try to learn in that way
+and just try to build your perspective
+in this particular fashion that would be
+more than
+now coming to a mathematical side so yes
+uh sometimes so you are going to face
+your client directly
+sometimes so you will be taking a
+business requirements right uh business
+is going to in fact with you on a
+regular basis they are going to assign
+you a task they are going to check a
+feasibility
+of a particular task with you so yes you
+must be aware about all the statistical
+concept uh which has been used to
+evaluate a project to evaluate a data
+set plus a multiple mathematical expects
+from a linear algebra from a statistics
+from a calculus and from everywhere
+so that you will be able to utilize
+these things right you all will be able
+to realize these things while evaluating
+a data while doing an assessment for a
+particular project for a particular
+client so you are supposed to know about
+a mathematics in a pure
+like a in a way you know in a way by
+which you will be able to use all of
+these things in a real time that is this
+is how you should learn a mathematics
+let's suppose i'm just talking about uh
+a b testing or if i'm talking about a
+hypothesis testing if i'm talking about
+a probability right
+so it's not like if you are able to
+solve a couple of problem in a
+probability your work is done no how to
+use these probabilities in a machine
+learning in a deep learning in a
+computer vision inside a nlp this is how
+you are supposed to know about it this
+is how you are supposed to adopt a
+mathematics at this point of a time not
+in a mathematical way but in a way
+by which you will be able to explore
+something out of the data something out
+of the requirement given by your client
+or maybe your team member so this is how
+you should learn a mathematics always go
+in a practical way when i'm saying
+practical doesn't mean that how to
+convert one particular like uh
+like equation into a programming no that
+is not a practical way i'm talking about
+i'm just talking about a way by which
+you can really implement it and then you
+will be able to
+like uh get some sort of insights out of
+it that is a way by which you should
+learn mathematics and then you can start
+building your own data science community
+i think that would be better you can
+start guiding someone you can start
+like interacting with the people who are
+already a part of a data science
+community uh because you will be able to
+see a perspective from our different
+different people and a person so this is
+how you should
+move ahead now coming to a data analysis
+section so yes programming wise you are
+supposed to do a data analysis but
+always keep one thing in mind
+always try to find out a logical
+dependencies or a logical relationship
+between a different different attributes
+even inside your data this is how you
+are supposed to do a data analysis
+always try to focus on a business and
+then try to understand a nature of the
+data a particular business is trying to
+generate which will help you out to
+build a case in a strongest possible way
+and you can present it in front of your
+manager or in front of your client right
+in a strongest possible way because
+on this label
+you will be uh you will experience some
+time that uh it's not possible to build
+a ai solution for every problem right
+it's not possible
+or sometimes so it's better to go ahead
+with a non-ai solution as compared to a
+ai solution because of maybe uh ease of
+creating it or ease of like or maybe
+because of a less number of dependencies
+you will be able to get so it's not like
+every time if someone is giving you a
+problem statement we are supposed to go
+in a ai way ai is just a tip right
+maybe we can look for even a simple
+solution right so instead of like going
+ahead with the hard way so maybe we can
+try to choose an easy one that is
+possible so you are always supposed to
+present your case and that case you will
+be able to present if you are good with
+an analysis of a data plus if you
+understand a business
+the kind of attribute that business has
+assigned to you the kind of a columns
+the kind of values that business has
+given to you so based on that you have
+to do a data analysis again it's a
+broader one it's like a you have to
+understand a broader picture over here
+and based on that so you are supposed to
+represent these things in front of your
+client and then you can start writing
+your own article based on your own
+thesis based on your own analysis on a
+daily basis that's completely fine which
+will build a social profile for you
+because on your label these things are
+very very very very important right so
+you can start writing an article baby
+scrapping and all those things it's just
+a part of it part of your job
+so for sure you have to know anyhow
+right now if i'll talk about machine
+learning algorithms so yes you are
+supposed to know about machine learning
+algorithm at least 10 to 20 algorithms
+from a supervised machine learning from
+unsupervised machine learning from a
+semi supervised machine learning site or
+maybe from a design machine inside so
+you are supposed to know about machine
+learning algorithm again if i'll talk
+about a sequence of algorithms so linear
+regression and then like a polynomial
+regression multi-linear regression risk
+regression lasso regressions or maybe a
+decision tree regression with the help
+of decision tree or maybe a support
+vector regressions there are so many
+algorithms you will be able to find out
+in a regulation site itself so yes you
+are supposed to be aware about it now if
+i'll talk about a classification
+algorithm so maybe a logistic relational
+algorithm support vector classifier
+algorithm decision tree or maybe uh xj
+boost boost or maybe
+like a random forest so there are again
+a series of algorithm that you will be
+able to find out now knowing an
+algorithm
+and its mathematics and its theory is
+good
+but
+it's not enough
+it's not enough for a particular job if
+you are just working as a researcher
+maybe that is fine you can just keep on
+doing a research on a mathematical side
+on a stat side and it is completely fine
+but as a person who has joined a giant
+joined an organization and who is having
+a task to deliver it
+over here
+so you are supposed to learn an
+algorithm plus its implementation now
+when i'm talking about implementation it
+doesn't mean that that i'm just talking
+about like a calling in garth passing a
+data inside it like fitting up the data
+inside the algorithm and then work is
+done no
+this is again not a way
+right most of us have done that right
+most of us have like a created a model
+but it's of no use believe me
+unless and until you are not going to
+create a complete pipeline from your
+extract transform and load plus building
+an algorithm plus productionizing it
+first of all into a development
+environment then uat then into a
+production unless and until you are not
+going to build a complete pipeline for a
+model retraining you are not going to
+define a model retraining approach right
+you are not going to build a system
+which can work for one and which can
+work for million right
+i think your work is not done so you
+have to focus you have to have focus
+more and more on a system side
+on a architecture side on a design side
+as well you will be the one who is going
+to decide that or you are going to
+advise to your senior management saying
+that that this is the architecture this
+is the databases which i have used
+whether it's a sequel or nosql
+this is the cloud infra which i have
+taken this is the services which i am
+consuming this is the derived data set
+which i have created
+right so complete detail project report
+you have to create by yourself and for
+that you have to learn all of those
+things you have to experiment and
+explore all of those things on this
+label right and that is the reason so i
+have given you an advice that just
+knowing a machine learning algorithm or
+its mathematical term or theoretical
+term is not enough at all right so just
+try to explore these things beyond it
+and everything is given to you in your
+data science master's curriculum for you
+guys or you guys who falls in between
+this particular bracket
+so the since your advice to all of you
+is that focus more and more on
+implementation side instead of
+theoretical side
+that will give you experience and that
+is something which is going to work in
+your interview if you are not focusing
+on your practical side things will go
+south believe me things will go south if
+you think that that i just know about an
+algorithm and mathematical term i'm good
+with it and it is going to work no
+always and always people will try to
+focus on an implementation side and
+again a core end-to-end implementation
+till deployment till retraining approach
+so just keep always these things in our
+mind and then if you want you can start
+reading a research paper if you want you
+can start exploring a different
+different kind of systems as well
+now coming to a data visualization even
+if you have not worked into a data
+visualization but still you must be
+aware about a connectivity you must be
+aware about a basic of it right whether
+it's a w or power bi or looker or click
+view or any other dashboarding tool but
+yes you are supposed to be aware about
+it now if i'm talking about a deep
+learning
+deep learning is must for you guys
+deep learning a basic is at least
+important if even if you are going to
+switch as a machine learning engineer
+people must be having an expectation
+that you are aware about a little bit of
+deep learning so please keep these
+things in mind that you have an idea
+about a deep learning and with the
+preparation you should go right okay now
+coming to a computer vision so computer
+vision again it's an ocean so you can
+explore the entire syllabus that we have
+given to you with the
+use implementation almost every kind of
+implementation is mentioned inside your
+computer vision which is a part of your
+data science master's curriculum if i'll
+talk about nlp yes everything is
+mentioned if i'll talk about a big data
+yes everything is mentioned why we have
+mentioned all of these components there
+is a reason behind this the reason is
+that
+at the end of the day system is the only
+thing which matters and you are going to
+build a system
+right so unless and until you are not
+having an idea and understanding about
+the whole system and its integration how
+you will be able to build a system and
+keeping these things in your mind we
+have given you this entire huge
+curriculum yes it takes time but
+it's going to pay you a lot
+so it's better to go ahead with a
+preparation in a war so that you will be
+able to
+win it right so go for
+win here cloud computing infrastructure
+machine learning ops site again for you
+guys it's very very important ci cd all
+those things are important
+now for
+especially for a person who is going to
+work as a lead i will try to focus on
+this side
+you will be engaged or you will be a
+part of engaging a stakeholder your
+client or a person who is going to
+assign you a work right so you will be
+responsible for deriving uh values
+right identifying their need so maybe
+you can propose them that okay fine so
+maybe i can solve this problem in this
+way maybe you can
+bring a business for your uh like a
+respective organizations right so even
+you as a lead will be responsible for
+exploring a new things creating a values
+inside your company because your next
+role is going to be a managerial role or
+maybe
+when whenever you will join a next
+company so yes you are must be prepared
+for these roles right so how in a best
+possible way you can engage your
+stakeholder how in a best possible way
+you are going to introduce a new
+capacity inside your team infuse on new
+things inside your team how you are
+doing a pocs rfps how you are going to
+build an entire team how you are going
+to reskill your entire team along with
+yourself matters a lot on this
+particular label so my sincere advice to
+all of you will be to focus even on
+these side right generally as a techie
+so
+we never try to focus on this side but
+believe me if you are going to focus on
+this side it is going to change your
+life and it is going to right and it is
+going to give you an open up
+hell lot of opportunity in a market
+right so please make sure that you do it
+right you take a stick holding take a
+ownership take a leadership and deliver
+it
+try to build a team build our
+capabilities right so let's suppose you
+have joined a team and over there so
+they're just working on machine learning
+try to set up a team who can even work
+into a deep learning even work into a
+computer vision even work into a
+reinforcement learning
+try to build a capability so that you
+will be able to do a integration of your
+existing system with any other system
+and you will be able to do a maybe like
+a
+die to achieve a cost cutting try to
+achieve a reskilling of the team and
+there are so many activities that we can
+do on a floor right on a daily basis so
+always try to work as a team leader over
+there
+and
+just try to build an awesome team over
+there okay
+so educate educate your team right and
+again help assist each and everything
+so that is a very very important and
+this is something which i have mentioned
+so build a complete data science culture
+try to understand requirements of each
+and every clients try to extract as much
+business as possible and that is
+something which is going to give you a
+success now coming to now coming to our
+dashboard so here inside this dashboard
+each and everything we have given to you
+right everything right from the
+beginning so whatever is required to
+explore to discuss to like uh experiment
+right everything is available over here
+you are not supposed to go anywhere and
+if something is missing yes you can
+connect with us and then we will try to
+help you out but
+try to explore this data science masters
+in detail just try to spend as much time
+as possible now time wise if i'll say so
+time wise so maybe you can try to spend
+so time wise you can try to spend maybe
+right three to four hour which is
+average i think that's more than enough
+so
+three to four
+hours right maybe for six to seven
+months and one to two months
+you can try to take for a revision uh
+for a resume preparation for your mock
+interview for a project for a detailed
+project report dpr and all those things
+right so always always try to like a
+work as per the given instruction and
+easy to make a transition again you can
+come for the resume discussions you can
+come for the mock interview with iron
+team so there is a razor demand option
+which is given to you and just try to
+utilize just try to take advantage of it
+as much as possible
+so hope this is going to help you out a
+lot with this thank you so much and see
+you
+see all of you in my next lecture thank
+you
+
+hello everyone welcome to oneiron and in
+this session i'm going to talk about uh
+roadmap a data science roadmap for a
+senior people or a data scientist for a
+people who is having experience more
+than eight years so in this session i'm
+not going to follow a top-down approach
+i'm going to follow a bottom-up approach
+and there is a specific reason behind
+this approach which i am going to follow
+to explain a road map for this data
+science for a senior people now just try
+to understand in this way
+that if i'm a senior a person if i'm
+working as a manager or maybe if i'm
+working as a lead or architect in that
+case
+right what will be my roles and
+responsibility my roles and
+responsibility will be to talk to a
+stakeholder first of all
+it is also a possibility that you will
+be a stakeholder in your respective
+organization means you will be
+responsible for explaining you will be
+responsible for deriving a new business
+opportunities for your organization and
+in that case you have to interact with a
+lot of people on a daily basis apart
+from this so let's suppose if you are
+working on a technical side so for sure
+you are the one who will be responsible
+for designing the architecture system
+release whatever you can say end-to-end
+for every application so here top-down
+approach is not going to work if you are
+going to start learning a python then if
+you will try to start like uh learning
+machine learning then deep learning i
+think that is not going to work and this
+is not the approach that you all are
+supposed to follow so first of all try
+to understand that what kind of a role
+and responsibility you are going to play
+when you are going to join your next
+organization so for sure as a lead as a
+manager as a director as architect so
+you all are going to like build a team
+so yes for a organization for a current
+organization so maybe i'm going to join
+one company and
+manager of like or maybe our directors
+are going to ask me to build a team
+maybe a company is trying to build a new
+capabilities for a machine learning for
+a deep learning for a computer vision
+for a hardware ai based research or
+maybe for a reinforcement learning so
+yes that will be my responsibilities
+finding out a right person for your team
+will be an important task for you and
+you have to build a team let's suppose
+if you have a existing team so in that
+case you have to think about a race
+killing your existing team because
+technologies are changing on a daily
+basis again on a daily basis you will be
+able to find out a new algorithm new
+implementation a new tech stack so again
+that will come on you for your company
+so you have to bring a client because
+unless and until you are not going to
+bring a client inside your current
+organization i believe your roles are
+not going to be a relevant one so again
+you have to work on a client acquisition
+as well you have to bring a business
+plus whatever business that you are or
+whatever the stakeholding that you have
+as of now so you have to deliver those
+things on a daily basis maybe on a
+weekly or monthly basis at a time so you
+are not going to handle just a single
+team so at a time there is a chance that
+you will end up handling a multiple team
+again multiple team for a data science
+or multiple team which is from a data
+science or maybe apart from data science
+for example so let's suppose if i'm
+trying to build a machine learning
+solution so if i'm trying to build a
+machine learning solution so it's not
+like a solution you will be able to
+build just by having a capability of a
+machine learning engineer no big data
+engineer is required someone is required
+in on a dashboarding site someone is
+required maybe on a website someone is
+required on a platform site someone is
+required on our off site someone is
+required on an infrasight so there are
+multiple teams that you need and you
+will have to handle an entire team at a
+at a time you have to build a flow you
+have to build a process and a pipeline
+so that you will be able to deliver
+something so you're not supposed to work
+just on one single thing plus you have
+to derive a new solution on a regular
+basis because that is a need that is the
+need of our industry this is how market
+is going to work and so
+bottom up approach you are supposed to
+follow so first of all you are supposed
+to know let's suppose i'm trying to get
+into a healthcare domain or maybe into a
+supply chain domain so i'm supposed to
+like uh know first of all in a very
+first phase that
+what kind of a solution is possible in
+ai at least some because there are
+millions of there are infinite number of
+solution you will be able to find out in
+or out of the organization but in a
+beginning itself you are supposed to
+know about it because people is going to
+ask you a question you know interview
+that how many projects you have
+delivered what is the kind of a business
+that you have bring inside the company
+what is the total profit what is uh like
+a number of clients that you have
+handled so far so forth how many number
+of people you have handled so far so
+forth and what is a diversification of
+that particular team so these are the
+question when comes in a first phase so
+why we are not supposed to start from
+that particular area so if i have to
+apply for a job i'll start exploring
+these areas what is a solution now once
+i will be able to understand that okay
+so x y z kind of a solutions are
+possible in this respective domain then
+i will start exploring about a
+technology and here if you can see
+right so this is what i have mentioned
+in this particular slide so i'm trying
+to state over here that okay so let's
+suppose if i'm trying to like a build or
+if i'm trying to do something so here
+architect role wise so i'm supposed to
+focus on architectural drivers so what
+in all requirements what in all
+technology from a different perspective
+i'm supposed to learn then a technology
+selection designing the entire solution
+then evaluation of the entire
+architecture quality assurance coaching
+and mentorship again this is going to be
+your part so i'm supposed to focus on
+all of these things building a right
+team with a right people right number of
+people in a like a timeline that is
+given to you again that is a crucial
+task that we all used to play on a
+senior label
+and you have to design a process process
+for a delivery process for reskilling
+process for handling a team process for
+generating a new business so everywhere
+you will be involved now the best part
+or the best way to explore these things
+is with the help of this particular
+course which is available over here
+called as dsar data science architecture
+and resume so this is a session which i
+have delivered last year it's a bit
+lengthy session you will be able to find
+out but again at the same point of time
+it is going to be an interesting one i
+have received many feedback many comment
+from a multiple people saying that yes
+it is very very effective and it has
+helped me a lot so first of all try to
+understand a design first of all try to
+understand architecture now if i'm going
+to talk about this part two you will be
+uh able to understand that here i have
+discussed about one of the problem and a
+design and the solution which
+we have created when i was working for
+xyz company right so here you will be
+able to see a conceptual architecture as
+well as you will be able to understand a
+technical architecture which i have
+discussed in a very very detailed way
+you will be able to understand a
+business problem and its respective
+solution and that is the reason so i had
+created this dsar architecture classes
+right through ysa data science
+architecture and resume discussion
+classes i have given for a community
+last year so for you it's a very first
+the very first thing that you are
+supposed to explore is this one dsar so
+please try to start from here please try
+to understand that what you are supposed
+to do and what you are not supposed to
+do
+this is fine so forget about technology
+forget about everything right because ai
+is nothing but it's a set of technology
+by which you can solve a problem in
+every domain
+without any exception without any
+outlier you can solve we all can solve
+it so please try to go through this one
+now coming back to this one
+right so now let's suppose if i'm aware
+about right if i'm aware about the
+entire things what i can do what i can't
+right if i'm aware about the
+architecture i'm aware about the
+solution designing i'm aware about the
+client business problem and my team
+right so each and every process is set
+then maybe we are supposed to look into
+a tech side now in some company if you
+are going to join as a manager maybe
+these things are not required but yes in
+some company so it is required
+especially in product based company so
+yes you must be having a business
+understanding the understanding which i
+was talking about apart from this so you
+are supposed to be aware about a
+technology so it would be better if you
+can start again with the bottom up
+approach so try to learn try to talk
+about first of all infrastructure how i
+will be able to utilize those
+infrastructure for like a ml solution
+for a python solution for a vision
+solution for a s device solution and all
+sort of things so in this way if you are
+going to learn
+offside infrasight because that is going
+to give you a broader view
+and that is important for a senior
+people unless and until you are not
+going to understand a broader view a
+high label design you will not be able
+to implement a low level design at all
+because you are the person who will be
+responsible for designing this solution
+you will be the person who is going to
+make it or break it everything over here
+in an organization you will be the one
+based on
+based on whose instruction entire team
+is going to work so if you are the one
+who is not aware about these things how
+your team is going to work how your team
+is going to deliver that is not possible
+and that is the reason so i have asked
+you that try to follow a bottom up
+approach try to look into this one and
+then you are supposed to explore this ai
+ops course
+which is available over here ai ops
+course is very very important for all of
+you especially for architect especially
+for seniors so after dsar you are
+supposed to get into these things these
+entire things so that right so that you
+will be able to understand a complete
+infrasight in a detail and a depth way
+because coding is fine so more or less
+uh amount of coding is completely fine
+if you are aware about something uh like
+a coding or maybe you're not that that
+is a secondary thing but infra
+architecture design business clients
+these are the things which you should
+focus on in a very very first place and
+this is something that you are going to
+mention inside your resume then
+if i'll talk about a specialization
+right so let's suppose if i'm aware
+about the offside if i'm aware about
+each and everything then
+as an overview again you are not
+supposed to go in depth i'll not suggest
+you so you should know almost everything
+but not
+mastery into each and everything yeah
+with a timeline for sure you will be
+able to get a mastery but as you are
+trying to make a transition and if you
+will invest your time
+like most of the time just to cover up a
+beginning maybe a python maybe a stats
+maybe ml algorithm in that case you will
+feel like a frustrated because as a
+senior people so we have a different
+different responsibility uh family
+responsibility or maybe in office so we
+have so many different different kind of
+responsibilities and it is going to
+create a pain so just to remove that
+particular pain try to understand first
+a design architecture solution whether
+it's possible whether it's not so once
+you will start talking about or you will
+be in a position to talk about a 10
+different different solutions right for
+sure you can discuss about it in your
+interview and that is going to
+like uh that is going to be a point for
+you where you can crack an interview and
+is in the easiest possible way right
+this is what i have seen from my
+experience right and i'm just trying to
+share my experience with all of you
+that's it
+so here then you can come for the resume
+building and then slowly gradually so
+you can start exploring all of these
+things whether it's a language again not
+in depth maybe as an overview maybe
+machine learning algorithms so maybe
+like a databases maybe like an analysis
+part maybe a big data site so you can
+start exploring each and everything
+after that one so that is something
+which is going to like give you a
+capability to make a transition again
+i'm going to summarize each and
+everything right so summary wise first
+of all you are supposed to look into a
+very first thing called as dsar again
+it's a lengthy session but i believe you
+will enjoy it for sure now the second
+thing is you are supposed to look into
+ai ops the third part is you are
+supposed to look into a data science
+master's program right data science
+master's program so you can just look
+into it and just try to take an overview
+i'm not saying that go in depth practice
+each and everything solve all the
+assignments solve all the problem and
+then go for the job no
+it is going to create an headache for
+you so it's better move in this way so
+that you will be able to get a point to
+discuss plus a broader overview and idea
+and understanding you will be able to
+get and then go for the 30 days
+interview preparation because there's 30
+days
+interview preparation so i have already
+discussed about so many questions
+hundreds and hundreds of questions
+multi-hundred questions is already
+discussed even architecture and designs
+are discussed over there so that is
+going to help you out a lot
+in a short term as well as in a long
+term i hope uh you are able to
+understand that what you should do and
+what you are not supposed to do right
+and yes after that come for the resume
+discussion come for a mock interview
+uh come for the
+assessments and we can we can tell you
+over here that okay fine so here you are
+lagging and here you are clear and you
+can you can move ahead this is my advice
+and this is my data science roadmap for
+senior people with that thank you so
+much see you again in my next lecture
+thank you
+
+hello everyone welcome back and today
+i'm going to talk about a data
+engineering roadmap let's suppose i'm a
+person and who is trying to get into a
+data engineering site or maybe i'm
+trying to join some organization i'm
+trying to make a transition into some of
+the organization as a big data engineer
+so how i'm supposed to do a preparation
+because there was a time when i was
+like uh going through a similar kind of
+a situation seven or eight years back so
+when i was trying to do a transition
+from sap to big data so because of this
+lack of road map lack of resources i had
+struggled a lot so i thought of creating
+this particular video so that it is
+going to help you out a lot
+and for sure we all can do a transition
+into a data engineering site if and only
+if we are going to work really really
+hard for couple of months not for a year
+not for a decade just for a couple of
+months so listen out entire stack
+carefully try to do one by one each and
+everything that i'm going to discuss and
+then for sure you will be able to make a
+transition after your hard work so let's
+suppose if i'm trying to join some
+organization as a data engineer or big
+data which is for sure a need you can go
+to linkedin and you can try to check how
+many number of job opportunities are
+available and for sure it's very very
+high it's in a lag so as a data engineer
+or as a big data engineer there are so
+many opportunities which is available to
+all of us so let's suppose if i'm trying
+to get into a data engineering site so a
+very first thing which i will try to
+focus over here is i will try to
+understand hadoop so if i'll talk about
+a number one so it's going to be
+hadoop
+hadoop is very very important it's a
+distributed file system which is called
+as hdfs hadoop distributed file system
+which has been derived from gdfs a
+google file system or google distributed
+file system gfs file system so hadoop
+and
+and a concept behind what is our meaning
+of distributed computation what is the
+meaning of a parallel computation so all
+of these things are very very important
+so you are supposed to understand an
+architecture behind a hadoop system
+unless and until you are not going to
+understand this architecture behind a
+hadoop system it is going to create an
+issue in your interview so you are
+supposed to understand a complete
+distributed computation system
+architecture just an architecture try to
+understand now so five or six years back
+or seven years back when i was trying to
+do a preparation so at that point of a
+time even map reduce is import map
+reduce was important but nowadays map
+reduce is not important so you can just
+try to skip that particular part because
+nowadays no one is using map reduce at
+all so after hadoop so if i'll talk
+about seven year back so we used to
+study a map reduce and we used to do a
+coding by using maybe a java maybe by
+using a scala but nowadays map reduce is
+not a relevant one because there are
+some powerful engine which is available
+in a market which can work much much
+better than a mapreduce and that too in
+a very optimized way so you are not
+supposed to touch map reduce again if
+i'm talking about a hadoop distributed
+system so maybe you can go ahead with a
+2.x or 3 dot x so try to study these
+system try to study a resource manager
+like a yarn or resource this kind of a
+resource manager you are supposed to
+understand try to understand how
+replication factor will be implemented
+try to understand again a multiple
+component which comes under hadoop
+itself so what i'm trying to say over
+here is a complete hdfs file system you
+are supposed to understand now when you
+are trying to understand this hadoop
+system a hadoop ecosystem
+right at the same point of a time you
+can try to explore and you can try to do
+a practical implementations as well by
+using maybe a cloud data distributed
+environment or maybe by using the hdp
+hortonwork distributed platform so you
+can try to use cloud data or you can try
+to use hdp hotend work nowadays now both
+are same so you can try to use either of
+this and then you can try to each
+implement each and everything so in this
+way for sure you will be able to get a
+practical implementation of this entire
+hdfs file system it's just a file system
+so no need to worry about it but
+at the same point of a time a second
+thing which is important is a basic of
+basic of
+linux
+command again this is important because
+when you are going to deal with the sdfs
+system at that point of a time so for
+sure you are supposed to know so how to
+copy a file from one part to another
+path so how to start one services how to
+stop other services how to create a
+directory and many more things is
+important again i'm not asking you to
+get into a depth of it if you are aware
+about uh like a detail of a linux system
+and its command that's completely fine
+but at least a basic of a linux command
+is very very important so just make sure
+that you know all of this basic command
+at least 2025 number of commands and
+then it's okay okay to go ahead with a
+different different component which may
+come into our picture now a very third
+thing which i would like to recommend
+you over here is a language
+so language wise you can opt for
+three languages again you can opt for
+more but what i will advise you is to go
+ahead with either of these languages so
+maybe
+a java maybe
+scala or maybe you can go ahead with
+python many of us think that that java
+can be a complex one a complex to learn
+complex to implement that's completely
+fine scala may be a complex one complex
+to learn complex to implement so in that
+case you can opt for a python because
+nowadays whatever system that you are
+going to use whatever services that you
+are going to use you can and you will be
+able to find out a python apis and
+python library for each and everything
+so just make sure language is a enabler
+it is going to enable you to write a
+code it is going to enable you to design
+a system but nothing more than that so
+you are going to offer java scala or
+python that's completely fine either of
+these things are going to work for you
+and for sure you will be able to do an
+implementation but yes don't
+miss a language part because if you are
+going to join any organization on a
+technical side you can't miss the
+language part at all that is very very
+important believe me so you are supposed
+to understand and you should know a
+language path at least till a
+intermediate label i'm not asking you to
+get a mastery into any of the languages
+but at least till intermediate path you
+are supposed to understand a language
+side now a next thing which i would like
+you to understand
+for this data engineering part is
+a high
+so again hive is a very important tool
+for a data warehousing which is an
+integrated part of your hadoop ecosystem
+whenever you are going to install
+so like let's suppose if i'm using a
+cloud database distributed environment
+or maybe emr if i'm going to use or
+maybe i'm going to use hot and work so
+in all of these environments you will be
+able to find out hive which is installed
+if you are going to do a custom
+installation
+so yes hive as a service you will be you
+are supposed to install separately but
+again that's that's it's mentally and if
+a person is having an idea about a
+sequel a basic of sql command so in that
+case
+you will be able to understand hql hive
+query language in an easiest possible
+way again it is not going to give you
+much pain because it's almost similar to
+sql i'm not saying that it's exactly as
+sequel but yes command wise syntax is
+wise if you are unable to understand sql
+i believe you can learn all of these
+things easily and again you will be able
+to do a comparison as well in between
+hive and a sequel so where i'm supposed
+to use hive or where i'm supposed to use
+a sequel and easily you will be able to
+do an implementation so hype is very
+very important if i'm talking about a
+data engineering site because almost in
+every project we are using hive you
+won't be able to find out even a single
+project where we are not using hive or
+its equivalence so everywhere it is been
+used so just keep these things in our
+mind that i should know hive now some
+people say that even pig latins are
+required but i will not recommend you a
+big latin because in today's environment
+pig is not required so yes a seven year
+back when i was trying to learn so pig
+was important believe me at that point
+of a time so in every interview people
+use this to ask multiple commands from
+this side but nowadays don't worry no
+one is going to ask you any kind of a
+question on a big site right even a
+theoretical or practical no one is going
+to ask you at all so just chill out and
+uh don't take attention about this big
+things now
+uh if i know hype so for sure i will be
+able to understand uh impala so again
+impala is almost equivalent to a hype
+and it's not a big deal to learn impala
+at all so it's equivalent to high and
+hype is almost equivalent to a sequel
+again command-wise not architecture and
+design-wise so it's been used for a
+different purposes for sure but yeah you
+will be able to understand in the
+easiest possible way now the next thing
+that you are supposed to know is that
+fifth number thing is uh maybe flume
+scoop
+or maybe
+you can try to learn knife
+so plume scoop and nifi so all of these
+tools are nothing but all of these
+services are nothing but which has been
+is been used for doing a data transfer
+from one system to another system so
+just for transferring a data let's
+suppose i'm supposed to transfer data
+from a sequel system to oop this hadoop
+system so in that case maybe i can try
+to go ahead with the scoop if i'm
+looking for a file transfer i can try to
+look for a flume if i'm looking for
+every kind of a transfer so i believe
+nifi is a beautiful and powerful and
+light-weighted tool which is available
+in a market and yes i will try to go
+ahead with a apache an i5 or maybe a
+scoop or maybe a flume so all of these
+three tools are required these three
+technologies are required on your
+like a data transfer site so data
+warehousing site hive is required
+language wise java scala or python
+either of these
+you can pick and choose basic objects is
+required hdfs system is required fluid
+scoop and nifi is required on this side
+again if i'm talking about a database
+site
+nosql database site so hbase is very
+very important database it's a very very
+important believe me so you are supposed
+to understand this edge base unless and
+until you are not going to understand
+hbase so it is going to create a lot of
+problem for you so make sure that you
+should know hbase it's been used on top
+of hdfs file system and it is going to
+give you so much of advantages when you
+will try to draw or when you will try to
+build a dashboard on top of your final
+data set or whenever you are dealing
+with a lot of financial data set and you
+are trying to do a data search based on
+the indexes so hbase is again a very
+very important tool which is required or
+it's a nosql based database which is
+required for all of us
+now if i'll talk about maybe a seventh
+stack over here which is a very very
+important stack that you are supposed to
+know is called as s p
+a r k it's a in memory computation
+enzyme a very powerful one
+right a very powerful
+in memory computation engine and that is
+a spark and a spark there are so many
+advantages you will be able to see you
+will be able to get with respect to a
+spark so here you will be able to find
+out maybe a spark and a spark sql spark
+for the streaming spark machine learning
+libraries spark even nlps are available
+from a snowflake lab so again there are
+multiple variants of spark which you can
+try to find out for example so spark sql
+or a spark ml lib you can try to find
+out a spark
+streaming you can try to find out so you
+are supposed to know each and everything
+now let's suppose if i'm aware about
+spark and again a spark provides you a
+flexibility to write a code by using a
+java scala python or our programming
+languages some of the apis are not
+available in our programming languages
+but yes languages are just a language
+like i said it's just an enabler it is
+going to give you a capabilities to
+maybe replicate or build a system right
+so it's completely fine doesn't matter
+for me which language i'm going to pick
+and choose the concept is very very
+important
+and here a concept of a core spark
+concept of spark sql ml lib streaming
+all of these things are very very
+important now the eighth part which i
+would like to highlight over here is a
+scheduler side so scenario wise you can
+try to use maybe a
+ug or you can try to use
+airflow
+so oozy is a xml based scheduler so by
+which you will be able to schedule a job
+at a particular time stamp and then it
+is going to run a job in an automated
+way and uh ooji is basically a xml based
+xml based file system based scheduler
+that you can try to find out and any
+kind of a job if whether it's a linux
+job whether it's a spark related job
+whether it's a hype job whether it's a
+flume job a scoop job
+you will be able to schedule with the
+help of og and its alternative is an
+airflow so airflow provides you a flavor
+of python so here you can try to write
+your script not in an xml file but
+instead of writing a script in xml file
+you can write your like a complete
+scheduler by using just a airflow by
+using a language python right so nothing
+can be more amazing than that so if i'm
+working with python i believe i will be
+like a choosing i will be going for like
+a airflow which is which is anyhow going
+to my preferred choice so uj and airflow
+this is what you are supposed to know so
+these are the technology stack which is
+very very important it's a bare minimum
+technology stack which is required now
+if i'm going to talk about another stack
+so yes uh for streaming purposes you
+need kafka kafka is again important
+nowadays
+kafka is very very important if you are
+looking for a streaming right and kafka
+and spark integration and scheduling
+those things with the help of ooji and
+airflow so nowadays we are almost using
+this kind of a stack everywhere in our
+market in almost every project every big
+data engineering project so we are
+trying to use it so yes kafka is
+important and again architecture of
+kafka is very very important
+implementation creating a producer and
+like a consumer is very very important
+and multiple consumers are very very
+important and dealing with a streaming
+data set a batch data set or maybe a
+mini batch data set is very very
+important so all of these things you are
+supposed to know anyhow so this is a
+bare minimum requirement guys
+unless and until you are not aware about
+all of this stack it is going to be
+difficult for you to get into a data
+engineering site a bare minimum
+requirement believe me hadoop basic of
+linux any one language hive floom scoop
+nifi either of this hbase spark inside
+spark sequel mlm streaming uj airflow
+from a scheduling site and kafka from a
+streaming site so all of these stacks
+are important now let's suppose if i'm
+aware about all of these stacks then
+what i will do is then i will go ahead
+with the resume a
+discussion
+so yes in your one year on platform
+resume discussions is already available
+so you can raise your request by using a
+one-year-old platform and you can come
+for the resume discussion but before
+coming for the resume discussion you are
+supposed to do our projects because
+inside your resume what you are going to
+write your experience and your projects
+now if i'll talk about a project so
+always try to build a pipeline based
+project so pipeline based project means
+let's suppose there is a data source so
+from there how i am going to connect
+from a multiple data sources how i am
+going to filter out all of these
+required informations how i am going to
+perform a different different kind of
+transformation operation different
+different kind of a load operations and
+then finally how i'm going to dump my
+data set into my databasing solution or
+maybe into a databases so this kind of a
+pipelining project is required so where
+in one single project you will end up
+using this entire things and project
+along with a deployment and scheduler is
+very very important right so i'm not
+talking about the op side but yes this
+is the berman requirement that you are
+supposed to fulfill so you can come for
+the resume discussions you can do a
+project which is available inside your
+dashboard and then yes you will be
+eligible for applying for a job in a
+market which is available on a different
+different platforms so this is a basic
+roadmap i would say
+in my next data engineering roadmap so
+i'm going to talk about a data
+engineering roadmap
+in
+depth so if you have like this video so
+you can give a comment and then you can
+let me know that
+whether this input is useful for all of
+you or not if not for sure so anyhow i
+told you that in my next video so again
+i'm going to drill down each and
+everything in on a micro label and i'm
+going to explain you so why this
+component is required and why that
+component is not required so in this way
+i'll try to give you explanation till
+then thank you so much and see you again
+in my next session thank you so much
+
+

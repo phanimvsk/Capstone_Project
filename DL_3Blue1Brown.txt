@@ -1,0 +1,821 @@
+It's sloppily written and rendered at an extremely low resolution of 28 by 28 pixels.
+But your brain has no trouble recognizing it as a three and I want you to take a moment to appreciate
+How crazy it is that brains can do this so effortlessly?
+I mean this this and this are also recognizable as threes,
+even though the specific values of each pixel is very different from one image to the next.
+The particular light-sensitive cells in your eye that are firing when you see this three
+are very different from the ones firing when you see this three.
+But something in that crazy smart visual cortex of yours
+resolves these as representing the same idea while at the same time recognizing other images as their own distinct ideas
+But if I told you hey sit down and write for me a program that takes in a grid of 28 by 28
+pixels like this and outputs a single number between 0 and 10 telling you what it thinks the digit is
+Well the task goes from comically trivial to dauntingly difficult
+Unless you've been living under a rock
+I think I hardly need to motivate the relevance and importance of machine learning and neural networks to the present into the future
+But what I want to do here is show you what a neural network actually is
+Assuming no background and to help visualize what it's doing not as a buzzword but as a piece of math
+My hope is just that you come away feeling like this structure itself is
+Motivated and to feel like you know what it means when you read or you hear about a neural network quote-unquote learning
+This video is just going to be devoted to the structure component of that and the following one is going to tackle learning
+What we're going to do is put together a neural network that can learn to recognize handwritten digits
+This is a somewhat classic example for
+Introducing the topic and I'm happy to stick with the status quo here because at the end of the two videos I want to point
+You to a couple good resources where you can learn more and where you can download the code that does this and play with it?
+on your own computer
+There are many many variants of neural networks and in recent years
+There's been sort of a boom in research towards these variants
+But in these two introductory videos you and I are just going to look at the simplest plain-vanilla form with no added frills
+This is kind of a necessary
+prerequisite for understanding any of the more powerful modern variants and
+Trust me it still has plenty of complexity for us to wrap our minds around
+But even in this simplest form it can learn to recognize handwritten digits
+Which is a pretty cool thing for a computer to be able to do.
+And at the same time you'll see how it does fall short of a couple hopes that we might have for it
+As the name suggests neural networks are inspired by the brain, but let's break that down
+What are the neurons and in what sense are they linked together?
+Right now when I say neuron all I want you to think about is a thing that holds a number
+Specifically a number between 0 & 1 it's really not more than that
+For example the network starts with a bunch of neurons corresponding to each of the 28 times 28 pixels of the input image
+which is
+784 neurons in total each one of these holds a number that represents the grayscale value of the corresponding pixel
+ranging from 0 for black pixels up to 1 for white pixels
+This number inside the neuron is called its activation and the image you might have in mind here
+Is that each neuron is lit up when its activation is a high number?
+So all of these 784 neurons make up the first layer of our network
+Now jumping over to the last layer this has ten neurons each representing one of the digits
+the activation in these neurons again some number that's between zero and one
+Represents how much the system thinks that a given image?
+Corresponds with a given digit. There's also a couple layers in between called the hidden layers
+Which for the time being?
+Should just be a giant question mark for how on earth this process of recognizing digits is going to be handled
+In this network I chose two hidden layers each one with 16 neurons and admittedly that's kind of an arbitrary choice
+to be honest I chose two layers based on how I want to motivate the structure in just a moment and
+16 well that was just a nice number to fit on the screen in practice
+There is a lot of room for experiment with a specific structure here
+The way the network operates activations in one layer determine the activations of the next layer
+And of course the heart of the network as an information processing mechanism comes down to exactly how those
+activations from one layer bring about activations in the next layer
+It's meant to be loosely analogous to how in biological networks of neurons some groups of neurons firing
+cause certain others to fire
+Now the network
+I'm showing here has already been trained to recognize digits and let me show you what I mean by that
+It means if you feed in an image lighting up all
+784 neurons of the input layer according to the brightness of each pixel in the image
+That pattern of activations causes some very specific pattern in the next layer
+Which causes some pattern in the one after it?
+Which finally gives some pattern in the output layer and?
+The brightest neuron of that output layer is the network's choice so to speak for what digit this image represents?
+And before jumping into the math for how one layer influences the next or how training works?
+Let's just talk about why it's even reasonable to expect a layered structure like this to behave intelligently
+What are we expecting here? What is the best hope for what those middle layers might be doing?
+Well when you or I recognize digits we piece together various components a nine has a loop up top and a line on the right
+an 8 also has a loop up top, but it's paired with another loop down low
+A 4 basically breaks down into three specific lines and things like that
+Now in a perfect world we might hope that each neuron in the second-to-last layer
+corresponds with one of these sub components
+That anytime you feed in an image with say a loop up top like a 9 or an 8
+There's some specific
+Neuron whose activation is going to be close to one and I don't mean this specific loop of pixels the hope would be that any
+Generally loopy pattern towards the top sets off this neuron that way going from the third layer to the last one
+just requires learning which combination of sub components corresponds to which digits
+Of course that just kicks the problem down the road
+Because how would you recognize these sub components or even learn what the right sub components should be and I still haven't even talked about
+How one layer influences the next but run with me on this one for a moment
+recognizing a loop can also break down into subproblems
+One reasonable way to do this would be to first recognize the various little edges that make it up
+Similarly a long line like the kind you might see in the digits 1 or 4 or 7
+Well that's really just a long edge or maybe you think of it as a certain pattern of several smaller edges
+So maybe our hope is that each neuron in the second layer of the network
+corresponds with the various relevant little edges
+Maybe when an image like this one comes in it lights up all of the neurons
+associated with around eight to ten specific little edges
+which in turn lights up the neurons associated with the upper loop and a long vertical line and
+Those light up the neuron associated with a nine
+whether or not
+This is what our final network actually does is another question, one that I'll come back to once we see how to train the network
+But this is a hope that we might have. A sort of goal with the layered structure like this
+Moreover you can imagine how being able to detect edges and patterns like this would be really useful for other image recognition tasks
+And even beyond image recognition there are all sorts of intelligent things you might want to do that break down into layers of abstraction
+Parsing speech for example involves taking raw audio and picking out distinct sounds which combine to make certain syllables
+Which combine to form words which combine to make up phrases and more abstract thoughts etc
+But getting back to how any of this actually works picture yourself right now designing
+How exactly the activations in one layer might determine the activations in the next?
+The goal is to have some mechanism that could conceivably combine pixels into edges
+Or edges into patterns or patterns into digits and to zoom in on one very specific example
+Let's say the hope is for one particular
+Neuron in the second layer to pick up on whether or not the image has an edge in this region here
+The question at hand is what parameters should the network have
+what dials and knobs should you be able to tweak so that it's expressive enough to potentially capture this pattern or
+Any other pixel pattern or the pattern that several edges can make a loop and other such things?
+Well, what we'll do is assign a weight to each one of the connections between our neuron and the neurons from the first layer
+These weights are just numbers
+then take all those activations from the first layer and compute their weighted sum according to these weights I
+Find it helpful to think of these weights as being organized into a little grid of their own
+And I'm going to use green pixels to indicate positive weights and red pixels to indicate negative weights
+Where the brightness of that pixel is some loose depiction of the weights value?
+Now if we made the weights associated with almost all of the pixels zero
+except for some positive weights in this region that we care about
+then taking the weighted sum of
+all the pixel values really just amounts to adding up the values of the pixel just in the region that we care about
+And, if you really want it to pick up on whether there's an edge here what you might do is have some negative weights
+associated with the surrounding pixels
+Then the sum is largest when those middle pixels are bright, but the surrounding pixels are darker
+When you compute a weighted sum like this you might come out with any number
+but for this network what we want is for activations to be some value between 0 & 1
+so a common thing to do is to pump this weighted sum
+Into some function that squishes the real number line into the range between 0 & 1 and
+A common function that does this is called the sigmoid function also known as a logistic curve
+basically very negative inputs end up close to zero very positive inputs end up close to 1
+and it just steadily increases around the input 0
+So the activation of the neuron here is basically a measure of how positive the relevant weighted sum is
+But maybe it's not that you want the neuron to light up when the weighted sum is bigger than 0
+Maybe you only want it to be active when the sum is bigger than say 10
+That is you want some bias for it to be inactive
+what we'll do then is just add in some other number like negative 10 to this weighted sum
+Before plugging it through the sigmoid squishification function
+That additional number is called the bias
+So the weights tell you what pixel pattern this neuron in the second layer is picking up on and the bias
+tells you how high the weighted sum needs to be before the neuron starts getting meaningfully active
+And that is just one neuron
+Every other neuron in this layer is going to be connected to all
+784 pixels neurons from the first layer and each one of those 784 connections has its own weight associated with it
+also each one has some bias some other number that you add on to the weighted sum before squishing it with the sigmoid and
+That's a lot to think about with this hidden layer of 16 neurons
+that's a total of 784 times 16 weights along with 16 biases
+And all of that is just the connections from the first layer to the second the connections between the other layers
+Also, have a bunch of weights and biases associated with them
+All said and done this network has almost exactly
+13,000 total weights and biases
+13,000 knobs and dials that can be tweaked and turned to make this network behave in different ways
+So when we talk about learning?
+What that's referring to is getting the computer to find a valid setting for all of these many many numbers so that it'll actually solve
+the problem at hand
+one thought
+Experiment that is at once fun and kind of horrifying is to imagine sitting down and setting all of these weights and biases by hand
+Purposefully tweaking the numbers so that the second layer picks up on edges the third layer picks up on patterns etc
+I personally find this satisfying rather than just reading the network as a total black box
+Because when the network doesn't perform the way you
+anticipate if you've built up a little bit of a relationship with what those weights and biases actually mean you have a starting place for
+Experimenting with how to change the structure to improve or when the network does work?
+But not for the reasons you might expect
+Digging into what the weights and biases are doing is a good way to challenge your assumptions and really expose the full space of possible
+solutions
+By the way the actual function here is a little cumbersome to write down. Don't you think?
+So let me show you a more notationally compact way that these connections are represented. This is how you'd see it
+If you choose to read up more about neural networks
+Organize all of the activations from one layer into a column as a vector
+Then organize all of the weights as a matrix where each row of that matrix
+corresponds to the connections between one layer and a particular neuron in the next layer
+What that means is that taking the weighted sum of the activations in the first layer according to these weights?
+Corresponds to one of the terms in the matrix vector product of everything we have on the left here
+By the way so much of machine learning just comes down to having a good grasp of linear algebra
+So for any of you who want a nice visual understanding for matrices and what matrix vector multiplication means take a look at the series I did on linear algebra
+especially chapter three
+Back to our expression instead of talking about adding the bias to each one of these values independently we represent it by
+Organizing all those biases into a vector and adding the entire vector to the previous matrix vector product
+Then as a final step
+I'll rap a sigmoid around the outside here
+And what that's supposed to represent is that you're going to apply the sigmoid function to each specific
+component of the resulting vector inside
+So once you write down this weight matrix and these vectors as their own symbols you can
+communicate the full transition of activations from one layer to the next in an extremely tight and neat little expression and
+This makes the relevant code both a lot simpler and a lot faster since many libraries optimize the heck out of matrix multiplication
+Remember how earlier I said these neurons are simply things that hold numbers
+Well of course the specific numbers that they hold depends on the image you feed in
+So it's actually more accurate to think of each neuron as a function one that takes in the
+outputs of all the neurons in the previous layer and spits out a number between zero and one
+Really the entire network is just a function one that takes in
+784 numbers as an input and spits out ten numbers as an output
+It's an absurdly
+Complicated function one that involves thirteen thousand parameters in the forms of these weights and biases that pick up on certain patterns and which involves
+iterating many matrix vector products and the sigmoid squish evocation function
+But it's just a function nonetheless and in a way it's kind of reassuring that it looks complicated
+I mean if it were any simpler what hope would we have that it could take on the challenge of recognizing digits?
+And how does it take on that challenge? How does this network learn the appropriate weights and biases just by looking at data? Oh?
+That's what I'll show in the next video, and I'll also dig a little more into what this particular network we are seeing is really doing
+Now is the point I suppose I should say subscribe to stay notified about when that video or any new videos come out
+But realistically most of you don't actually receive notifications from YouTube, do you ?
+Maybe more honestly I should say subscribe so that the neural networks that underlie YouTube's
+Recommendation algorithm are primed to believe that you want to see content from this channel get recommended to you
+anyway stay posted for more
+Thank you very much to everyone supporting these videos on patreon
+I've been a little slow to progress in the probability series this summer
+But I'm jumping back into it after this project so patrons you can look out for updates there
+To close things off here I have with me Lisha Li
+Lee who did her PhD work on the theoretical side of deep learning and who currently works at a venture capital firm called amplify partners
+Who kindly provided some of the funding for this video so Lisha one thing
+I think we should quickly bring up is this sigmoid function
+As I understand it early networks used this to squish the relevant weighted sum into that interval between zero and one
+You know kind of motivated by this biological analogy of neurons either being inactive or active (Lisha) - Exactly
+(3B1B) - But relatively few modern networks actually use sigmoid anymore. That's kind of old school right ? (Lisha) - Yeah or rather
+ReLU seems to be much easier to train (3B1B) - And ReLU really stands for rectified linear unit
+(Lisha) - Yes it's this kind of function where you're just taking a max of 0 and a where a is given by
+what you were explaining in the video and what this was sort of motivated from I think was a
+partially by a biological
+Analogy with how
+Neurons would either be activated or not and so if it passes a certain threshold
+It would be the identity function
+But if it did not then it would just not be activated so be zero so it's kind of a simplification
+Using sigmoids didn't help training, or it was very difficult to train
+It's at some point and people just tried relu and it happened to work
+Very well for these incredibly
+Deep neural networks. (3B1B) - All right
+Thank You Lisha
+for background amplify partners in early-stage VC invests in technical founders building the next generation of companies focused on the
+applications of AI if you or someone that you know has ever thought about starting a company someday
+Or if you're working on an early-stage one right now the Amplify folks would love to hear from you
+
+Last video I laid out the structure of a neural network
+I'll give a quick recap here just so that it's fresh in our minds
+And then I have two main goals for this video. The first is to introduce the idea of gradient descent,
+which underlies not only how neural networks learn,
+but how a lot of other machine learning works as well
+Then after that we're going to dig in a little more to how this particular network performs
+And what those hidden layers of neurons end up actually looking for
+As a reminder our goal here is the classic example of handwritten digit recognition
+the hello world of neural networks
+these digits are rendered on a 28 by 28 pixel grid each pixel with some grayscale value between 0 & 1
+those are what determine the activations of
+784 neurons in the input layer of the network and
+Then the activation for each neuron in the following layers is based on a weighted sum of
+All the activations in the previous layer plus some special number called a bias
+then you compose that sum with some other function like the sigmoid squishification or
+a ReLu the way that I walked through last video
+In total given the somewhat arbitrary choice of two hidden layers here with 16 neurons each the network has about
+13,000 weights and biases that we can adjust and it's these values that determine what exactly the network you know actually does
+Then what we mean when we say that this network classifies a given digit
+Is that the brightest of those 10 neurons in the final layer corresponds to that digit
+And remember the motivation that we had in mind here for the layered structure was that maybe
+The second layer could pick up on the edges and the third layer might pick up on patterns like loops and lines
+And the last one could just piece together those patterns to recognize digits
+So here we learn how the network learns
+What we want is an algorithm where you can show this network a whole bunch of training data
+which comes in the form of a bunch of different images of handwritten digits along with labels for what they're supposed to be and
+It'll adjust those
+13000 weights and biases so as to improve its performance on the training data
+Hopefully this layered structure will mean that what it learns
+generalizes to images beyond that training data
+And the way we test that is that after you train the network
+You show it more labeled theta that it's never seen before and you see how accurately it classifies those new images
+Fortunately for us and what makes this such a common example to start with is that the good people behind the MNIST base have
+put together a collection of tens of thousands of handwritten digit images each one labeled with the numbers that they're supposed to be and
+It's provocative as it is to describe a machine as learning once you actually see how it works
+It feels a lot less like some crazy sci-fi premise and a lot more like well a calculus exercise
+I mean basically it comes down to finding the minimum of a certain function
+Remember conceptually we're thinking of each neuron as being connected
+to all of the neurons in the previous layer and the weights in the weighted sum defining its activation are kind of like the
+strengths of those connections
+And the bias is some indication of whether that neuron tends to be active or inactive and to start things off
+We're just gonna initialize all of those weights and biases totally randomly needless to say this network is going to perform
+pretty horribly on a given training example since it's just doing something random for example you feed in this image of a 3 and the
+Output layer it just looks like a mess
+So what you do is you define a cost function a way of telling the computer: "No bad computer!
+That output should have activations which are zero for most neurons, but one for this neuron what you gave me is utter trash"
+To say that a little more mathematically what you do is add up the squares of the differences between
+each of those trash output activations and the value that you want them to have and
+This is what we'll call the cost of a single training example
+Notice this sum is small when the network confidently classifies the image correctly
+But it's large when the network seems like it doesn't really know what it's doing
+So then what you do is consider the average cost over all of the tens of thousands of training examples at your disposal
+This average cost is our measure for how lousy the network is and how bad the computer should feel, and that's a complicated thing
+Remember how the network itself was basically a function one that takes in
+784 numbers as inputs the pixel values and spits out ten numbers as its output and in a sense
+It's parameterised by all these weights and biases
+While the cost function is a layer of complexity on top of that it takes as its input
+those thirteen thousand or so weights and biases and it spits out a single number describing how bad those weights and biases are and
+The way it's defined depends on the network's behavior over all the tens of thousands of pieces of training data
+That's a lot to think about
+But just telling the computer what a crappy job, it's doing isn't very helpful
+You want to tell it how to change those weights and biases so that it gets better?
+To make it easier rather than struggling to imagine a function with 13,000 inputs
+Just imagine a simple function that has one number as an input and one number as an output
+How do you find an input that minimizes the value of this function?
+Calculus students will know that you can sometimes figure out that minimum explicitly
+But that's not always feasible for really complicated functions
+Certainly not in the thirteen thousand input version of this situation for our crazy complicated neural network cost function
+A more flexible tactic is to start at any old input and figure out which direction you should step to make that output lower
+Specifically if you can figure out the slope of the function where you are
+Then shift to the left if that slope is positive and shift the input to the right if that slope is negative
+If you do this repeatedly at each point checking the new slope and taking the appropriate step
+you're gonna approach some local minimum of the function and
+the image you might have in mind here is a ball rolling down a hill and
+Notice even for this really simplified single input function there are many possible valleys that you might land in
+Depending on which random input you start at and there's no guarantee that the local minimum
+You land in is going to be the smallest possible value of the cost function
+That's going to carry over to our neural network case as well, and I also want you to notice
+How if you make your step sizes proportional to the slope
+Then when the slope is flattening out towards the minimum your steps get smaller and smaller and that kind of helps you from overshooting
+Bumping up the complexity a bit imagine instead a function with two inputs and one output
+You might think of the input space as the XY plane and the cost function as being graphed as a surface above it
+Now instead of asking about the slope of the function you have to ask which direction should you step in this input space?
+So as to decrease the output of the function most quickly in other words. What's the downhill direction?
+And again it's helpful to think of a ball rolling down that hill
+Those of you familiar with multivariable calculus will know that the gradient of a function gives you the direction of steepest ascent
+Basically, which direction should you step to increase the function most quickly
+naturally enough taking the negative of that gradient gives you the direction to step that decreases the function most quickly and
+Even more than that the length of this gradient vector is actually an indication for just how steep that steepest slope is
+Now if you're unfamiliar with multivariable calculus
+And you want to learn more check out some of the work that I did for Khan Academy on the topic
+Honestly, though all that matters for you and me right now
+Is that in principle there exists a way to compute this vector. This vector that tells you what the
+Downhill direction is and how steep it is you'll be okay if that's all you know and you're not rock solid on the details
+because if you can get that the algorithm from minimizing the function is to compute this gradient direction then take a small step downhill and
+Just repeat that over and over
+It's the same basic idea for a function that has 13,000 inputs instead of two inputs imagine organizing all
+13,000 weights and biases of our network into a giant column vector
+The negative gradient of the cost function is just a vector
+It's some Direction inside this insanely huge input space that tells you which
+nudges to all of those numbers is going to cause the most rapid decrease to the cost function and
+of course with our specially designed cost function
+Changing the weights and biases to decrease it means making the output of the network on each piece of training data
+Look less like a random array of ten values and more like an actual decision that we want it to make
+It's important to remember this cost function involves an average over all of the training data
+So if you minimize it it means it's a better performance on all of those samples
+The algorithm for computing this gradient efficiently which is effectively the heart of how a neural network learns is called back propagation
+And it's what I'm going to be talking about next video
+There I really want to take the time to walk through
+What exactly happens to each weight and each bias for a given piece of training data?
+Trying to give an intuitive feel for what's happening beyond the pile of relevant calculus and formulas
+Right here right now the main thing. I want you to know independent of implementation details
+is that what we mean when we talk about a network learning is that it's just minimizing a cost function and
+Notice one consequence of that is that it's important for this cost function to have a nice smooth output
+So that we can find a local minimum by taking little steps downhill
+This is why by the way
+Artificial neurons have continuously ranging activations rather than simply being active or inactive in a binary way
+if the way that biological neurons are
+This process of repeatedly nudging an input of a function by some multiple of the negative gradient is called gradient descent
+It's a way to converge towards some local minimum of a cost function basically a valley in this graph
+I'm still showing the picture of a function with two inputs of course because nudges in a thirteen thousand dimensional input
+Space are a little hard to wrap your mind around, but there is actually a nice non-spatial way to think about this
+Each component of the negative gradient tells us two things the sign of course tells us whether the corresponding
+Component of the input vector should be nudged up or down, but importantly the relative magnitudes of all these components
+Kind of tells you which changes matter more
+You see in our network an adjustment to one of the weights might have a much greater
+impact on the cost function than the adjustment to some other weight
+Some of these connections just matter more for our training data
+So a way that you can think about this gradient vector of our mind-warpingly
+massive cost function is that it encodes the relative importance of each weight and bias
+That is which of these changes is going to carry the most bang for your buck
+This really is just another way of thinking about direction
+To take a simpler example if you have some function with two variables as an input and you
+Compute that its gradient at some particular point comes out as (3,1)
+Then on the one hand you can interpret that as saying that when you're standing at that input
+moving along this direction increases the function most quickly
+That when you graph the function above the plane of input points that vector is what's giving you the straight uphill direction
+But another way to read that is to say that changes to this first variable
+Have three times the importance as changes to the second variable that at least in the neighborhood of the relevant input
+Nudging the x value carries a lot more bang for your buck
+All right
+Let's zoom out and sum up where we are so far the network itself is this function with
+784 inputs and 10 outputs defined in terms of all of these weighted sums
+the cost function is a layer of complexity on top of that it takes the
+13,000 weights and biases as inputs and spits out a single measure of lousyness based on the training examples and
+The gradient of the cost function is one more layer of complexity still it tells us
+What nudges to all of these weights and biases cause the fastest change to the value of the cost function
+Which you might interpret is saying which changes to which weights matter the most
+So when you initialize the network with random weights and biases and adjust them many times based on this gradient descent process
+How well does it actually perform on images that it's never seen before?
+Well the one that I've described here with the two hidden layers of sixteen neurons each chosen mostly for aesthetic reasons
+well, it's not bad it classifies about 96 percent of the new images that it sees correctly and
+Honestly, if you look at some of the examples that it messes up on you kind of feel compelled to cut it a little slack
+Now if you play around with the hidden layer structure and make a couple tweaks
+You can get this up to 98% and that's pretty good. It's not the best
+You can certainly get better performance by getting more sophisticated than this plain vanilla Network
+But given how daunting the initial task is I just think there's something?
+Incredible about any network doing this well on images that it's never seen before
+Given that we never specifically told it what patterns to look for
+Originally the way that I motivated this structure was by describing a hope that we might have
+That the second layer might pick up on little edges
+That the third layer would piece together those edges to recognize loops and longer lines and that those might be pieced together to recognize digits
+So is this what our network is actually doing? Well for this one at least
+Not at all
+remember how last video we looked at how the weights of the
+Connections from all of the neurons in the first layer to a given neuron in the second layer
+Can be visualized as a given pixel pattern that that second layer neuron is picking up on
+Well when we actually do that for the weights associated with these transitions from the first layer to the next
+Instead of picking up on isolated little edges here and there. They look well almost random
+Just put some very loose patterns in the middle there it would seem that in the unfathomably large
+13,000 dimensional space of possible weights and biases our network found itself a happy little local minimum that
+despite successfully classifying most images doesn't exactly pick up on the patterns that we might have hoped for and
+To really drive this point home watch what happens when you input a random image
+if the system was smart you might expect it to either feel uncertain maybe not really activating any of those 10 output neurons or
+Activating them all evenly
+But instead it
+Confidently gives you some nonsense answer as if it feels as sure that this random noise is a 5 as it does that an actual
+image of a 5 is a 5
+phrase differently even if this network can recognize digits pretty well it has no idea how to draw them a
+Lot of this is because it's such a tightly constrained training setup
+I mean put yourself in the network's shoes here from its point of view the entire universe consists of nothing
+But clearly defined unmoving digits centered in a tiny grid and its cost function just never gave it any
+Incentive to be anything, but utterly confident in its decisions
+So if this is the image of what those second layer neurons are really doing
+You might wonder why I would introduce this network with the motivation of picking up on edges and patterns
+I mean, that's just not at all what it ends up doing
+Well, this is not meant to be our end goal, but instead a starting point frankly
+This is old technology
+the kind researched in the 80s and 90s and
+You do need to understand it before you can understand more detailed modern variants and it clearly is capable of solving some interesting problems
+But the more you dig in to what those hidden layers are really doing the less intelligent it seems
+Shifting the focus for a moment from how networks learn to how you learn
+That'll only happen if you engage actively with the material here somehow
+One pretty simple thing that I want you to do is just pause right now and think deeply for a moment about what
+Changes you might make to this system
+And how it perceives images if you wanted it to better pick up on things like edges and patterns?
+But better than that to actually engage with the material
+I
+Highly recommend the book by Michael Nielsen on deep learning and neural networks
+In it you can find the code and the data to download and play with for this exact example
+And the book will walk you through step by step what that code is doing
+What's awesome is that this book is free and publicly available
+So if you do get something out of it consider joining me in making a donation towards Nielsen's efforts
+I've also linked a couple other resources that I like a lot in the description including the
+phenomenal and beautiful blog post by Chris Ola and the articles in distill
+To close things off here for the last few minutes
+I want to jump back into a snippet of the interview that I had with Leisha Lee
+You might remember her from the last video. She did her PhD work in deep learning and in this little snippet
+She talks about two recent papers that really dig into how some of the more modern image recognition networks are actually learning
+Just to set up where we were in the conversation the first paper took one of these particularly deep neural networks
+That's really good at image recognition and instead of training it on a properly labeled data
+Set it shuffled all of the labels around before training
+Obviously the testing accuracy here was going to be no better than random since everything's just randomly labeled
+But it was still able to achieve the same training accuracy as you would on a properly labeled dataset
+Basically the millions of weights for this particular network were enough for it to just memorize the random data
+Which kind of raises the question for whether minimizing this cost function actually corresponds to any sort of structure in the image?
+Or is it just you know?
+memorize the entire
+Data set of what the correct classification is and so a couple of you know half a year later at ICML this year
+There was not exactly rebuttal paper paper that addressed some asked like hey
+Actually these networks are doing something a little bit smarter than that if you look at that accuracy curve
+if you were just training on a
+Random data set that curve sort of went down very you know very slowly in almost kind of a linear fashion
+So you're really struggling to find that local minima of possible
+you know the right weights that would get you that accuracy whereas if you're actually training on a structured data set one that has the
+Right labels. You know you fiddle around a little bit in the beginning, but then you kind of dropped very fast to get to that
+Accuracy level and so in some sense it was easier to find that
+Local maxima and so it was also interesting about that is it caught brings into light another paper from actually a couple of years ago
+Which has a lot more
+simplifications about the network layers
+But one of the results was saying how if you look at the optimization landscape the local minima that these networks tend to learn are
+Actually of equal quality so in some sense if your data set is structure, and you should be able to find that much more easily
+My thanks as always to those of you supporting on patreon
+I've said before just what a game-changer patreon is but these videos really would not be possible without you I
+Also want to give a special. Thanks to the VC firm amplifi partners in their support of these initial videos in the series
+They focus on very early stage machine learning and AI companies
+and I feel pretty confident in the
+Probabilities that some of you watching this and even more likely some of the people that you know are
+right now in the early stages of getting such a company off the ground and
+
+Here we tackle backpropagation,
+the core algorithm behind how neural networks learn.
+After a quick recap for where we are,
+the first thing I'll do is an intuitive walkthrough for what the algorithm is actually doing
+without any reference to the formulas,
+Then for those of you who do want to dive into the math,
+the next video goes into the calculus underlying all this.
+If you watched the last two videos
+or if you're just jumping in with the appropriate background,
+you know what a neural network is and how it feeds forward information.
+Here we're doing the classic example of recognizing handwritten digits,
+whose pixel values get fed into the first layer of the network with 784 neurons.
+And I've been showing a network with two hidden layers having just 16 neurons each,
+and an output layer of 10 neurons, indicating which digit the network is choosing as its answer.
+I'm also expecting you to understand gradient descent as described in the last video,
+and how what we mean by learning is that
+we want to find which weights and biases minimize a certain cost function.
+As a quick reminder, for the cost of a single training example,
+what you do is take the output that the network gives,
+along with the output that you wanted it to give,
+and you just add up the squares of the differences between each component.
+Doing this for all of your tens of thousands of training examples, and averaging the results,
+this gives you the total cost of the network.
+And as if that's not enough to think about, as described in the last video,
+the thing that we're looking for is the negative gradient of this cost function,
+which tells you how you need to change all of the weights and biases, all of these connections,
+so as to most efficiently decrease the cost.
+Backpropagation, the topic of this video,
+is an algorithm for computing that crazy complicated gradient.
+And the one idea from the last video that I really want you to hold firmly in your mind right now
+is that because thinking of the gradient vector as a direction in 13000 dimensions is,
+to put it lightly, beyond the scope of our imaginations,
+there's another way you can think about it:
+The magnitude of each component here is telling you
+how sensitive the cost function is to each weight and bias.
+For example, let's say you go through the process I'm about to describe,
+and you compute the negative gradient,
+and the component associated with the weight on this edge here comes out to be 3.2,
+while the component associated with this edge here comes out as 0.1.
+The way you would interpret that is that
+the cost of the function is 32 times more sensitive to changes in that first weight.
+So if you were to wiggle that value just a little bit,
+it's gonna cause some change to the cost,
+and that change is 32 times greater than what the same wiggle to that second weight would give.
+Personally, when I was first learning about backpropagation,
+I think the most confusing aspect was just the notation and the index chasing of it all.
+But once you unwrap what each part of this algorithm is really doing,
+each individual effect that it's having is actually pretty intuitive.
+It's just that there's a lot of little adjustments getting layered on top of each other.
+So I'm gonna start things off here with a complete disregard for the notation,
+and just step through those effects that
+each training example is having on the weights and biases.
+Because the cost function involves
+averaging a certain cost per example over all the tens of thousands of training examples,
+the way that we adjust the weights and biases for a single gradient descent step
+also depends on every single example,
+or rather in principle it should,
+but for computational efficiency we're going to do a little trick later
+to keep you from needing to hit every single example for every single step.
+Another case right now,
+all we're gonna do is focus our attention on one single example: this image of a 2.
+What effect should this one training example have on how the weights and biases get adjusted?
+Let's say we're at a point where the network is not well trained yet,
+so the activations in the output are gonna look pretty random,
+maybe something like 0.5, 0.8, 0.2, on and on.
+Now we can't directly change those activations, we only have influence on the weights and biases,
+but it is helpful to keep track of which adjustments we wish should take place to that output layer,
+and since we want it to classify the image as a 2,
+we want that third value to get nudged up, while all of the others get nudged down.
+Moreover, the sizes of these nudges should be proportional to
+how far away each current value is from its target value.
+For example, the increase to that number 2 neurons activation is,
+in a sense, more important than the decrease to the number 8 neuron,
+which is already pretty close to where it should be.
+So zooming in further, let's focus just on this one neuron,
+the one whose activation we wish to increase.
+Remember, that activation is defined as
+a certain weighted sum of all of the activations in the previous layer, plus a bias,
+which has all been plugged into something like the sigmoid squishification function or a ReLU,
+So there are three different avenues that can team up together to help increase that activation:
+you can increase the bias, you can increase the weights,
+and you can change the activations from the previous layer.
+Focusing just on how the weights should be adjusted,
+notice how the weights actually have differing levels of influence:
+the connections with the brightest neurons from the preceding layer have the biggest effect,
+since those weights are multiplied by larger activation values.
+So if you were to increase one of those weights,
+it actually has a stronger influence on the ultimate cost function
+than increasing the weights of connections with dimmer neurons,
+at least as far as this one training example is concerned.
+Remember when we talked about gradient descent,
+we don't just care about whether each component should get nudged up or down,
+we care about which ones give you the most bang for your buck.
+This, by the way, is at least somewhat reminiscent of a theory in neuroscience
+for how biological networks of neurons learn
+Hebbian theory - often summed up in the phrase “neurons that fire together wire together”.
+Here, the biggest increases to weights, the biggest strengthening of connections,
+happens between neurons which are the most active,
+and the ones which we wish to become more active.
+In a sense, the neurons that are firing while seeing a 2,
+get more strongly linked to those firing when thinking about a 2.
+To be clear, I really am not in a position to make statements one way or another
+about whether artificial networks of neurons behave anything like biological brains,
+and this fires-together-wire-together idea comes with a couple meaningful asterisks.
+But taken as a very loose analogy, I do find it interesting to note.
+Anyway, the third way that we can help increase this neuron's activation
+is by changing all the activations in the previous layer,
+namely, if everything connected to that digit 2 neuron with a positive weight got brighter,
+and if everything connected with a negative weight got dimmer,
+then that digit 2 neuron would become more active.
+And similar to the weight changes, you're going to get the most bang for your buck
+by seeking changes that are proportional to the size of the corresponding weights.
+Now of course, we cannot directly influence those activations,
+we only have control over the weights and biases.
+But just as with the last layer, it's helpful to just keep a note of what those desired changes are.
+But keep in mind, zooming out one step here, this is only what that digit 2 output neuron wants.
+Remember, we also want all of the other neurons in the last layer to become less active,
+and each of those other output neurons
+has its own thoughts about what should happen to that second-to-last layer.
+So, the desire of this digit 2 neuron
+is added together with the desires of all the other output neurons
+for what should happen to this second-to-last layer.
+Again, in proportion to the corresponding weights,
+and in proportion to how much each of those neurons needs to change.
+This right here is where the idea of propagating backwards comes in.
+By adding together all these desired effects,
+you basically get a list of nudges that you want to happen to the second-to-last layer.
+And once you have those,
+you can recursively apply the same process
+to the relevant weights and biases that determine those values,
+repeating the same process I just walked through and moving backwards through the network.
+And zooming out a bit further,
+remember that this is all just
+how a single training example wishes to nudge each one of those weights and biases.
+If we only listen to what that 2 wanted,
+the network would ultimately be incentivized just to classify all images as a 2.
+So what you do is you go through this same backprop routine for every other training example,
+recording how each of them would like to change the weights and the biases,
+and you averaged together those desired changes.
+This collection here of the averaged nudges to each weight and bias is,
+loosely speaking, the negative gradient of the cost function referenced in the last video,
+or at least something proportional to it.
+I say “loosely speaking”, only because I have yet to get quantitatively precise about those nudges.
+But if you understood every change that I just referenced,
+why some are proportionally bigger than others,
+and how they all need to be added together,
+you understand the mechanics for what backpropagation is actually doing.
+By the way, in practice it takes computers an extremely long time
+to add up the influence of every single training example, every single gradient descent step.
+So here's what's commonly done instead:
+You randomly shuffle your training data, and then divide it into a whole bunch of mini-batches,
+let's say, each one having 100 training examples.
+Then you compute a step according to the mini-batch.
+It's not going to be the actual gradient of the cost function,
+which depends on all of the training data, not this tiny subset.
+So it's not the most efficient step downhill.
+But each mini batch does give you a pretty good approximation,
+and more importantly, it gives you a significant computational speed up.
+If you were to plot the trajectory of your network under the relevant cost surface,
+it would be a little more like a drunk man stumbling aimlessly down a hill, but taking quick steps;
+rather than a carefully calculating man determining the exact downhill direction of each step
+before taking a very slow and careful step in that direction.
+This technique is referred to as “stochastic gradient descent”.
+There's kind of a lot going on here, so let's just sum it up for ourselves, shall we?
+Backpropagation is the algorithm
+for determining how a single training example would like to nudge the weights and biases,
+not just in terms of whether they should go up or down,
+but in terms of what relative proportions to those changes cause the most rapid decrease to the cost.
+A true gradient descent step
+would involve doing this for all your tens and thousands of training examples
+and averaging the desired changes that you get.
+But that's computationally slow.
+So instead you randomly subdivide the data into these mini-batches
+and compute each step with respect to a mini-batch.
+Repeatedly going through all of the mini batches and making these adjustments,
+you will converge towards a local minimum of the cost function,
+which is to say, your network is going to end up doing a really good job on the training examples.
+So with all of that said, every line of code that would go into implementing backprop
+actually corresponds with something that you have now seen, at least in informal terms.
+But sometimes knowing what the math does is only half the battle,
+and just representing the damn thing is where it gets all muddled and confusing.
+So for those of you who do want to go deeper,
+the next video goes through the same ideas that were just presented here
+but in terms of the underlying calculus,
+which should hopefully make it a little more familiar as you see the topic in other resources.
+Before that, one thing worth emphasizing is that
+for this algorithm to work, and this goes for all sorts of machine learning beyond just neural networks,
+you need a lot of training data.
+In our case, one thing that makes handwritten digits such a nice example
+is that there exists the MNIST database
+with so many examples that have been labeled by humans.
+So a common challenge that those of you working in machine learning will be familiar with
+is just getting the labeled training data that you actually need,
+whether that's having people label tens of thousands of images
+or whatever other data type you might be dealing with.
+And this actually transitions really nicely to today's extremely relevant sponsor - CrowdFlower,
+which is a software platform
+where data scientists and machine learning teams can create training data.
+They allow you to upload text or audio or image data,
+and have it annotated by real people.
+You may have heard of the human-in-the-loop approach before,
+and this is essentially what we're talking about here:
+“leveraging human intelligence to train machine intelligence”.
+They employ a whole bunch of pretty smart quality control mechanisms
+to keep the data clean and accurate,
+and they've helped to train test and tune thousands of data and AI projects.
+And what's most fun, there's actually a free t-shirt in this for you guys.
+If you go to 3b1b.co/crowdflower,
+or follow the link on screen and in the description,
+you can create a free account and run a project,
+and they'll send you a free shirt once you've done the job.
+And the shirt it's actually pretty cool, I quite like it.
+So thanks to CrowdFlower for supporting this video,
+and thank you also to everyone on Patreon helping support these videos.
+
+The hard assumption here is that you’ve watched part 3,
+giving an intuitive walkthrough of the backpropagation algorithm.
+Here, we get a bit more formal and dive into the relevant calculus.
+It’s normal for this to be a little confusing,
+so the mantra to regularly pause and ponder certainly applies as much here as anywhere else.
+Our main goal is to show how people in machine learning
+commonly think about the chain rule from the calculus in the context of networks,
+which has a different feel for how much most introductory calculus courses approach the subject.
+For those of you uncomfortable with the relevant calculus,
+I do have a whole series on the topic.
+Let’s just start off with an extremely simple network,
+one where each layer has a single neuron in it.
+So this particular network is determined by 3 weights and 3 biases,
+and our goal is to understand how sensitive the cost function is to these variables.
+That way we know which adjustments to these terms
+is going to cause the most efficient decrease to the cost function.
+And we're just focus on the connection between the last two neurons.
+Let's label the activation of that last neuron a with a superscript L, indicating which layer it’s in,
+so the activation of this previous neuron is a^(L-1).
+There are not exponents, they're just a way of indexing what we’re talking about,
+since I want to save subscripts for different indices later on.
+Let’s say that the value we want this last activation to be for a given training example is y.
+For example, y might be 0 or 1.
+So the cost of this simple network for a single training example is (a^(L) - y)^2.
+We’ll denote the cost of this one training example as C_0.
+As a reminder, this last activation is determined by a weight, which I'm going to call w^(L)
+times the previous neuron’s activation,
+plus some bias, which I’ll call b^(L),
+then you pump that through some special nonlinear function
+like a sigmoid or a ReLU.
+It's actually going to make things easier for us if we give a special name to this weighted sum, like z,
+with the same superscript as the relevant activations.
+So there are a lot of terms.
+And a way you might conceptualize this is that the weight, the previous activation, and the bias
+altogether are used to compute z, which in turn lets us compute a,
+which finally, along with the constant y, let us compute the cost.
+And of course, a^(L-1) is influenced by its own weight and bias, and such.
+But we are not gonna focus on that right now.
+All of these are just numbers, right?
+And it can be nice to think of each one as having its own little number line.
+Our first goal is to understand
+how sensitive the cost function is to small changes in our weight w^(L).
+Or phrased differently, what’s the derivative of C with respect to w^(L).
+When you see this “∂w” term,
+think of it as meaning “some tiny nudge to w”, like a change by 0.01.
+And think of this “∂C” term as meaning “whatever the resulting nudge to the cost is”.
+What we want is their ratio.
+Conceptually, this tiny nudge to w^(L) causes some nudge to z^(L)
+which in turn causes some change to a^(L), which directly influences the cost.
+So we break this up by first looking at the ratio of a tiny change to z^(L) to the tiny change in w^(L).
+That is, the derivative of z^(L) with respect to w^(L).
+Likewise, you then consider the ratio of a change to a^(L) to the tiny change in z^(L) that caused it,
+as well as the ratio between the final nudge to C and this intermediate nudge to a^(L).
+This right here is the chain rule,
+where multiplying together these three ratios gives us the sensitivity of C to small changes in w^(L).
+So on screen right now, there’s kinda lot of symbols,
+so take a moment to make sure it’s clear what they all are,
+because now we are gonna compute the relevant derivatives.
+The derivative of C with respect to a^(L) works out to be 2(a^(L) - y).
+Notice, this means that its size is proportional to
+the difference between the network’s output, and the thing we want it to be.
+So if that output was very different,
+even slight changes stand to have a big impact on the cost function.
+The derivative of a^(L) with respect to z^(L) is just the derivative of our sigmoid function,
+or whatever nonlinearity you choose to use.
+And the derivative of z^(L) with respect to w^(L),
+in this case comes out just to be a^(L-1).
+Now I don't know about you, but I think it’s easy to get stuck head-down in these formulas
+without taking a moment to sit back and remind yourself what they all actually mean.
+In the case of this last derivative,
+the amount that a small nudge to this weight influences the last layer
+depends on how strong the previous neuron is.
+Remember, this is where that “neurons that fire together wire together” idea comes in.
+And all of this is the derivative with respect to w^(L) only of the cost for a specific training example.
+Since the full cost function involves averaging together all those costs across many training examples,
+its derivative requires averaging this expression that we found over all training examples.
+And of course that is just one component of the gradient vector,
+which itself is built up from
+the partial derivatives of the cost function with respect to all those weights and biases.
+But even though it was just one of those partial derivatives we need,
+it's more than 50% of the work.
+The sensitivity to the bias, for example, is almost identical.
+We just need to change out this ∂z/∂w term for a ∂z/∂b,
+And if you look at the relevant formula, that derivative comes to be 1.
+Also, and this is where the idea of propagating backwards comes in,
+you can see how sensitive this cost function is to the activation of the previous layer;
+namely, this initial derivative in the chain rule expansion,
+the sensitivity of z to the previous activation,
+comes out to be the weight w^(L).
+And again, even though we won’t be able to directly influence that activation,
+it’s helpful to keep track of,
+because now we can just keep iterating this chain rule idea backwards
+to see how sensitive the cost function is to previous weights and to previous biases.
+And you might think this is an overly simple example,
+since all layers just have 1 neuron,
+and things are just gonna get exponentially more complicated in the real network.
+But honestly, not that much changes when we give the layers multiple neurons.
+Really it's just a few more indices to keep track of.
+Rather than the activation of a given layer simply being a^(L),
+it's also going to have a subscript indicating which neuron of that layer it is.
+Let’s go ahead and use the letter k to index the layer (L-1), and j to index the layer (L).
+For the the cost, again we look at what the desired output is.
+But this time
+we add up the squares of the differences between these last layer activations and the desired output.
+That is, you take a sum over (a_j^(L) - y_j)^2
+Since there are a lot more weights,
+each one has to have a couple more indices to keep track of where it is.
+So let’s call the weight of the edge connecting this k-th neuron to the j-th neuron w_{jk}^(L).
+Those indices might feel a little backwards at first,
+but it lines up with how you’d index the weight matrix that I talked about in the Part 1 video.
+Just as before, it’s still nice to give a name to the relevant weighted sum, like z,
+so that the activation of the last layer is just your special function, like the sigmoid, applied to z.
+You can kinda see what I mean, right?
+These are all essentially the same equations we had before in the one-neuron-per-layer case;
+it just looks a little more complicated.
+And indeed, the chain-rule derivative expression
+describing how sensitive the cost is to a specific weight
+looks essentially the same.
+I’ll leave it to you to pause and think about each of these terms if you want.
+What does change here, though,
+is the derivative of the cost with respect to one of the activations in the layer (L-1).
+In this case, the difference is the neuron influences the cost function through multiple paths.
+That is, on the one hand, it influences a_0^(L), which plays a role in the cost function,
+but it also has an influence on a_1^(L), which also plays a role in the cost function.
+And you have to add those up.
+And that... well that is pretty much it.
+Once you know how sensitive the cost function is to the activations in this second to last layer,
+you can just repeat the process for all the weights and biases feeding into that layer.
+So pat yourself on the back!
+If this all of these makes sense,
+you have now looked deep into the heart of backpropagation,
+the workhorse behind how neural networks learn.
+These chain rule expressions give you the derivatives that determine each component in the gradient
+that helps minimize the cost of the network by repeatedly stepping downhill.
+Hhhhpf. If you sit back and think about all that,
+that’s a lot of layers of complexity to wrap your mind around.
+So don't worry if it takes time for your mind to digest it all.
+
+

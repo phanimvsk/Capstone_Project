@@ -1,0 +1,312 @@
+in this video we will be implementing
+neural network
+from scratch in python in the last video
+we looked at gradient descent
+we will just extend that code and write
+our own neural network class
+this will be purely in python we will
+not be using any tensorflow or keras so
+it will be
+a lot of fun and then we will do
+prediction using our own custom build
+class
+so please watch till the end let's start
+coding now
+this is the notebook we created for our
+gradient descent tutorial
+in last video so if you are not seeing
+it you have to see it because it is kind
+of a prerequisite
+for this session so just to go over it
+very quickly
+what we did is we imported an insurance
+data set
+where based on age and affordability we
+can decide if the person will buy the
+insurance or not
+and then we built a simple neural
+network which is nothing but
+a logistic regression you all know that
+uh logistic irrigation
+can be thought of as a simple neural
+network
+which has just single neuron and in the
+input layer you will have two neurons
+and we built this network in keras
+tensorflow first we did compile and fit
+and then we did some predictions and
+then we replicated the exact same thing
+in plain python by writing our own
+gradient descent function so we stopped
+at this point
+in our last video in this video we are
+now going to
+write a neural network class that makes
+use of this method that we wrote in last
+video
+so our end goal would be
+to all right let me see what is our
+angle
+so in the end what we want is
+so let me just remove all the cells
+we want to write our own custom class so
+let's say if i create a
+class called my neural network
+and if i can call a fit method
+you know how we call a fit method on
+kira's model so here you see
+okay so similar to that i want to create
+this
+fit method and it should just work
+and after that i want to create
+a prediction functions as well so
+basically i want to do this
+and then i want to do this so then this
+should be here
+same as our keras predict function
+see this one okay so let's write
+that class okay so the class
+you all know in python if you want to
+create a class
+you start by class
+my nnn
+[Music]
+and this is a constructor of the class
+and you have to always supply self as an
+argument
+okay so i just created a very very
+simple class
+in this class i am going to now put
+gradient descent function
+so let's put this function inside
+that class so it's fairly simple
+you just copy paste
+you to take care of indentation and
+add self argument as the first argument
+in this method
+all right this looks good now so
+what now we want to do is uh create a
+fit method
+okay so let's create a fit method
+and the fit method the first argument of
+every class method is self
+and then here you have x
+you have y you have
+epochs and the lost threshold
+pretty much
+whatever you have here
+and when you call fit method what you're
+doing is you're supplying x and y
+which is x strain scale and y train
+from that you need to get age and
+affordability because gradient descent
+function
+expects that so let's let's call great
+and decent so i will do
+self.grading decent
+okay and what is the first argument
+first argument is
+age so the age will be
+x of age in data frame this is how you
+access any colon
+then x dot affordability
+okay then your y true is y
+then a remaining argument you can just
+supply as is
+and what you will get as a result is a
+tuple
+you will get w1 w2 and bias so that you
+can store
+maybe in a class member so i need to
+create a class member called
+self.w1 so this is the weight one if you
+look at this
+awesome diagram that's the weight one
+and will initialize weight 2 and we'll
+initialize b
+or a bias so let's do
+all of that step by step
+so you all know we are started with
+weight 1 if you remember my last
+video's presentation we started with
+weight 1 and weight
+2 to be 1
+and bias we are initializing it to be
+0. i have explained why i'm initializing
+it
+in this way in previous video hence
+watching the previous video is very
+important
+and once gradient descent returns those
+three
+they they come back as a tuple and in
+python
+if you want to accept tuple
+you can do something like this
+self.bias okay so this way
+now you created a fit method
+all right so let's
+you know what i'm just gonna run the fit
+method and i will keep my epoch
+very very small because this i'm just
+trying
+testing this out so here i'm creating an
+object of this mayan in class
+then calling a fit method in that i'm
+supplying x train white
+and so on
+okay my inin is not defined because i
+did not run this cell
+so ctrl enter i ran that cell x strain
+scale is not defined okay
+so x strain scale is not defined so i
+need to probably execute all of this
+so i just do control enter and execute
+these one by one
+okay so when i executed all my cell this
+is how the result looks
+so it is working perfectly okay as per
+our expectation it ran five epochs
+and at the end of every epoch we are
+seeing some value of weight one way to
+bias and so on
+all right now since we want to run more
+epoch
+i want to make one change where you know
+this is too much printing actually
+so i will print this statement
+only maybe at the 50th iteration
+and if you want to do that you know you
+can do it easily by doing this
+so when your eye is in
+either 50 100 or 100 150 etc
+it will print this trace line okay
+perfect so let's maybe quickly test it
+out
+so i'll just run hundred epoch
+i need to execute that okay so ctrl
+enter ctrl enter again
+so now see it is printing at every 50th
+epoch so i have less
+logging going on okay now let's
+implement the
+predict method so you are
+mostly done with the most important part
+which was determining the weights
+and bias okay in predict method
+the arguments will be
+the x test
+okay so x test
+and what we're going to do is you all
+know
+that in any neuron
+there are two mathematical components
+one is weighted sum the other one is
+sigmoid
+so we are doing exactly that we'll do
+weighted sum
+and then sigmoid okay so how do you do
+weighted sum
+you can say weighted
+sum is equal to what so weighted sum
+is nothing but let's look at our picture
+it is age multiplied by w1 affordability
+multiplied by w2
+and you do it for you do it for entire
+vector and you get a
+summation okay and then you of course
+add a bias
+so w1
+into age okay what is age
+well x taste is a data frame which will
+have age and affordability both
+so now you do self.w2 into
+x test and
+affordability since the spelling is long
+i'm just gonna do copy paste and then
+self dot bias once you
+have weighted sum you are
+just calling a sigmoid function which is
+a sigmoid numpy function this function
+by the way
+we defined here okay
+and you pass weighted some there
+and that's it so that's that's the end
+of our product method
+so now do ctrl enter ctrl enter
+okay maybe i will run more epochs
+maybe 500
+and you know at 350 pocket it just
+broke so um
+maybe i should print
+this here as well so that i know like
+when i'm breaking the loop
+what are my weights etc
+okay so it broke after third 366 epoch
+and these were the values
+of my weights now if you compare
+these weights with our tensorflow model
+weights
+which was this coefficient and intercept
+you will find that we are finding
+exactly same
+not exactly but close enough
+weights as our tensorflow model so
+tensorflow gave 5.06 our own python
+class gave by 5.05
+1.4 1.45 minus 2.95
+minus 2.91 so they are like almost
+similar
+now i'm gonna do prediction using my
+custom model
+so let's do prediction okay this is what
+i get
+and i will do now pre same prediction
+using my
+tensorflow model so this model modl
+variable
+contains a tensorflow model if you look
+it up
+this is that model okay so we are doing
+model dot predict for same x test
+and you will notice that we almost get
+the same value see
+0.355 355.828.829
+almost same so we successfully completed
+writing our own custom neural network to
+solve the
+insurance data set problem now if you
+want to write this class in a truly
+generic way
+you will not have variables such as x
+and f age and affordability you will
+have
+x that will be your data frame and you
+will use that data
+frame x instead of age and affordability
+etc
+and you will have w1 and w2 etc again as
+a numpy vector
+maybe in a future video we'll look into
+that generic implementation
+but this video should give you a good
+idea on
+how you can write your own neural
+network class from scratch
+this is something they might ask in your
+data science or machine learning
+interview so
+friends please practice this code
+i'm gonna provide a link of this
+notebook in a video description below
+you
+download that code or run it on your own
+if possible try to change the values in
+the data set
+i'm gonna provide this csv file as well
+so just change the value and see how it
+behaves
+and you can compare the performance of
+your own
+custom neural network class with this
+keras.

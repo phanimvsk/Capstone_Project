@@ -1,0 +1,332 @@
+
+Hugo: It's such a pleasure to have you on the show and I'm really excited to be here to be talking about building communities in data science. Before we get into that though, I'd like to know how you got into data science originally.
+ 
+Jared: I'm going to give you a slightly meandering long-winded answer for that.
+ 
+Hugo: Please.
+ 
+Jared: I started off in college as a business and communications major and I just took math classes for fun. I liked math, I was good at it and I kept doing very well on the test. I kept getting towards the top of the highest mark in all the tests. Finally, after a few years of my mother prodding me and the math professor saying, you can't be getting the highest scores and not be a major, I became a math major. It just spoke to me, it was like math was fun, it was a great time for me.
+ 
+Hugo: What type of math were you interested in or doing at the time?
+ 
+Jared: I went to a small liberal arts college and it was general math, of course you went through the calc track, the linear algebra track. I ended up taking three stats classes and a stats independent study. Without realizing that stats was going to be a big part of my life, I just took it because it was the next thing you took in the math department. We took an analysis class and a few different abstract mathematics classes, it was just a general overview of a bunch of different math.
+ 
+Hugo: Great and what happened next?
+ 
+Jared: Then I did what anybody with a math major would do, I started managing bands. I did that for a few years, working with small bands on my own and working for more established managers and agents on some larger bands. After a little while of this I realized that it just wasn't what I wanted to do with my life. It didn't speak to me the way the sciences and the mathematics spoke to me. I decided to close up shop, get out of the music industry and I wanted to find any job out there. I happened to come across a job listing somewhere to build dashboards for fashion companies and I figured it's a halfway house. The fashion companies is a little like music and the dashboards is technology, so it was a good, happy medium for me to transition away from music into tech.
+ 
+Hugo: Absolutely. You'd had experience in some math, some stats, some data. Did you have experience in any types of programming or what you'd need to build dashboards?
+ 
+Jared: I had, like many other people, started hacking at html when I was in middle school and then in high school I took a C++ class and a Java class. Then in college I took one C++ class and that was my entire experience of programming up to that point.
+ 
+Hugo: Then what happened in your life to kind of lead you down this trajectory where you're one of the mainstays in the New York City data science community?
+ 
+Jared: After about a year at this company, I was thinking to myself, well, I really like math and I discovered data through this job building dashboards, and I said, well, if you take math plus data it equals statistics. I applied to one grad school. I was very much thinking, well if I get in I'll go, if I don't I'll find something else and I don't want to leave New York City. I applied to Columbia's Master's program, and thankfully they let me in. I started off as a part-time student, it's only about two and a half years to go through the whole masters program, I happened to graduate just before data science was taking off as a term. I happened to get lucky with a few things, with the timing and I just so happened to write my thesis about New York City Pizza.
+Data Science and Pizza
+Hugo: What can data science tell us about Pizza in New York City?
+ 
+Jared: I did research on what made one pizzeria more popular than another. I looked at some data from manypages, which isn't as big today as it was then, but it was a big site to store the menus of different restaurants and for leaving reviews. I computed the number of reviews as a proxy and I used that as a response variable in a Poisson regression to figure out what variables that I had access to impacted the popularity. The biggest factor it turned out was having a coal burning oven.
+ 
+Hugo: Right. That makes sense. Were there any other features or characteristics that played an important role as well?
+ 
+Jared: Well, the second most important was having a wood burning oven as opposed to gas and then after that price had a negligible effect. Then, depending how you cut the data, being in Midtown was a bad thing for a popular pizza place versus being in the other parts of the city were a little better.
+ 
+Hugo: Well being in Midtown can have a negative impact on a lot of things, to be honest.
+ 
+Jared: Absolutely.
+ 
+Hugo: This is interesting because I think not only does this demonstrate your love of pizza, you love New York City, but it also demonstrates a variety of different statistical and data science techniques that go into any project, whether it be web scraping reviews or using APIs, using statistical inference to extract important features, that type of stuff. It runs kind of a nice gamut of data scientific techniques.
+ 
+Jared: Absolutely it does.
+ 
+Hugo: After your Masters, what did you do then kind of leading up to what you do now?
+ 
+Jared: I just describe it as I continue to be in the right place at the right time and had some good breaks. A friend of mine who I went to college with and knew I had already started get into R in grad school. That's when I picked up R for the first time and by the time I finished I was proficient at R. He happened to see a blog post by Andrew Gelman saying there was an R meetup that night. I'm like, okay, let's go check out the R meetup, and this was maybe the fourth or fifth meetup that had ever been held for this group. It was maybe 20 of us in a room up at, actually it was down at NYU at this point.
+ 
+Hugo: What year was this?
+ 
+Jared: This was 2009.
+ 
+Hugo: Right? Yeah this is way back when.
+ 
+Jared: Yes indeed. It was this great room full of a bunch of people that go on to become great friends with like Drew Conway, Harlan Harris, Josh Reef, all of us in this room, just being nerdy about this then obscure language. That was a great break for me and then shortly thereafter, a few months later, another professor of mine from Columbia said, " Jared, there's a project I can't do, I need you to do to go to Myanmar and do it for me."
+ 
+Hugo: Right.
+ 
+Jared: Having never done anything like this before, he talked me into this and it was a great experience spending three weeks doing humanitarian survey in Myanmar after the cyclone that tore through the country in I believe 2008 and we're doing a periodic review of how they were recovering.
+ 
+Hugo: Interesting.
+The Open Stats Programming Meetup
+Jared: After I did this, this is my first experience going and working on a data science project. They didn't call it that at the time, it was a stats project that's what they were calling it at the time. Then I came back from there and just kept going to the meet up again and again and happened to get set up with the right companies where I did some freelance work for. Until 2011, Drew Conway, who famously ran the meetup from its inception up until this point, decided he needed to focus on his family, he's finishing his PhD and starting his company, so he asked if I would take over the meetup.
+ 
+Hugo: This was what is now known as the R Open Statistical Meetup?
+ 
+Jared: Right. A few months before he handed it over to me he changed the name from the R Meetup to the Open Stats Programming Meetup. Then right at the same time I happen to be again at the right place, right time and a friend of mine who ran the machine learning meetup Paul Dicx, asked me on behalf of his publishing company, if I wanted to write a book about R. The two things happened just at the right time, taking over the meetup and being asked to write a book.
+R for Everyone
+Hugo: Fantastic, and what was this book?
+ 
+Jared: This is what became R for Everyone.
+ 
+Hugo: Beautiful and we'll include a link to that book in the show notes.
+ 
+Jared: Nice.
+ 
+Hugo: Could you give us a brief rundown of what the book is?
+ 
+Jared: I envisioned the book as the way I wish I had learned R the first time around. I really want it to be, here's how you get started from installing it to how the command line works to using RStudio all up through using variables and reading in data, doing data manipulation and plotting, doing list operations, working the way up into statistics and doing modeling and GLM's, nonlinear models, machine learning onto writing reproducible reports in Shiny. It's supposed to be the whole stack in the order and the way that I wanted to learn in the first place.
+ 
+Hugo: Fantastic, and so you wrote this book, you're running the meetup at this point, but now famously you run a large conference in New York City, you also have your own business, so maybe you could tell us a bit about these aspects of your work.
+ 
+Jared: The conference grew out of the meetup. This meetup is a special place to me. I really see it as a place where all of these different people can all come together and be comfortable in a room, and I say this because a lot of people in this community often may be shy, introverted, didn't always feel the best in a big room of people. But you come here and it's just this loving, welcoming place that everyone feels at home. I thought that, well if we do this once a month for a few hours a month, let's have a two day gathering of just nonstop R and good vibes.
+ 
+Hugo: Exactly.
+ 
+Jared: It's this really special extension where, that's the thing I keep saying, we go to this meetup and everyone just has a big smile and they're happy and everyone can be comfortable. It's so important to me that that's how this continues to go as this great open space. That's something after our most recent conference, Jennifer Hill sent me an email saying that it's a room full of incredibly smart and incredibly welcoming people and that's such a great combination.
+ 
+Hugo: Okay. I agree completely and I want to hear a bit more about the mission behind the conference and what particularly you're interested in but the fact that Jennifer said it's a room I think is really important, I want to focus on that for one second. The fact that your conference is in one room, the both days are in one room, it's single track means that people are essentially, their hands are forced to interact with people as opposed to running around between different rooms. You get a very different vibe by having everyone in the same space for that extended amount of time right?
+ 
+Jared: Absolutely, and that's part of it. We make it so that each talk's only 20 minutes with no questions and after every three talks there is a 30 minute break. You have to get up out of your seat and all the snacks are on tables right behind your seats and they have to go and talk to each other and meet the speakers in person and just be friendly and hang out with each other and make new friends.
+ 
+Hugo: What's the idea behind the conference? Do you want people there who have a certain level of experience or would somebody who'd never programmed in R beforehand get something out of it as well?
+ 
+Jared: I want it to be something for everyone. The novices can get there and learn all this great new stuff and the experienced people can be there to share their knowledge and learn from other experienced people.
+ 
+Hugo: Yeah, great. It's really the same philosophy that informed the meetup that you've been running all these years?
+ 
+Jared: Absolutely.
+Lander Analytics
+Hugo: Okay, great. I want to talk more about these aspects of community building, but first I'd just like to have a quick rundown of the business you operate as well.
+ 
+Jared: The business actually started going back to grad school. I graduated in 2009 right in the depths of the economic recession and I realized that I didn't apply for a job. What do you do when you don't have a job? You start a company.
+ 
+Hugo: Exactly.
+ 
+Jared: I started in 2009 and I officially incorporated years later and it is a data science and if I have to use a buzzword I'll even say AI if I need to use a buzzword. It covers AI, data science, machine learning. I can rattle off a few more buzzwords if I need, big data of course, so that's the whole thing. We are a training and consulting and advisory firm. We have multiple parts of this business. As I mentioned first there is training, we go into companies and I'll educate them how to do data science. We tell them in specific how to use R, how to use Python, how to use SQL, how to use Stan, and we teach them how to use these tools in a very hands-on manner very much like my class at Columbia. Then on the consulting and services side, it can range from giving advice and strategy, it could be writing a white paper after a thorough analysis or it can be about building a process, an algorithm, that's an ongoing mechanism that they use to run their business.
+ 
+Hugo: Great, and what type of businesses? I'm sure you, you run the entire gamut of verticals and industries, but what type of businesses do you get most requests from? Or work with the most?
+ 
+Jared: Since we're in New York, there's obviously a large contingent of the financial firms because they are a dominant player in the study and we also see a lot of pharmaceuticals and manufacturing.
+ 
+Hugo: Interesting.
+ 
+Jared: Most famously because we probably got the most publicity for was we did the draft picks for the Minnesota Vikings.
+ 
+Hugo: All right. When did you do that?
+ 
+Jared: This was the 2015 draft. The year that they picked Stefon Diggs.
+Industries and the meetup
+Hugo: Incredible. In terms of, you know, these types of industries, have you seen these industries and verticals represented more at the meetup as well, or have you seen the verticals change over the years of running this meetup?
+ 
+Jared: Well, the meetup is so large we're closing in on 10,000 members that the composition from each meetup really changes depending on the topic.
+ 
+Hugo: Yeah, that makes sense. So if you had someone who was big in the finance community, you'd definitely get a lot more people from finance coming?
+ 
+Jared: Yeah, and then when we have a more pharmaceutical talk, you see all the players from that field come. It's really interesting seeing there's always that mainstay core group that come to every meetup, but then with changing topics you get vastly different groups. For instance, one time we had to talk about race cars and there's a whole bunch of people who came to the meetup because they're interested in Formula 1 racing.
+ 
+Hugo: That's awesome. This really brings me to kind of the focus, the meat of this conversation. We're here to talk about community building in data science, which as we know you've been active in for over a decade in New York City. I'm just wondering how in all generality you think about building communities in data science.
+ 
+Jared: The very first step is being welcoming. As a few people know by now I unknowingly met my wife at the meetup and I didn't realize it at the time. It took a year later until we met another way and it turns out we met a few ways until I finally got the hint. But she said to me later that one of the things she remembered is that, I went right up to her, said hello with a big smile, and said “welcome the meetup I hope you have a fun time”. I didn’t just do it for my future wife, I try to do that to everybody. I encourage all my members to say hello to all of the new people they haven't seen and make everyone feel welcome because everyone who walks in the door, they all think that they know the least out of everyone in that room,
+ 
+Hugo: Particularly in a field like data science, I think.
+ 
+Jared: Yes, everyone feels insecure. They could be the smartest person in that room and they still feel like they're at the bottom. Whether that's true or not, and usually it's not, because everyone there is incredibly smart, who cares? Come and have a fun time and nerd out a little bit and enjoy everyone's company.
+ 
+Hugo: Yeah, I think that's really important. Do you experience that… I mean what I'm trying to say is that people who are extroverts already may benefit more from these types of situations, I'm wondering if there are any mechanisms or life hacks to help introverts or people less willing to talk, become involved in the community as well.
+ 
+Jared: We start every meetup with pizza and beer and everyone loves pizza and beer is usually liked by a lot of people. It just starts, already starts ... It starts with a convivial environment at that point. Because as you're eating, you're having some beers, you're standing around chatting so it helps the people who might be less comfortable to get into a groove. Then when we all sit down, we all take our seats the very first question I ask, and this isn't a social question, but it's who's hiring? Already it makes it open environment. Hey, who's looking to hire people? How can we get people jobs? It makes it a welcoming, friendly place. Then the talk happens and then afterwards I encourage everyone to go to the local bar whether they drink or not, they could hang out and be friendly in a place where they now know that everyone else there is just like them, another data nerd.
+ 
+Hugo: Yes, and something that you always, in my experience, have asked people to do or almost say that people have to do when they stand up and say they're hiring for certain positions is you say go and stand at the back afterwards and anyone who wants to go and chat with you go and do so. You're quite passionate about getting people to connect in that way and “forcing” people to talk to each other.
+ 
+Jared: Yes indeed. Because sometimes people just need that little push and then they have everything in the world there is to say.
+ 
+Hugo: How about, are there any other ways you think that's important about community building in data science?
+ 
+Jared: Yeah, because not only your data scientists in general going to be reluctant to put themselves out there, which could be a security thing, it could be a humility thing, but also you see certain groups in the community are even less represented and even less likely to talk. I want everyone to be welcome and find a home here and it really does feel like a home. You need to make sure everyone feels welcome. I want everyone to feel at home and it really does feel like a home, and that means everyone, including underrepresented groups.
+How do you include underrepresented groups?
+Hugo: How do you think about creating that home for underrepresented groups?
+ 
+Jared: That first step is treating everyone the same, make sure that everyone who walks in the door gets a handshake, gets a smile, get said hello to regardless of who they are, if they're an old friend, someone new, someone different, it doesn't matter, everyone needs to be treated warmly and with welcome. To reach out to underrepresented groups, I find it's often good to have what I'll say is like the lieutenant. We've done a really terrific job lately of getting parity at the conference between men and woman. A large part of that is Rladies and a number of my friends are at the top of Rladies, say hey, who should I speak? Who should come? Can you tweet about this? That's very helpful. Then Emily Robinson, who now works at DataCamp, came up to me and she might not have worked there when she gave me this idea actually, I think this might've been before she took the job saying that what if we offer discount codes to underrepresented groups? Because now that we've hit 50 slash 50 men and women, let's offer this discount code. So she tweeted out hey if you're an underrepresented group, message me and we have discount codes for you as a way to get people to come. We cut the price significantly. That's an important part about both the conference and that meetup. We never let price be a factor in people attending, whether it's the $5 admissions to the meetup or the conference fee if you can't afford it, we'll get you in there somehow.
+ 
+Hugo: Yeah, and it's a practical measure, but it also sends an important message as well.
+ 
+Jared: Absolutely. Money should not be a barrier to learning and feeling welcome. Neither should any other circumstance you are in.
+ 
+Hugo: You mentioned having a lieutenant. Can you speak a bit more to this and what this means?
+ 
+Jared: Yeah. So this community, as I said, they are so welcoming and engaging and warm. Everyone wants to do something and everyone wants to chip in somehow. So whether it's Emily giving out a discount codes to underrepresented groups or Soumya blasting out to the Rladies or the people say they want to draw paintings of the meetup or people wanting to sponsor it because they want their company involved. Any way, that I can help people engage and then they in turn engage more people is a win.
+ 
+Hugo: Yeah, very much so. It really speaks to the idea of, you know, drawing paintings, for example, isn't something I would have thought of, but it speaks to the idea of keeping a really open mind about avenues of getting people involved and getting as many groups involved as possible.
+ 
+Jared: Absolutely and in fact at the conference, Thomas Levine, who has been a longtime member, he famously gave a meetup about how to make music videos in R. For the conference, he hand painted data visualizations of famous data sets and we auctioned them off to support the Free Software Foundation and the R foundation.
+ 
+Hugo: That's fantastic.
+ 
+Jared: Yeah it's so much fun.
+How do you consistently provide good content?
+Hugo: This actually raises another interesting point. We haven't really talked a lot about content in conferences and or meetups. We've talked about kind of the social aspects and how to get people involved, but how about consistently providing good content? I mean I think about this a lot at the moment in terms of the podcast, for example, but yeah, how do you think about providing good content and diverse content over the course of months, weeks and years, eventually.
+ 
+Jared: The content is really tough, but it's key because people are coming for good knowledge. I heard someone once say about the meetup. He was standing behind me. He said to someone else that this is the best night school education you can get and it's free.
+ 
+Hugo: And you get pizza.
+ 
+Jared: Exactly. You get pizza out of it, I mean, what more do you want? So I spent a lot of time chasing speakers. Now some speakers I say, hey, can you speak next week, and they're like sure, other speakers I had to ask them a year in advance. I'm constantly finding speakers from a vast array of topics. I try to be cognizant of our 10,000 members they're all at different skill sets. So one month we'll have a deep reinforcement learning talk and the next month we'll have how to use dplyr. Key is, whether it's an advanced talk or a beginner talk, is having a good speaker deliver it. Someone who can talk to the crowd and be engaging and that comes from me knowing my members, knowing who they are, talking to them in person, seeing how well they can speak to people and how well they can present, but also involves outreach. Every year I send a letter to John Chambers, the person who created S, do you want to speak this year? Every year I reach out and it has worked for me in the past. I've gotten speakers, not John Chambers yet, but for instance Rob Hyndman, the famous Australian who wrote the forecast package is coming to New York next month to speak at both the meetup and to give a workshop for us.
+ 
+Hugo: Fantastic.
+ 
+Jared: That took ... I emailed them over the course of about two years, saying when I can get him to come to New York and eventually it lined up.
+ 
+Hugo: Yeah, that's really cool. Similarly, we've been chatting about you coming on the podcast for some time and here we are.
+ 
+Jared: Exactly.
+ 
+Hugo: I think the point is you've got to do the time right, and you've got to do the work and essentially, I don't want to use, I will use the word you got to bug people as well, right?
+ 
+Jared: Yes. You need to know how to push the buttons on the person to get them to both want to speak and be comfortable speaking and put them in a good place to do a good job.
+ 
+Hugo: So providing good content in this framework is one thing, but also providing content that's essentially super important for either beginners or practicing data scientists, right? So deep reinforcement learning speaks to something that's really hot and at the moment, and getting increasingly more important as is, I mean, a couple of months ago you had JJ Allaire talk about Keras in R, now, which is something that's very pressing and very important. So you've got to keep your finger on the pulse of the entire community and the field right?
+ 
+Jared: Absolutely. You got to know what the cutting edge stuff is, what everyone's excited about and what's going to be the cool new things to help them do a better job.
+ 
+Hugo: How do you do that? I assume having already developed such a large network of not only colleagues in data science, but you're also friends with a lot of people in the community helps, but what other techniques do you have for really keeping your finger on the pulse of what's happening now and what will happen in the future?
+ 
+Jared: I just had to voraciously keep reading everything that's out there, whether that's rbloggers, andrewgelman.com, Rviews, even things on ZDNet and CNET and different computer magazines and Lifehacker. Just keeping abreast of everything that could be touching our world and really almost doing a deep dive in all of that to see what's going on. That's both for the meetup and for my business so I can keep aware of the current trends and what we need to do.
+ 
+Hugo: Is this a profession for you or is it really a way of life?
+ 
+Jared: I want to say it's absolutely both because I love what I do, I'm doing this and if I'm not working on something for a client, I'm doing something in R in my spare time anyway. I'm just constantly clocking away doing data science, whether I'm getting paid or not. It's all encompassing.
+What are some of the challenges you found in community building in data science?
+Hugo: So this has been a great tour through your approach to building communities in data science. I'm wondering if you can speak to some of the challenges you found in community building in data science.
+ 
+Jared: Well, the first one, and this is a good problem to have, is underestimating how popular a speaker's going to be. I know that sounds like a, you know, it sounds like a humble brag. But in reality it's my job to make sure there's enough space for everybody. I hate when an event completely sells out because that means there's people who can't come.
+ 
+Hugo: You don't want to be consistently a meetup where people can't get it right? People get frustrated with that.
+ 
+Jared: Absolutely not because we wanted it to be open to everyone. So we have started lately live streaming the meetup.
+ 
+Hugo: That's cool.
+ 
+Jared: That's fun because A) we realize we have members all around the world who want to come. We have membership in the Netherlands, in Australia, in Israel, in Singapore, in London, you name it, we have people all over the place. But also, importantly, if there are people who can't come or they want to watch it later, we started live streaming and putting the videos up online, all free and available of course. So that is something that I find to be very important just another way to make it accessible.
+ 
+Hugo: What other challenges have you found?
+ 
+Jared: Another big challenge is, and it's sort of what we touched upon before, but making sure it is welcoming for everybody. You don't want someone coming in the door and not being greeted. I don't mean necessarily literally greeted though we try. But someone coming in the door and not feeling at home there. That's something that we really have to work on because not everyone wants you to come up and shaking their hand and talking very loud. Some people want to be quiet and maybe want more of a one on one experience. That's a very big deal. Finding a way to make everyone feel welcome in a way that's comfortable for them.
+ 
+Hugo: Yeah and I suppose, are there any challenges you found that are particular to New York City that you don't think maybe experienced elsewhere?
+ 
+Jared: Well, there's definitely a space challenge. Space is at a high premium in New York City and it's very difficult to find a big enough space for enough people on a regular cadence to walk in the door and have a good time.
+ 
+Hugo: Something I have noticed though is you've strategically made partnerships with certain organizations. I mean I went to one of your meetups, one which… It was actually Hadley Wickham talking at the Twitter headquarters in Chelsea, if I remember correctly.
+ 
+Jared: Yes, indeed. That's a large part of, I guess, my life. Like you said, this isn't really a career. It's an all encompassing calling for me. It's all about being friends with everyone and it's all about developing the personal relationships. I try to develop a relationship with everybody and then because of those relationships I happen to be able to have places like Twitter available for the meetups because they realize how important this community is. It's all about being nice and friendly to everybody. I try to do as many favors as I can to people because that's what a good person should do.
+ 
+Hugo: Yeah, and I actually remember one of the first times you and I met you were like, "Hey man," at the conference "I'm going out to dinner with some people, come along to dinner." and now whenever I see you at a conference, we go and have drinks and dinner and all of that stuff. You're always inviting everyone along, which is a wonderful quality.
+ 
+Jared: Thank you very much. Yeah, I think that's very important because I remember when I first started going to this group, there's 20 of us and we were all friendly. I, like many people in our field, went through an awkward phase definitely at some point and it would've been great if someone invited me to dinner. Now everyone should be welcome at dinner and everywhere.
+ 
+Hugo: I think the one thing that we've been circling around that we haven't mentioned explicitly is we need to remember that people are taking ... People work full time, right and they're taking time out of their evenings, away from their families, whatever it may be to come along to these meetups and so we need to be respectful of that fact as well.
+ 
+Jared: Yeah. So you need to make sure it's worth their time coming because it is a commitment, especially since we hold these in Manhattan. While a large part of our group are New York City based, but there are people coming from New Jersey, Connecticut, Long Island and it's a long way home for them so it really better be worthwhile for them.
+ 
+Hugo: That's a great point. I actually remember the first meetup of yours I came to. I was living, this is a bit of a personal journey now, I was living in New Haven, Connecticut and I got the MetroNorth down, which door to door took me two hours. I was working in basic science research wanting to get a feel for what industry-based data science looked like in practice. I arrived at your meetup and you said straight away “Everyone who's hiring get up and talk about it” and there were people in finance, in tech, in health, in management consulting, getting up. It was my first kind of introduction into this wonderful world of data science in the city. I got back to New Haven and then cycled home and got home at 1:00 AM or whatever, but was actually really invigorated by this community and found it really inspired.
+ 
+Jared: That is fantastic.
+ 
+Hugo: Now I work at DataCamp.
+ 
+Jared: Look at that.
+ 
+Hugo: So here's my version of a success story.
+ 
+Jared: I love it.
+ 
+Hugo: In general, in terms of community building, for anyone in any city, in any country, what are the top three things you would encourage them to do?
+ 
+Jared: So of course, beyond finding a space which is crucially important, you need to find the speakers. You need to get these speakers and it can't be the same speakers. It can't be the same one every time you need to have variety in there. I let my speakers repeat after a few months, preferably a year in between one person speaking. We need to have this variety of speakers and topics. Now that's for the organizers but for everyone who attends, step out of your a little bit. I know I keep saying this on this podcast, but say hi to everybody you never know he might meet. Might be somebody you can collaborate with, somebody you just want to hang out with, someone you know through Twitter. I've been at definitely these events and I meet someone and say, oh, you're this handle from Twitter, and that's how we got to know each other. But for other people who also want to get more involved they should write about what they do. Write a blog post, write about the analysis they did, talk about what they're doing and then give that talk to the group. Us as organizers are always looking for people to speak and I love it when people come up to me volunteering, hey, can I give a talk on this topic and I'll sit with them, they've never done a talk before, I'll sit with them and make sure it's going to be a good talk. That's actually important from an organizer, support your speakers, help them craft the talk that will reach your audience well. Then for the people, give a talk, get out there and share your knowledge with everybody else.
+ 
+Hugo: Yeah, I think that's really important. I liked the idea of an organizer collaborating, maybe not being too hands on, but you know, being a board for bouncing ideas off with respect to the talks that happened as opposed to just saying, you do this, come and give it.
+ 
+Jared: It really benefits both the speaker and the audience. This way you make sure the speaker feels good about what they're doing and they do a good job and for the audience and making sure that they get a good talk.
+ 
+Hugo: The other thing is I always encourage people to say hi to everybody at meetups and conferences and these types of things. I do have a concern that for people like you and me, well, it's easier said than done. I mean people like you and me generally our natural state of existence is saying hi to people essentially, right? Like when we're inherently very comfortable doing that. It isn't so much a stretch out of our comfort zone. I wonder if there are any hacks for getting people started. I suppose your idea of getting people to stand up and talk about positions they're hiring for. Maelle Salmon, whom I had on the podcast, earlier this year told me about a conference where there's a buddy system set up whereby a newcomer would be assigned to you or Emily Robinson or Hadley Wickham or whoever it may be to hang out with them for a bit to get a feel for the community in that way. So I think there are clever tricks like that.
+ 
+Jared: I think you said a word in there, “force”. I have at times tried to force people to, put themselves out there. I think two of my favorite anecdotes about that is, especially amongst my own students and I see they're very shy and I know that they're really good. I'm like, hey, you're speaking at this conference, here's your time slot. I don't really give them a chance, not asking if they're going to speak, I say when they're going to speak.
+ 
+Hugo: Yeah, that's ... I remember Emily actually telling me that you'd emailed her and say, hey, congratulations on being chosen to speak at my conference, sort out the timing.
+ 
+Jared: Exactly.
+ 
+Hugo: I love it.
+ 
+Jared: Yeah some people just need that little push. They need that little push to get going and that's all they need and then they go off and running on their own. Another thing, I think Hilary Parker, famously said this in her podcasts that, I've been trying to get her to speak. So then one day I just put her up on the website that she was speaking.
+ 
+Hugo: That's brilliant, and did she?
+ 
+Jared: Yeah, absolutely, with gusto.
+ 
+Hugo: I actually remember just before the election you had to meetup in which Dave Robinson and Hilary both spoke, kind of themed around ... Well Hilary spoke about the popularity then of the name Hilary, or lack of popularity, and Dave Robinson spoke about his analysis of the Trump tweets. Is this common to get a couple of speakers involved at the same time because that was really great at generating a lot of buzz and social activity.
+ 
+Jared: I do try if there's a common topic to put speakers together, but that could also be very difficult coordinating speaker schedules and venue schedules. So if it comes together, I love it when I can get them together though that's even harder to do than you would imagine.
+ 
+Hugo: So how does your consultancy work and your business play into this conversation about community building?
+ 
+Jared: As you've seen, as you know, the community is very important to me. So for the conference it's a little more obvious that it's a conference brought to you by Lander Analytics. For the meetup, however, my company is more of a silent sponsor. I think it's very important that the meetup and my company are separated in that my company is not seen as benefiting at all from the meetup. It's just this meetup is a special entity to me, it's this precious thing that is open source and for the community. That said, the meetup is a lot of work and I use the resources of my company to help run the meetup. Whether that means paying for things out of my company's budget or means having my employees do various things for the meetup, whether one person is running the camera, one person is checking people in at the door, someone else's making sure the food is in place and the podium is set up. So the company sort of invisibly helps things run in the meetup to make sure it's going because it's so important that that meetup is this noncommercial space.
+ 
+Hugo: You've actually mentioned something really important in there, which I don't think we've really touched upon is the fact that this isn't a one man show. You have a company of incredible colleagues, you know working on this with you, right?
+ 
+Jared: Absolutely. It takes, these meetups have now grown so big and so complex, it takes a lot of hands working on it. That's one thing actually that I've been very fortunate because I've managed to build a company to help with this. I went to a conference for meetup organizers. It's a little meta, but it was a nice gathering at the National Science Foundation, I believe. One of the biggest concerns for the meetup organizers, mostly their meetups weren't quite as large as mine, but their biggest problem was funding and time to do all this. Now while I still am the driving force behind the meetup I've been fortunate enough that I could dedicate my own company's resources, both personnel and money into helping make this thing a little bit better and drive it, whereas these other meetups don't have that luxury.
+ 
+Hugo: Yeah. It's interesting that you mentioned going to a conference for meetup organizers because I actually, I'm thinking of going to some conferences for people who make podcasts.
+ 
+Jared: That's awesome.
+What is your favorite data science technique?
+Hugo: Very soon, which is never something I thought I'd think let alone let alone say but it's pretty exciting. We've been talking essentially about community building, data science, we haven't talked a lot about technical data sciency techniques. But something I ask a lot of my guests and something I'd like to know from you is what is one of your favorite data sciency techniques or methodologies?
+ 
+Jared: So my answer to this actually ties in nicely to DataCamp because I think I have the dubious distinction of having the longest outstanding class due to you. I've owed this class to you since about 2014 back when the company was just in Belgium.
+ 
+Hugo: Fantastic and it may not even have been called DataCamp.
+ 
+Jared: No it was at that time, I think, actually you know what it might not have been. You're right. So I owe this and-
+ 
+Hugo: Great. Well I can't wait to see this course. What, is it?
+GLMnet
+Jared: It's about GLMnet.
+ 
+Hugo: So tell me about GLMnet.
+ 
+Jared: So GLMnet is probably my favorite machine learning data science algorithm slash model. It is the elastic net, which is a dynamic combination of both Ridge and Lasso regression. The reason I love it so much is that it does automated variable selection and shrinkage for a linear model. It's amazing. You could throw thousands of variables at this and which would ordinarily give you multicollinearity and overfitting and it reduces the dimensionality down to a point where you have a strong stable fit and at the end, though you still have the linear model. So it's still interpretable.
+ 
+Hugo: That's really cool. I think for those more technical out the Ridge and Lasso regressions are forms of regularizing your linear model, putting more constraints on the choice of parameters, right?
+ 
+Jared: Yes 100%.
+ 
+Hugo: Of course you know, this is a great technique, great tool. But I think also one of the great things about GLMnet is that the API is so easy to use as well, right?
+ 
+Jared: It's so amazing. You can do with one line of code in R, you're given an input x Matrix an output y vector. Of all the defaults, that's all you need to do these two arguments. Then if you want to do cross validation over the lambda hyperparameter, you just change it from GLMnet to cv.glmnet and it takes care of it all for you.
+ 
+Hugo: Well, I, for one, I'm super looking forward to this course for many reasons, but just the way you talk about you sound really passionate about it so that's super exciting.
+ 
+Jared: It's a great model algorithm and I love this thing so much. It's blazing fast and this is my favorite part it's written in just 73 lines of Fortran code.
+ 
+Hugo: That's amazing. I wasn't aware of that, that’s really cool.
+ 
+Jared: Right.
+ 
+Hugo: So we also, we've mentioned that to organize your conferences, to organize your meetups, to use these types of structures to build communities, you need to know what's happening in the data science community and even to know what's going happen in the future. So my question for you is what does the future of data science look like to you?
+ 
+Jared: So traditionally in data science we have a bit of a divide between having strong predictions and having interpretability and depending what task you're doing, you have to sacrifice one for the other. But I'm seeing more and more advancements in interpreting strong predictive models. Whether that's putting confidence intervals around GLMnet coefficients or using Bayesian Additive Regression Trees to get confidence regions for causal effects. I think we're starting to see effort put into doing inference around high predictive models. I think the future will be having a very strong model and being able to explain why it's happening.
+ 
+Hugo: Yeah. We're seeing a huge push from many stakeholders, whether it be customers or users of products, legislation. Businesses want to know why their models say what they do, right? They want to be able to understand them in some sense.
+ 
+Jared: Right. You don't want to just turn over the keys to the black box because then you can hide what you're putting in there. So people want to see what is going in and why and how it's doing it.
+ 
+Hugo: That's one of the wonderful things about these types of regression we've been discussing and logistic regression of course, is that you can say to someone, nontechnical in this model, if you increase this parameter, that amount that results in this in the output.
+ 
+Jared: Exactly and that's what makes these linear models so attractive.
+ 
+Hugo: So my last question for you is, for all our listeners out there who are interested in data science who are interested in being part of communities, what's a final call to action for all of them?
+ 
+Jared: They have to show up. The first step is walking into that door, sitting down and watching an amazing talk then sharing a slice of pizza and a beer with your colleagues and getting involved.
+ 
+Hugo: That's fantastic. So everyone out there to reiterate what Jared said, you have to show up and I couldn't agree more. Jared, it's been an absolute pleasure having you on the show.
+ 
+Jared: It has been equally for me.

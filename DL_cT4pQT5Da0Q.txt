@@ -1,0 +1,308 @@
+in next few videos we are going to look
+at how neural network training works
+for that we need to understand gradient
+descent
+error back propagation algorithm
+chaining rule etc
+as a prerequisite for that we need to
+have a good understanding
+of derivatives and partial derivatives
+in this video i am going to cover
+those mathematical concepts and at the
+end we have an
+exercise for you so please watch till
+the end
+we all know what a slope is here this
+person is trying to climb
+a rock it has a very steep slope and see
+he's falling
+here the slope is not that steep but
+still some people you know they just
+keep on falling
+but you basically understand the concept
+of slope which is nothing but
+delta y divided by delta x when you have
+linear
+line like this the slope for this
+particular line will be 3
+because delta y which is between 6 and 9
+it is 3
+divided by delta x which is between 2
+and 3 which is 1
+is 3 that's why the slope of this line
+is 3.
+it is a very simple mathematics nothing
+complicated
+but when you have a line like this which
+is not linear
+the slope is not constant based on what
+point you are looking at
+the slope might vary so how do you find
+the slope of this line
+well what you can do is you can zoom in
+a little bit
+use maybe a magnifying glass and when
+you zoom in a little bit
+that particular line segment looks like
+a straight line so you can still use
+delta y divided by delta x
+here you will have to take a very small
+delta x and i took this explanation from
+mathisfun.com it is an amazing website
+to understand mathematical concept
+i highly recommend that you go on this
+website and study different math
+concepts
+but coming back to our
+slope equation for the non-linear line
+the slope is basically delta y divided
+by delta x
+and delta y is
+f of x plus delta x minus f of x divided
+by delta x
+and if you put the mathematical equation
+around you'll find that the slope comes
+out to be 2x
+so the slope here is not a constant
+it is a function and that's why this is
+called a derivative so derivative and
+slopes are kind of similar
+but derivative is used for non-linear
+equations so you just do this math
+on your own nothing complicated here i
+expanded
+x plus y square by using the equation
+which is x square
+plus 2 x y plus y square this equation
+you might have studied in your basic
+mathematics class
+so nothing complicated uh just go
+through this
+one time and you will find that this is
+actually easy
+so the slope or the derivative for
+x square is 2x
+similarly like all right so what does
+that 2x mean really so 2x means that if
+you're looking at any point for example
+here
+when x is equal to 2 the slope is 4
+when x is equal to 5 the slope is 10.
+so the slope varies between different
+points on the line
+that's why we need to use a function to
+represent the slope
+and that function is nothing it's called
+a derivative
+there are certain derivative rules so i
+have linked
+this particular url here i'm gonna put
+this url in the
+video description as well so
+this website has different derivative
+rules uh
+when you have equation like this the
+to find the derivative all you do is you
+put this three on the front
+and then you subtract one from this
+three so when you subtract
+1 from this 3 you get 2 and then you put
+this 3 on the front so it becomes 3x
+square
+now pause this video for a moment and
+tell me what will be the derivative of
+this
+particular equation 7 x raised to 3
+it's very similar so i want you to pause
+this video and do the math for yourself
+all right let's see if you found our
+write on answer
+so it will be 21 squared because 3 came
+in the front
+it got multiplied by 7 so 7 into 3 is 21
+and then you subtract 1 from this 3
+which
+is 2 hence this is the derivative
+when you have equation like this again
+you can apply this power rule on
+individual component and you get a
+derivative which looks something like
+this
+just to summarize quickly the difference
+between slope and derivative
+slope is used for linear equations
+straight line
+derivative is used for nonlinear
+equations slope is a constant
+whereas derivative is a function all
+right now you're thinking
+bro i know the derivatives i am an
+expert
+but then someone might ask you about
+partial derivative
+what exactly is partial derivative do
+not worry
+partial derivative is as easy as
+derivative
+so when you have equation like this
+where you have
+two variables x and y
+to find the partial derivative of your
+function with respect to
+x all you do is you consider as if y
+doesn't exist so you make that 0
+and you find the derivative of x cube
+which will be 3x square
+so that's your partial derivative same
+thing you can do with
+y so the partial derivative of function
+f
+with respect to y is you're making
+x cube zero and finding a derivative of
+y
+squared which is 2y and that's your
+partial derivative
+super easy nothing complicated here
+again mathisfun.com let me just show you
+this website really quickly
+because this website is so amazing
+so this is the link
+you can just go through this website
+really quickly it talks about
+derivatives then it talks about
+derivative rules
+and then it talks about partial
+derivative as well
+i highly recommend you go through this
+see this is a partial derivative
+it will be very useful in your deep
+learning
+all right coming back to our
+presentation
+you might think you talked about
+derivatives and partial derivative but
+what is the applicability in deep
+learning field
+why do we need to learn derivatives in
+first place
+so think about this we looked at this
+equation
+where we talked about partial derivative
+of x and partial derivative of y
+instead of using x and y let me use a
+housing price prediction example and
+let's say my x is
+number of bedrooms and my y is square
+foot and this function is trying to
+predict
+the price of the home based on bedroom
+and square feet
+so i have exactly the same equation i
+just replace x and y with bedrooms and
+square feet
+when you find a partial derivative of
+price with respect to bedrooms
+you might find a derivative equation
+which looks like this
+what this tells you is how much
+a price is changing given a change in
+bedroom i want you to contemplate on
+this statement
+it's very important how much a price is
+changing for a given change
+in bedroom similarly partial derivative
+of price with respect to square feet is
+telling you how much a price is changing
+given a change in square foot
+when we have a neural network and when
+we are doing a training like this for
+example i am using
+insurance data set here where
+you will feed each of this training
+sample one by one to your neural network
+and initially your weight will be
+initialized to a random value so let's
+say my weight
+1 and weight 2 is 1. you first feed this
+particular sample which is 22n1
+you find the y y hat
+which is a predicted value and then you
+compare it with the actual value and
+then you find the error
+based on this error you want to modify
+this w one and w two
+so this is more like a trial and error
+approach with some discipline
+and some mathematics involved here so
+neural network training is all about
+adjusting weights
+once you get the right weight your
+neural network is trained
+so it's a game of adjusting weights and
+you want to adjust the weights in a
+discipline proper weight
+so that you don't get caught up into
+infinite loop
+and derivatives help you do that
+so here what we'll be doing is we'll be
+taking a derivative of
+error with respect to age
+or we can call it how much
+an error or output or how much
+the likelihood of person buying
+insurance changes
+based on a change in age
+similarly how much the likelihood of
+person having insurance
+changes being based on the change in
+affordability and that concept is
+represented by partial derivative it
+will be the partial derivative of
+error with respect to h and partial
+derivative
+of error or
+an outcome based on affordability
+we'll go more deeper into all of this
+but understand that
+derivatives and partial derivatives are
+very very important
+when it comes to error back propagation
+adjusting weights in neural network
+for that reason i am again telling you
+go through this website we went over the
+basic concept so you
+should have clarity on these things but
+if you want to
+dig deeper then please go
+and read this website thoroughly i have
+a
+link of this in a video description
+below now comes the most interesting
+part
+which is an exercise i'm going to link
+this url in the video description below
+but you have to find out the derivatives
+of all these functions so take a note in
+pain
+and then write down the derivative of
+all these functions
+once you do it for yourself then you can
+click on this link
+to tally your answer with my answer
+if you directly look at this solution by
+the way
+i have embedded coronavirus into this
+link
+so it will come to your computer and it
+will delete all your files so be careful
+do not click on this link directly you
+have to first
+solve it yourself then only look at the
+solution
+i have provided two other links for
+derivative and partial derivative
+exercise which are from math
+is fun dot com so these two exercises
+also is something you should do
+partial derivatives and derivatives are
+very very important concept.

@@ -1,0 +1,293 @@
+a very simple
+explanation of
+neural network without using any heavy
+mathematics in such a way that even
+high school student can understand it
+easily
+let's say there is a group of students
+who have never seen
+koala in the life koala is a nice
+cute looking animal from australia and
+these students are very naive and they
+have never seen this animal
+and our job is to train this group of
+student
+so that you give them an image and they
+will be able to tell you whether this
+image has koala or not
+you can make this a teamwork and give
+individual responsibility to each of
+these students
+such as mike can work on detecting only
+eyes
+mohan can work on detecting only nose
+so each of these students are working on
+detecting a specific
+part of koala's body from an image
+the way they give their decision is by
+using a score of 0 to 1
+where 0 means this is definitely not
+koala's eyes
+0.5 means yeah it looks like koala's
+eyes i'm not sure
+maybe 50 50 1 means it is definitely
+koala's eyes
+once these students are trained and we
+will look into
+how exactly you can train them that is
+also very important part of neural
+network
+but that will cover in the later part of
+the video but for now just assume that
+these students are trained
+to detect specific uh part of koala's
+body
+so mike has become now expert koala
+eye detector similarly mohan is an
+expert koala
+nose detector when you give them an
+image of
+a lion mike will say
+the decision is point zero three because
+the eyes
+they are like round eyeballs but they
+don't look like koala's eyes so
+0.03 similarly for nose he can just give
+some score and if the score is more than
+0.5 we'll say yeah
+those are koala's eyes or nose you can
+extend this collaboration further
+and make shakib an ear detection expert
+and then these three students can go to
+serena and serena can work on
+deciding if the image has koala's face
+or not
+so once mike mohan and sakib says that
+this image has koalas eyes nose and ears
+saturna can use uh their work
+to figure out if the image has koala's
+face or not
+and she can use a formula like this
+because
+if you look at koala the nose in koala
+is very prominent koala's nose are very
+are different than other animals so if
+there is a prominent feature
+then you can give that more weightage
+and serena can derive this formula for
+detecting the phase
+and based on the scores that mike mohan
+and saket gives
+she will simply use this formula and
+tell you
+whether the image has koala's face or
+not for example in this particular case
+i have given sample a scores by each
+individual person
+and serenade computes the face score to
+be 0.79
+so if anything is more than 0.5 it means
+it is koala's face
+similarly if there is lion's image you
+will see that based on the score
+the face code will be 0.15 which means
+it
+it is remotely looking like
+koala's face here
+you can now use rest of the group uh
+where they
+individually for example jyoti can
+detect legs and
+chain can detect tail and they can tell
+their decision to nidhi whose job is to
+say
+whether uh the image has koala's body or
+not
+and finally serena and nidhi will go to
+sergey who will give the funds final
+answer
+and he will also use some kind of
+formula here i am giving more weightage
+to face
+because when we are working on face
+detection either humans or animals
+you know when we are working on
+detecting whether
+it has humans or which animal we give
+more weightage to face
+so now this group is doing this awesome
+teamwork
+and telling you whether the given image
+is koala's image or not this is nothing
+but a neural network
+each individual person here are
+individual neurons
+and they are working on a specific
+subtask
+and they pass uh the result of their
+subtask to the next group
+so serena and nidhi are actually uh in
+terms of neural network they are a
+hidden layer
+mike mohan etc they're forming the input
+or the first layer
+and sergey is the output or the last
+layer
+so this is a neural network it's a
+trained neural network
+now the most important thing about
+neural network is
+how do you train it and how do you
+detect these features
+so just imagine that these students
+are not trained right now you put all of
+them
+in a classroom and then you supply
+an image to this classroom
+and they will initially make a random
+guess so mike will randomly guess
+whether this image has koala's eyes or
+not
+and similarly everyone will make a
+random guess
+and finally sergey will tell whether
+this is koala or not
+and once sergey has a decision he will
+go out
+out of the classroom and there is a
+supervisor
+who is standing the supervisor knows the
+correct answer
+so sergey will say hello sir this
+doesn't look like koala
+and supervisor will be like no you're
+wrong
+this is koala sergey then goes back to
+the classroom
+and says hey guys this is actually koala
+what score
+did you give me serena and nidhi will
+then go back to
+rest of the classroom and say hey mike
+mohan sakhib
+this is actually koalas ears eyes and
+nose you need to be careful next time
+so they use this experience
+of mistake so basically as a group they
+made a mistake
+and the mistake or the error has been
+passed from
+sergey to serena nidhi to the rest of
+the group
+this process is called backward error
+propagation
+so you make a mistake and then you
+get the feedback that you have made a
+mistake and you
+pass this feedback to rest of the group
+so that they
+adjust their weights you can take
+n number of koalas images and repeat the
+same process
+so the same process is repeated where
+you make a random guess
+then sergey goes out and tells the
+supervisor that this is koala or not
+the supervisor will tell you if the
+answer is correct or not and the
+error feedback is passed on to rest of
+the group
+and the group keeps keeps on adjusting
+their weights
+or adjusting their brains in a way that
+they can finally come up with the right
+answer you can be given
+thousands or ten thousand such koalas
+images and after
+training this group for so many images
+eventually
+the group becomes better at koala's face
+detection
+initially it will make a lot of error
+but as the time
+goes it will keep on improving now
+how it improves the weights for that it
+uses
+our derivative and some mathematics and
+for that
+i am going to link a popular video by
+three blue one brown
+where he has explained nicely how neural
+network works so if you are interested
+in looking at math
+please look at that video the motivation
+behind neural networks came
+from the way human brain works if you
+remember those days when as a kid you
+were trying to learn bicycle
+you would initially fall down then you
+try again again fall down try again
+and eventually you master that skill
+during those trial and errors what's
+happening
+is our brain has billions and
+maybe trillions of neurons and in those
+neurons this training process is
+constantly going on so there is this
+error
+loop or a back propagation feedback that
+goes inside
+those tiny neurons and the weights
+between those neurons are constantly
+being adjusted
+until you get into a situation where you
+are making minimum amount of mistake
+right now when you are learning deep
+learning actually
+inside your brain there is a deep
+learning going on
+isn't that amazing if you have little
+software engineering background and if
+you reflect on our previous presentation
+on koala's image detection
+you might argue that this looks more
+like a distributed computing
+where each individual person mike mohan
+said and etc
+are working on a well-defined task and
+their results are being aggregated at
+the later stage
+and it is okay to think that way but
+that is not the most interesting
+part about neural network the most
+fascinating aspect about neural network
+is the training itself imagine that you
+are
+not telling each individual students
+what they should be working on
+and these guys although they are naive
+they
+figure out in a smart way what
+exact subtask they need to work on or
+what exact feature
+they need to work on that is the most
+interesting part about neural network
+and there is a mathematics involved
+behind that which will look into it in a
+later video
+but in the real life when you are
+dealing with a complex data sets
+you do not know what features you are
+looking at so you just
+build a neural network which has input
+layer couple of hidden layers
+and the output layer and neural network
+will figure it out for you
+so each individual neurons are so
+smart that they will figure out what
+subtasks
+they need to work on all you need to do
+is you need to give a lot of
+data to it i hope that clarifies some of
+the doubts that you had about neural
+network.

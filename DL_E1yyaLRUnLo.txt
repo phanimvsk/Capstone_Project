@@ -1,0 +1,510 @@
+in order to understand how neural
+network training works it's important to
+have a good understanding of loss or a
+cost function and that's what we're
+going to cover in this video as usual
+we'll go through some Theory first and
+then we'll Implement a different cost
+functions in Python and at the end we'll
+have an interesting exercise for you to
+work on so let's get started
+in this deep learning tutorial series we
+already build a neural network to
+recognize handwritten digits and if you
+have followed that tutorial you will
+realize one of the parameters that we
+use while doing model compile was this
+loss function here and that's what we
+are going to talk about in this video so
+moving on to our presentation
+you can specify different values for
+this loss function when you are building
+a Keras or a tensorflow model we use
+pass categorical cross entropy but there
+are other possible values such as binary
+cross entropy categorical cross entropy
+mean absolute error mean squared error
+now in our machine learning tutorial
+playlist earlier we have talked about
+mean squared error so we are going to
+look at these two mean absolute error
+and mean squared error really quickly by
+using the example of play card let's say
+you and your friend is playing uh play
+uh the play cards okay and your friend
+has three play cards that you are not
+aware about and he asks you to make a
+guess on what those cards are you will
+make a random guess and say the first
+star is eight the second is queen and
+the third one is six
+then you will ask your friend how
+accurate your prediction was what he
+will do is he will tell you the error
+that you made in each of the guesses one
+way of finding that error could be the
+absolute distance between those two
+cards
+for example the distance between 8 and a
+king is 5 because after 8 comes 9 10
+then Jack then Queen and then King so
+total five
+similarly distance between 6 and 7 is
+obviously one
+and queen N9 is 3. so the total error
+that you made was nine and the average
+error would be three because three cards
+nine divided by three you know simple
+math three is the mean error this is
+called mean absolute error
+the other way of finding the error would
+be the squared error where you take the
+error and you do a square of it and then
+you take an average of that square so
+here the mean squared error will be 35
+by 3 one might ask why do you need to do
+Square well in a neural network training
+or in general in machine learning having
+squared error has some utility it allows
+your gradient descent to converge in a
+better way now what is gradient descent
+what is uh conversions we'll look into
+all those parameters later on but for
+now just assume that having squared
+error is useful in many occasions when
+you are talking about machine learning
+so what does loss has to do with respect
+to neural network that's a question that
+this grumpy cat is asking and the wise
+dog is saying that it is used in neural
+network training so loss is heavily used
+during neural network training and we'll
+look into exactly how it is used so
+we'll go back to our Standard Insurance
+data set example if you are not
+following this tutorial series and you
+are stumbling across this video randomly
+I would suggest you watch all the
+previous tutorials in this deep learning
+tutorial series we have talked about
+this Insurance data set multiple times
+here you have age and affordability and
+based on that you are trying to predict
+the person will buy insurance or not
+you see sometimes person with 47 years
+of age and the he has affordability so
+he will probably buy it affordability
+simply means if the person can buy the
+insurance or not if you are running 10
+000 rupees a month and if I ask you to
+buy insurance of 9000 Rupees a month
+your affordability will be zero because
+that's too expensive but if you are
+earning 10 000 and if I ask you to buy
+insurance for 500 rupees a month you'll
+probably buy it okay so that's what that
+is now
+here age and affordability is X and
+having insurance is why these are also
+called independent parameters and Y is a
+dependent parameter and in machine
+learning all they're trying to do is
+come up with a prediction function which
+is y is equal to f of x it's a it's as
+simple as that
+and we have seen this picture before
+this is logistic regression where based
+on age and affordability
+you calculate the weighted sum and then
+you applied sigmoid function again we
+have covered all of this in our previous
+videos so guys if you have not watched
+it I would suggest you pause this video
+and watch those awesome tutorials so you
+are not afraid of all this mathematics
+this is all very easy math trust me if
+you've seen previous videos
+so here
+the game the name of the game is to
+figure out W1 and W2
+so what happens is you go through your
+training set this is supervised learning
+so you go through your training sample
+one by one so you take 22 and 1. then
+initially you try uh to start W1 and W2
+with some random
+weight so right now I'm initializing W1
+W2 to B1 it can be zero it can be random
+values you're just making a random guess
+so we initialize W1 W2 to be one and
+then we feed the first sample into our
+neural network we are now talking about
+training
+and then
+we find the outcome so y hat is used for
+predicted output
+and Y is used for the actual output your
+actual value is 0 here see having
+insurance is zero but your y hat is
+telling you 0.99 so it is obviously
+making an error so you try to find the
+error one of the way of finding this
+error is
+mean
+absolute error which is just a absolute
+difference between these two values
+similarly you take the second sample
+you feed it to your network it's called
+a forward pass this is a very simple
+single neuron neural network
+again you calculate the error this is
+error number two we have totaled 13
+samples So eventually you will get at
+the 13th sample you will have error
+number 13.
+and then you will accumulate all those
+errors
+so
+this is the formula it is like Sigma I
+is equal to 1 to n absolute y minus y
+hat all it is doing is
+summing up all the 13 errors
+and the sum that comes up you take a
+mean or an average of it it's called
+mean absolute error or Mae
+here
+the mean absolute error is called cost
+function and the unusual errors that we
+are getting error 1 2 Etc it's called
+loss
+now sometimes people use loss and cost
+as synonyms but as per Andrew Ang
+um you know individual errors are called
+loss and the cumulative error or the
+mean absolute error is called cost
+function
+so here my mean absolute error is 10.02
+and once I go through all the training
+samples once I finish the single round
+of
+uh forward passing all the training
+sample it is called one Epoch so one
+Epoch is going through all the training
+samples
+once
+and if you remember from our model.fit
+one of the parameters that it had was
+epoch so Epoch was five so let's look at
+that you see here we did five book which
+means
+we went through all the samples five
+times in total
+so mean absolute error is something we
+already looked at it there are other
+type of errors as well such as mean
+squared error
+and if you want to specify that you will
+use this particular parameter mean
+underscore Square underscore error
+and this error is same as mean absolute
+error the only difference is that
+instead of taking the absolute
+difference you take a square of that
+difference and again this has a value it
+allows your gradient descent to converge
+in a better way we will look into the
+details later but this has a utility
+the third type of error that you have is
+log loss or a binary cross entropy so
+you might have seen that in model dot
+compile sometimes people use binary
+cross entropy and binary cross entropy
+is a synonym of log loss
+and this is the formula for log loss now
+you can just
+accept that this is the formula I'm not
+gonna go into details of how I came up
+with that formula because then it will
+make this tutorial very very long but if
+you're trying to learn machine learning
+sometimes you have to just accept the
+mathematical facts
+is like y Pi is 22 by 7 well it's a
+mathematical fact so similarly
+this is the log locks function do not
+worry too much about this mathematical
+equations this is for your understanding
+uh you don't have to go too much into
+detail I mean of course if you're
+interested you can go and figure out why
+this equation is like this but this is
+what binary cross entropy means now for
+logistic regression we use log loss we
+do not use
+mean square error or mean absolute error
+in our presentation I used
+uh mean absolute error just to keep it
+simple but in reality practically for
+logistic regression we will be using
+mean not mean square error of course but
+the log loss or binary cross entropy and
+for that I'm gonna link a nice article
+on towards data science the link of this
+article is in video description below
+where Mr Rajesh has explained why we
+choose to use log loss for logistic
+regression okay so just go through this
+awesome article you will get an idea but
+overall
+of what we're going to do now is we will
+Implement all these different or loss
+functions like these three in Python and
+then we'll have an exercise and uh the
+reason we are going to go through all of
+this is because the loss function is
+used in our neural network training so
+in future videos we will Implement
+neural network from scratch so it will
+be important for you to understand uh
+log loss because ours is a logistic
+regression and we will be using log loss
+or binary cross entropy so let's get
+started with coding now
+I have launched jupyter notebook and I
+have why predicted and why True Values I
+had two numpy arrays where I have total
+five samples where the first one is the
+predicted value and the second one is
+the true value and I'm going to first
+implement the mean absolute error
+function so I will say def mean absolute
+error and there will be true para two or
+two parameters which is
+y true and Y predicted now as we saw in
+our equation before that mean absolute
+error is nothing but the absolute
+difference between your true values and
+predicted values and then you take a
+average of that so it is very simple so
+what we can do is we can go through both
+these arrays so first I will Define this
+total error variable and then I will run
+a for loop on two arrays now how do you
+run for Loop parallel into array as well
+you can use zip function so you can save
+for y through y predicted in zip
+so zip is y true and Y predicted so it
+will give you
+one value from both of these array in
+each iteration
+I mean we can just print
+if you want to just be sure we can just
+print these values initially
+to see how it looks so M A will be y
+true y predicted and you can see that it
+just iterates through the True Value so
+it took 0.3 and then 1.7 and 1 and so on
+so pretty simple
+now the absolute difference between
+these two will be in Python there is a
+function called abs
+so y true minus y predicted this will
+give you the absolute difference and
+then you can add it to Total error in
+each iteration this is how we add it and
+then once it is done you can say total
+error
+is total
+error and then
+uh if you want to get a mean you can
+just
+say Okay m a e is equal to Total error
+divided by the length of an array now
+both the arrays have same length ideally
+so
+you will say Lan of Y true or Y predict
+doesn't matter and then you return that
+so when you
+calculate this you get total error to be
+2.5 so here what I will do is I will
+also print the
+main absolute error so
+mean absolute error is me I mean we have
+printed it but just
+to make it more fancy
+all right
+now here we use Python's for Loop but
+actually the reason number is very
+popular is it allows you to do Vector
+operations very very easily so now we
+will Define the same function using
+numpy and numpy makes it extremely easy
+so if you want to take absolute
+difference between the two see when you
+do y predictor minus y true
+if you're a numpy array you can do
+something like this okay and this is
+giving you the real difference but if
+you want to have absolute difference
+you can do this
+okay
+and
+mean absolute error is the absolute
+difference and then you just take a mean
+of it so you can just do NP dot mean
+see 0.5
+this was so easy if you want to get
+total error you can do NP dot sum it
+will give you 2.5 which is a total error
+but the
+same function this whole function we did
+it in just one line so you can realize
+how powerful numpy is
+all right now let's Implement uh the log
+loss or binary cross entropy mean square
+error will be an exercise for you so you
+guys will implement it but I'm gonna go
+ahead and Implement binary cross entropy
+here we are using log function now you
+need to know certain things about log
+functions for example
+when you do log of 0 for example
+it is
+not defined so whenever you have log 0
+what you need to do is you need to take
+a value which is very close to zero but
+not zero so for example if I do let's
+say this that is fine and that is very
+close to log 0. so in our function when
+we Define this binary cross entropy
+function uh we have to replace 0 with a
+value which is very close to zero also
+look at this Formula 1 minus y y hat so
+first of all we are taking log of only
+predicted y value not the absolute value
+and we are taking a log of predicted y
+Value Plus 1 minus y value which means
+if you have 1
+for example if you have one in a
+predicted value that will also create a
+problem because 1 minus 1 will be log 0
+which is undefined so the first thing
+that you need to do is come up with
+Epsilon
+and by the way friends we are
+implementing all these
+loss functions just for your
+understanding when you are using Keras
+or tensorflow these things are done for
+you but if you have in-depth
+understanding of how these loss
+functions work it could be very useful
+during interviews if you are applying
+for machine learning position or data
+scientist position
+having this understanding of inner
+workings will be extremely useful you
+know in the interview they may might ask
+you to implement log loss function so
+that's why it's very important to go
+through this code
+so let's say my Epsilon is one e raised
+to minus 50. this is like you know like
+so many 15 zeros and then after one
+so I will first Define
+Epsilon like this and then the Y
+predictor that I have see what I'm
+trying to do is
+if I have value 1 I want to replace it
+with a value which is close to one but
+not one
+so what is the value which is very close
+to one well point nine nine nine nine
+nine nine nine nine
+similarly I want to replace 0 with a
+value that is close to 0 but not zero
+and what is that a value like this
+so let's do that so first so I will say
+why predicted new okay
+and I'm I will go over all the values in
+y predicted how do you do that so for i
+n y predicted we are using something
+called a list comprehension in Python
+and I have separate Python tutorial
+series if you want to know more about
+list comprehension
+so here each I will be the value of each
+value in y predicted and what we want to
+do is we want to take
+a
+maximum between I
+and
+Epsilon Epsilon
+okay
+so what did it do so it replaced the
+value 1 with a value which is very close
+to 1. so this value is nothing but like
+maybe 15 0 and then one
+okay and the second thing I want to do
+is
+I want to replace one with a value which
+is very close to Value 1. so here you
+will do Min between
+I and 1 minus Epsilon so Epsilon is
+value which is very close to zero like a
+very minute value and when you do 1
+minus that
+um you know you get
+value which is very close to one but not
+one
+so you see now we got
+this value
+and again we are doing all of this
+because log of 0 is undefined okay
+and I converted this y predicted new to
+an numpy array it was a python list
+because we use a list comprehension and
+when you do the log of this see you get
+some good values if you do just the log
+of the original y predicted
+by predicted see you got like this
+Infinity value which was not good so
+that's the reason we created y predicted
+a new numpy array
+now here we are going to type the
+formula for log loss which was this so
+long loss is nothing but
+y i into log y hat I plus 1 minus y into
+log 1 minus y hat I and you sum them
+together
+so this is how it is so an NP dot mean
+is the minus NP dot mean is this guy
+minus 1 divided by n and sigma and then
+remaining thing is very obvious y true
+into this plus whatever you can verify
+the formula and then you get this
+log loss
+so here I have put everything in one
+single function and this will be a log
+loss function these are the instructions
+that we looked at it above and I have
+just put them into a nice function and
+when you call this log loss function for
+y true and Y predicted
+you will get
+okay Epsilon is not defined so Epsilon I
+will just say
+one e raised to minus 15.
+see you got the same value 17.26
+all right now comes the most interesting
+part of this tutorial which is an
+exercise so you guys are all pro in loss
+function now and you are going to
+implement a mean square error function
+for me you will use it in two ways first
+you will implement it without using
+numpy and after that you will use numpy
+and you will realize how easier it is to
+implement loss function using numpy
+Library there is a solution link here
+but you are not going to click on it.
