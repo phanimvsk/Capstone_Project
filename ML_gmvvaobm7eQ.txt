@@ -1,0 +1,77 @@
+ new series on machine learning with Python in this tutorial. We are going to look into what is machine learning
+There are certain tasks where computers are really better than humans
+For example, if I ask you to multiply these two big numbers you will take lot of time
+Whereas computers can do it in less than a second
+similarly if I ask you to search through
+millions of Records then that search operation is extremely difficult for humans whereas machines can
+Do it in a matter of nano second on
+The other hand there are some tasks where humans outperform machines such as driving the car
+You don't see many robots driving the car on the road today
+In Bay Area a Google and uber and Tesla
+These companies are trying or travel less cars, but it is still in initial phase as of 2018
+So most of the cars driven on the road are still by humans
+Natural language conversation is also an area where humans outperform machines
+So machine learning tries to make computers better at things where traditionally
+humans were outperforming machines and
+the way we do that is
+We make machines learn things like humans do
+so the question is
+Why humans are better in driving the cars and having a conversation?
+For that we need to understand how human brain works
+human brain consists of tiny neurons there are billions of neurons in our brain and
+Whenever we think or make a decision a
+Signal a chemical signal is generated and these a tiny neurons light up
+here is a simple model of these neurons where these rounds are the neurons and the arrows are the synapses that
+Connect these neurons
+So what happens is?
+let's say when you have a baby and baby sees a
+cow for the first time
+You will tell baby that this is a cow so internal in her brain
+Specific set of neurons will light up and these two output neurons each corresponds to a
+specific entity such as cow and a car
+When you say that, this is a cow
+This set of neurons are lighting up and the edges they become stronger
+These edges are shown in yellow in a blue dark color here and it leads to a certain output
+This is like you're you are in a jungle and you are looking for a direction
+Now you found a direction to reach to a specific destination
+Next day when baby sees a second cow you will tell the baby that ok
+This is also a cow. So again same set of neurons and some additional neurons light up and these pathways become more stronger
+Similarly when a baby is seeing a car you will tell her that this is a car and
+Some other set of neurons will light up the ages will become stronger and so forth
+This way you are training a baby. Ok
+So as a human we all know in our childhood the way we learn things are
+We make mistakes someone corrects the mistakes and then we learn
+During the learning procedure what happens in our brain is
+Constantly these ages and neurons are being adjusted and these new pathways are being created
+That leads to a certain output or a decision
+computers can also be trained in similar way where
+neural network models are created and they are trained with a lot of training data and
+the corresponding output and these neurons and these ages are adjusted and
+The neural network becomes trained so that later on when you give a new input to machine
+It can tell you the correct output
+This is called deep learning and deep learning is one of the areas
+Machine learning machine learning is a quite a broader term
+It is a complete a science of field in computer science where we use various techniques and deep learning is one of them
+there are other techniques where we
+use
+The knowledge present in available data, we extract it and use that knowledge to make our future decisions
+so overall as I said before machine learning is a bigger area deep learning is one part of it and
+There are like mathematical and statistical models that we use
+To make predictions so that's another area
+Machine learning has a big implication on our real life
+One of the important features in any email account is spam filter if you are using Google or Yahoo
+Or any other email account you will see that
+They filter the spam emails automatically
+The way they do it is they have seen a lot of spam
+Emails in the past and they train machines to learn from the content of those emails and they filter it out for future
+personal assistant type of devices such as Amazon Alexa and Google home is another example
+they are getting increasingly better at
+human conversation when you talk to them they
+Learn your lesson. They learn your terminology and then in the future they
+Give you an accurate reply for the question that you asked them
+Youtube's recommended video is another example of machine learning where they look at your past pattern on
+What kind of content you're watching and based on that they will generate the suggestions
+Last but not least is driverless cars. I wouldn't be surprised if in next 10 years you will see
+many tireless cars on the roads because
+companies like Tesla Google uber they're investing heavily in driverless cars and all of them are using
+Machine learning and artificial intelligence techniques are to make cars Martyr.

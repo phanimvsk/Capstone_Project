@@ -1,0 +1,337 @@
+today we are going to write python code
+to predict home prices using
+a machine learning technique called
+simple linear regression
+in this table i have the prices of home
+based
+on the area of that home in my
+neighborhood
+in monroe township new jersey using this
+data i will build
+a machine learning model that can tell
+me the prices
+of the homes whose area is 3 300 square
+feet and 5 000 square feet
+you can plot available uh prices and
+areas in form of a scatter plot like
+this
+where this red marker shows the
+available data points
+now we can draw this blue line which
+best fits these data points
+once i have this line i can tell the
+price of
+any home basically i can say okay 3 300
+square foot home
+is gonna be this price once i have the
+linear equation
+now you might ask how did you come up
+with this blue line because
+this line is not going through all these
+data points and there are
+number of ways you can draw different
+lines like for example this
+red and orange okay so why did i choose
+this blue line
+what we do is we calculate this delta
+which is an error between the actual
+data point and the data point which is
+predicted by
+your linear equation we square
+individual errors and
+we sum them up and we try to minimize
+those
+so we do this procedure for all these
+lines
+so for orange red and blue line i
+repeated that procedure
+and what i found was this blue line was
+giving me the minimum error
+hence i chose that line now if you
+remember from your algebra class
+during your school days then you uh
+you have probably learned uh the linear
+equations
+which looks like y is equal to mx plus b
+where
+m is a slope or gradient and b is an
+intercept
+in our case uh
+the slope is m here but the y is
+price and an x variable is area
+area is called an independent variable
+whereas
+price is called a dependent variable
+because we are calculating price
+based on this area now we are going to
+write python code
+for doing home price predictions here i
+have launched my jupyter notebook and i
+have imported
+some useful libraries the most important
+library here is
+from sklearn import linear model so
+sklearn is the library it is also called
+scikit-learn so if you
+[Music]
+google it you will find
+that this is the library we are using
+and it comes
+with anaconda installation
+so once you have installed anaconda you
+should have this library available
+or for import i
+have uh the prices available in form of
+this csv file so the first thing i'm
+going to do
+is load these prices in pandas data
+frame
+pd dot read csv
+name of the file is home prices dots
+csv and i have the data frame now if you
+don't know about pandas and data frame i
+recommend you
+watching my tutorials on pandas because
+pandas is going to be
+extremely useful uh in your
+machine learning journey once i have a
+data frame
+uh next thing that i'm going to do is
+uh plot a scatter plot just to get an
+idea on
+the distribution of my data point okay
+and you all know
+uh if you have used jupyter notebook
+before
+is that you have to use a matplotlib
+inline magic uh in order to draw the
+plots
+and first i am going to uh
+plot dot scatter so i'm going to plot
+area versus price okay
+now i'll make some modification and i
+will set
+color to be red marker
+to be plus i'm just making my chart
+little fancy
+and then also setting x and y label
+because you can see that x and y labels
+are not available right now
+so the x label would be area in square
+feet
+and y label is the price
+in u.s dollar okay
+so this is square feet area and us
+dollar
+price all right
+so once i look at this plot i get an
+idea that
+the distribution is suitable
+for a linear regression model and hence
+i will now go ahead
+and use the linear regression okay so
+first you need to create a linear
+regression
+object so you can see that
+from sklearn python module i have
+already imported linear model
+and here linear
+regression so i will create an object
+for linear regression and then
+i will fit my data so
+fitting the data means you are training
+the linear regression model using the
+available
+uh data points okay now the first
+argument has to be like a 2d array so
+you can supply your
+data frame here so i am going to supply
+a data frame which only contains area
+okay
+and the second argument would be
+your y-axis on your plot which is your
+price
+so when i execute this it worked okay
+without any error which means
+now this linear regression model is
+ready to predict the prices so let's do
+a prediction so what we wanted to
+predict was the
+price of a home whose area is 3300
+square feet and you can see that
+it predicted this price now you might
+be wondering why it came up with this
+price so let's look at some of the
+internal details
+so when i train my regression linear
+regression
+object using this available data
+what happened is it calculated the
+coefficient and intercept so if you go
+back
+to our mathematical equation
+you know that for any linear equation
+there is a slope and intercept
+this is also called a coefficient so my
+model calculated the
+value for m and b so let's see
+uh what are the values okay so when you
+do reg.qf it will
+show the value of coefficient which is
+this m
+and when you do intercept
+this is showing you the the value for
+this b
+okay so now the equation for price is
+m into area plus b okay so now we have m
+area and b so let's see
+what value it gives
+so y is equal to m
+into x plus b okay
+and here uh
+m is uh this number
+so let me just copy it into
+x x is the area that you want to predict
+so area you want to predict is 3 300
+and your intercept is this
+okay so when you execute this you get
+this value so now you know
+how it was able to predict this value
+right here okay similarly if you
+change this to the second value that we
+wanted to predict was the 5000 square
+feet so for 5000
+you can just do this and you get this
+value
+right here so this is pretty amazing now
+you have a model
+which you can use to predict your home
+prices
+uh you might have a csv file like this
+where you have a list of prices
+a list of areas available and you want
+to predict
+uh the prices for these homes right um
+until now what we did is we were
+individually giving the
+the area and we are predicting the
+prices so what i want to do now is
+generate another csv file where i have
+these list of areas
+and their corresponding uh prediction on
+on prices
+so for this i will create
+a data frame first using a read csv
+so here
+first i created a data frame i have a
+list of areas available
+now i will use regression model
+to actually predict
+the prices okay so i'll just supply d
+here
+and that will return me the prices so
+you can store
+the prices in variable p and
+then what you can do is
+in your original data frame you can
+create
+a new column so when you do like this it
+will create a new column in your data
+frame
+and you can assign p here okay
+and now when you print your data frame
+you can see the prices are available and
+then you can just
+use two csv method
+to export the value to prediction.csv so
+if i open my
+prediction.csv
+you will now find that i have
+area and prices it imported it exported
+actually
+the index as well and if you don't want
+to do that
+then index is equal to
+false if you
+do that and execute this again
+and now if you open prediction.csv you
+won't find the index it will be just
+area and prices as you can see here
+okay so once you have this model built
+in you can apply this model on a huge
+csv file and
+come up with a list of
+predictions now going back
+to our original example
+so let me go back again
+here and read my original prizes
+and do a fitting on that
+what i want to show you is
+how does my linear
+equation line look okay and for that
+i'm again plotting a scatter plot and
+along with the scatter plot so this much
+line of code will just
+upload the scatter plot and i have added
+one more line
+where i'm using uh data frames area
+and i am predicting the prices and
+plotting them on the y
+chart so
+let's see what happened here
+so df dot area is not defined so that
+has to be
+df.area here
+okay
+so let's go step by step
+so here i have my scatter plot
+and what i'm doing is plt dot plot on my
+x-axis i want df.area
+and on my y-axis i want
+to i want to predict
+area like this
+okay so it shows uh
+the visual representation of my linear
+equation here
+all right so that's all i had for this
+tutorial i have an exercise for you guys
+uh what you want to do is uh
+given canada's adjusted
+net national income per capita you want
+to predict
+the net income in year 2020
+i have provided a csv file in the
+exercise folder
+so if you go to github and download my
+notebook
+and i have by the way the link of
+jupyter notebook
+available in the video description below
+so download the notebook
+study it first and then download the
+exercise folder
+in the exercise folder you will find
+this csv file
+which has a canada's uh
+per capita time income for the year 1970
+to 2016
+and your job is to find out
+the predicted uh income
+in year 2020 i highly recommend that you
+do the exercise
+because just by watching the video you
+are not probably going to
+learn that much i mean you'll learn
+something but it's not very effective so
+it's
+it's better that you do some practice as
+well uh as we go through these tutorials
+and i'll make sure i provide
+a simple exercises at the end of every
+tutorial
+okay so again just to summarize this
+tutorial was all about
+building a simple linear regression
+model using one variable
+and in the future we are going to cover
+a little.

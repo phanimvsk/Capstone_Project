@@ -1,0 +1,186 @@
+Nlp is not a new field it has been there
+in academia for many years.
+In last 7-10 years we have
+started seeing real industry use cases
+of NLP. In this video I'm going to talk
+about 5 reasons why NLP is booming
+right now.
+Training machine learning model for NLP
+problem takes humongous amount of data
+and a lot of computer resources. If there
+is a small company they sometimes don't
+afford it and they don't also have data.
+In last few years what happened is big
+companies like Google, Facebook, Amazon
+they started training
+big
+models on
+on the datasets that they have
+available. These companies have a lot of
+our datasets uh available with them and
+also they have computer resources and
+budget.
+As a result
+we are seeing some APIs and some
+pre-trained models coming out such as
+fast tech Fasttext which is
+Facebook's API and pre-trained models,
+then Tensorflow Hub and GPT3 and I'm
+going to quickly show you all of those.
+So here I am on the Tensorflow website,
+Tensorflow hub specifically and if you
+look at the models,
+you will see different models related to
+text problems which is NLP and if you
+click on that you will see models like
+BERT for example. Universal center
+encoder. There are so many pre-trained
+models
+and these are the models
+Google train on the humongous dataset
+that they had and they also
+spent all this compute resources in
+training those models and now they're
+giving it for free. They just prepare a
+recipe and say hey let
+just use it,
+and these models you can now use uh with
+a technique called transfer learning and
+you can take the model and for the given
+problem that you're facing, you can fine
+tune the model. So
+you're getting a lot of goodies for free
+from these big companies.
+Second one is fast text which is from
+Facebook and if you click on download
+models you will see so many models here.
+Like like see Wiki word vectors, these
+are like
+embeddings word embeddings. We will look
+at these in details in the future. But
+the point I want to make is a lot of the
+ingredients that you need for your NLP
+program, all these ingredients are
+offered to you for free by these big
+companies. There is GPT3 now GPT3 is the
+largest neural network ever. It is a
+language model,
+it is created by this company called
+OpenAI. They spend 4 million dollar
+just training this model
+and now they are giving it for free. If
+you want to train similar model, you have
+to spend 4 million dollars. You're
+getting this 4 million dollar kind of
+gift for free almost.
+So because of
+all these companies giving away their
+free models, now small organizations can
+also afford
+onboarding NLP to solve various problems.
+The second reason is open source
+ecosystem previously many years back you
+have to write all the code in C++
+yourself. But nowadays
+with Python, you write 4 line of code
+and your NLP program is ready. So it's
+very easy. Students, people working in
+academia small companies they can just
+quickly develop uh the pro programs that
+solves the NLP problems very easily.
+There are libraries such as spaCy, Gensim,
+NLTK. We talked about all these
+libraries in the first video. These
+libraries
+are freely available, they are very
+powerful the whole open source community
+is backing them. They are building new
+features day by day and that is ramping
+up the NLP
+on boarding throughout the industry. The
+third one is cheap hardware and cloud
+resources.
+Previously like 10 years back or 15
+years back, if you want to train a model
+you have to get a heavy Nvidia GPU or
+big machine and it will be very very
+costly.
+Nowadays all these hardwares are cheaper
+and most of the time people are using
+renting this hardware on cloud, they
+don't want to buy it. So
+AWS, Azure, Google Cloud you just
+rent these hardware resources, train your
+model and you're done. Previously you
+know many years back there was no cloud,
+so you have to pretty much
+invest and buy this hardware yourself.
+The fourth one is learning resources you
+are learning NLP by watching these
+videos on YouTube for free. When I was in
+college
+the only way to learn something is to go
+to
+one college that was near my home
+and that's it. There was no internet. So
+now for you
+you can go to YouTube, you can attend
+many bootcamps, you know 6-month
+bootcamp let's say data science bootcamp,
+you can fast learn things and just train
+yourself and start working as a data
+scientist.
+Udemy, Coursera so many
+e-learning websites you can buy cheaper
+courses.
+So many
+articles like towards data science, so
+learning has become very easy. You have
+Discord channels, you have Kaggle
+competitions, you have various zoom calls
+where you can clarify your question. So
+connecting with experts in the world has
+become very very easy because of
+easy availability of internet, things
+like zoom, communities like Kaggle, Stack
+Overflow,
+and the whole ecosystem
+supports fast learning.
+So there is a person who doesn't know
+NLP, they can refer to
+all these resources. You know you watch
+my
+YouTube playlist on NLP and you kind of
+you learn the basics and then you start
+working on projects.
+The fifth reason is huge investments
+made by big tech.
+Again Google, Meta, Amazon these companies
+have made huge investment
+not only in publishing these big
+libraries like Tensorflow and Pytorch.
+They are also building hardware. For
+example Google has built Google home,
+Amazon has built Amazon
+Amazon echo dot and all these devices,
+they are voice conversion assistance. So
+they are using NLP
+So
+once this big tech started investing big
+amount of money in NLP and this build
+this ecosystem,
+the tier 2 and tier 3 organization you
+know they always follow the lead,
+whatever the big tech companies are
+doing or rest of the world will try to
+do that because otherwise there will be
+a FOMO fear of missing out. So now
+small scale organization they want to
+onboard
+NLP, they want to on board AI
+because they are saying that this big
+tech companies are ripping big benefits,
+they are earning a lot of money by
+investing in this futuristic
+technologies. And that's another reason
+NLP is ramping up fast. 
